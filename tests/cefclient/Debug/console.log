@@ -1,0 +1,475 @@
+Level: Error
+Message: Empty response arrived for script 'chrome-devtools://devtools/screencast/screencast_module.js'
+Source: chrome-devtools://devtools/shell.js
+Line: 22
+-----------------------
+Level: Error
+Message: Error: Could not instantiate: Screencast.ScreencastAppProvider
+Source: chrome-devtools://devtools/shell.js
+Line: 7859
+-----------------------
+Level: Debug
+Message: Main._showAppUI: 25.8779296875ms
+Source: chrome-devtools://devtools/shell.js
+Line: 7847
+-----------------------
+Level: Debug
+Message: Main._createAppUI: 133.39501953125ms
+Source: chrome-devtools://devtools/shell.js
+Line: 7847
+-----------------------
+Level: Error
+Message: Uncaught (in promise) TypeError: Cannot read property 'ToolbarButtonProvider' of undefined
+Source: chrome-devtools://devtools/inspector.html
+Line: 1
+-----------------------
+Level: Debug
+Message: Main._initializeTarget: 38.541015625ms
+Source: chrome-devtools://devtools/shell.js
+Line: 7847
+-----------------------
+Level: Debug
+Message: Main._lateInitialization: 2.19189453125ms
+Source: chrome-devtools://devtools/shell.js
+Line: 7847
+-----------------------
+Level: Error
+Message: Empty response arrived for script 'chrome-devtools://devtools/screencast/screencast_module.js'
+Source: chrome-devtools://devtools/shell.js
+Line: 22
+-----------------------
+Level: Error
+Message: Error: Could not instantiate: Screencast.ScreencastAppProvider
+Source: chrome-devtools://devtools/shell.js
+Line: 7859
+-----------------------
+Level: Debug
+Message: Main._showAppUI: 27.743896484375ms
+Source: chrome-devtools://devtools/shell.js
+Line: 7847
+-----------------------
+Level: Debug
+Message: Main._createAppUI: 138.23876953125ms
+Source: chrome-devtools://devtools/shell.js
+Line: 7847
+-----------------------
+Level: Error
+Message: Uncaught (in promise) TypeError: Cannot read property 'ToolbarButtonProvider' of undefined
+Source: chrome-devtools://devtools/inspector.html
+Line: 1
+-----------------------
+Level: Debug
+Message: Main._initializeTarget: 28.4892578125ms
+Source: chrome-devtools://devtools/shell.js
+Line: 7847
+-----------------------
+Level: Debug
+Message: Main._lateInitialization: 3.47314453125ms
+Source: chrome-devtools://devtools/shell.js
+Line: 7847
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Error
+Message: Unable to request termination: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 729
+-----------------------
+Level: Error
+Message: Unable to request termination: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 729
+-----------------------
+Level: Error
+Message: Unable to request termination: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 729
+-----------------------
+Level: Error
+Message: Unable to request termination: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 729
+-----------------------
+Level: Error
+Message: Unable to request termination: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 729
+-----------------------
+Level: Error
+Message: Unable to request termination: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 729
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Warn
+Message: Storage may be cleared by the UA under storage pressure.
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 145
+-----------------------
+Level: Error
+Message: Transaction #1 failed due to: QuotaExceededError
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 142
+-----------------------
+Level: Info
+Message: Using Service Worker for offline support.
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 145
+-----------------------
+Level: Warn
+Message: There are missing string resources. Please ensure all string resources are added to a ResourceContainer in C#.
+Run this command to write the C# for the missing string resources:
+
+copy(ngInvoke(function(localize) { return localize.printMissingResources(); }))
+
+
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/scripts/ng.essentials.min.js?3
+Line: 10
+-----------------------
+Level: Warn
+Message: String resource is missing: Go online to take a test.
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/scripts/ng.essentials.min.js?3
+Line: 10
+-----------------------
+Level: Error
+Message: Transaction #2 failed due to: QuotaExceededError
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 142
+-----------------------
+Level: Warn
+Message: Invalid asm.js: Expected shift of word size
+Source: https://aptis-admin.sit.bc.janisoncloud.com/app/testplayer/rtp-tools/mp3LameEncoderConfigWorker.js
+Line: 44296
+-----------------------
+Level: Warn
+Message: Invalid asm.js: Expected shift of word size
+Source: https://aptis-admin.sit.bc.janisoncloud.com/app/testplayer/rtp-tools/mp3LameEncoderConfigWorker.js
+Line: 44296
+-----------------------
+Level: Warn
+Message: String resource is missing: There was an error when requesting access to your microphone. Please check everything is connected and your browser has permission to access your microphone.
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/scripts/ng.essentials.min.js?3
+Line: 10
+-----------------------
+Level: Warn
+Message: Storage may be cleared by the UA under storage pressure.
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 145
+-----------------------
+Level: Info
+Message: Using Service Worker for offline support.
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 145
+-----------------------
+Level: Error
+Message: Transaction #1 failed due to: QuotaExceededError
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 142
+-----------------------
+Level: Error
+Message: Transaction #2 failed due to: QuotaExceededError
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 142
+-----------------------
+Level: Warn
+Message: Storage may be cleared by the UA under storage pressure.
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/auth.offline.min.js?3
+Line: 20
+-----------------------
+Level: Info
+Message: Using Service Worker for offline support.
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/auth.offline.min.js?3
+Line: 20
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Error
+Message: Unable to request termination: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 729
+-----------------------
+Level: Error
+Message: Unable to request termination: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 729
+-----------------------
+Level: Warn
+Message: Storage may be cleared by the UA under storage pressure.
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 145
+-----------------------
+Level: Info
+Message: Using Service Worker for offline support.
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 145
+-----------------------
+Level: Error
+Message: Transaction #1 failed due to: QuotaExceededError
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 142
+-----------------------
+Level: Error
+Message: Transaction #2 failed due to: QuotaExceededError
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 142
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Warn
+Message: Storage may be cleared by the UA under storage pressure.
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 145
+-----------------------
+Level: Info
+Message: Using Service Worker for offline support.
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 145
+-----------------------
+Level: Error
+Message: Transaction #1 failed due to: QuotaExceededError
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 142
+-----------------------
+Level: Error
+Message: Transaction #2 failed due to: QuotaExceededError
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 142
+-----------------------
+Level: Warn
+Message: Invalid asm.js: Expected shift of word size
+Source: https://aptis-admin.sit.bc.janisoncloud.com/app/testplayer/rtp-tools/mp3LameEncoderConfigWorker.js
+Line: 44296
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Error
+Message: Empty response arrived for script 'chrome-devtools://devtools/screencast/screencast_module.js'
+Source: chrome-devtools://devtools/shell.js
+Line: 22
+-----------------------
+Level: Error
+Message: Error: Could not instantiate: Screencast.ScreencastAppProvider
+Source: chrome-devtools://devtools/shell.js
+Line: 7859
+-----------------------
+Level: Debug
+Message: Main._showAppUI: 28.7158203125ms
+Source: chrome-devtools://devtools/shell.js
+Line: 7847
+-----------------------
+Level: Debug
+Message: Main._createAppUI: 157.003173828125ms
+Source: chrome-devtools://devtools/shell.js
+Line: 7847
+-----------------------
+Level: Error
+Message: Uncaught (in promise) TypeError: Cannot read property 'ToolbarButtonProvider' of undefined
+Source: chrome-devtools://devtools/inspector.html
+Line: 1
+-----------------------
+Level: Debug
+Message: Main._initializeTarget: 39.17578125ms
+Source: chrome-devtools://devtools/shell.js
+Line: 7847
+-----------------------
+Level: Debug
+Message: Main._lateInitialization: 2.89013671875ms
+Source: chrome-devtools://devtools/shell.js
+Line: 7847
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Warn
+Message: Storage may be cleared by the UA under storage pressure.
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 145
+-----------------------
+Level: Info
+Message: Using Service Worker for offline support.
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 145
+-----------------------
+Level: Error
+Message: Transaction #1 failed due to: QuotaExceededError
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 142
+-----------------------
+Level: Error
+Message: Transaction #2 failed due to: QuotaExceededError
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 142
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Error
+Message: Unable to request termination: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 729
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/index.html
+Line: 721
+-----------------------

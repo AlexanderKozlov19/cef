@@ -1,0 +1,15 @@
+Level: Warn
+Message: Using unescaped '#' characters in a data URI body is deprecated and will be removed in M67, around May 2018. Please use '%23' instead. See https://www.chromestatus.com/features/5656049583390720 for more details.
+Source: 
+Line: 0
+-----------------------
+Level: Error
+Message: Unable to retrieve app version info: Unable to initialize app bridge for current platform.
+Source: file:///Users/admin/cef/tests/cefclient/Debug/cefclient.app/Contents/Resources/index.html
+Line: 721
+-----------------------
+Level: Warn
+Message: Storage may be cleared by the UA under storage pressure.
+Source: https://uks0201aptistest.blob.core.windows.net/static/cls/1.1705.0.344/app/offline/offline.min.js?3
+Line: 145
+-----------------------

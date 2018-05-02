@@ -1,0 +1,10 @@
+/Users/admin/cef/CMakeFiles/ALL_BUILD.dir
+/Users/admin/cef/CMakeFiles/ZERO_CHECK.dir
+/Users/admin/cef/libcef_dll_wrapper/CMakeFiles/libcef_dll_wrapper.dir
+/Users/admin/cef/tests/cefclient/CMakeFiles/cefclient.dir
+/Users/admin/cef/tests/cefclient/CMakeFiles/cefclient_Helper.dir
+/Users/admin/cef/tests/cefsimple/CMakeFiles/cefsimple.dir
+/Users/admin/cef/tests/cefsimple/CMakeFiles/cefsimple_Helper.dir
+/Users/admin/cef/tests/gtest/CMakeFiles/cef_gtest.dir
+/Users/admin/cef/tests/ceftests/CMakeFiles/ceftests.dir
+/Users/admin/cef/tests/ceftests/CMakeFiles/ceftests_Helper.dir
