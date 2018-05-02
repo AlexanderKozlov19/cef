@@ -15,14 +15,11 @@
 			);
 			dependencies = (
 				8CD11148E2384F0DB86F6507 /* PBXTargetDependency */,
-				F1F3FCC158014A51994CC3B5 /* PBXTargetDependency */,
 				E833A088D5824C2389FED1D5 /* PBXTargetDependency */,
 				21B2F558D36C4343811CCA39 /* PBXTargetDependency */,
-				C2D2B1E39B1441E4923D7D3D /* PBXTargetDependency */,
 				0D7D9A0CCB2F4EF6AFD89BAC /* PBXTargetDependency */,
 				DC9B20185F7346FEA233456D /* PBXTargetDependency */,
 				1236BBD89A5F455BAC6B2AC4 /* PBXTargetDependency */,
-				3B283A56DEE94384ABFD0FD7 /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
@@ -60,6 +57,7 @@
 		0C519D54FC14431BAFCAEDDA /* translator_test_scoped_client_child_cpptoc.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0ECA25EF906B410E9FD91530 /* translator_test_scoped_client_child_cpptoc.cc */; };
 		0D447276DA4F42D59A639E71 /* main_context_impl_posix.cc in Sources */ = {isa = PBXBuildFile; fileRef = D3A6A69FADDE4A729F7926C2 /* main_context_impl_posix.cc */; };
 		0DADDD4420997CA40093C93F /* index.html in Copy Files */ = {isa = PBXBuildFile; fileRef = 0DADDD4320997C8E0093C93F /* index.html */; };
+		0DADDD47209A70100093C93F /* JanisonReplay.icns in Copy Files */ = {isa = PBXBuildFile; fileRef = 84E87A07209A13E700DCB23D /* JanisonReplay.icns */; };
 		0DB1069EF3C84FD4975E1757 /* client_app_other.cc in Sources */ = {isa = PBXBuildFile; fileRef = B6F6737157764476858BB72B /* client_app_other.cc */; };
 		0E4966DD537D4E0DB7E5BE35 /* translator_test_ref_ptr_library_child_ctocpp.cc in Sources */ = {isa = PBXBuildFile; fileRef = FDF178417BC34FDA805CB44B /* translator_test_ref_ptr_library_child_ctocpp.cc */; };
 		0E6323FA41BD407E8C54D688 /* client_app_browser.cc in Sources */ = {isa = PBXBuildFile; fileRef = 541ADA83A5FE464E99C65CF8 /* client_app_browser.cc */; };
@@ -403,13 +401,6 @@
 			remoteGlobalIDString = 7AB2FD844CCA4F58BDC5B0A3;
 			remoteInfo = ZERO_CHECK;
 		};
-		28FFC5E780154BE484F56D21 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9CA735E6091C419A8C8A8DB3;
-			remoteInfo = cef_gtest;
-		};
 		33D3DD50FB934941A6DE321B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
@@ -424,13 +415,6 @@
 			remoteGlobalIDString = 7AB2FD844CCA4F58BDC5B0A3;
 			remoteInfo = ZERO_CHECK;
 		};
-		3EAFB59A61144C3F818AFE90 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 51F90A94D4B84547A57800B7;
-			remoteInfo = cefsimple;
-		};
 		4CAAE61746974C17957C13E6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
@@ -438,54 +422,12 @@
 			remoteGlobalIDString = A4301EEFE13B4A0B94AE6B8F;
 			remoteInfo = libcef_dll_wrapper;
 		};
-		59EAFA2F72E74FB78062E740 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7AB2FD844CCA4F58BDC5B0A3;
-			remoteInfo = ZERO_CHECK;
-		};
-		5D39C762A9A947F1BE4E10DD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B6306DA2EF974ACD995588D3;
-			remoteInfo = cefsimple_Helper;
-		};
 		5D3E1554DAA848D5AF7C8B47 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DBA2445454404407B888FBBE;
 			remoteInfo = cefclient_Helper;
-		};
-		77BD6E76F1424C05952B839F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A4301EEFE13B4A0B94AE6B8F;
-			remoteInfo = libcef_dll_wrapper;
-		};
-		7846EA41B2334BFBB3E87504 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9CA735E6091C419A8C8A8DB3;
-			remoteInfo = cef_gtest;
-		};
-		87A2226E0A2141D8889EFCAA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B6306DA2EF974ACD995588D3;
-			remoteInfo = cefsimple_Helper;
-		};
-		88E349277A754AA7B1D0A7D6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9CA735E6091C419A8C8A8DB3;
-			remoteInfo = cef_gtest;
 		};
 		8F8278942F9B4752A00FAAC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -515,20 +457,6 @@
 			remoteGlobalIDString = 47C15F94E1F447E59915BD04;
 			remoteInfo = cefclient;
 		};
-		A5AA2E64727A4CBD897375BA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7AB2FD844CCA4F58BDC5B0A3;
-			remoteInfo = ZERO_CHECK;
-		};
-		AB4101DEA8554883B6D45A68 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7AB2FD844CCA4F58BDC5B0A3;
-			remoteInfo = ZERO_CHECK;
-		};
 		AFE78E0FABB74B28BB53E251 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
@@ -537,13 +465,6 @@
 			remoteInfo = ZERO_CHECK;
 		};
 		BB7C83498F7141538A0DE223 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A4301EEFE13B4A0B94AE6B8F;
-			remoteInfo = libcef_dll_wrapper;
-		};
-		C1B651342FCB49FBBB5CE206 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 77B555C2FB06407E935A1897 /* Project object */;
 			proxyType = 1;
@@ -580,6 +501,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				0DADDD47209A70100093C93F /* JanisonReplay.icns in Copy Files */,
 				0DADDD4420997CA40093C93F /* index.html in Copy Files */,
 			);
 			name = "Copy Files";
@@ -595,7 +517,6 @@
 		023E62D9811E42768B57C6BD /* cef_application_mac.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = cef_application_mac.h; path = include/cef_application_mac.h; sourceTree = SOURCE_ROOT; };
 		023F0692DAFB4C3B90FD40EE /* client_handler_osr.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = client_handler_osr.h; path = tests/cefclient/browser/client_handler_osr.h; sourceTree = SOURCE_ROOT; };
 		0273E30A57C0415A998CDC66 /* menu_model_ctocpp.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = menu_model_ctocpp.cc; path = libcef_dll/ctocpp/menu_model_ctocpp.cc; sourceTree = SOURCE_ROOT; };
-		0298F258CE0C47D7A2E9CFD6 /* libcef_gtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libcef_gtest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0327D744749A40AD9633EEF7 /* request_context_ctocpp.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = request_context_ctocpp.cc; path = libcef_dll/ctocpp/request_context_ctocpp.cc; sourceTree = SOURCE_ROOT; };
 		03EB7D8EBABF4EBDB86323DA /* run_context_menu_callback_ctocpp.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = run_context_menu_callback_ctocpp.cc; path = libcef_dll/ctocpp/run_context_menu_callback_ctocpp.cc; sourceTree = SOURCE_ROOT; };
 		04084173AD5F4CBFA1EB8375 /* client_app_renderer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = client_app_renderer.h; path = tests/shared/renderer/client_app_renderer.h; sourceTree = SOURCE_ROOT; };
@@ -1029,7 +950,6 @@
 		7D935EF7C79940D2AF3D26C9 /* x509certificate_ctocpp.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = x509certificate_ctocpp.cc; path = libcef_dll/ctocpp/x509certificate_ctocpp.cc; sourceTree = SOURCE_ROOT; };
 		7DD298A3FFCD45989E6A386B /* request_handler_cpptoc.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = request_handler_cpptoc.cc; path = libcef_dll/cpptoc/request_handler_cpptoc.cc; sourceTree = SOURCE_ROOT; };
 		7ECB3F43223F44449037B9B0 /* osr_test.html */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = osr_test.html; path = tests/shared/resources/osr_test.html; sourceTree = SOURCE_ROOT; };
-		7EF9C629073649D88ACE4538 /* cefsimple Helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; name = "cefsimple Helper"; path = "cefsimple Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F15F1D86AC841E8BF1D1978 /* menu_model_delegate_cpptoc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = menu_model_delegate_cpptoc.h; path = libcef_dll/cpptoc/menu_model_delegate_cpptoc.h; sourceTree = SOURCE_ROOT; };
 		7FA8CAB782C54703A7DF3EA9 /* cef_atomicops_mac.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = cef_atomicops_mac.h; path = include/base/internal/cef_atomicops_mac.h; sourceTree = SOURCE_ROOT; };
 		7FF35CE7CFA84A28984A0BEB /* print_unittest.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = print_unittest.cc; path = tests/ceftests/print_unittest.cc; sourceTree = SOURCE_ROOT; };
@@ -1280,7 +1200,6 @@
 		C9ABBCFF61B34B7DA493F491 /* cef_parser.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = cef_parser.h; path = include/cef_parser.h; sourceTree = SOURCE_ROOT; };
 		C9C9A7D5CDD04D13AF3A23A7 /* cef_drag_data.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = cef_drag_data.h; path = include/cef_drag_data.h; sourceTree = SOURCE_ROOT; };
 		C9D45986CFEB45CABDD3C971 /* osr_accessibility_node_mac.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = osr_accessibility_node_mac.mm; path = tests/cefclient/browser/osr_accessibility_node_mac.mm; sourceTree = SOURCE_ROOT; };
-		CA07104B32F743D58F8BEBE4 /* cefsimple */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; name = cefsimple; path = cefsimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1683A5DB094E899150822F /* pdf_print_callback_cpptoc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pdf_print_callback_cpptoc.h; path = libcef_dll/cpptoc/pdf_print_callback_cpptoc.h; sourceTree = SOURCE_ROOT; };
 		CAB0F61C41E7499D9301948A /* cef_closure_task.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = cef_closure_task.h; path = include/wrapper/cef_closure_task.h; sourceTree = SOURCE_ROOT; };
 		CB8B3F7FA99E4A8A8F632414 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
@@ -1821,9 +1740,6 @@
 				D435E2C3B17E4193902B5308 /* libcef_dll_wrapper.a */,
 				0D7C2B2622304E40A1161EB5 /* cefclient */,
 				52B1439B840842E3BE7F6E44 /* cefclient Helper */,
-				CA07104B32F743D58F8BEBE4 /* cefsimple */,
-				7EF9C629073649D88ACE4538 /* cefsimple Helper */,
-				0298F258CE0C47D7A2E9CFD6 /* libcef_gtest.a */,
 				167D4BC14E014618B130CC0E /* ceftests */,
 				07C8E60F90414A2BB813492C /* ceftests Helper */,
 			);
@@ -2849,7 +2765,6 @@
 			);
 			dependencies = (
 				21A0081EFAC24E049918663C /* PBXTargetDependency */,
-				B1BEC3BBD253442DB0C9DC53 /* PBXTargetDependency */,
 				B835728FAD784C69B0A2541B /* PBXTargetDependency */,
 				7DE976D4C14A47E283274BA9 /* PBXTargetDependency */,
 			);
@@ -2878,41 +2793,6 @@
 			productReference = 0D7C2B2622304E40A1161EB5 /* cefclient */;
 			productType = "com.apple.product-type.application";
 		};
-		51F90A94D4B84547A57800B7 /* cefsimple */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 121B7804C61444CC82A30BDB /* Build configuration list for PBXNativeTarget "cefsimple" */;
-			buildPhases = (
-				94D0FA6708B346DC9B77E483 /* Sources */,
-				0425794938B9412090F2B6A8 /* CMake PostBuild Rules */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3646EE30E74A44AE8192294D /* PBXTargetDependency */,
-				B09CE5669E1643789B2F7109 /* PBXTargetDependency */,
-				4BD0ED4F04AE4CC796F45A0D /* PBXTargetDependency */,
-			);
-			name = cefsimple;
-			productName = cefsimple;
-			productReference = CA07104B32F743D58F8BEBE4 /* cefsimple */;
-			productType = "com.apple.product-type.application";
-		};
-		9CA735E6091C419A8C8A8DB3 /* cef_gtest */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AC15B58925F7499AAD6CE5ED /* Build configuration list for PBXNativeTarget "cef_gtest" */;
-			buildPhases = (
-				7B3A7FF5CC584483A737937E /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B891CB522E8345CABA5BC763 /* PBXTargetDependency */,
-			);
-			name = cef_gtest;
-			productName = cef_gtest;
-			productReference = 0298F258CE0C47D7A2E9CFD6 /* libcef_gtest.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		9E8EF4DF13D443049EC8DE22 /* ceftests_Helper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2429F59494494BC1BC620B9A /* Build configuration list for PBXNativeTarget "ceftests_Helper" */;
@@ -2923,7 +2803,6 @@
 			);
 			dependencies = (
 				441B32B333A84D9CAEB7ABB6 /* PBXTargetDependency */,
-				6B692A23C46F41A2AA7707A2 /* PBXTargetDependency */,
 				C66DD3009D3D4476B4F16BAE /* PBXTargetDependency */,
 			);
 			name = ceftests_Helper;
@@ -2946,23 +2825,6 @@
 			productName = libcef_dll_wrapper;
 			productReference = D435E2C3B17E4193902B5308 /* libcef_dll_wrapper.a */;
 			productType = "com.apple.product-type.library.static";
-		};
-		B6306DA2EF974ACD995588D3 /* cefsimple_Helper */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 85489060332F4FF390EA937E /* Build configuration list for PBXNativeTarget "cefsimple_Helper" */;
-			buildPhases = (
-				6DE00D22A96F44AD904B0338 /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D8C6D2014B9547F6BF05AC74 /* PBXTargetDependency */,
-				C7700ACDF6714CFEAFDAE493 /* PBXTargetDependency */,
-			);
-			name = cefsimple_Helper;
-			productName = cefsimple_Helper;
-			productReference = 7EF9C629073649D88ACE4538 /* cefsimple Helper */;
-			productType = "com.apple.product-type.application";
 		};
 		DBA2445454404407B888FBBE /* cefclient_Helper */ = {
 			isa = PBXNativeTarget;
@@ -3006,9 +2868,6 @@
 				A4301EEFE13B4A0B94AE6B8F /* libcef_dll_wrapper */,
 				47C15F94E1F447E59915BD04 /* cefclient */,
 				DBA2445454404407B888FBBE /* cefclient_Helper */,
-				51F90A94D4B84547A57800B7 /* cefsimple */,
-				B6306DA2EF974ACD995588D3 /* cefsimple_Helper */,
-				9CA735E6091C419A8C8A8DB3 /* cef_gtest */,
 				1E1281090E524667B020A837 /* ceftests */,
 				9E8EF4DF13D443049EC8DE22 /* ceftests_Helper */,
 			);
@@ -3025,17 +2884,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "make -C /Users/admin/cef -f /Users/admin/cef/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
-			showEnvVarsInLog = 0;
-		};
-		0425794938B9412090F2B6A8 /* CMake PostBuild Rules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "CMake PostBuild Rules";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "make -C /Users/admin/cef/tests/cefsimple -f /Users/admin/cef/tests/cefsimple/CMakeScripts/cefsimple_postBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
 		2F2973CEBFF7452384252DBD /* CMake Rules */ = {
@@ -3340,27 +3188,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6DE00D22A96F44AD904B0338 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7B3A7FF5CC584483A737937E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		94D0FA6708B346DC9B77E483 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B70C617728324CF09F211689 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3488,16 +3315,6 @@
 			target = 7AB2FD844CCA4F58BDC5B0A3 /* ZERO_CHECK */;
 			targetProxy = 169E21C254C94716BD40520C /* PBXContainerItemProxy */;
 		};
-		3646EE30E74A44AE8192294D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7AB2FD844CCA4F58BDC5B0A3 /* ZERO_CHECK */;
-			targetProxy = A5AA2E64727A4CBD897375BA /* PBXContainerItemProxy */;
-		};
-		3B283A56DEE94384ABFD0FD7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 51F90A94D4B84547A57800B7 /* cefsimple */;
-			targetProxy = 3EAFB59A61144C3F818AFE90 /* PBXContainerItemProxy */;
-		};
 		3C7FA6408DB145CC9B97470A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7AB2FD844CCA4F58BDC5B0A3 /* ZERO_CHECK */;
@@ -3507,16 +3324,6 @@
 			isa = PBXTargetDependency;
 			target = 7AB2FD844CCA4F58BDC5B0A3 /* ZERO_CHECK */;
 			targetProxy = 184A446FB55543ADAD9AF036 /* PBXContainerItemProxy */;
-		};
-		4BD0ED4F04AE4CC796F45A0D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A4301EEFE13B4A0B94AE6B8F /* libcef_dll_wrapper */;
-			targetProxy = C1B651342FCB49FBBB5CE206 /* PBXContainerItemProxy */;
-		};
-		6B692A23C46F41A2AA7707A2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9CA735E6091C419A8C8A8DB3 /* cef_gtest */;
-			targetProxy = 28FFC5E780154BE484F56D21 /* PBXContainerItemProxy */;
 		};
 		7B0BC8D4CF8044248B417934 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3543,50 +3350,20 @@
 			target = A4301EEFE13B4A0B94AE6B8F /* libcef_dll_wrapper */;
 			targetProxy = 4CAAE61746974C17957C13E6 /* PBXContainerItemProxy */;
 		};
-		B09CE5669E1643789B2F7109 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B6306DA2EF974ACD995588D3 /* cefsimple_Helper */;
-			targetProxy = 87A2226E0A2141D8889EFCAA /* PBXContainerItemProxy */;
-		};
-		B1BEC3BBD253442DB0C9DC53 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9CA735E6091C419A8C8A8DB3 /* cef_gtest */;
-			targetProxy = 88E349277A754AA7B1D0A7D6 /* PBXContainerItemProxy */;
-		};
 		B835728FAD784C69B0A2541B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9E8EF4DF13D443049EC8DE22 /* ceftests_Helper */;
 			targetProxy = 95711A2AAD184210AA2A4052 /* PBXContainerItemProxy */;
-		};
-		B891CB522E8345CABA5BC763 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7AB2FD844CCA4F58BDC5B0A3 /* ZERO_CHECK */;
-			targetProxy = AB4101DEA8554883B6D45A68 /* PBXContainerItemProxy */;
-		};
-		C2D2B1E39B1441E4923D7D3D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B6306DA2EF974ACD995588D3 /* cefsimple_Helper */;
-			targetProxy = 5D39C762A9A947F1BE4E10DD /* PBXContainerItemProxy */;
 		};
 		C66DD3009D3D4476B4F16BAE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A4301EEFE13B4A0B94AE6B8F /* libcef_dll_wrapper */;
 			targetProxy = C5140CB7A90845D3A9F2D544 /* PBXContainerItemProxy */;
 		};
-		C7700ACDF6714CFEAFDAE493 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A4301EEFE13B4A0B94AE6B8F /* libcef_dll_wrapper */;
-			targetProxy = 77BD6E76F1424C05952B839F /* PBXContainerItemProxy */;
-		};
 		D77A40D1FF1041D58590BD13 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7AB2FD844CCA4F58BDC5B0A3 /* ZERO_CHECK */;
 			targetProxy = 28469061761D4AF081BB3A4B /* PBXContainerItemProxy */;
-		};
-		D8C6D2014B9547F6BF05AC74 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7AB2FD844CCA4F58BDC5B0A3 /* ZERO_CHECK */;
-			targetProxy = 59EAFA2F72E74FB78062E740 /* PBXContainerItemProxy */;
 		};
 		DC9B20185F7346FEA233456D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3597,11 +3374,6 @@
 			isa = PBXTargetDependency;
 			target = 1E1281090E524667B020A837 /* ceftests */;
 			targetProxy = FFBDBA6A9E4E4B58AAF59B8F /* PBXContainerItemProxy */;
-		};
-		F1F3FCC158014A51994CC3B5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9CA735E6091C419A8C8A8DB3 /* cef_gtest */;
-			targetProxy = 7846EA41B2334BFBB3E87504 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -3699,87 +3471,6 @@
 			};
 			name = Release;
 		};
-		1006625AC99247E4803DDCCE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = x86_64;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++11";
-				CLANG_LINK_OBJC_RUNTIME = NO;
-				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_CW_ASM_SYNTAX = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_ENABLE_PASCAL_STRINGS = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
-				GCC_OBJC_CALL_CXX_CDTORS = YES;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					__STDC_CONSTANT_MACROS,
-					__STDC_FORMAT_MACROS,
-					"'GTEST_HAS_POSIX_RE=0'",
-					"'GTEST_LANG_CXX11=1'",
-					UNIT_TEST,
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_THREADSAFE_STATICS = NO;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				HEADER_SEARCH_PATHS = (
-					/Users/admin/cef,
-					/Users/admin/cef/tests/gtest/include,
-				);
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-fno-strict-aliasing",
-					"-fstack-protector",
-					"-funwind-tables",
-					"'-fvisibility=hidden'",
-					"-Wall",
-					"-Werror",
-					"-Wextra",
-					"-Wendif-labels",
-					"-Wnewline-eof",
-					"-Wno-missing-field-initializers",
-					"-Wno-unused-parameter",
-					"'-mmacosx-version-min=10.9'",
-					"-fno-exceptions",
-					"-fno-rtti",
-					"-fno-threadsafe-statics",
-					"-fobjc-call-cxx-cdtors",
-					"-fvisibility-inlines-hidden",
-					"'-std=gnu++11'",
-					"-Wno-narrowing",
-					"-Wsign-compare",
-					"-Wno-undefined-var-template",
-				);
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = cef_gtest;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/admin/cef/tests/gtest;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = Release;
-		};
 		12FE356F17C243B49411856D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3789,95 +3480,6 @@
 				SYMROOT = /Users/admin/cef/build;
 			};
 			name = Release;
-		};
-		2E841D558B1B4CCF94A908CA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = x86_64;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++11";
-				CLANG_LINK_OBJC_RUNTIME = NO;
-				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_CW_ASM_SYNTAX = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_ENABLE_PASCAL_STRINGS = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
-				GCC_OBJC_CALL_CXX_CDTORS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					__STDC_CONSTANT_MACROS,
-					__STDC_FORMAT_MACROS,
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_THREADSAFE_STATICS = NO;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				HEADER_SEARCH_PATHS = /Users/admin/cef;
-				INFOPLIST_FILE = /Users/admin/cef/tests/cefsimple/CMakeFiles/cefsimple.dir/Info.plist;
-				INSTALL_PATH = "";
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/..";
-				LIBRARY_SEARCH_PATHS = "";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-fno-strict-aliasing",
-					"-fstack-protector",
-					"-funwind-tables",
-					"'-fvisibility=hidden'",
-					"-Wall",
-					"-Werror",
-					"-Wextra",
-					"-Wendif-labels",
-					"-Wnewline-eof",
-					"-Wno-missing-field-initializers",
-					"-Wno-unused-parameter",
-					"'-mmacosx-version-min=10.9'",
-					"-fno-exceptions",
-					"-fno-rtti",
-					"-fno-threadsafe-statics",
-					"-fobjc-call-cxx-cdtors",
-					"-fvisibility-inlines-hidden",
-					"'-std=gnu++11'",
-					"-Wno-narrowing",
-					"-Wsign-compare",
-					"-Wno-undefined-var-template",
-				);
-				OTHER_LDFLAGS = (
-					"-Wl,-search_paths_first",
-					"-Wl,-ObjC",
-					"-Wl,-pie",
-					"-Wl,-search_paths_first",
-					"-Wl,-headerpad_max_install_names",
-					"\"/Users/admin/cef/Debug/Chromium Embedded Framework.framework/Chromium Embedded Framework\"",
-					/Users/admin/cef/libcef_dll_wrapper/Debug/libcef_dll_wrapper.a,
-					"-lpthread",
-					"-framework",
-					Cocoa,
-					"-framework",
-					AppKit,
-				);
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = cefsimple;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/admin/cef/tests/cefsimple;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = Debug;
 		};
 		39EBADD3E03A406986A3D040 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -3969,97 +3571,6 @@
 				);
 			};
 			name = Debug;
-		};
-		4B1221E46FDD4197A3575FA1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = x86_64;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++11";
-				CLANG_LINK_OBJC_RUNTIME = NO;
-				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_CW_ASM_SYNTAX = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_ENABLE_PASCAL_STRINGS = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
-				GCC_OBJC_CALL_CXX_CDTORS = YES;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					__STDC_CONSTANT_MACROS,
-					__STDC_FORMAT_MACROS,
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_THREADSAFE_STATICS = NO;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				HEADER_SEARCH_PATHS = /Users/admin/cef;
-				INFOPLIST_FILE = /Users/admin/cef/tests/cefsimple/CMakeFiles/cefsimple.dir/Info.plist;
-				INSTALL_PATH = "";
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/..";
-				LIBRARY_SEARCH_PATHS = "";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-fno-strict-aliasing",
-					"-fstack-protector",
-					"-funwind-tables",
-					"'-fvisibility=hidden'",
-					"-Wall",
-					"-Werror",
-					"-Wextra",
-					"-Wendif-labels",
-					"-Wnewline-eof",
-					"-Wno-missing-field-initializers",
-					"-Wno-unused-parameter",
-					"'-mmacosx-version-min=10.9'",
-					"-fno-exceptions",
-					"-fno-rtti",
-					"-fno-threadsafe-statics",
-					"-fobjc-call-cxx-cdtors",
-					"-fvisibility-inlines-hidden",
-					"'-std=gnu++11'",
-					"-Wno-narrowing",
-					"-Wsign-compare",
-					"-Wno-undefined-var-template",
-				);
-				OTHER_LDFLAGS = (
-					"-Wl,-search_paths_first",
-					"-Wl,-ObjC",
-					"-Wl,-pie",
-					"-Wl,-dead_strip",
-					"-Wl,-search_paths_first",
-					"-Wl,-headerpad_max_install_names",
-					"\"/Users/admin/cef/Release/Chromium Embedded Framework.framework/Chromium Embedded Framework\"",
-					/Users/admin/cef/libcef_dll_wrapper/Release/libcef_dll_wrapper.a,
-					"-lpthread",
-					"-framework",
-					Cocoa,
-					"-framework",
-					AppKit,
-				);
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = cefsimple;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/admin/cef/tests/cefsimple;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = Release;
 		};
 		598B3425B4C3445AADED1C44 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -4334,186 +3845,6 @@
 			};
 			name = Debug;
 		};
-		7B47E9EB4E8444A9BB35B8F7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = x86_64;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++11";
-				CLANG_LINK_OBJC_RUNTIME = NO;
-				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_CW_ASM_SYNTAX = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_ENABLE_PASCAL_STRINGS = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
-				GCC_OBJC_CALL_CXX_CDTORS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					__STDC_CONSTANT_MACROS,
-					__STDC_FORMAT_MACROS,
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_THREADSAFE_STATICS = NO;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				HEADER_SEARCH_PATHS = /Users/admin/cef;
-				INFOPLIST_FILE = /Users/admin/cef/tests/cefsimple/CMakeFiles/cefsimple_Helper.dir/Info.plist;
-				INSTALL_PATH = "";
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../../..";
-				LIBRARY_SEARCH_PATHS = "";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-fno-strict-aliasing",
-					"-fstack-protector",
-					"-funwind-tables",
-					"'-fvisibility=hidden'",
-					"-Wall",
-					"-Werror",
-					"-Wextra",
-					"-Wendif-labels",
-					"-Wnewline-eof",
-					"-Wno-missing-field-initializers",
-					"-Wno-unused-parameter",
-					"'-mmacosx-version-min=10.9'",
-					"-fno-exceptions",
-					"-fno-rtti",
-					"-fno-threadsafe-statics",
-					"-fobjc-call-cxx-cdtors",
-					"-fvisibility-inlines-hidden",
-					"'-std=gnu++11'",
-					"-Wno-narrowing",
-					"-Wsign-compare",
-					"-Wno-undefined-var-template",
-				);
-				OTHER_LDFLAGS = (
-					"-Wl,-search_paths_first",
-					"-Wl,-ObjC",
-					"-Wl,-pie",
-					"-Wl,-search_paths_first",
-					"-Wl,-headerpad_max_install_names",
-					"\"/Users/admin/cef/Debug/Chromium Embedded Framework.framework/Chromium Embedded Framework\"",
-					/Users/admin/cef/libcef_dll_wrapper/Debug/libcef_dll_wrapper.a,
-					"-lpthread",
-					"-framework",
-					Cocoa,
-					"-framework",
-					AppKit,
-				);
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = "cefsimple Helper";
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/admin/cef/tests/cefsimple;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = Debug;
-		};
-		85D5E174AD22467AB803C2B2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = x86_64;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++11";
-				CLANG_LINK_OBJC_RUNTIME = NO;
-				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_CW_ASM_SYNTAX = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_ENABLE_PASCAL_STRINGS = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
-				GCC_OBJC_CALL_CXX_CDTORS = YES;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					__STDC_CONSTANT_MACROS,
-					__STDC_FORMAT_MACROS,
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_THREADSAFE_STATICS = NO;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				HEADER_SEARCH_PATHS = /Users/admin/cef;
-				INFOPLIST_FILE = /Users/admin/cef/tests/cefsimple/CMakeFiles/cefsimple_Helper.dir/Info.plist;
-				INSTALL_PATH = "";
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../../..";
-				LIBRARY_SEARCH_PATHS = "";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-fno-strict-aliasing",
-					"-fstack-protector",
-					"-funwind-tables",
-					"'-fvisibility=hidden'",
-					"-Wall",
-					"-Werror",
-					"-Wextra",
-					"-Wendif-labels",
-					"-Wnewline-eof",
-					"-Wno-missing-field-initializers",
-					"-Wno-unused-parameter",
-					"'-mmacosx-version-min=10.9'",
-					"-fno-exceptions",
-					"-fno-rtti",
-					"-fno-threadsafe-statics",
-					"-fobjc-call-cxx-cdtors",
-					"-fvisibility-inlines-hidden",
-					"'-std=gnu++11'",
-					"-Wno-narrowing",
-					"-Wsign-compare",
-					"-Wno-undefined-var-template",
-				);
-				OTHER_LDFLAGS = (
-					"-Wl,-search_paths_first",
-					"-Wl,-ObjC",
-					"-Wl,-pie",
-					"-Wl,-dead_strip",
-					"-Wl,-search_paths_first",
-					"-Wl,-headerpad_max_install_names",
-					"\"/Users/admin/cef/Release/Chromium Embedded Framework.framework/Chromium Embedded Framework\"",
-					/Users/admin/cef/libcef_dll_wrapper/Release/libcef_dll_wrapper.a,
-					"-lpthread",
-					"-framework",
-					Cocoa,
-					"-framework",
-					AppKit,
-				);
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = "cefsimple Helper";
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/admin/cef/tests/cefsimple;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = Release;
-		};
 		866A8D98AB7147A2BBFFBD0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -4614,86 +3945,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = /Library/Developer/CommandLineTools/SDKs/MacOSX10.13.sdk;
 				SYMROOT = /Users/admin/cef/build;
-			};
-			name = Debug;
-		};
-		8DF660F4F59B437BA56D1C00 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = x86_64;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++11";
-				CLANG_LINK_OBJC_RUNTIME = NO;
-				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_CW_ASM_SYNTAX = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_ENABLE_PASCAL_STRINGS = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
-				GCC_OBJC_CALL_CXX_CDTORS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					__STDC_CONSTANT_MACROS,
-					__STDC_FORMAT_MACROS,
-					"'GTEST_HAS_POSIX_RE=0'",
-					"'GTEST_LANG_CXX11=1'",
-					UNIT_TEST,
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_THREADSAFE_STATICS = NO;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				HEADER_SEARCH_PATHS = (
-					/Users/admin/cef,
-					/Users/admin/cef/tests/gtest/include,
-				);
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-fno-strict-aliasing",
-					"-fstack-protector",
-					"-funwind-tables",
-					"'-fvisibility=hidden'",
-					"-Wall",
-					"-Werror",
-					"-Wextra",
-					"-Wendif-labels",
-					"-Wnewline-eof",
-					"-Wno-missing-field-initializers",
-					"-Wno-unused-parameter",
-					"'-mmacosx-version-min=10.9'",
-					"-fno-exceptions",
-					"-fno-rtti",
-					"-fno-threadsafe-statics",
-					"-fobjc-call-cxx-cdtors",
-					"-fvisibility-inlines-hidden",
-					"'-std=gnu++11'",
-					"-Wno-narrowing",
-					"-Wsign-compare",
-					"-Wno-undefined-var-template",
-				);
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = cef_gtest;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/admin/cef/tests/gtest;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Debug;
 		};
@@ -5133,15 +4384,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		121B7804C61444CC82A30BDB /* Build configuration list for PBXNativeTarget "cefsimple" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2E841D558B1B4CCF94A908CA /* Debug */,
-				4B1221E46FDD4197A3575FA1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
 		2429F59494494BC1BC620B9A /* Build configuration list for PBXNativeTarget "ceftests_Helper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -5187,29 +4429,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		85489060332F4FF390EA937E /* Build configuration list for PBXNativeTarget "cefsimple_Helper" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7B47E9EB4E8444A9BB35B8F7 /* Debug */,
-				85D5E174AD22467AB803C2B2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
 		9B564F9E488B4A3EB6ED74D3 /* Build configuration list for PBXNativeTarget "cefclient_Helper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				598B3425B4C3445AADED1C44 /* Debug */,
 				ED5156A115F242EB9951514D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		AC15B58925F7499AAD6CE5ED /* Build configuration list for PBXNativeTarget "cef_gtest" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8DF660F4F59B437BA56D1C00 /* Debug */,
-				1006625AC99247E4803DDCCE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
