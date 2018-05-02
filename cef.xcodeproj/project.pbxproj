@@ -205,7 +205,6 @@
 		83220026773E44EA8A95C6F5 /* list_value_ctocpp.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD3D90D23644AC8FCBCDF1 /* list_value_ctocpp.cc */; };
 		84B1383CBF79452A9791C71A /* test_util.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5D1CCA8BC493EAA7DCC96 /* test_util.cc */; };
 		84C2082EA9704ED5A02A7717 /* value_ctocpp.cc in Sources */ = {isa = PBXBuildFile; fileRef = EF21015A7F1946F985476430 /* value_ctocpp.cc */; };
-		84E87A0C209A15E100DCB23D /* JanisonReplay.icns in Copy Files */ = {isa = PBXBuildFile; fileRef = 84E87A0B209A145E00DCB23D /* JanisonReplay.icns */; };
 		8661703384914ECE8148422D /* drm_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = DDE5DDE52CAE415688DBB2E0 /* drm_test.cc */; };
 		87196ECE9A754839BCAEE0D4 /* client_app_renderer.cc in Sources */ = {isa = PBXBuildFile; fileRef = B5F8193A497F42D1900E6746 /* client_app_renderer.cc */; };
 		87AC6FFFB3524ABF953115A2 /* scheme_handler_factory_cpptoc.cc in Sources */ = {isa = PBXBuildFile; fileRef = D467E22254AE4C4594EA4D60 /* scheme_handler_factory_cpptoc.cc */; };
@@ -587,7 +586,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				84E87A0C209A15E100DCB23D /* JanisonReplay.icns in Copy Files */,
 				0DADDD4420997CA40093C93F /* index.html in Copy Files */,
 			);
 			name = "Copy Files";
@@ -1067,7 +1065,6 @@
 		844DF75DA9844DC895671314 /* cef_extension_handler.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = cef_extension_handler.h; path = include/cef_extension_handler.h; sourceTree = SOURCE_ROOT; };
 		84CA011902354D2183C90DE9 /* cef_response_filter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = cef_response_filter.h; path = include/cef_response_filter.h; sourceTree = SOURCE_ROOT; };
 		84E87A07209A13E700DCB23D /* JanisonReplay.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = JanisonReplay.icns; sourceTree = "<group>"; };
-		84E87A0B209A145E00DCB23D /* JanisonReplay.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = JanisonReplay.icns; path = ../Work/Installer/Replay/Assets/JanisonReplay.icns; sourceTree = "<group>"; };
 		84EBC56D9E964C7B8B0CD8CB /* cef_tuple.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = cef_tuple.h; path = include/base/cef_tuple.h; sourceTree = SOURCE_ROOT; };
 		857ACC1EE7D740F7A72D298C /* view_delegate_cpptoc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = view_delegate_cpptoc.h; path = libcef_dll/cpptoc/views/view_delegate_cpptoc.h; sourceTree = SOURCE_ROOT; };
 		858C8C1CE8A94B2BA1F2F3D8 /* stream_writer_ctocpp.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = stream_writer_ctocpp.cc; path = libcef_dll/ctocpp/stream_writer_ctocpp.cc; sourceTree = SOURCE_ROOT; };
@@ -1702,7 +1699,6 @@
 		308398B8D12348DC939A3BA2 /* mac */ = {
 			isa = PBXGroup;
 			children = (
-				84E87A0B209A145E00DCB23D /* JanisonReplay.icns */,
 				A2B32B2C55894884ABA28919 /* English.lproj */,
 				2C460C6BAA1A484FAB7386A7 /* Info.plist */,
 				3866CDA74C28465E8AE16239 /* cefclient.icns */,
