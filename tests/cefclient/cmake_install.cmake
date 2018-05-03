@@ -1,4 +1,4 @@
-# Install script for directory: /Users/admin/cef/tests/cefclient
+# Install script for directory: /Users/alexanderkozlov/Work/cef/tests/cefclient
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -42,12 +42,12 @@
 		<key>ceftests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>5</integer>
 		</dict>
 		<key>ceftests_Helper.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>6</integer>
 		</dict>
 		<key>libcef_dll_wrapper.xcscheme</key>
 		<dict>

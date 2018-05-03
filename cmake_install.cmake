@@ -1,4 +1,4 @@
-# Install script for directory: /Users/admin/cef
+# Install script for directory: /Users/alexanderkozlov/Work/cef
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,11 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/admin/cef/libcef_dll_wrapper/cmake_install.cmake")
-  include("/Users/admin/cef/tests/cefclient/cmake_install.cmake")
-  include("/Users/admin/cef/tests/cefsimple/cmake_install.cmake")
-  include("/Users/admin/cef/tests/gtest/cmake_install.cmake")
-  include("/Users/admin/cef/tests/ceftests/cmake_install.cmake")
+  include("/Users/alexanderkozlov/Work/cef/libcef_dll_wrapper/cmake_install.cmake")
+  include("/Users/alexanderkozlov/Work/cef/tests/cefclient/cmake_install.cmake")
 
 endif()
 
@@ -50,5 +47,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/admin/cef/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/alexanderkozlov/Work/cef/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

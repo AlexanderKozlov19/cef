@@ -1,3 +1,0 @@
-/Users/admin/cef/libcef_dll/CMakeFiles/libcef_dll_wrapper.dir
-/Users/admin/cef/libcef_dll/CMakeFiles/ALL_BUILD.dir
-/Users/admin/cef/libcef_dll/CMakeFiles/ZERO_CHECK.dir
