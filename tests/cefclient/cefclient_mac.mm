@@ -6,6 +6,7 @@
 #import <Cocoa/Cocoa.h>
 #include "include/cef_app.h"
 #import "include/cef_application_mac.h"
+#import  "SplashScreen.h"
 #include "tests/cefclient/browser/main_context_impl.h"
 #include "tests/cefclient/browser/resource.h"
 #include "tests/cefclient/browser/root_window.h"
@@ -160,6 +161,7 @@ NSMenuItem* GetMenuItemWithAction(NSMenu* menu, SEL action_selector) {
 // Create the application on the UI thread.
 - (void)createApplication:(id)object {
   NSApplication* application = [NSApplication sharedApplication];
+    
 
   // The top menu is configured using Interface Builder (IB). To modify the menu
   // start by loading MainMenu.xib in IB.
@@ -200,6 +202,8 @@ NSMenuItem* GetMenuItemWithAction(NSMenu* menu, SEL action_selector) {
 
   // Set the delegate for application events.
   [application setDelegate:self];
+    
+   
 
   if (!with_osr_) {
     // Remove the OSR-related menu items when OSR is disabled.
@@ -223,6 +227,7 @@ NSMenuItem* GetMenuItemWithAction(NSMenu* menu, SEL action_selector) {
   // Create the first window.
   client::MainContext::Get()->GetRootWindowManager()->CreateRootWindow(
       window_config);
+
 }
 
 - (void)tryToTerminateApplication:(NSApplication*)app {
@@ -347,8 +352,13 @@ int RunMain(int argc, char* argv[]) {
   // Initialize the ClientApplication instance.
   [ClientApplication sharedApplication];
     
-    NSPasteboard *pb = [NSPasteboard generalPasteboard];
-    [pb clearContents];
+  NSPasteboard *pb = [NSPasteboard generalPasteboard];
+  [pb clearContents];
+  
+  // creating splashScreen
+  SplashScreen *splashScreen = [[SplashScreen alloc] initWithWindowNibName:@"SplashScreen"];
+  [splashScreen showWindow:nil];
+  [splashScreen.window setLevel:NSFloatingWindowLevel];
 
   // Parse command-line arguments.
   CefRefPtr<CefCommandLine> command_line = CefCommandLine::CreateCommandLine();
@@ -368,7 +378,6 @@ int RunMain(int argc, char* argv[]) {
   // Populate the settings based on command line arguments.
   context->PopulateSettings(&settings);
     
-
   CefString(&settings.cache_path).FromString("/Library/Caches/JanisonReplay");
 
 
@@ -419,10 +428,9 @@ int RunMain(int argc, char* argv[]) {
 
     }
  */
-
   // Run the message loop. This will block until Quit() is called.
   int result = message_loop->Run();
-
+   
   // Shut down CEF.
   context->Shutdown();
 

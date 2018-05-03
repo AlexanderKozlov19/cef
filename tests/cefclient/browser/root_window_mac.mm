@@ -616,6 +616,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
     browser_window_->CreateBrowser(contentView, CefRect(0, 0, width, height - URLBAR_HEIGHT),
                                    settings,
                                    delegate_->GetRequestContext(this));
+      
 
   } else {
     // With popups we already have a browser window. Parent the browser window
@@ -655,6 +656,15 @@ void RootWindowMac::OnBrowserCreated(CefRefPtr<CefBrowser> browser) {
     CreateRootWindow(CefBrowserSettings(), false);
 
   delegate_->OnBrowserCreated(this, browser);
+  
+    //hiding Splash screen
+  NSArray *windowsArray = [[NSApplication sharedApplication] windows];
+  for ( NSWindow *win in windowsArray ) {
+        if ( [win.title isEqualToString:@"Janison Replay"]) {
+            [win orderOut:nil];
+            break;
+        }
+    }
 }
 
 void RootWindowMac::OnBrowserWindowDestroyed() {
