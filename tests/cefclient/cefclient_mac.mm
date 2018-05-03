@@ -369,11 +369,8 @@ int RunMain(int argc, char* argv[]) {
   context->PopulateSettings(&settings);
     
 
-    CefString(&settings.cache_path).FromString("/Library/Caches/JanisonReplay");
-    CefString(&settings.user_agent).FromString(" SEB");
-  
-    
-    //settings. //universal_access_from_file_urls_allowed = true;
+  CefString(&settings.cache_path).FromString("/Library/Caches/JanisonReplay");
+
 
   // Create the main message loop object.
   scoped_ptr<MainMessageLoop> message_loop;

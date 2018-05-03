@@ -673,8 +673,21 @@ cef_return_value_t ClientHandler::OnBeforeResourceLoad(
     CefRefPtr<CefRequest> request,
     CefRefPtr<CefRequestCallback> callback) {
   CEF_REQUIRE_IO_THREAD();
+    
+    CefRequest::HeaderMap currentRequestHeader;
+    request->GetHeaderMap(currentRequestHeader);
+    
+    CefRequest::HeaderMap::iterator iterator = currentRequestHeader.find("User-Agent");
+    if ( iterator != currentRequestHeader.end() ) {
+        std::string currentUserAgentString = iterator->second;
+        currentUserAgentString += " SEB";
+        iterator->second = currentUserAgentString;
+        
+        request->SetHeaderMap( currentRequestHeader );
+        
+    }
 
-  return resource_manager_->OnBeforeResourceLoad(browser, frame, request,
+    return resource_manager_->OnBeforeResourceLoad(browser, frame, request,
                                                  callback);
 }
 
