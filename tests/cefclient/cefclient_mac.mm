@@ -6,7 +6,7 @@
 #import <Cocoa/Cocoa.h>
 #include "include/cef_app.h"
 #import "include/cef_application_mac.h"
-#import  "SplashScreen.h"
+#import  "tests/cefclient/SplashScreen/SplashScreen.h"
 #include "tests/cefclient/browser/main_context_impl.h"
 #include "tests/cefclient/browser/resource.h"
 #include "tests/cefclient/browser/root_window.h"
