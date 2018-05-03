@@ -2,3 +2,9 @@
 /cef/Release/Chromium Embedded Framework.framework/
 /cef/tests/cefsimple/Debug/cefsimple.app/Contents/Frameworks/Chromium Embedded Framework.framework/
 /cef/libcef_dll_wrapper/Debug/
+/cef/cef.build/
+/cef/CMakeFiles/
+/cef/CMakeCache.txt
+/cef/libcef_dll_wrapper/cef.build/
+/cef/libcef_dll_wrapper/CMakeCache.txt
+/cef/lin/cef/libcef_dll_wrapper/CMakeFiles/

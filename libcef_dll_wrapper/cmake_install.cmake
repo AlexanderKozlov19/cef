@@ -1,4 +1,4 @@
-# Install script for directory: /Users/alexanderkozlov/Work/cef/libcef_dll
+# Install script for directory: /Users/alexanderkozlov/Work/CleanGit/cef/libcef_dll
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
