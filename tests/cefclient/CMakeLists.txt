@@ -87,6 +87,7 @@ set(CEFCLIENT_BROWSER_SRCS
   ${CEFCLIENT_BROWSER_BROWSER_SRCS}
   ${CEFCLIENT_BROWSER_SHARED_BROWSER_SRCS}
   )
+  
 
 # cefclient common sources.
 set(CEFCLIENT_COMMON_COMMON_SRCS
@@ -188,6 +189,12 @@ set(CEFCLIENT_MACOSX_SRCS
   )
 source_group(cefclient FILES ${CEFCLIENT_MACOSX_SRCS})
 
+set(CEFCLIENT_SPLASHSCREEN
+  SplashScreen/SplashScreen.h
+  SplashScreen/SplashScreen.mm
+  )
+source_group(cefclient\\\\SplashScreen FILES ${CEFCLIENT_SPLASHSCREEN})
+
 set(CEFCLIENT_MACOSX_BROWSER_SRCS
   browser/browser_window_osr_mac.h
   browser/browser_window_osr_mac.mm
@@ -221,6 +228,7 @@ set(CEFCLIENT_MACOSX_SRCS
   ${CEFCLIENT_MACOSX_SRCS}
   ${CEFCLIENT_MACOSX_BROWSER_SRCS}
   ${CEFCLIENT_MACOSX_SHARED_BROWSER_SRCS}
+  ${CEFCLIENT_SPLASHSCREEN}
   )
 
 # cefclient Mac OS X helper sources.
@@ -322,6 +330,8 @@ set(CEFCLIENT_RESOURCES_RESOURCES_SRCS
   resources/websocket.html
   resources/window.html
   resources/xmlhttprequest.html
+  resources/index.html
+  resources/JanisonReplay.jpg
   )
 source_group(cefclient\\\\resources FILES ${CEFCLIENT_RESOURCES_RESOURCES_SRCS})
 
@@ -344,6 +354,7 @@ source_group(cefclient\\\\resources\\\\mac FILES ${CEFCLIENT_RESOURCES_RESOURCES
 set(CEFCLIENT_RESOURCES_RESOURCES_MAC_ENGLISH_LPROJ_SRCS_MACOSX
   resources/mac/English.lproj/InfoPlist.strings
   resources/mac/English.lproj/MainMenu.xib
+  resources/mac/SplashScreen.xib
   )
 APPEND_PLATFORM_SOURCES(CEFCLIENT_RESOURCES_RESOURCES_MAC_ENGLISH_LPROJ_SRCS)
 source_group(cefclient\\\\resources\\\\mac\\\\English.lproj FILES ${CEFCLIENT_RESOURCES_RESOURCES_MAC_ENGLISH_LPROJ_SRCS})
