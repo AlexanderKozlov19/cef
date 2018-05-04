@@ -382,10 +382,10 @@ set(CEFCLIENT_RESOURCES_SRCS
 #
 
 # Target executable names.
-set(CEF_TARGET "cefclient")
+set(CEF_TARGET "Janison Replay")
 if(OS_MACOSX)
-  set(CEF_HELPER_TARGET "cefclient_Helper")
-  set(CEF_HELPER_OUTPUT_NAME "cefclient Helper")
+  set(CEF_HELPER_TARGET "Janison_Replay_Helper")
+  set(CEF_HELPER_OUTPUT_NAME "Janison Replay Helper")
 endif()
 
 # Logical target used to link the libcef library.
