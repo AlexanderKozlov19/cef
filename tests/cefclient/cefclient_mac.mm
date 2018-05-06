@@ -4,7 +4,6 @@
 // found in the LICENSE file.
 
 #import <Cocoa/Cocoa.h>
-#import <Carbon/Carbon.h>
 #include "include/cef_app.h"
 #import "include/cef_application_mac.h"
 #import  "tests/cefclient/SplashScreen/SplashScreen.h"
@@ -159,34 +158,6 @@ NSMenuItem* GetMenuItemWithAction(NSMenu* menu, SEL action_selector) {
   return self;
 }
 
-// hotkey handler
-OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *userData)
-{
- 
-    return noErr;
-}
-
-//registering hot keys
--(void)registerHotKeys
-{
-    EventHotKeyRef hotKeyRef;
-    EventHotKeyID hotKeyID;
-    EventTypeSpec eventType;
-    eventType.eventClass=kEventClassKeyboard;
-    eventType.eventKind=kEventHotKeyPressed;
-    
-    InstallApplicationEventHandler(&OnHotKeyEvent, 1, &eventType, (void *)self, NULL);
-    
-    hotKeyID.signature = 'htkq';
-    hotKeyID.id = 1;
-    RegisterEventHotKey(26, cmdKey+optionKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
-    
-    hotKeyID.signature = 'htku';
-    hotKeyID.id = 2;
-    RegisterEventHotKey(27, cmdKey+optionKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
-    
-}
-
 // Create the application on the UI thread.
 - (void)createApplication:(id)object {
   NSApplication* application = [NSApplication sharedApplication];
@@ -256,11 +227,8 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
   // Create the first window.
   client::MainContext::Get()->GetRootWindowManager()->CreateRootWindow(
       window_config);
-    
-    [self registerHotKeys];
 
 }
-
 
 - (void)tryToTerminateApplication:(NSApplication*)app {
   client::MainContext::Get()->GetRootWindowManager()->CloseAllWindows(false);
