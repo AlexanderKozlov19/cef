@@ -31,15 +31,18 @@ std::string MainContextImpl::GetAppWorkingDirectory() {
     }
     
     std::string str = std::string(exePath);
-    int index = str.find("MacOS");
+    int index = str.rfind("MacOS");
     str.erase(index);
     str = str + "Resources/";
     
-    /*int index = str.find(".app");
-    str.erase( index );
-    index = str.find_last_of("/");
-    str.erase( index + 1 );
+    /*
+    std::string str = std::string(exePath);
+    int index = str.find("Debug/Janison Replay.app");
+    //    str.erase(index);
+    str = str.substr(0, index);
+    str = str + "Resources/";
      */
+
 
     return str;
   /*

@@ -8,51 +8,51 @@ default:
 # link.  This forces Xcode to relink the targets from scratch.  It
 # does not seem to check these dependencies itself.
 PostBuild.libcef_dll_wrapper.Debug:
-/Users/alexanderkozlov/Work/CleanInstall/cef/libcef_dll_wrapper/Debug/libcef_dll_wrapper.a:
-	/bin/rm -f /Users/alexanderkozlov/Work/CleanInstall/cef/libcef_dll_wrapper/Debug/libcef_dll_wrapper.a
+/Users/alexanderkozlov/Work/Netherlands/cef/libcef_dll_wrapper/Debug/libcef_dll_wrapper.a:
+	/bin/rm -f /Users/alexanderkozlov/Work/Netherlands/cef/libcef_dll_wrapper/Debug/libcef_dll_wrapper.a
 
 
-PostBuild.cefclient.Debug:
-PostBuild.libcef_dll_wrapper.Debug: /Users/alexanderkozlov/Work/CleanInstall/cef/tests/cefclient/Debug/cefclient.app/Contents/MacOS/cefclient
-/Users/alexanderkozlov/Work/CleanInstall/cef/tests/cefclient/Debug/cefclient.app/Contents/MacOS/cefclient:\
-	/Users/alexanderkozlov/Work/CleanInstall/cef/Debug/Chromium\ Embedded\ Framework.framework/Chromium\ Embedded\ Framework\
-	/Users/alexanderkozlov/Work/CleanInstall/cef/libcef_dll_wrapper/Debug/libcef_dll_wrapper.a
-	/bin/rm -f /Users/alexanderkozlov/Work/CleanInstall/cef/tests/cefclient/Debug/cefclient.app/Contents/MacOS/cefclient
+PostBuild.Janison_Replay.Debug:
+PostBuild.libcef_dll_wrapper.Debug: /Users/alexanderkozlov/Work/Netherlands/cef/tests/cefclient/Debug/Janison\ Replay.app/Contents/MacOS/Janison\ Replay
+/Users/alexanderkozlov/Work/Netherlands/cef/tests/cefclient/Debug/Janison\ Replay.app/Contents/MacOS/Janison\ Replay:\
+	/Users/alexanderkozlov/Work/Netherlands/cef/Debug/Chromium\ Embedded\ Framework.framework/Chromium\ Embedded\ Framework\
+	/Users/alexanderkozlov/Work/Netherlands/cef/libcef_dll_wrapper/Debug/libcef_dll_wrapper.a
+	/bin/rm -f /Users/alexanderkozlov/Work/Netherlands/cef/tests/cefclient/Debug/Janison\ Replay.app/Contents/MacOS/Janison\ Replay
 
 
-PostBuild.cefclient_Helper.Debug:
-PostBuild.libcef_dll_wrapper.Debug: /Users/alexanderkozlov/Work/CleanInstall/cef/tests/cefclient/Debug/cefclient\ Helper.app/Contents/MacOS/cefclient\ Helper
-/Users/alexanderkozlov/Work/CleanInstall/cef/tests/cefclient/Debug/cefclient\ Helper.app/Contents/MacOS/cefclient\ Helper:\
-	/Users/alexanderkozlov/Work/CleanInstall/cef/Debug/Chromium\ Embedded\ Framework.framework/Chromium\ Embedded\ Framework\
-	/Users/alexanderkozlov/Work/CleanInstall/cef/libcef_dll_wrapper/Debug/libcef_dll_wrapper.a
-	/bin/rm -f /Users/alexanderkozlov/Work/CleanInstall/cef/tests/cefclient/Debug/cefclient\ Helper.app/Contents/MacOS/cefclient\ Helper
+PostBuild.Janison_Replay_Helper.Debug:
+PostBuild.libcef_dll_wrapper.Debug: /Users/alexanderkozlov/Work/Netherlands/cef/tests/cefclient/Debug/Janison\ Replay\ Helper.app/Contents/MacOS/Janison\ Replay\ Helper
+/Users/alexanderkozlov/Work/Netherlands/cef/tests/cefclient/Debug/Janison\ Replay\ Helper.app/Contents/MacOS/Janison\ Replay\ Helper:\
+	/Users/alexanderkozlov/Work/Netherlands/cef/Debug/Chromium\ Embedded\ Framework.framework/Chromium\ Embedded\ Framework\
+	/Users/alexanderkozlov/Work/Netherlands/cef/libcef_dll_wrapper/Debug/libcef_dll_wrapper.a
+	/bin/rm -f /Users/alexanderkozlov/Work/Netherlands/cef/tests/cefclient/Debug/Janison\ Replay\ Helper.app/Contents/MacOS/Janison\ Replay\ Helper
 
 
 PostBuild.libcef_dll_wrapper.Release:
-/Users/alexanderkozlov/Work/CleanInstall/cef/libcef_dll_wrapper/Release/libcef_dll_wrapper.a:
-	/bin/rm -f /Users/alexanderkozlov/Work/CleanInstall/cef/libcef_dll_wrapper/Release/libcef_dll_wrapper.a
+/Users/alexanderkozlov/Work/Netherlands/cef/libcef_dll_wrapper/Release/libcef_dll_wrapper.a:
+	/bin/rm -f /Users/alexanderkozlov/Work/Netherlands/cef/libcef_dll_wrapper/Release/libcef_dll_wrapper.a
 
 
-PostBuild.cefclient.Release:
-PostBuild.libcef_dll_wrapper.Release: /Users/alexanderkozlov/Work/CleanInstall/cef/tests/cefclient/Release/cefclient.app/Contents/MacOS/cefclient
-/Users/alexanderkozlov/Work/CleanInstall/cef/tests/cefclient/Release/cefclient.app/Contents/MacOS/cefclient:\
-	/Users/alexanderkozlov/Work/CleanInstall/cef/Release/Chromium\ Embedded\ Framework.framework/Chromium\ Embedded\ Framework\
-	/Users/alexanderkozlov/Work/CleanInstall/cef/libcef_dll_wrapper/Release/libcef_dll_wrapper.a
-	/bin/rm -f /Users/alexanderkozlov/Work/CleanInstall/cef/tests/cefclient/Release/cefclient.app/Contents/MacOS/cefclient
+PostBuild.Janison_Replay.Release:
+PostBuild.libcef_dll_wrapper.Release: /Users/alexanderkozlov/Work/Netherlands/cef/tests/cefclient/Release/Janison\ Replay.app/Contents/MacOS/Janison\ Replay
+/Users/alexanderkozlov/Work/Netherlands/cef/tests/cefclient/Release/Janison\ Replay.app/Contents/MacOS/Janison\ Replay:\
+	/Users/alexanderkozlov/Work/Netherlands/cef/Release/Chromium\ Embedded\ Framework.framework/Chromium\ Embedded\ Framework\
+	/Users/alexanderkozlov/Work/Netherlands/cef/libcef_dll_wrapper/Release/libcef_dll_wrapper.a
+	/bin/rm -f /Users/alexanderkozlov/Work/Netherlands/cef/tests/cefclient/Release/Janison\ Replay.app/Contents/MacOS/Janison\ Replay
 
 
-PostBuild.cefclient_Helper.Release:
-PostBuild.libcef_dll_wrapper.Release: /Users/alexanderkozlov/Work/CleanInstall/cef/tests/cefclient/Release/cefclient\ Helper.app/Contents/MacOS/cefclient\ Helper
-/Users/alexanderkozlov/Work/CleanInstall/cef/tests/cefclient/Release/cefclient\ Helper.app/Contents/MacOS/cefclient\ Helper:\
-	/Users/alexanderkozlov/Work/CleanInstall/cef/Release/Chromium\ Embedded\ Framework.framework/Chromium\ Embedded\ Framework\
-	/Users/alexanderkozlov/Work/CleanInstall/cef/libcef_dll_wrapper/Release/libcef_dll_wrapper.a
-	/bin/rm -f /Users/alexanderkozlov/Work/CleanInstall/cef/tests/cefclient/Release/cefclient\ Helper.app/Contents/MacOS/cefclient\ Helper
+PostBuild.Janison_Replay_Helper.Release:
+PostBuild.libcef_dll_wrapper.Release: /Users/alexanderkozlov/Work/Netherlands/cef/tests/cefclient/Release/Janison\ Replay\ Helper.app/Contents/MacOS/Janison\ Replay\ Helper
+/Users/alexanderkozlov/Work/Netherlands/cef/tests/cefclient/Release/Janison\ Replay\ Helper.app/Contents/MacOS/Janison\ Replay\ Helper:\
+	/Users/alexanderkozlov/Work/Netherlands/cef/Release/Chromium\ Embedded\ Framework.framework/Chromium\ Embedded\ Framework\
+	/Users/alexanderkozlov/Work/Netherlands/cef/libcef_dll_wrapper/Release/libcef_dll_wrapper.a
+	/bin/rm -f /Users/alexanderkozlov/Work/Netherlands/cef/tests/cefclient/Release/Janison\ Replay\ Helper.app/Contents/MacOS/Janison\ Replay\ Helper
 
 
 
 
 # For each target create a dummy ruleso the target does not have to exist
-/Users/alexanderkozlov/Work/CleanInstall/cef/Debug/Chromium\ Embedded\ Framework.framework/Chromium\ Embedded\ Framework:
-/Users/alexanderkozlov/Work/CleanInstall/cef/Release/Chromium\ Embedded\ Framework.framework/Chromium\ Embedded\ Framework:
-/Users/alexanderkozlov/Work/CleanInstall/cef/libcef_dll_wrapper/Debug/libcef_dll_wrapper.a:
-/Users/alexanderkozlov/Work/CleanInstall/cef/libcef_dll_wrapper/Release/libcef_dll_wrapper.a:
+/Users/alexanderkozlov/Work/Netherlands/cef/Debug/Chromium\ Embedded\ Framework.framework/Chromium\ Embedded\ Framework:
+/Users/alexanderkozlov/Work/Netherlands/cef/Release/Chromium\ Embedded\ Framework.framework/Chromium\ Embedded\ Framework:
+/Users/alexanderkozlov/Work/Netherlands/cef/libcef_dll_wrapper/Debug/libcef_dll_wrapper.a:
+/Users/alexanderkozlov/Work/Netherlands/cef/libcef_dll_wrapper/Release/libcef_dll_wrapper.a:
