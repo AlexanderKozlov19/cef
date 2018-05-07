@@ -146,9 +146,17 @@ scoped_refptr<RootWindow> RootWindowManager::CreateRootWindow(
 
   // Store a reference to the root window on the main thread.
   OnRootWindowCreated(root_window);
+    
+  if ( config.mainWindow )
+      main_window_ = root_window;
 
   return root_window;
 }
+    
+void RootWindowManager::ShowDevTools( void ) {
+        main_window_->ShowDevTools();
+}
+    
 
 scoped_refptr<RootWindow> RootWindowManager::CreateRootWindowAsPopup(
     bool with_controls,
@@ -438,6 +446,6 @@ void RootWindowManager::CreateExtensionWindow(
     CreateRootWindowAsExtension(extension, source_bounds, parent_window,
                                 close_callback, false, with_osr);
   }
-}
+}    
 
 }  // namespace client

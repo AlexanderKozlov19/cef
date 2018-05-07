@@ -54,7 +54,9 @@ class RootWindowMac : public RootWindow, public BrowserWindow::Delegate {
   ClientWindowHandle GetWindowHandle() const OVERRIDE;
   bool WithWindowlessRendering() const OVERRIDE;
   bool WithExtension() const OVERRIDE;
-
+    
+  void ShowDevTools() OVERRIDE;
+    
   // Called by RootWindowDelegate after the associated NSWindow has been
   // destroyed.
   void WindowDestroyed();

@@ -40,6 +40,7 @@ class RootWindowManager : public RootWindow::Delegate {
       CefWindowInfo& windowInfo,
       CefRefPtr<CefClient>& client,
       CefBrowserSettings& settings);
+    
 
   // Create a new top-level native window to host |extension|.
   // If |with_controls| is true the window will show controls.
@@ -76,7 +77,9 @@ class RootWindowManager : public RootWindow::Delegate {
   // Manage the set of loaded extensions. RootWindows will be notified via the
   // OnExtensionsChanged method.
   void AddExtension(CefRefPtr<CefExtension> extension);
-
+    
+  void ShowDevTools( void );
+    
   bool request_context_per_browser() const {
     return request_context_per_browser_;
   }
@@ -132,6 +135,8 @@ class RootWindowManager : public RootWindow::Delegate {
   ExtensionSet extensions_;
 
   scoped_refptr<ImageCache> image_cache_;
+    
+  scoped_refptr<RootWindow> main_window_;
 
   DISALLOW_COPY_AND_ASSIGN(RootWindowManager);
 };

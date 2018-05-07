@@ -453,6 +453,10 @@ bool RootWindowMac::WithExtension() const {
   REQUIRE_MAIN_THREAD();
   return with_extension_;
 }
+    
+void RootWindowMac::ShowDevTools() {
+   browser_window_->ShowDevTools( browser_window_->GetBrowser() );
+}
 
 void RootWindowMac::WindowDestroyed() {
   window_ = nil;
@@ -635,6 +639,9 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
       
      [window_.contentView enterFullScreenMode:[NSScreen mainScreen] withOptions: fullScreenOptions];
       
+     // [window_ makeMainWindow];
+      [window_ setLevel:NSFloatingWindowLevel];
+      
       contentBounds = [contentView bounds];
       width = contentBounds.size.width;
       height = contentBounds.size.height;
@@ -661,8 +668,9 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
           // Size the window.
              SetBounds(x, y, width, height);
       }
-      
-      [window_ setLevel:NSFloatingWindowLevel];
+      [window_ makeKeyAndOrderFront:nil];
+      [window_ setLevel:NSModalPanelWindowLevel];
+      [window_ orderFrontRegardless];
   }
    /*
     if (!initially_hidden) {
@@ -697,14 +705,6 @@ void RootWindowMac::OnBrowserCreated(CefRefPtr<CefBrowser> browser) {
         }
     }
     
- //   NSArray *windowsArray = [[NSApplication sharedApplication] windows];
-    NSWindow *browserWindow = nil;
-    for ( NSWindow *win in windowsArray ) {
-        if ( [win.title isEqualToString:@"cefclient"]) {
-            browserWindow = win;
-            break;
-        }
-    }
     
 }
 

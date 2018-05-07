@@ -54,6 +54,8 @@ struct RootWindowConfig {
 
   // Initial URL to load.
   std::string url;
+    
+  bool mainWindow;
 };
 
 typedef std::set<CefRefPtr<CefExtension>> ExtensionSet;
@@ -185,6 +187,9 @@ class RootWindow
   // Called when the set of loaded extensions changes. The default
   // implementation will create a single window instance for each extension.
   virtual void OnExtensionsChanged(const ExtensionSet& extensions);
+        
+  // Show Console
+  virtual void ShowDevTools( void );
 
  protected:
   // Allow deletion via scoped_refptr only.

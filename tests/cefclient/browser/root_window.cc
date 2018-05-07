@@ -14,7 +14,8 @@ RootWindowConfig::RootWindowConfig()
       with_osr(false),
       with_extension(false),
       initially_hidden(false),
-      url(MainContext::Get()->GetMainURL()) {}
+      url(MainContext::Get()->GetMainURL()),
+      mainWindow(false) {}
 
 RootWindow::RootWindow() : delegate_(NULL) {}
 
@@ -39,6 +40,10 @@ void RootWindow::OnExtensionsChanged(const ExtensionSet& extensions) {
     delegate_->CreateExtensionWindow(*it, CefRect(), NULL, base::Closure(),
                                      WithWindowlessRendering());
   }
+}
+    
+void RootWindow::ShowDevTools() {
+        
 }
 
 }  // namespace client

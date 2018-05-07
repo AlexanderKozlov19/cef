@@ -162,7 +162,41 @@ NSMenuItem* GetMenuItemWithAction(NSMenu* menu, SEL action_selector) {
 // hotkey handler
 OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *userData)
 {
- 
+    OSStatus err;
+    EventHotKeyID hotKeyID;
+    
+    err = GetEventParameter(    anEvent,
+                            kEventParamDirectObject,
+                            typeEventHotKeyID,
+                            nil,
+                            sizeof(EventHotKeyID),
+                            nil,
+                            &hotKeyID );
+    if( err )
+        return err;
+    
+    switch ( hotKeyID.id ) {
+        case 1:
+            NSLog(@"url");
+            break;
+            
+        case 2:
+            NSLog(@"quit");
+            break;
+            
+        case 3:
+            client::MainContext::Get()->GetRootWindowManager()->ShowDevTools();
+
+            break;
+            
+            
+        default:
+            NSLog(@"unknown key");
+            break;
+    }
+    
+    NSLog(@"hotkeyID.signature = %u:", hotKeyID.signature );
+    
     return noErr;
 }
 
@@ -177,13 +211,17 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
     
     InstallApplicationEventHandler(&OnHotKeyEvent, 1, &eventType, (void *)self, NULL);
     
-    hotKeyID.signature = 'htkq';
+    hotKeyID.signature = '1';
     hotKeyID.id = 1;
-    RegisterEventHotKey(26, cmdKey+optionKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
+    RegisterEventHotKey(0x19, cmdKey+optionKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
     
-    hotKeyID.signature = 'htku';
+    hotKeyID.signature = '2';
     hotKeyID.id = 2;
     RegisterEventHotKey(27, cmdKey+optionKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
+    
+    hotKeyID.signature = '3';
+    hotKeyID.id = 3;
+    RegisterEventHotKey(kVK_F12, 0, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
     
 }
 
@@ -252,6 +290,8 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
   client::RootWindowConfig window_config;
   window_config.with_controls = with_controls_;
   window_config.with_osr = with_osr_;
+  window_config.mainWindow = true;
+  window_config.initially_hidden = false;
 
   // Create the first window.
   client::MainContext::Get()->GetRootWindowManager()->CreateRootWindow(
@@ -433,33 +473,7 @@ int RunMain(int argc, char* argv[]) {
   [delegate performSelectorOnMainThread:@selector(createApplication:)
                              withObject:nil
                           waitUntilDone:NO];
-    /*
-    NSWindow* key_window = [[NSApplication sharedApplication] keyWindow];
-    
-    if (key_window) {
-     
-    
-    scoped_refptr<client::RootWindow> root_window =
-    client::RootWindow::GetForNSWindow(key_window);
-    
-    CefRefPtr<CefBrowser> browser = root_window->GetBrowser();
-    
-
-    if (browser.get()) {
-    
-    
-    // if it doesn't already have a prefix, add http. If we can't parse it,
-    // just don't bother rather than making things worse.
-    NSURL* tempUrl = [NSURL URLWithString:url];
-    if (tempUrl && ![tempUrl scheme])
-        url = [@"http://" stringByAppendingString:url];
-    
    
-    browser->GetMainFrame()->LoadURL(url);
-    }
-
-    }
- */
   // Run the message loop. This will block until Quit() is called.
   int result = message_loop->Run();
    
