@@ -490,7 +490,16 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
   }
 
   // Create the main window.
-  NSRect screen_rect = [[NSScreen mainScreen] visibleFrame];
+  NSArray *screens = [NSScreen screens];
+  NSScreen *browserScreen = [NSScreen mainScreen];
+  NSScreen *blankScreen = nil;
+  for ( NSScreen *screen in screens )
+        if ( ![screen isEqualTo:browserScreen] ) {
+            blankScreen = screen;
+            break;
+        }
+    
+  NSRect screen_rect = [browserScreen visibleFrame];
   NSRect window_rect =
       NSMakeRect(x, screen_rect.size.height - y, width, height);
   window_ = [[UnderlayOpenGLHostingWindow alloc]
@@ -499,7 +508,21 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
                            NSMiniaturizableWindowMask | NSResizableWindowMask |
                            NSUnifiedTitleAndToolbarWindowMask)
                   backing:NSBackingStoreBuffered
-                    defer:NO];
+                    defer:NO
+             screen:browserScreen
+             ];
+    
+  NSWindow* blankWindow = nil;
+  if ( blankScreen != nil ) {
+    
+        blankWindow = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, [blankScreen frame].size.width, [blankScreen frame].size.height )
+                                                 styleMask:NSBorderlessWindowMask
+                                                   backing:NSBackingStoreBuffered
+                                                     defer:NO
+                                                    screen:blankScreen];
+   }
+      
+            
   [window_ setTitle:@"cefclient"];
 
   // Create the delegate for control and browser window events.
@@ -537,6 +560,8 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
   }
 
   if (with_controls_) {
+      
+
     // Create the buttons.
     NSRect button_rect = contentBounds;
     button_rect.origin.y = window_rect.size.height - URLBAR_HEIGHT +
@@ -604,18 +629,23 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
                                                               NSApplicationPresentationDisableProcessSwitching |
                                                               NSApplicationPresentationDisableForceQuit |
                                                               NSApplicationPresentationDisableSessionTermination |
-                                                              NSApplicationPresentationDisableHideApplication);
-      NSDictionary *fullScreenOptions = @{NSFullScreenModeApplicationPresentationOptions: @(presentationOptions)};
+                                                              NSApplicationPresentationDisableHideApplication );
       
-      [window_.contentView enterFullScreenMode:[NSScreen mainScreen] withOptions: fullScreenOptions];
+      NSDictionary *fullScreenOptions =  @{NSFullScreenModeApplicationPresentationOptions: @(presentationOptions)};
+      
+     [window_.contentView enterFullScreenMode:[NSScreen mainScreen] withOptions: fullScreenOptions];
       
       contentBounds = [contentView bounds];
       width = contentBounds.size.width;
       height = contentBounds.size.height;
       
-    browser_window_->CreateBrowser(contentView, CefRect(0, 0, width, height - URLBAR_HEIGHT),
+     browser_window_->CreateBrowser(contentView, CefRect(0, 0, width, height - URLBAR_HEIGHT),
                                    settings,
                                    delegate_->GetRequestContext(this));
+      if ( blankWindow != nil ) {
+          [blankWindow makeKeyAndOrderFront:nil];
+          [blankWindow setLevel:NSFloatingWindowLevel];
+      }
       
 
   } else {
@@ -646,6 +676,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
 
  
 }
+    
 
 void RootWindowMac::OnBrowserCreated(CefRefPtr<CefBrowser> browser) {
   REQUIRE_MAIN_THREAD();
@@ -665,6 +696,16 @@ void RootWindowMac::OnBrowserCreated(CefRefPtr<CefBrowser> browser) {
             break;
         }
     }
+    
+ //   NSArray *windowsArray = [[NSApplication sharedApplication] windows];
+    NSWindow *browserWindow = nil;
+    for ( NSWindow *win in windowsArray ) {
+        if ( [win.title isEqualToString:@"cefclient"]) {
+            browserWindow = win;
+            break;
+        }
+    }
+    
 }
 
 void RootWindowMac::OnBrowserWindowDestroyed() {
