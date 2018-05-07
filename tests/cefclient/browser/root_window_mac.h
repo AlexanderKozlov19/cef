@@ -56,6 +56,7 @@ class RootWindowMac : public RootWindow, public BrowserWindow::Delegate {
   bool WithExtension() const OVERRIDE;
     
   void ShowDevTools() OVERRIDE;
+  void QuitKioskMode( void ) OVERRIDE;
     
   // Called by RootWindowDelegate after the associated NSWindow has been
   // destroyed.

@@ -190,6 +190,9 @@ class RootWindow
         
   // Show Console
   virtual void ShowDevTools( void );
+        
+  // Quit from Kiosk mode
+  virtual void QuitKioskMode( void );
 
  protected:
   // Allow deletion via scoped_refptr only.

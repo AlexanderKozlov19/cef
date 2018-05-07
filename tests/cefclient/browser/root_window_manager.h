@@ -80,6 +80,8 @@ class RootWindowManager : public RootWindow::Delegate {
     
   void ShowDevTools( void );
     
+  void QuitKioskMode( void );
+    
   bool request_context_per_browser() const {
     return request_context_per_browser_;
   }

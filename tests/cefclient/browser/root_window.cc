@@ -45,5 +45,9 @@ void RootWindow::OnExtensionsChanged(const ExtensionSet& extensions) {
 void RootWindow::ShowDevTools() {
         
 }
+    
+void RootWindow::QuitKioskMode( void ) {
+        
+}
 
 }  // namespace client

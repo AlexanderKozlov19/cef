@@ -154,9 +154,12 @@ scoped_refptr<RootWindow> RootWindowManager::CreateRootWindow(
 }
     
 void RootWindowManager::ShowDevTools( void ) {
-        main_window_->ShowDevTools();
+    main_window_->ShowDevTools();
 }
-    
+
+void RootWindowManager::QuitKioskMode( void ) {
+    main_window_->QuitKioskMode();
+}
 
 scoped_refptr<RootWindow> RootWindowManager::CreateRootWindowAsPopup(
     bool with_controls,

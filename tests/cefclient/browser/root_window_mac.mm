@@ -457,6 +457,10 @@ bool RootWindowMac::WithExtension() const {
 void RootWindowMac::ShowDevTools() {
    browser_window_->ShowDevTools( browser_window_->GetBrowser() );
 }
+    
+void RootWindowMac::QuitKioskMode( void ) {
+  [[window_ contentView] exitFullScreenModeWithOptions:nil];
+}
 
 void RootWindowMac::WindowDestroyed() {
   window_ = nil;

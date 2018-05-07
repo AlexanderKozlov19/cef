@@ -16,6 +16,7 @@
 #include "tests/shared/browser/main_message_loop_external_pump.h"
 #include "tests/shared/browser/main_message_loop_std.h"
 #include "tests/shared/common/client_switches.h"
+#import  "tests/cefclient/QuitDialog/QuitDialog.h"
 
 namespace {
 
@@ -181,6 +182,18 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
             break;
             
         case 2:
+        {
+            QuitDialog *quitDialog = [[QuitDialog alloc] initWithWindowNibName:@"QuitDialog"];
+            NSModalResponse modalResult = [[NSApplication sharedApplication] runModalForWindow:quitDialog.window];
+            
+            [quitDialog.window orderOut:nil];
+            
+            if ( modalResult == NSAlertFirstButtonReturn ) {
+                client::MainContext::Get()->GetRootWindowManager()->QuitKioskMode();
+                [[NSApplication sharedApplication] terminate:nil];
+            }
+       
+        }
             NSLog(@"quit");
             break;
             
@@ -217,7 +230,7 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
     
     hotKeyID.signature = '2';
     hotKeyID.id = 2;
-    RegisterEventHotKey(27, cmdKey+optionKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
+    RegisterEventHotKey(0x1D, cmdKey+optionKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
     
     hotKeyID.signature = '3';
     hotKeyID.id = 3;

@@ -195,6 +195,12 @@ set(CEFCLIENT_SPLASHSCREEN
   )
 source_group(cefclient\\\\SplashScreen FILES ${CEFCLIENT_SPLASHSCREEN})
 
+set(CEFCLIENT_QUITDIALOG
+  QuitDialog/QuitDialog.h
+  QuitDialog/QuitDialog.mm
+  )
+source_group(cefclient\\\\QuitDialog FILES ${CEFCLIENT_QUITDIALOG})
+
 set(CEFCLIENT_MACOSX_BROWSER_SRCS
   browser/browser_window_osr_mac.h
   browser/browser_window_osr_mac.mm
@@ -229,6 +235,7 @@ set(CEFCLIENT_MACOSX_SRCS
   ${CEFCLIENT_MACOSX_BROWSER_SRCS}
   ${CEFCLIENT_MACOSX_SHARED_BROWSER_SRCS}
   ${CEFCLIENT_SPLASHSCREEN}
+  ${CEFCLIENT_QUITDIALOG}
   )
 
 # cefclient Mac OS X helper sources.
@@ -355,6 +362,7 @@ set(CEFCLIENT_RESOURCES_RESOURCES_MAC_ENGLISH_LPROJ_SRCS_MACOSX
   resources/mac/English.lproj/InfoPlist.strings
   resources/mac/English.lproj/MainMenu.xib
   resources/mac/SplashScreen.xib
+  resources/mac/QuitDialog.xib
   )
 APPEND_PLATFORM_SOURCES(CEFCLIENT_RESOURCES_RESOURCES_MAC_ENGLISH_LPROJ_SRCS)
 source_group(cefclient\\\\resources\\\\mac\\\\English.lproj FILES ${CEFCLIENT_RESOURCES_RESOURCES_MAC_ENGLISH_LPROJ_SRCS})

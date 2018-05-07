@@ -7,7 +7,7 @@
 		<key>ALL_BUILD.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<key>Janison Replay.xcscheme</key>
 		<dict>
@@ -22,7 +22,7 @@
 		<key>ZERO_CHECK.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<key>cef_gtest.xcscheme</key>
 		<dict>
@@ -62,7 +62,7 @@
 		<key>libcef_dll_wrapper.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>0</integer>
 		</dict>
 	</dict>
 </dict>
