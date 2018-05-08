@@ -631,7 +631,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
 
   if (!is_popup_) {
     // Create the browser window.
-      NSApplicationPresentationOptions presentationOptions = (NSApplicationPresentationHideDock |
+     /* NSApplicationPresentationOptions presentationOptions = (NSApplicationPresentationHideDock |
                                                               NSApplicationPresentationHideMenuBar |
                                                               NSApplicationPresentationDisableAppleMenu |
                                                               NSApplicationPresentationDisableProcessSwitching |
@@ -642,7 +642,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
       NSDictionary *fullScreenOptions =  @{NSFullScreenModeApplicationPresentationOptions: @(presentationOptions)};
       
      [window_.contentView enterFullScreenMode:[NSScreen mainScreen] withOptions: fullScreenOptions];
-      
+      */
      // [window_ makeMainWindow];
       [window_ setLevel:NSFloatingWindowLevel];
       
@@ -676,7 +676,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
       [window_ setLevel:NSModalPanelWindowLevel];
       [window_ orderFrontRegardless];
   }
-   /*
+   
     if (!initially_hidden) {
         // Show the window.
           Show(ShowNormal);
@@ -684,7 +684,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
         // Size the window.
            SetBounds(x, y, width, height);
     }
-*/
+
 
  
 }

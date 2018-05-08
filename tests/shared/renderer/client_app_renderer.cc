@@ -18,8 +18,43 @@ void ClientAppRenderer::OnRenderThreadCreated(
   for (; it != delegates_.end(); ++it)
     (*it)->OnRenderThreadCreated(this, extra_info);
 }
+    
+    class MyV8Handler : public CefV8Handler {
+    public:
+        MyV8Handler() {}
+        
+        virtual bool Execute(const CefString& name,
+                             CefRefPtr<CefV8Value> object,
+                             const CefV8ValueList& arguments,
+                             CefRefPtr<CefV8Value>& retval,
+                             CefString& exception) OVERRIDE {
+            if (name == "getPlatformName") {
+                // Return my string value.
+                retval = CefV8Value::CreateString("MacOs");
+                return true;
+            }
+            
+            // Function does not exist.
+            return false;
+        }
+        
+        // Provide the reference counting implementation for this class.
+        IMPLEMENT_REFCOUNTING(MyV8Handler);
+    };
 
 void ClientAppRenderer::OnWebKitInitialized() {
+    CefRefPtr<MyV8Handler> handlerExt = new MyV8Handler();
+    
+    std::string extensionCode =
+
+    "var __macOsAppHostObject;"
+    "if (!__macOsAppHostObject)"
+    "  __macOsAppHostObject = {};";
+  
+    // Register the extension.
+    CefRegisterExtension("__macOsAppHostObject", extensionCode, NULL);
+
+    
   DelegateSet::iterator it = delegates_.begin();
   for (; it != delegates_.end(); ++it)
     (*it)->OnWebKitInitialized(this);

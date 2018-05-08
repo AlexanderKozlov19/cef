@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <script src="./unified-app-bridge.js"></script>
+</head>
+<body>
+    <h1>Simplest AppBridge test page :-)</h1>
+    <script type="text/javascript">
+        window
+            .jrHostApp
+            .getPlatformName()
+            .then(
+                console.log,
+                console.error
+            );
+    </script>
+</body>
+</html>
