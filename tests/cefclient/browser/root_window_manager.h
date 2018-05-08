@@ -82,6 +82,8 @@ class RootWindowManager : public RootWindow::Delegate {
     
   void QuitKioskMode( void );
     
+  void ReconfigurePage( void );
+    
   bool request_context_per_browser() const {
     return request_context_per_browser_;
   }

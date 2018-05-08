@@ -177,11 +177,8 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
         return err;
     
     switch ( hotKeyID.id ) {
-        case 1:
-            NSLog(@"url");
-            break;
             
-        case 2:
+        case 1:
         {
             QuitDialog *quitDialog = [[QuitDialog alloc] initWithWindowNibName:@"QuitDialog"];
             NSModalResponse modalResult = [[NSApplication sharedApplication] runModalForWindow:quitDialog.window];
@@ -192,12 +189,16 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
                 client::MainContext::Get()->GetRootWindowManager()->QuitKioskMode();
                 [[NSApplication sharedApplication] terminate:nil];
             }
+            else
+                if ( modalResult == NSAlertSecondButtonReturn ) {
+                    client::MainContext::Get()->GetRootWindowManager()->ReconfigurePage();
+                }
        
         }
             NSLog(@"quit");
             break;
             
-        case 3:
+        case 2:
             client::MainContext::Get()->GetRootWindowManager()->ShowDevTools();
 
             break;
@@ -223,17 +224,17 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
     eventType.eventKind=kEventHotKeyPressed;
     
     InstallApplicationEventHandler(&OnHotKeyEvent, 1, &eventType, (void *)self, NULL);
-    
+    /*
     hotKeyID.signature = '1';
     hotKeyID.id = 1;
     RegisterEventHotKey(0x19, cmdKey+optionKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
+    */
+    hotKeyID.signature = '1';
+    hotKeyID.id = 1;
+    RegisterEventHotKey(0x0C, cmdKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
     
     hotKeyID.signature = '2';
     hotKeyID.id = 2;
-    RegisterEventHotKey(0x0C, cmdKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
-    
-    hotKeyID.signature = '3';
-    hotKeyID.id = 3;
     RegisterEventHotKey(kVK_F12, 0, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
     
 }
