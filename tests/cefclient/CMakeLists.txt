@@ -339,6 +339,9 @@ set(CEFCLIENT_RESOURCES_RESOURCES_SRCS
   resources/xmlhttprequest.html
   resources/index.html
   resources/JanisonReplay.jpg
+  resources/test1.html
+  resources/unified-app-bridge.js
+  resources/unified-app-bridge-angular.js
   )
 source_group(cefclient\\\\resources FILES ${CEFCLIENT_RESOURCES_RESOURCES_SRCS})
 
