@@ -304,7 +304,7 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
   }
 
   client::RootWindowConfig window_config;
-  window_config.with_controls = with_controls_;
+  window_config.with_controls = false;//with_controls_;
   window_config.with_osr = with_osr_;
   window_config.mainWindow = true;
   window_config.initially_hidden = false;

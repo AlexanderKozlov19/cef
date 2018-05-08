@@ -650,7 +650,10 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
       width = contentBounds.size.width;
       height = contentBounds.size.height;
       
-     browser_window_->CreateBrowser(contentView, CefRect(0, 0, width, height - URLBAR_HEIGHT),
+      if ( with_controls_ )
+          height -= URLBAR_HEIGHT;
+      
+     browser_window_->CreateBrowser(contentView, CefRect(0, 0, width, height ),
                                    settings,
                                    delegate_->GetRequestContext(this));
       
