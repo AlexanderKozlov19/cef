@@ -230,7 +230,7 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
     
     hotKeyID.signature = '2';
     hotKeyID.id = 2;
-    RegisterEventHotKey(0x1D, cmdKey+optionKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
+    RegisterEventHotKey(0x0C, cmdKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
     
     hotKeyID.signature = '3';
     hotKeyID.id = 3;

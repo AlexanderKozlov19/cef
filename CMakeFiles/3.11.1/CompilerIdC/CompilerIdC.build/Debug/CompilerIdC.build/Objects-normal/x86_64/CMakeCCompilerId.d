@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/alexanderkozlov/Work/Netherlands/cef/CMakeFiles/3.11.1/CompilerIdC/CMakeCCompilerId.c
+  /Users/admin/Work/Netherland/JanisonReplay/cef/CMakeFiles/3.11.1/CompilerIdC/CMakeCCompilerId.c

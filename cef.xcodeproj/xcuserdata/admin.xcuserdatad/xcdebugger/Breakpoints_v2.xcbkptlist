@@ -234,13 +234,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tests/cefclient/cefclient_mac.mm"
-            timestampString = "546967632.838195"
+            timestampString = "547456116.1278141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "427"
             endingLineNumber = "427"
-            landmarkName = "RunMain(int argc, char* argv[])"
-            landmarkType = "9">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

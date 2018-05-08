@@ -1,5 +1,5 @@
-/Users/alexanderkozlov/Work/Netherlands/cef/CMakeFiles/ALL_BUILD.dir
-/Users/alexanderkozlov/Work/Netherlands/cef/CMakeFiles/ZERO_CHECK.dir
-/Users/alexanderkozlov/Work/Netherlands/cef/libcef_dll_wrapper/CMakeFiles/libcef_dll_wrapper.dir
-/Users/alexanderkozlov/Work/Netherlands/cef/tests/cefclient/CMakeFiles/Janison Replay.dir
-/Users/alexanderkozlov/Work/Netherlands/cef/tests/cefclient/CMakeFiles/Janison_Replay_Helper.dir
+/Users/admin/Work/Netherland/JanisonReplay/cef/CMakeFiles/ALL_BUILD.dir
+/Users/admin/Work/Netherland/JanisonReplay/cef/CMakeFiles/ZERO_CHECK.dir
+/Users/admin/Work/Netherland/JanisonReplay/cef/libcef_dll_wrapper/CMakeFiles/libcef_dll_wrapper.dir
+/Users/admin/Work/Netherland/JanisonReplay/cef/tests/cefclient/CMakeFiles/Janison Replay.dir
+/Users/admin/Work/Netherland/JanisonReplay/cef/tests/cefclient/CMakeFiles/Janison_Replay_Helper.dir
