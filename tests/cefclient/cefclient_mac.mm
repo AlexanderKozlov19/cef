@@ -19,6 +19,8 @@
 #import  "tests/cefclient/QuitDialog/QuitDialog.h"
 
 namespace {
+    
+const char *pathTempFolder = "/Library/Caches/JanisonReplay";
 
 // Returns the top menu bar with the specified |tag|.
 NSMenuItem* GetMenuBarMenuWithTag(NSInteger tag) {
@@ -315,9 +317,27 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
 
 }
 
+-(void)clearFolder:(NSString*)path {
+  
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    NSDirectoryEnumerator *enumerator = [fileManager enumeratorAtPath:path];
+    NSString *file;
+    
+    while (file = [enumerator nextObject]) {
+        NSError *error = nil;
+        BOOL result = [fileManager removeItemAtPath:[path stringByAppendingPathComponent:file] error:&error];
+        
+        if (!result && error) {
+            NSLog(@"Error: %@", error);
+        }
+    }
+}
+
 
 - (void)tryToTerminateApplication:(NSApplication*)app {
   client::MainContext::Get()->GetRootWindowManager()->CloseAllWindows(false);
+  
+  [self clearFolder:@(pathTempFolder)];
 }
 
 - (void)orderFrontStandardAboutPanel:(id)sender {
@@ -464,7 +484,7 @@ int RunMain(int argc, char* argv[]) {
   // Populate the settings based on command line arguments.
   context->PopulateSettings(&settings);
     
-  CefString(&settings.cache_path).FromString("/Library/Caches/JanisonReplay");
+  CefString(&settings.cache_path).FromString( pathTempFolder );
 
 
   // Create the main message loop object.
