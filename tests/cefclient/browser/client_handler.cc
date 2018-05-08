@@ -308,29 +308,12 @@ void ClientHandler::OnBeforeContextMenu(CefRefPtr<CefBrowser> browser,
                                         CefRefPtr<CefContextMenuParams> params,
                                         CefRefPtr<CefMenuModel> model) {
   CEF_REQUIRE_UI_THREAD();
-
-  if ((params->GetTypeFlags() & (CM_TYPEFLAG_PAGE | CM_TYPEFLAG_FRAME)) != 0) {
-    // Add a separator if the menu already has items.
-    if (model->GetCount() > 0)
-      model->AddSeparator();
-
-    // Add DevTools items to all context menus.
-    model->AddItem(CLIENT_ID_SHOW_DEVTOOLS, "&Show DevTools");
-    model->AddItem(CLIENT_ID_CLOSE_DEVTOOLS, "Close DevTools");
-    model->AddSeparator();
-    model->AddItem(CLIENT_ID_INSPECT_ELEMENT, "Inspect Element");
-
-    if (HasSSLInformation(browser)) {
-      model->AddSeparator();
-      model->AddItem(CLIENT_ID_SHOW_SSL_INFO, "Show SSL information");
-    }
-
-    // Test context menu features.
-    BuildTestMenu(model);
-  }
-
+    
+    model->Clear();
+/*
   if (delegate_)
     delegate_->OnBeforeContextMenu(model);
+                    */
 }
 
 bool ClientHandler::OnContextMenuCommand(CefRefPtr<CefBrowser> browser,
