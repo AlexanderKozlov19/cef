@@ -653,6 +653,15 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
      browser_window_->CreateBrowser(contentView, CefRect(0, 0, width, height - URLBAR_HEIGHT),
                                    settings,
                                    delegate_->GetRequestContext(this));
+      
+      CefRefPtr<CefRequestContext> context = CefRequestContext::GetGlobalContext();
+      const char kEnableSpellcheck[] = "browser.enable_spellchecking";
+      CefString errtext;
+      
+      CefRefPtr<CefValue> pval = CefValue::Create();
+      pval->SetBool(false);
+      context->SetPreference(kEnableSpellcheck, pval, errtext);
+     
       if ( blankWindow != nil ) {
           [blankWindow makeKeyAndOrderFront:nil];
           [blankWindow setLevel:NSFloatingWindowLevel];
