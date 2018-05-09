@@ -8,3 +8,9 @@
 /cef/libcef_dll_wrapper/cef.build/
 /cef/libcef_dll_wrapper/CMakeCache.txt
 /cef/lin/cef/libcef_dll_wrapper/CMakeFiles
+/cef/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.makeDebug
+/cef/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.makeReleases
+/cef/cmake_install.cmake
+/cef/libcef_dll/cmake_install.cmake
+/cef/libcef_dll_wrapper/cmake_install.cmake
+/cef/tests/cefclient/cmake_install.cmake

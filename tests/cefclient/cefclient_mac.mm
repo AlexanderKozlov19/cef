@@ -165,6 +165,7 @@ NSMenuItem* GetMenuItemWithAction(NSMenu* menu, SEL action_selector) {
 // hotkey handler
 OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *userData)
 {
+    static QuitDialog *quitDialog;
     OSStatus err;
     EventHotKeyID hotKeyID;
     
@@ -182,19 +183,28 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
             
         case 1:
         {
-            QuitDialog *quitDialog = [[QuitDialog alloc] initWithWindowNibName:@"QuitDialog"];
-            NSModalResponse modalResult = [[NSApplication sharedApplication] runModalForWindow:quitDialog.window];
-            
-            [quitDialog.window orderOut:nil];
-            
-            if ( modalResult == NSAlertFirstButtonReturn ) {
-                client::MainContext::Get()->GetRootWindowManager()->QuitKioskMode();
-                [[NSApplication sharedApplication] terminate:nil];
+            BOOL needShow = YES;
+            if ( quitDialog == nil ) {
+               quitDialog = [[QuitDialog alloc] initWithWindowNibName:@"QuitDialog"];
             }
             else
-                if ( modalResult == NSAlertSecondButtonReturn ) {
-                    client::MainContext::Get()->GetRootWindowManager()->ReconfigurePage();
+                if ( quitDialog.window.visible  )
+                    needShow = NO;
+            
+            if ( needShow ) {
+                NSModalResponse modalResult = [[NSApplication sharedApplication] runModalForWindow:quitDialog.window];
+                
+                [quitDialog.window orderOut:nil];
+                
+                if ( modalResult == NSAlertFirstButtonReturn ) {
+                    client::MainContext::Get()->GetRootWindowManager()->QuitKioskMode();
+                    [[NSApplication sharedApplication] terminate:nil];
                 }
+                else
+                    if ( modalResult == NSAlertSecondButtonReturn ) {
+                        client::MainContext::Get()->GetRootWindowManager()->ReconfigurePage();
+                    }
+            }
        
         }
             NSLog(@"quit");
@@ -244,7 +254,6 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
 // Create the application on the UI thread.
 - (void)createApplication:(id)object {
   NSApplication* application = [NSApplication sharedApplication];
-    
 
   // The top menu is configured using Interface Builder (IB). To modify the menu
   // start by loading MainMenu.xib in IB.
