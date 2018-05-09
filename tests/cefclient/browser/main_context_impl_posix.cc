@@ -33,7 +33,7 @@ std::string MainContextImpl::GetAppWorkingDirectory() {
     std::string str = std::string(exePath);
     int index = str.rfind("MacOS");
     str.erase(index);
-    str = str + "Resources/";
+   // str = str + "Resources/";
     
     /*
     std::string str = std::string(exePath);

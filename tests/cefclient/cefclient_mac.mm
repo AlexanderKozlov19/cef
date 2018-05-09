@@ -493,7 +493,9 @@ int RunMain(int argc, char* argv[]) {
   // Populate the settings based on command line arguments.
   context->PopulateSettings(&settings);
     
-  CefString(&settings.cache_path).FromString( pathTempFolder );
+  std::string workFolder = context->GetAppWorkingDirectory() +"temp";
+    
+  CefString(&settings.cache_path).FromString( workFolder );
 
 
   // Create the main message loop object.

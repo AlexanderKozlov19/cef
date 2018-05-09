@@ -118,12 +118,12 @@ MainContextImpl::~MainContextImpl() {
 }
 
 std::string MainContextImpl::GetConsoleLogPath() {
-  return GetAppWorkingDirectory() + "console.log";
+  return GetAppWorkingDirectory() + "Temp/console.log";
 }
 
 std::string MainContextImpl::GetMainURL() {
   
-    return "file://"+GetAppWorkingDirectory() + "index.html";//main_url_;
+    return "file://"+GetAppWorkingDirectory() + "Resources/index.html";//main_url_;
 }
 
 cef_color_t MainContextImpl::GetBackgroundColor() {
