@@ -1,4 +1,4 @@
-# Install script for directory: /Users/admin/Work/Netherland/JanisonReplay/cef/libcef_dll
+# Install script for directory: /Users/alexanderkozlov/Work/Netherlands/cef/libcef_dll
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

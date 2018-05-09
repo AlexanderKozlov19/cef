@@ -340,6 +340,7 @@ set(CEFCLIENT_RESOURCES_RESOURCES_SRCS
   resources/index.html
   resources/JanisonReplay.jpg
   resources/test1.html
+  resources/test2.html
   resources/unified-app-bridge.js
   resources/unified-app-bridge-angular.js
   )

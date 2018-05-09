@@ -115,5 +115,21 @@
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tests/shared/renderer/client_app_renderer.cc"
+            timestampString = "547584303.017058"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "Execute(const CefString&amp; name, CefRefPtr&lt;CefV8Value&gt; object, const CefV8ValueList&amp; arguments, CefRefPtr&lt;CefV8Value&gt;&amp; retval, CefString&amp; exception)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
