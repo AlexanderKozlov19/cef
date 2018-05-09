@@ -14,7 +14,7 @@
 @implementation QuitDialog
 
 const char *text1 = "FYJU$sfqmbz";
-const char *text2 = "dpogjhvsf";
+const char *text2 = "sfdpogjhvsf";
 
 @synthesize passwordTextField;
 
@@ -22,8 +22,7 @@ const char *text2 = "dpogjhvsf";
     [super windowDidLoad];
     
     passwordTextField.delegate = self;
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+
 }
 
 -(void)checkInput:(NSString*)text {
@@ -37,12 +36,12 @@ const char *text2 = "dpogjhvsf";
     NSString *test = [NSString stringWithString:newString];
     
     if ( [test isEqualToString:@(text1)] )
-        [[NSApplication sharedApplication] stopModalWithCode:NSAlertFirstButtonReturn];
+        [self finishQuitDialog:NSAlertFirstButtonReturn];
     else
       if ( [test isEqualToString:@(text2)] )
-              [[NSApplication sharedApplication] stopModalWithCode:NSAlertSecondButtonReturn];
+              [self finishQuitDialog:NSAlertSecondButtonReturn];
     else
-        [[NSApplication sharedApplication] stopModalWithCode:NSModalResponseCancel];
+        [self finishQuitDialog:NSModalResponseCancel];
 }
 
 -(BOOL)control:(NSControl *)control textView:(NSTextView *)fieldEditor doCommandBySelector:(SEL)commandSelector
@@ -51,17 +50,14 @@ const char *text2 = "dpogjhvsf";
     BOOL res = FALSE;
     
     if ( [stringSelector isEqualToString:@"cancelOperation:"] ) {
-        [[NSApplication sharedApplication] stopModalWithCode:NSModalResponseCancel];
+        [self finishQuitDialog:NSModalResponseCancel];
         res = TRUE;
     }
     
     if ( [stringSelector isEqualToString:@"insertNewline:"] ) {
-        //[[NSApplication sharedApplication] stopModalWithCode:NSAlertFirstButtonReturn];
         [self checkInput:[passwordTextField stringValue]];
         res = TRUE;
     }
-    
-    NSLog(@"Selector method is (%@)", stringSelector );
     
     return res;
 }
@@ -71,6 +67,12 @@ const char *text2 = "dpogjhvsf";
 }
 
 - (IBAction)onNoButton:(id)sender {
-    [[NSApplication sharedApplication] stopModalWithCode:NSModalResponseCancel];
+    [self finishQuitDialog:NSModalResponseCancel];
+}
+
+-(void)finishQuitDialog:(NSModalResponse)modalResponce {
+     passwordTextField.stringValue = @"";
+    [[NSApplication sharedApplication] stopModalWithCode:modalResponce];
+    
 }
 @end
