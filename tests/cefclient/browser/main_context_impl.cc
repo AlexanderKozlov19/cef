@@ -13,7 +13,7 @@ namespace client {
 namespace {
 
 // The default URL to load in a browser window.
-    const char kDefaultUrl[] = "file://test1.html";
+    const char kDefaultUrl[] = "file://test2.html";
 
 // Returns the ARGB value for |color|.
 cef_color_t ParseColor(const std::string& color) {
@@ -123,7 +123,7 @@ std::string MainContextImpl::GetConsoleLogPath() {
 
 std::string MainContextImpl::GetMainURL() {
   
-    return "file://"+GetAppWorkingDirectory() + "test1.html";//main_url_;
+    return "file://"+GetAppWorkingDirectory() + "test2.html";//main_url_;
 }
 
 cef_color_t MainContextImpl::GetBackgroundColor() {

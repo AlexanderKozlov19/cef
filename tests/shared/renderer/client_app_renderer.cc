@@ -28,11 +28,81 @@ void ClientAppRenderer::OnRenderThreadCreated(
                              const CefV8ValueList& arguments,
                              CefRefPtr<CefV8Value>& retval,
                              CefString& exception) OVERRIDE {
-            if (name == "getPlatformName") {
+            
+           
+            
+            if (name == "handleBrowserRequest") {
+                
+               /* if ( arguments.size() == 0 )
+                    exception = "0";
+                if ( arguments.size() == 1 )
+                    exception = "1";
+                
+                if ( arguments.size() == 2 )
+                    exception = "2";
+                
+                if ( arguments.size() == 3 )
+                    exception = "3";
+                
+                if ( arguments.size() == 4 )
+                    exception = "4";
+                
+                return true;
+                */
+                CefString funcName = arguments[0]->GetStringValue();
+                
+                /*if ( arguments[1]->IsFunction() ) {
+                    retval = CefV8Value::CreateObject( NULL, NULL );
+                    retval->SetValue("isCharging", CefV8Value::CreateBool(true), V8_PROPERTY_ATTRIBUTE_READONLY);
+                    retval->SetValue("level", CefV8Value::CreateUInt(0), V8_PROPERTY_ATTRIBUTE_READONLY);
+                    retval->SetValue("timeLeft",  CefV8Value::CreateUInt(1), V8_PROPERTY_ATTRIBUTE_READONLY );
+                    arguments[1]->ExecuteFunction(retval, arguments);
+                    return  true;
+                }*/
+                if ( funcName == "battery.getStatus" ) {
+                    
+                    
+                    CefRefPtr<CefV8Value> obj = CefV8Value::CreateObject( NULL, NULL );
+                    retval = CefV8Value::CreateObject( NULL, NULL );
+                    obj->SetValue("isCharging", CefV8Value::CreateBool(true), V8_PROPERTY_ATTRIBUTE_READONLY);
+                    obj->SetValue("level", CefV8Value::CreateUInt(0), V8_PROPERTY_ATTRIBUTE_READONLY);
+                    obj->SetValue("timeLeft",  CefV8Value::CreateUInt(1), V8_PROPERTY_ATTRIBUTE_READONLY );
+                    retval ->SetValue("BatteryStatus", obj, V8_PROPERTY_ATTRIBUTE_NONE );
+                    
+                    arguments[2]->ExecuteFunction(obj, arguments);
+                   
+                    return true;
+                }
+                else {
+                    exception = "123";
+                    return true;
+                }
+               
                 // Return my string value.
-                retval = CefV8Value::CreateString("MacOs");
+               // exception = "1";
+                if ( arguments.size() == 0 )
+                    exception = "0";
+                if ( arguments.size() == 1 )
+                    exception = "1";
+                
+                if ( arguments.size() == 2 )
+                    exception = "2";
+                
+                if ( arguments.size() == 3 )
+                    exception = "3";
+                
+                if ( arguments.size() == 4 )
+                    exception = "4";
+                
+                exception = funcName;
+                return true;
+                
+               
+                
                 return true;
             }
+            
+            exception = "no";
             
             // Function does not exist.
             return false;
@@ -49,10 +119,19 @@ void ClientAppRenderer::OnWebKitInitialized() {
 
     "var __macOsAppHostObject;"
     "if (!__macOsAppHostObject)"
-    "  __macOsAppHostObject = {};";
+    "  __macOsAppHostObject = {};"
+    "(function() {"
+    "  __macOsAppHostObject.handleBrowserRequest = function(namem, args,resolve, reject ) {"
+    "    native function handleBrowserRequest();"
+    "    return handleBrowserRequest(namem, args, resolve, reject);"
+  //  "    return new Promise(function(resolve, reject) {"
+  //  "    handleBrowserRequest(namem, args, resolve, reject);"
+   // "    })"
+    "  };"
+    "})();";
   
     // Register the extension.
-    CefRegisterExtension("__macOsAppHostObject", extensionCode, NULL);
+    CefRegisterExtension("__macOsAppHostObject", extensionCode, handlerExt);
 
     
   DelegateSet::iterator it = delegates_.begin();
