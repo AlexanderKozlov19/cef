@@ -20,7 +20,7 @@
 
 namespace {
     
-const char *pathTempFolder = "/Library/Caches/JanisonReplay";
+//const char *pathTempFolder = "/Library/Caches/JanisonReplay";
 
 // Returns the top menu bar with the specified |tag|.
 NSMenuItem* GetMenuBarMenuWithTag(NSInteger tag) {
@@ -325,7 +325,7 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
     [self registerHotKeys];
 
 }
-
+/*
 -(void)clearFolder:(NSString*)path {
   
     NSFileManager *fileManager = [[NSFileManager alloc] init];
@@ -341,12 +341,12 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
         }
     }
 }
-
+*/
 
 - (void)tryToTerminateApplication:(NSApplication*)app {
   client::MainContext::Get()->GetRootWindowManager()->CloseAllWindows(false);
   
-  [self clearFolder:@(pathTempFolder)];
+ // [self clearFolder:@(pathTempFolder)];
 }
 
 - (void)orderFrontStandardAboutPanel:(id)sender {
