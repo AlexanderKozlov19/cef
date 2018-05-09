@@ -5,6 +5,7 @@
 #include "tests/shared/renderer/client_app_renderer.h"
 
 #include "include/base/cef_logging.h"
+#include "include/cef_parser.h"
 
 namespace client {
 
@@ -33,48 +34,35 @@ void ClientAppRenderer::OnRenderThreadCreated(
             
             if (name == "handleBrowserRequest") {
                 
-               /* if ( arguments.size() == 0 )
-                    exception = "0";
-                if ( arguments.size() == 1 )
-                    exception = "1";
-                
-                if ( arguments.size() == 2 )
-                    exception = "2";
-                
-                if ( arguments.size() == 3 )
-                    exception = "3";
-                
-                if ( arguments.size() == 4 )
-                    exception = "4";
-                
-                return true;
-                */
                 CefString funcName = arguments[0]->GetStringValue();
                 
-                /*if ( arguments[1]->IsFunction() ) {
-                    retval = CefV8Value::CreateObject( NULL, NULL );
-                    retval->SetValue("isCharging", CefV8Value::CreateBool(true), V8_PROPERTY_ATTRIBUTE_READONLY);
-                    retval->SetValue("level", CefV8Value::CreateUInt(0), V8_PROPERTY_ATTRIBUTE_READONLY);
-                    retval->SetValue("timeLeft",  CefV8Value::CreateUInt(1), V8_PROPERTY_ATTRIBUTE_READONLY );
-                    arguments[1]->ExecuteFunction(retval, arguments);
-                    return  true;
-                }*/
                 if ( funcName == "battery.getStatus" ) {
+
+                    CefRefPtr<CefDictionaryValue> result_dict = CefDictionaryValue::Create();
+                    result_dict->SetBool("isCharging", true);
+                    result_dict->SetInt("level", 0);
+                    result_dict->SetInt("timeLeft", 1);
                     
+                    CefRefPtr<CefDictionaryValue> objectJSON = CefDictionaryValue::Create();
+                    objectJSON->SetDictionary("Battery Status", result_dict);
                     
-                    CefRefPtr<CefV8Value> obj = CefV8Value::CreateObject( NULL, NULL );
-                    retval = CefV8Value::CreateObject( NULL, NULL );
-                    obj->SetValue("isCharging", CefV8Value::CreateBool(true), V8_PROPERTY_ATTRIBUTE_READONLY);
-                    obj->SetValue("level", CefV8Value::CreateUInt(0), V8_PROPERTY_ATTRIBUTE_READONLY);
-                    obj->SetValue("timeLeft",  CefV8Value::CreateUInt(1), V8_PROPERTY_ATTRIBUTE_READONLY );
-                    retval ->SetValue("BatteryStatus", obj, V8_PROPERTY_ATTRIBUTE_NONE );
+                    CefRefPtr<CefValue> value = CefValue::Create();
                     
-                    arguments[2]->ExecuteFunction(obj, arguments);
-                   
+                    value->SetDictionary(objectJSON);
+                    
+                    std::string json = CefWriteJSON(value, JSON_WRITER_DEFAULT);
+
+                    CefRefPtr<CefV8Value> cef8String = CefV8Value::CreateString(json);
+                    
+                    CefV8ValueList argsForCallback;
+                    argsForCallback.push_back(cef8String);
+                    
+                    arguments[2]->ExecuteFunction(nullptr, argsForCallback);
+  
                     return true;
                 }
                 else {
-                    exception = "123";
+                    exception = "unknown funcname";
                     return true;
                 }
                
@@ -124,9 +112,6 @@ void ClientAppRenderer::OnWebKitInitialized() {
     "  __macOsAppHostObject.handleBrowserRequest = function(namem, args,resolve, reject ) {"
     "    native function handleBrowserRequest();"
     "    return handleBrowserRequest(namem, args, resolve, reject);"
-  //  "    return new Promise(function(resolve, reject) {"
-  //  "    handleBrowserRequest(namem, args, resolve, reject);"
-   // "    })"
     "  };"
     "})();";
   
