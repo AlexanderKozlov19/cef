@@ -20,7 +20,7 @@
 
 namespace {
     
-//const char *pathTempFolder = "/Library/Caches/JanisonReplay";
+
 
 // Returns the top menu bar with the specified |tag|.
 NSMenuItem* GetMenuBarMenuWithTag(NSInteger tag) {
@@ -207,7 +207,7 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
             }
        
         }
-            NSLog(@"quit");
+           // NSLog(@"quit");
             break;
             
         case 2:
@@ -221,7 +221,7 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
             break;
     }
     
-    NSLog(@"hotkeyID.signature = %u:", hotKeyID.signature );
+  //  NSLog(@"hotkeyID.signature = %u:", hotKeyID.signature );
     
     return noErr;
 }
@@ -325,28 +325,9 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
     [self registerHotKeys];
 
 }
-/*
--(void)clearFolder:(NSString*)path {
-  
-    NSFileManager *fileManager = [[NSFileManager alloc] init];
-    NSDirectoryEnumerator *enumerator = [fileManager enumeratorAtPath:path];
-    NSString *file;
-    
-    while (file = [enumerator nextObject]) {
-        NSError *error = nil;
-        BOOL result = [fileManager removeItemAtPath:[path stringByAppendingPathComponent:file] error:&error];
-        
-        if (!result && error) {
-            NSLog(@"Error: %@", error);
-        }
-    }
-}
-*/
 
 - (void)tryToTerminateApplication:(NSApplication*)app {
   client::MainContext::Get()->GetRootWindowManager()->CloseAllWindows(false);
-  
- // [self clearFolder:@(pathTempFolder)];
 }
 
 - (void)orderFrontStandardAboutPanel:(id)sender {
@@ -518,10 +499,12 @@ int RunMain(int argc, char* argv[]) {
   [delegate performSelectorOnMainThread:@selector(createApplication:)
                              withObject:nil
                           waitUntilDone:NO];
-   
+  
+  workFolder = client::MainContext::Get()->GetAppWorkingDirectory() +"temp";
+    
   // Run the message loop. This will block until Quit() is called.
   int result = message_loop->Run();
-   
+    
   // Shut down CEF.
   context->Shutdown();
 
@@ -530,6 +513,21 @@ int RunMain(int argc, char* argv[]) {
   message_loop.reset();
   context.reset();
   [autopool release];
+    
+  NSString *folderForClean = [NSString stringWithCString:workFolder.c_str() encoding:[NSString defaultCStringEncoding]];
+    
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    NSDirectoryEnumerator *enumerator = [fileManager enumeratorAtPath:folderForClean];
+    NSString *file;
+    
+    while (file = [enumerator nextObject]) {
+     //   NSLog(@"%@", file );
+        if ( ![file containsString:@"Local Storage"]) {
+            NSError *error = nil;
+            [fileManager removeItemAtPath:[folderForClean stringByAppendingPathComponent:file] error:&error];
+
+        }
+    }
 
   return result;
 }
