@@ -19,7 +19,7 @@ void ClientAppRenderer::OnRenderThreadCreated(
   for (; it != delegates_.end(); ++it)
     (*it)->OnRenderThreadCreated(this, extra_info);
 }
-    
+   /*
     class MyV8Handler : public CefV8Handler {
     public:
         MyV8Handler() {}
@@ -40,15 +40,15 @@ void ClientAppRenderer::OnRenderThreadCreated(
 
                     CefRefPtr<CefDictionaryValue> result_dict = CefDictionaryValue::Create();
                     result_dict->SetBool("isCharging", true);
-                    result_dict->SetInt("level", 0);
-                    result_dict->SetInt("timeLeft", 1);
+                    result_dict->SetDouble( "level", 1);
+                    result_dict->SetDouble("timeLeft", 1);
                     
-                    CefRefPtr<CefDictionaryValue> objectJSON = CefDictionaryValue::Create();
-                    objectJSON->SetDictionary("Battery Status", result_dict);
+                    //CefRefPtr<CefDictionaryValue> objectJSON = CefDictionaryValue::Create();
+                    //objectJSON->SetDictionary("BatteryStatus", result_dict);
                     
                     CefRefPtr<CefValue> value = CefValue::Create();
                     
-                    value->SetDictionary(objectJSON);
+                    value->SetDictionary(result_dict);
                     
                     std::string json = CefWriteJSON(value, JSON_WRITER_DEFAULT);
 
@@ -61,10 +61,12 @@ void ClientAppRenderer::OnRenderThreadCreated(
   
                     return true;
                 }
-                else {
-                    exception = "unknown funcname";
+            else
+                if ( funcName == "hostApp.requestTermination" ) {
+                    exception = "Got";
                     return true;
                 }
+                    
                
                 // Return my string value.
                // exception = "1";
@@ -99,9 +101,9 @@ void ClientAppRenderer::OnRenderThreadCreated(
         // Provide the reference counting implementation for this class.
         IMPLEMENT_REFCOUNTING(MyV8Handler);
     };
-
+*/
 void ClientAppRenderer::OnWebKitInitialized() {
-    CefRefPtr<MyV8Handler> handlerExt = new MyV8Handler();
+   /* CefRefPtr<MyV8Handler> handlerExt = new MyV8Handler();
     
     std::string extensionCode =
 
@@ -117,7 +119,7 @@ void ClientAppRenderer::OnWebKitInitialized() {
   
     // Register the extension.
     CefRegisterExtension("__macOsAppHostObject", extensionCode, handlerExt);
-
+*/
     
   DelegateSet::iterator it = delegates_.begin();
   for (; it != delegates_.end(); ++it)

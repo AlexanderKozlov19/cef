@@ -107,6 +107,8 @@ class RootWindowManager : public RootWindow::Delegate {
   void OnRootWindowActivated(RootWindow* root_window) OVERRIDE;
   void OnBrowserCreated(RootWindow* root_window,
                         CefRefPtr<CefBrowser> browser) OVERRIDE;
+    
+  
   void CreateExtensionWindow(CefRefPtr<CefExtension> extension,
                              const CefRect& source_bounds,
                              CefRefPtr<CefWindow> parent_window,

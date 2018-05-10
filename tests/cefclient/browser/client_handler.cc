@@ -4,6 +4,8 @@
 
 #include "tests/cefclient/browser/client_handler.h"
 
+#include "tests/cefclient/QuitDialog/QuitDialogWrapper.h"
+
 #include <stdio.h>
 #include <algorithm>
 #include <iomanip>
@@ -49,7 +51,8 @@ enum client_menu_ids {
 
 // Musr match the value in client_renderer.cc.
 const char kFocusedNodeChangedMessage[] = "ClientRenderer.FocusedNodeChanged";
-
+const char kTerminateProcess[] = "ClientRenderer.TerminateProcess";
+    
 std::string GetTimeString(const CefTime& value) {
   if (value.GetTimeT() == 0)
     return "Unspecified";
@@ -299,6 +302,12 @@ bool ClientHandler::OnProcessMessageReceived(
     focus_on_editable_field_ = message->GetArgumentList()->GetBool(0);
     return true;
   }
+    
+    if ( message_name == kTerminateProcess) {
+        QuitDialogWrapper *quitDialog = new QuitDialogWrapper;
+        quitDialog->create();
+        return true;
+    }
 
   return false;
 }
