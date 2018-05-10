@@ -6,6 +6,7 @@
 //
 
 #import "SplashScreen.h"
+#import "tests/cefclient/AppBridgeSingleton/AppBridge.h"
 
 @interface SplashScreen ()
 
@@ -14,6 +15,7 @@
 @implementation SplashScreen
 
 @synthesize imageView;
+@synthesize versionField;
 
 - (void)windowDidLoad {
     [super windowDidLoad];
@@ -23,6 +25,8 @@
     NSImage *imageBack = [NSImage imageNamed:@"JanisonReplay.jpg"];
     imageBack.backgroundColor = [NSColor clearColor];
     [self.imageView setImage:imageBack];
+    NSString *version = [NSString stringWithFormat:@"v. %@", [[AppBridge sharedAppBridge] retrieveAppVersion]];
+    [self.versionField setStringValue: version];
    
     
    

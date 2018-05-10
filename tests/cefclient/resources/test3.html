@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      ng-app="testApp">
+<head>
+    <meta charset="utf-8" />
+    <title>JS APIs demo page</title>
+    <style type="text/css">.ng-cloak { display: none; }</style>
+    <!-- Include AngularJS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <!-- Include library AFTER angular script. -->
+    <script src="unified-app-bridge-angular.js"></script>
+</head>
+
+<body ng-controller="TestController as tc">
+
+<h1>Custom APIs Demo<span ng-cloak> for {{tc.platform}} platform</span></h1>
+<ul ng-cloak>
+    <li>
+        <h2>HostApp API</h2>
+        <ul>
+            <li>
+                <h3>App version</h3>
+                <p>{{tc.appVersion.number}} - {{tc.appVersion.name}}</p>
+            </li>
+            <li>
+                <h3>Device record</h3>
+                <p>{{tc.devRecord.id}} - {{tc.devRecord.name || 'no name'}}</p>
+            </li>
+            <li>
+                <h3>Events</h3>
+                <button type="button" ng-click="tc.initialize()">Initialize</button>
+                <button type="button" ng-click="tc.closeApp()">Close app</button>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <h2>Battery API</h2>
+        <ul>
+            <li>
+                <h3>Status</h3>
+                <ul>
+                    <li>Is charging: {{tc.battery.isCharging ? 'YES' : 'NO'}}</li>
+                    <li>Level: {{tc.battery.level ? (tc.battery.level * 100) + '%' : 'UNKNOWN'}}</li>
+                    <li>Time: {{tc.battery.timeLeft ? tc.battery.timeLeft + ' sec' : 'UNKNOWN'}}</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <h2>Keyboard Layout API</h2>
+        <ul>
+            <li>
+                <h3>List</h3>
+                <button type="button"
+                        ng-style="{color: tc.layout.id == item.id ? 'red' : 'black'}"
+                        ng-click="tc.selectLayout(item)"
+                        ng-repeat="item in tc.layouts">{{item.id}}</button>
+            </li>
+            <li>
+                <h3>Details</h3>
+                <p>id: {{tc.layout.id}}</p>
+                <p>code2: {{tc.layout.code2}}</p>
+                <p>code3: {{tc.layout.code3}}</p>
+                <p>languageName: {{tc.layout.languageName}}</p>
+                <p>languageNativeName: {{tc.layout.languageNativeName}}</p>
+                <p>cultureName: {{tc.layout.cultureName}}</p>
+                <p>cultureNativeName: {{tc.layout.cultureNativeName}}</p>
+            </li>
+            <li>
+                <h3>Type here</h3>
+                <input type="text" />
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+
+    angular
+        .module("testApp", ["jr-browser-api-extensions"])
+        .controller("TestController", TestController);
+
+    function TestController(jrHostApp, jrBattery, jrKeyboardLayout) {
+
+        const self = this;
+        self.platform = null;
+        self.appVersion = {};
+        self.devRecord = {};
+        self.battery = {};
+        self.layouts = [];
+        self.layout = null;
+        self.initialize = initialize;
+        self.closeApp = closeApp;
+        self.selectLayout = selectLayout;
+
+        init();
+
+        function init() {
+
+            jrHostApp.getPlatformName()
+                .then(r => self.platform = r, console.error);
+
+            jrHostApp.getAppVersionInfo()
+                .then(r => self.appVersion = r, console.error);
+
+            jrHostApp.getDeviceRecord()
+                .then(r => self.devRecord = r, console.error);
+
+            jrBattery.getStatus()
+                .then(r => self.battery = r, console.error);
+
+            jrKeyboardLayout.getLayouts()
+                .then(
+                    r => {
+                        self.layouts = r;
+                        jrKeyboardLayout.getCurrentLayoutId()
+                            .then(r => selectLayoutById(r), console.error);
+                    },
+                    console.error
+                );
+
+            jrBattery.onStatusChanged(r => self.battery = r)
+                .catch(console.error);
+
+            jrKeyboardLayout.onLayoutChanged(r => selectLayoutById(r.layoutId))
+                .catch(console.error);
+        }
+
+        function initialize() {
+            jrHostApp.notifyInitialized()
+                .catch(console.error);
+        }
+
+        function closeApp() {
+            jrHostApp.requestTermination()
+                .catch(console.error);
+        }
+
+        function selectLayoutById(id) {
+            for(let layout of self.layouts)
+                if (layout.id === id)
+                    self.layout = layout;
+        }
+
+        function selectLayout(layout) {
+            jrKeyboardLayout.trySetCurrentLayoutId(layout.id)
+                .then(
+                    r => selectLayoutById(r ? layout.id : (self.layout && self.layout.id)),
+                    console.error
+                );
+        }
+    }
+
+</script>
+
+</body>
+</html>

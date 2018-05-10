@@ -84,6 +84,8 @@ class RootWindowManager : public RootWindow::Delegate {
     
   void ReconfigurePage( void );
     
+  void NavigateToTestPage( void );
+    
   bool request_context_per_browser() const {
     return request_context_per_browser_;
   }

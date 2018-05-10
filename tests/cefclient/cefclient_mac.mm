@@ -6,8 +6,9 @@
 #import <Cocoa/Cocoa.h>
 #import <Carbon/Carbon.h>
 #include "include/cef_app.h"
-#import "include/cef_application_mac.h"
+#import  "include/cef_application_mac.h"
 #import  "tests/cefclient/SplashScreen/SplashScreen.h"
+#import  "tests/cefclient/AppBridgeSingleton/AppBridge.h"
 #include "tests/cefclient/browser/main_context_impl.h"
 #include "tests/cefclient/browser/resource.h"
 #include "tests/cefclient/browser/root_window.h"
@@ -16,7 +17,7 @@
 #include "tests/shared/browser/main_message_loop_external_pump.h"
 #include "tests/shared/browser/main_message_loop_std.h"
 #include "tests/shared/common/client_switches.h"
-#import  "tests/cefclient/QuitDialog/QuitDialog.h"
+
 
 namespace {
     
@@ -165,7 +166,7 @@ NSMenuItem* GetMenuItemWithAction(NSMenu* menu, SEL action_selector) {
 // hotkey handler
 OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *userData)
 {
-    static QuitDialog *quitDialog;
+    //static QuitDialog *quitDialog;
     OSStatus err;
     EventHotKeyID hotKeyID;
     
@@ -182,32 +183,7 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
     switch ( hotKeyID.id ) {
             
         case 1:
-        {
-            BOOL needShow = YES;
-            if ( quitDialog == nil ) {
-               quitDialog = [[QuitDialog alloc] initWithWindowNibName:@"QuitDialog"];
-            }
-            else
-                if ( quitDialog.window.visible  )
-                    needShow = NO;
-            
-            if ( needShow ) {
-                NSModalResponse modalResult = [[NSApplication sharedApplication] runModalForWindow:quitDialog.window];
-                
-                [quitDialog.window orderOut:nil];
-                
-                if ( modalResult == NSAlertFirstButtonReturn ) {
-                    client::MainContext::Get()->GetRootWindowManager()->QuitKioskMode();
-                    [[NSApplication sharedApplication] terminate:nil];
-                }
-                else
-                    if ( modalResult == NSAlertSecondButtonReturn ) {
-                        client::MainContext::Get()->GetRootWindowManager()->ReconfigurePage();
-                    }
-            }
-       
-        }
-           // NSLog(@"quit");
+            [[AppBridge sharedAppBridge] openDialog];
             break;
             
         case 2:

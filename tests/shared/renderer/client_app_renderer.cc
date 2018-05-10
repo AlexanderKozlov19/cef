@@ -5,8 +5,12 @@
 #include "tests/shared/renderer/client_app_renderer.h"
 
 #include "include/base/cef_logging.h"
+#include "tests/cefclient/renderer/appbridge_handler.cc"
+#include "include/cef_parser.h"
 
 namespace client {
+    
+const char kSetVersionInfo[] = "hostApp.getAppVersionInfo";
 
 ClientAppRenderer::ClientAppRenderer() {
   CreateDelegates(delegates_);
@@ -20,6 +24,24 @@ void ClientAppRenderer::OnRenderThreadCreated(
 }
 
 void ClientAppRenderer::OnWebKitInitialized() {
+    MyV8Handler *appBridgeHandler = new MyV8Handler( this );
+    
+    std::string extensionCode =
+    
+    "var __macOsAppHostObject;"
+    "if (!__macOsAppHostObject)"
+    "  __macOsAppHostObject = {};"
+    "(function() {"
+    "  __macOsAppHostObject.handleBrowserRequest = function(namem, args,resolve, reject ) {"
+    "    native function handleBrowserRequest();"
+    "    return handleBrowserRequest(namem, args, resolve, reject);"
+    "  };"
+    "})();";
+    
+    // Register the extension.
+    CefRegisterExtension("__macOsAppHostObject", extensionCode, appBridgeHandler);
+    
+    
   DelegateSet::iterator it = delegates_.begin();
   for (; it != delegates_.end(); ++it)
     (*it)->OnWebKitInitialized(this);
@@ -82,12 +104,62 @@ void ClientAppRenderer::OnFocusedNodeChanged(CefRefPtr<CefBrowser> browser,
   for (; it != delegates_.end(); ++it)
     (*it)->OnFocusedNodeChanged(this, browser, frame, node);
 }
+    
+    
+void ClientAppRenderer::SetMessageCallback(const std::string& message_name,
+                                       int browser_id,
+                                       CefRefPtr<CefV8Context> context,
+                                       CefRefPtr<CefV8Value> function) {
+        
+    callback_map_.insert( std::make_pair(std::make_pair(message_name, browser_id), std::make_pair(context, function)));
+}
 
 bool ClientAppRenderer::OnProcessMessageReceived(
     CefRefPtr<CefBrowser> browser,
     CefProcessId source_process,
     CefRefPtr<CefProcessMessage> message) {
   DCHECK_EQ(source_process, PID_BROWSER);
+    
+    std::string message_name = message->GetName();
+    
+    if ( message_name == kSetVersionInfo ) {
+        CefString verApp = message->GetArgumentList()->GetString(0);
+        
+        CefString message_name = message->GetName();
+        CallbackMap::const_iterator it = callback_map_.find( std::make_pair(message_name.ToString(), browser->GetIdentifier()));
+        
+        if (it != callback_map_.end()) {
+            // Enter the context.
+            it->second.first->Enter();
+            
+            CefRefPtr<CefDictionaryValue> result_dict = CefDictionaryValue::Create();
+            result_dict->SetNull("number");
+            result_dict->SetString( "name", verApp);
+            
+            CefRefPtr<CefValue> value = CefValue::Create();
+            
+            value->SetDictionary(result_dict);
+            
+            std::string json = CefWriteJSON(value, JSON_WRITER_DEFAULT);
+            
+            CefRefPtr<CefV8Value> cef8String = CefV8Value::CreateString(json);
+            
+            CefV8ValueList argsForCallback;
+            argsForCallback.push_back(cef8String);
+
+            
+            // Execute the callback.
+            CefRefPtr<CefV8Value> retval =
+            it->second.second->ExecuteFunction(NULL, argsForCallback);
+            
+            // Exit the context.
+            it->second.first->Exit();
+            
+            callback_map_.erase( it );
+        }
+        
+        return true;
+    }
 
   bool handled = false;
 

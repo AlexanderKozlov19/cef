@@ -121,6 +121,8 @@ set(CEFCLIENT_RENDERER_RENDERER_SRCS
   renderer/performance_test.h
   renderer/performance_test_setup.h
   renderer/performance_test_tests.cc
+  renderer/appbridge_handler.h
+  renderer/appbridge_handler.cc
   )
 source_group(cefclient\\\\renderer FILES ${CEFCLIENT_RENDERER_RENDERER_SRCS})
 
@@ -201,6 +203,14 @@ set(CEFCLIENT_QUITDIALOG
   )
 source_group(cefclient\\\\QuitDialog FILES ${CEFCLIENT_QUITDIALOG})
 
+set(CEFCLIENT_APPBRIDGE
+  AppBridgeSingleton/AppBridge.h
+  AppBridgeSingleton/AppBridge.mm
+  AppBridgeSingleton/AppBridgeWrapper.h
+  AppBridgeSingleton/AppBridgeWrapper.mm
+)
+source_group(cefclient\\\\AppBridgeSingleton FILES ${CEFCLIENT_APPBRIDGE})
+
 set(CEFCLIENT_MACOSX_BROWSER_SRCS
   browser/browser_window_osr_mac.h
   browser/browser_window_osr_mac.mm
@@ -236,6 +246,7 @@ set(CEFCLIENT_MACOSX_SRCS
   ${CEFCLIENT_MACOSX_SHARED_BROWSER_SRCS}
   ${CEFCLIENT_SPLASHSCREEN}
   ${CEFCLIENT_QUITDIALOG}
+  ${CEFCLIENT_APPBRIDGE}
   )
 
 # cefclient Mac OS X helper sources.
@@ -339,6 +350,9 @@ set(CEFCLIENT_RESOURCES_RESOURCES_SRCS
   resources/xmlhttprequest.html
   resources/index.html
   resources/JanisonReplay.jpg
+  resources/test3.html
+  resources/unified-app-bridge-angular.js
+  resources/unified-app-bridge.js
   )
 source_group(cefclient\\\\resources FILES ${CEFCLIENT_RESOURCES_RESOURCES_SRCS})
 

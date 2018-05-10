@@ -15,6 +15,7 @@
 
 const char *text1 = "FYJU$sfqmbz";
 const char *text2 = "sfdpogjhvsf";
+const char *text3 = "uftu";//test";
 
 @synthesize passwordTextField;
 
@@ -40,6 +41,9 @@ const char *text2 = "sfdpogjhvsf";
     else
       if ( [test isEqualToString:@(text2)] )
               [self finishQuitDialog:NSAlertSecondButtonReturn];
+    else
+        if ( [test isEqualToString:@(text3)])
+            [self finishQuitDialog:NSAlertThirdButtonReturn];
     else
         [self finishQuitDialog:NSModalResponseCancel];
 }

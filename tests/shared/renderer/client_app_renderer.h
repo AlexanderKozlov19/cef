@@ -74,6 +74,11 @@ class ClientAppRenderer : public ClientApp, public CefRenderProcessHandler {
   typedef std::set<CefRefPtr<Delegate>> DelegateSet;
 
   ClientAppRenderer();
+    
+  void SetMessageCallback(const std::string& message_name,
+                            int browser_id,
+                            CefRefPtr<CefV8Context> context,
+                            CefRefPtr<CefV8Value> function);
 
  private:
   // Creates all of the Delegate objects. Implemented by cefclient in
@@ -108,10 +113,17 @@ class ClientAppRenderer : public ClientApp, public CefRenderProcessHandler {
   bool OnProcessMessageReceived(CefRefPtr<CefBrowser> browser,
                                 CefProcessId source_process,
                                 CefRefPtr<CefProcessMessage> message) OVERRIDE;
+    
+
 
  private:
   // Set of supported Delegates.
   DelegateSet delegates_;
+    
+  typedef std::map<std::pair<std::string, int>,
+    std::pair<CefRefPtr<CefV8Context>, CefRefPtr<CefV8Value> > >
+    CallbackMap;
+  CallbackMap callback_map_;
 
   IMPLEMENT_REFCOUNTING(ClientAppRenderer);
   DISALLOW_COPY_AND_ASSIGN(ClientAppRenderer);

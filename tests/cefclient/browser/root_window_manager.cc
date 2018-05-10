@@ -165,6 +165,11 @@ void RootWindowManager::ReconfigurePage( void ) {
     CefString url = client::MainContext::Get()->GetMainURL() + "?pages=configure";
     main_window_->GetBrowser()->GetMainFrame()->LoadURL(url);
 }
+    
+void RootWindowManager::NavigateToTestPage( void ) {
+    CefString url = "file://"+client::MainContext::Get()->GetAppWorkingDirectory() + "Resources/test3.html";
+    main_window_->GetBrowser()->GetMainFrame()->LoadURL(url);
+}
 
 scoped_refptr<RootWindow> RootWindowManager::CreateRootWindowAsPopup(
     bool with_controls,

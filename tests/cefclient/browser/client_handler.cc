@@ -24,6 +24,8 @@
 #include "tests/shared/browser/resource_util.h"
 #include "tests/shared/common/client_switches.h"
 
+#include "tests/cefclient/AppBridgeSingleton/AppBridgeWrapper.h"
+
 namespace client {
 
 #if defined(OS_WIN)
@@ -49,6 +51,9 @@ enum client_menu_ids {
 
 // Musr match the value in client_renderer.cc.
 const char kFocusedNodeChangedMessage[] = "ClientRenderer.FocusedNodeChanged";
+const char kAskAdminPassword[] = "AppBridge.AskAmdinPassword";
+const char kGetVersionInfo[] = "AppBridge.getAppVersionInfo";
+const char kSetVersionInfo[] = "hostApp.getAppVersionInfo";
 
 std::string GetTimeString(const CefTime& value) {
   if (value.GetTimeT() == 0)
@@ -297,8 +302,27 @@ bool ClientHandler::OnProcessMessageReceived(
     // is redundant with CefKeyEvent.focus_on_editable_field in OnPreKeyEvent
     // but is useful for demonstration purposes.
     focus_on_editable_field_ = message->GetArgumentList()->GetBool(0);
+      
     return true;
   }
+    
+    if ( message_name == kAskAdminPassword ) {
+        AppBridgeWrapper::terminateApp();
+        return true;
+    }
+    
+    if ( message_name == kGetVersionInfo ) {
+        const char *strRes = AppBridgeWrapper::retrieveAppVersionForBridge();
+        
+        std::string appVer( strRes );
+        
+        CefRefPtr<CefProcessMessage> message =
+        CefProcessMessage::Create(kSetVersionInfo);
+        message->GetArgumentList()->SetString(0, appVer);
+        browser->SendProcessMessage(PID_RENDERER, message);
+        
+        return true;
+    }
 
   return false;
 }

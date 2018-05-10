@@ -9,6 +9,6 @@
 
 @interface SplashScreen : NSWindowController
 @property (assign) IBOutlet NSImageView *imageView;
-
+@property (unsafe_unretained) IBOutlet NSTextField *versionField;
 
 @end
