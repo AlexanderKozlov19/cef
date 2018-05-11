@@ -453,7 +453,8 @@ int RunMain(int argc, char* argv[]) {
   std::string workFolder = context->GetAppWorkingDirectory() +"temp";
     
   CefString(&settings.cache_path).FromString( workFolder );
-
+    
+  settings.no_sandbox = true;
 
   // Create the main message loop object.
   scoped_ptr<MainMessageLoop> message_loop;

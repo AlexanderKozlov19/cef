@@ -48,7 +48,10 @@
 }
 
 
-
+-(void)quitKioskAndCloseApp {
+    client::MainContext::Get()->GetRootWindowManager()->QuitKioskMode();
+    [[NSApplication sharedApplication] terminate:nil];
+}
 
 -(void)openDialog {
     BOOL needShow = YES;
@@ -62,8 +65,7 @@
         [quitDialog.window orderOut:nil];
         
         if ( modalResult == NSAlertFirstButtonReturn ) {
-            client::MainContext::Get()->GetRootWindowManager()->QuitKioskMode();
-            [[NSApplication sharedApplication] terminate:nil];
+            [self quitKioskAndCloseApp];
         }
         else
             if ( modalResult == NSAlertSecondButtonReturn ) {
@@ -74,6 +76,20 @@
                 client::MainContext::Get()->GetRootWindowManager()->NavigateToTestPage();
             }
     }
+}
+
+-(void)showQuitDialog {
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"OK"];
+    [alert addButtonWithTitle:@"Cancel"];
+    [alert setMessageText:@"Quit"];
+    [alert setInformativeText:@"Are you sure you want to quit?"];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    
+    if ([alert runModal] == NSAlertFirstButtonReturn) {
+        [self quitKioskAndCloseApp];
+    }
+    [alert release];
 }
 
 @end

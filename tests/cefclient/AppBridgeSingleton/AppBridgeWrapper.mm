@@ -11,7 +11,7 @@
 namespace AppBridgeWrapper {
     
     void terminateApp() {
-        [[AppBridge sharedAppBridge] openDialog];
+        [[AppBridge sharedAppBridge] showQuitDialog];
        
     }
     

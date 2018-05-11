@@ -12,6 +12,7 @@
 +(id)sharedAppBridge;
 
 -(void)openDialog;
+-(void)showQuitDialog;
 
 -(NSString*)retrieveAppVersion;
 
