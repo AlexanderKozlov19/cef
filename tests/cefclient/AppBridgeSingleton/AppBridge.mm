@@ -77,7 +77,7 @@
         pSource = IOPSGetPowerSourceDescription(blob, CFArrayGetValueAtIndex(sources, i));
         if (!pSource) return;
         
-        psValue = CFDictionaryGetValue(pSource, CFSTR(kIOPSIsChargedKey));
+        psValue = CFDictionaryGetValue(pSource, CFSTR(kIOPSIsChargingKey));
         batteryInfo.isCharging = CFBooleanGetValue( (CFBooleanRef)psValue );
         
         int curCapacity = 0;
