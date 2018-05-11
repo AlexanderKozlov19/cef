@@ -18,7 +18,6 @@
 #include "tests/shared/browser/main_message_loop.h"
 #include "tests/shared/common/client_switches.h"
 
-
 // Receives notifications from controls and the browser window. Will delete
 // itself when done.
 @interface RootWindowDelegate : NSObject<NSWindowDelegate> {
@@ -532,6 +531,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
       
             
   [window_ setTitle:@"cefclient"];
+  [window_ setSharingType:NSWindowSharingNone];
 
   // Create the delegate for control and browser window events.
   RootWindowDelegate* delegate =
@@ -542,6 +542,18 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
   // everything from the autorelease pool so the window isn't on the stack
   // during cleanup (ie, a window close from javascript).
   [window_ setReleasedWhenClosed:NO];
+    
+    
+     if (!initially_hidden) {
+     // Show the window.
+     Show(ShowNormal);
+     
+     // Size the window.
+     SetBounds(x, y, width, height);
+     }
+ 
+    
+
 
   const cef_color_t background_color = MainContext::Get()->GetBackgroundColor();
   [window_
@@ -641,8 +653,9 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
       
       NSDictionary *fullScreenOptions =  @{NSFullScreenModeApplicationPresentationOptions: @(presentationOptions)};
       
-     [window_.contentView enterFullScreenMode:[NSScreen mainScreen] withOptions: fullScreenOptions];
-      
+     [window_.contentView enterFullScreenMode
+      :[NSScreen mainScreen] withOptions: fullScreenOptions];
+     
      // [window_ makeMainWindow];
       [window_ setLevel:NSFloatingWindowLevel];
       
@@ -696,8 +709,8 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
         // Size the window.
            SetBounds(x, y, width, height);
     }
-*/
-
+  */
+ 
  
 }
     

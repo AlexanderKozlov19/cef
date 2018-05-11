@@ -191,6 +191,13 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
 
             break;
             
+        case 3:
+        case 4:
+        case 5:
+            NSLog(@"screenshot");
+            return 1;
+            break;
+            
             
         default:
             NSLog(@"unknown key");
@@ -224,6 +231,18 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
     hotKeyID.signature = '2';
     hotKeyID.id = 2;
     RegisterEventHotKey(kVK_F12, 0, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
+    
+    hotKeyID.signature = '3';
+    hotKeyID.id = 3;
+    RegisterEventHotKey(kVK_ANSI_4, cmdKey + shiftKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
+    
+    hotKeyID.signature = '4';
+    hotKeyID.id = 4;
+    RegisterEventHotKey(kVK_ANSI_3, cmdKey + shiftKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
+    
+    hotKeyID.signature = '5';
+    hotKeyID.id = 5;
+    RegisterEventHotKey(kVK_ANSI_6, cmdKey + shiftKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
     
 }
 
