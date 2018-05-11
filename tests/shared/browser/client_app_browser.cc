@@ -55,7 +55,8 @@ void ClientAppBrowser::OnBeforeCommandLineProcessing(
     }
       
     command_line->AppendSwitch("enable-media-stream");
-    //  command_line->AppendSwitch("allow-file-access-from-files");
+    command_line->AppendSwitch("proxy-auto-detect");
+
 
     DelegateSet::iterator it = delegates_.begin();
     for (; it != delegates_.end(); ++it)
