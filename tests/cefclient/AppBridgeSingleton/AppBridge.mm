@@ -7,6 +7,9 @@
 #import <Cocoa/Cocoa.h>
 #import "AppBridge.h"
 #import "tests/cefclient/QuitDialog/QuitDialog.h"
+#include <IOKit/ps/IOPowerSources.h>
+#include <IOKit/ps/IOPSKeys.h>
+
 #include "include/cef_app.h"
 #import  "include/cef_application_mac.h"
 #include "tests/cefclient/browser/main_context_impl.h"
@@ -21,6 +24,16 @@
 @implementation AppBridge {
     QuitDialog *quitDialog;
     NSString *appVersion;
+    
+    struct BatteryInfo {
+        bool isCharging;
+        double percentage;
+        unsigned int timeLeft;
+        
+    };
+    
+    BatteryInfo batteryInfo;
+    BatteryInfo *currentBatteryState;
 }
 
 +(id)sharedAppBridge {
@@ -40,7 +53,65 @@
 -(id)init {
     quitDialog = [[QuitDialog alloc] initWithWindowNibName:@"QuitDialog"];
     appVersion = [NSString stringWithFormat:@"%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
+    
+    [self retrieveBatteryStatus];
+  
     return self;
+}
+
+-(void)retrieveBatteryStatus {
+    
+    currentBatteryState = NULL;
+    
+    CFTypeRef blob = IOPSCopyPowerSourcesInfo();
+    CFArrayRef sources = IOPSCopyPowerSourcesList(blob);
+    
+    int numOfSources = CFArrayGetCount(sources);
+    if (numOfSources == 0) return ;
+    
+    CFDictionaryRef pSource = NULL;
+    const void *psValue;
+    
+    for (int i = 0 ; i < numOfSources ; i++)
+    {
+        pSource = IOPSGetPowerSourceDescription(blob, CFArrayGetValueAtIndex(sources, i));
+        if (!pSource) return;
+        
+        psValue = CFDictionaryGetValue(pSource, CFSTR(kIOPSIsChargedKey));
+        batteryInfo.isCharging = CFBooleanGetValue( (CFBooleanRef)psValue );
+        
+        int curCapacity = 0;
+        int maxCapacity = 0;
+        
+        psValue = CFDictionaryGetValue(pSource, CFSTR(kIOPSCurrentCapacityKey));
+        CFNumberGetValue((CFNumberRef)psValue, kCFNumberSInt32Type, &curCapacity);
+        
+        psValue = CFDictionaryGetValue(pSource, CFSTR(kIOPSMaxCapacityKey));
+        CFNumberGetValue((CFNumberRef)psValue, kCFNumberSInt32Type, &maxCapacity);
+        
+        batteryInfo.percentage = ((double)curCapacity/(double)maxCapacity);
+        
+        int timeLeft;
+        
+        psValue = CFDictionaryGetValue(pSource, CFSTR(kIOPSTimeToEmptyKey));
+        CFNumberGetValue((CFNumberRef)psValue, kCFNumberIntType, &timeLeft);
+        batteryInfo.timeLeft = timeLeft * 60;
+        
+        
+    }
+    
+    currentBatteryState = &batteryInfo;
+    [self startBatteryService];
+    
+    
+}
+
+-(void)startBatteryService {
+    
+}
+
+-(void*)retrieveBatteryInfo {
+    return currentBatteryState;
 }
 
 -(NSString*) retrieveAppVersion {

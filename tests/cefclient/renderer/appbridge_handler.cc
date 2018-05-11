@@ -24,6 +24,7 @@ namespace client {
         
     const char kAskAdminPassword[] = "AppBridge.AskAmdinPassword";
     const char kGetVersionInfo[] = "AppBridge.getAppVersionInfo";
+    const char kRetrieveBatteryInfo[] = "battery.getStatus";
    
         
             
@@ -41,7 +42,19 @@ namespace client {
         
         if ( funcName == "battery.getStatus" ) {
             
-            CefRefPtr<CefDictionaryValue> result_dict = CefDictionaryValue::Create();
+            std::string name = funcName;
+            CefRefPtr<CefV8Context> context = CefV8Context::GetCurrentContext();
+            int browser_id = context->GetBrowser()->GetIdentifier();
+            client_app_->SetMessageCallback(name, browser_id, context,
+                                            arguments[2]);
+            
+            CefRefPtr<CefProcessMessage> message =
+            CefProcessMessage::Create(kRetrieveBatteryInfo);
+            
+            CefRefPtr<CefBrowser> browser = CefV8Context::GetCurrentContext()->GetBrowser();
+            browser->SendProcessMessage(PID_BROWSER, message);
+            
+           /* CefRefPtr<CefDictionaryValue> result_dict = CefDictionaryValue::Create();
             result_dict->SetBool("isCharging", true);
             result_dict->SetDouble( "level", 1);
             result_dict->SetDouble("timeLeft", 1);
@@ -61,6 +74,7 @@ namespace client {
             argsForCallback.push_back(cef8String);
             
             arguments[2]->ExecuteFunction(nullptr, argsForCallback);
+            */
             
             return true;
         }

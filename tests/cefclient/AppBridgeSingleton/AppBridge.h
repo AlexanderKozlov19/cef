@@ -15,6 +15,7 @@
 -(void)showQuitDialog;
 
 -(NSString*)retrieveAppVersion;
+-(void*)retrieveBatteryInfo;
 
 
 

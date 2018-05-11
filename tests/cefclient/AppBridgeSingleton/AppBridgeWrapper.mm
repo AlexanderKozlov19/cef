@@ -19,4 +19,10 @@ namespace AppBridgeWrapper {
         const char *str = [[[AppBridge sharedAppBridge] retrieveAppVersion] UTF8String];
         return str ;
     }
+    
+    void *retrieveBatteryInfo() {
+        void *result = [[AppBridge sharedAppBridge] retrieveBatteryInfo];
+        
+        return result;
+    }
 }

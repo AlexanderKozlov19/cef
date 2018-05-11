@@ -160,6 +160,60 @@ bool ClientAppRenderer::OnProcessMessageReceived(
         
         return true;
     }
+    
+    if ( message_name == kRetrieveBatteryInfo ) {
+        bool isPresent = message->GetArgumentList()->GetBool(0);
+        
+        CefString verApp = message->GetArgumentList()->GetString(0);
+        
+        CefString message_name = message->GetName();
+        CallbackMap::const_iterator it = callback_map_.find( std::make_pair(message_name.ToString(), browser->GetIdentifier()));
+        
+        if (it != callback_map_.end()) {
+            // Enter the context.
+            it->second.first->Enter();
+            
+            CefRefPtr<CefDictionaryValue> result_dict = CefDictionaryValue::Create();
+            if ( isPresent ) {
+                bool isCharging = message->GetArgumentList()->GetBool(1);
+                result_dict->SetBool("isCharging", isCharging);
+                double percentage = message->GetArgumentList()->GetDouble(2);
+                result_dict->SetDouble("level", percentage);
+                unsigned int seconds = message->GetArgumentList()->GetInt(3);
+                result_dict->SetInt("timeLeft", seconds);
+            }
+            else {
+                result_dict->SetBool("isCharging", true);
+                result_dict->SetNull("level");
+                result_dict->SetNull("timeLeft");
+            }
+           
+            
+            CefRefPtr<CefValue> value = CefValue::Create();
+            
+            value->SetDictionary(result_dict);
+            
+            std::string json = CefWriteJSON(value, JSON_WRITER_DEFAULT);
+            
+            CefRefPtr<CefV8Value> cef8String = CefV8Value::CreateString(json);
+            
+            CefV8ValueList argsForCallback;
+            argsForCallback.push_back(cef8String);
+            
+            
+            // Execute the callback.
+            CefRefPtr<CefV8Value> retval =
+            it->second.second->ExecuteFunction(NULL, argsForCallback);
+            
+            // Exit the context.
+            it->second.first->Exit();
+            
+            callback_map_.erase( it );
+        }
+        
+        
+        return true;
+    }
 
   bool handled = false;
 

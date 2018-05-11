@@ -374,6 +374,13 @@ class ClientHandler : public CefClient,
 
   // Set of Handlers registered with the message router.
   MessageHandlerSet message_handler_set_;
+                          
+  struct BatteryInfo {
+      bool isCharging;
+      double percentage;
+      unsigned int timeLeft;
+      
+  };
 
   DISALLOW_COPY_AND_ASSIGN(ClientHandler);
 };

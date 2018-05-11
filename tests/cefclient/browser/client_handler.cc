@@ -54,6 +54,7 @@ const char kFocusedNodeChangedMessage[] = "ClientRenderer.FocusedNodeChanged";
 const char kAskAdminPassword[] = "AppBridge.AskAmdinPassword";
 const char kGetVersionInfo[] = "AppBridge.getAppVersionInfo";
 const char kSetVersionInfo[] = "hostApp.getAppVersionInfo";
+const char kRetrieveBatteryInfo[] = "battery.getStatus";
 
 std::string GetTimeString(const CefTime& value) {
   if (value.GetTimeT() == 0)
@@ -323,6 +324,30 @@ bool ClientHandler::OnProcessMessageReceived(
         
         return true;
     }
+    
+    if ( message_name == kRetrieveBatteryInfo ) {
+        void *res = AppBridgeWrapper::retrieveBatteryInfo();
+        
+        CefRefPtr<CefProcessMessage> message =
+        CefProcessMessage::Create(kRetrieveBatteryInfo);
+        
+        if ( res == NULL) { // no battery
+            message->GetArgumentList()->SetBool(0, false);  // 1st - is battery present
+        }
+        else {
+            message->GetArgumentList()->SetBool(0, true);  // 1st - is battery present
+            BatteryInfo *batteryInfo = (BatteryInfo*)res;
+            message->GetArgumentList()->SetBool(1, batteryInfo->isCharging);
+            message->GetArgumentList()->SetDouble(2, batteryInfo->percentage);
+            message->GetArgumentList()->SetInt(3, batteryInfo->timeLeft);
+            
+            
+        }
+        
+        browser->SendProcessMessage(PID_RENDERER, message);
+        
+        return true;
+    }
 
   return false;
 }
@@ -513,7 +538,7 @@ bool ClientHandler::OnPreKeyEvent(CefRefPtr<CefBrowser> browser,
                                   bool* is_keyboard_shortcut) {
   CEF_REQUIRE_UI_THREAD();
 
-  if (!event.focus_on_editable_field && event.windows_key_code == 0x20) {
+ /* if (!event.focus_on_editable_field && event.windows_key_code == 0x20) {
     // Special handling for the space character when an input element does not
     // have focus. Handling the event in OnPreKeyEvent() keeps the event from
     // being processed in the renderer. If we instead handled the event in the
@@ -523,7 +548,7 @@ bool ClientHandler::OnPreKeyEvent(CefRefPtr<CefBrowser> browser,
       test_runner::Alert(browser, "You pressed the space bar!");
     return true;
   }
-
+*/
   return false;
 }
 
