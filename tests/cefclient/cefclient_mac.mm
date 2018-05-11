@@ -190,13 +190,7 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
             client::MainContext::Get()->GetRootWindowManager()->ShowDevTools();
 
             break;
-            
-        case 3:
-        case 4:
-        case 5:
-            NSLog(@"screenshot");
-            return 1;
-            break;
+
             
             
         default:
@@ -232,23 +226,21 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
     hotKeyID.id = 2;
     RegisterEventHotKey(kVK_F12, 0, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
     
-    hotKeyID.signature = '3';
-    hotKeyID.id = 3;
-    RegisterEventHotKey(kVK_ANSI_4, cmdKey + shiftKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
-    
-    hotKeyID.signature = '4';
-    hotKeyID.id = 4;
-    RegisterEventHotKey(kVK_ANSI_3, cmdKey + shiftKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
-    
-    hotKeyID.signature = '5';
-    hotKeyID.id = 5;
-    RegisterEventHotKey(kVK_ANSI_6, cmdKey + shiftKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef);
-    
 }
 
 // Create the application on the UI thread.
 - (void)createApplication:(id)object {
   NSApplication* application = [NSApplication sharedApplication];
+    
+    NSApplicationPresentationOptions presentationOptions = (NSApplicationPresentationHideDock |
+                                                            NSApplicationPresentationHideMenuBar |
+                                                            NSApplicationPresentationDisableAppleMenu |
+                                                            NSApplicationPresentationDisableProcessSwitching |
+                                                            NSApplicationPresentationDisableForceQuit |
+                                                            NSApplicationPresentationDisableSessionTermination |
+                                                            NSApplicationPresentationDisableHideApplication );
+    
+    [NSApp setPresentationOptions:presentationOptions];
 
   // The top menu is configured using Interface Builder (IB). To modify the menu
   // start by loading MainMenu.xib in IB.

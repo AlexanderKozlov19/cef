@@ -458,7 +458,8 @@ void RootWindowMac::ShowDevTools() {
 }
     
 void RootWindowMac::QuitKioskMode( void ) {
-  [[window_ contentView] exitFullScreenModeWithOptions:nil];
+  //[[window_ contentView] exitFullScreenModeWithOptions:nil];
+     [window_ toggleFullScreen:nil];
 }
 
 void RootWindowMac::WindowDestroyed() {
@@ -506,9 +507,9 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
             break;
         }
     
-  NSRect screen_rect = [browserScreen visibleFrame];
+  NSRect screen_rect = [browserScreen frame];
   NSRect window_rect =
-      NSMakeRect(x, screen_rect.size.height - y, width, height);
+      NSMakeRect(screen_rect.origin.x, screen_rect.origin.y, width, height);
   window_ = [[UnderlayOpenGLHostingWindow alloc]
       initWithContentRect:window_rect
                 styleMask:(NSTitledWindowMask | NSClosableWindowMask |
@@ -519,14 +520,17 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
              screen:browserScreen
              ];
     
+
   NSWindow* blankWindow = nil;
   if ( blankScreen != nil ) {
-    
-        blankWindow = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, [blankScreen frame].size.width, [blankScreen frame].size.height )
-                                                 styleMask:NSBorderlessWindowMask
+      NSRect rect2 = [blankScreen frame];
+      blankWindow = [[NSWindow alloc] initWithContentRect:NSMakeRect(rect2.origin.x, rect2.origin.y, rect2.size.width, rect2.size.height)
+                                                  styleMask:NSWindowStyleMaskBorderless
                                                    backing:NSBackingStoreBuffered
                                                      defer:NO
                                                     screen:blankScreen];
+      [blankWindow setSharingType:NSWindowSharingNone];
+      [blankWindow setFrame:rect2 display:YES];
    }
       
             
@@ -543,18 +547,6 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
   // during cleanup (ie, a window close from javascript).
   [window_ setReleasedWhenClosed:NO];
     
-    
-     if (!initially_hidden) {
-     // Show the window.
-     Show(ShowNormal);
-     
-     // Size the window.
-     SetBounds(x, y, width, height);
-     }
- 
-    
-
-
   const cef_color_t background_color = MainContext::Get()->GetBackgroundColor();
   [window_
       setBackgroundColor:[NSColor
@@ -643,7 +635,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
 
   if (!is_popup_) {
     // Create the browser window.
-      NSApplicationPresentationOptions presentationOptions = (NSApplicationPresentationHideDock |
+    /*  NSApplicationPresentationOptions presentationOptions = (NSApplicationPresentationHideDock |
                                                               NSApplicationPresentationHideMenuBar |
                                                               NSApplicationPresentationDisableAppleMenu |
                                                               NSApplicationPresentationDisableProcessSwitching |
@@ -655,9 +647,15 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
       
      [window_.contentView enterFullScreenMode
       :[NSScreen mainScreen] withOptions: fullScreenOptions];
-     
+     */
      // [window_ makeMainWindow];
-      [window_ setLevel:NSFloatingWindowLevel];
+      [window_ toggleFullScreen:nil];
+    //  [window_ setLevel:NSFloatingWindowLevel];
+      
+   //   Show(ShowNormal);
+      
+      // Size the window.
+      //SetBounds(x, y, width, height);
       
       contentBounds = [contentView bounds];
       width = contentBounds.size.width;
@@ -680,7 +678,10 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
      
       if ( blankWindow != nil ) {
           [blankWindow makeKeyAndOrderFront:nil];
-          [blankWindow setLevel:NSFloatingWindowLevel];
+         // [blankWindow setLevel:NSFloatingWindowLevel];
+          
+         // [blankWindow.contentView enterFullScreenMode:blankScreen withOptions:nil];
+          //[blankWindow toggleFullScreen:nil];
       }
       
 
