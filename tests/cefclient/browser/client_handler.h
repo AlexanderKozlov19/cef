@@ -378,7 +378,7 @@ class ClientHandler : public CefClient,
   struct BatteryInfo {
       bool isCharging;
       double percentage;
-      unsigned int timeLeft;
+      int timeLeft;
       
   };
 

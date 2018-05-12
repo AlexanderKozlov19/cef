@@ -28,7 +28,7 @@
     struct BatteryInfo {
         bool isCharging;
         double percentage;
-        unsigned int timeLeft;
+        int timeLeft;
         
     };
     
@@ -56,6 +56,8 @@
     appVersion = [NSString stringWithFormat:@"%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
     
     [self retrieveBatteryStatus];
+    if ( currentBatteryState )  // if battery is present
+         [self startBatteryService];
   
     return self;
 }
@@ -98,11 +100,13 @@
         CFNumberGetValue((CFNumberRef)psValue, kCFNumberIntType, &timeLeft);
         batteryInfo.timeLeft = timeLeft * 60;
         
+     //   NSLog(@"charging: %d percantage = %f timeLeft = %ud", batteryInfo.isCharging, batteryInfo.percentage, batteryInfo.timeLeft);
+        
         
     }
     
     currentBatteryState = &batteryInfo;
-    [self startBatteryService];
+   
     
     
 }
@@ -124,6 +128,8 @@ void powerSourceChange(void* context) {
 }
 
 -(void*)retrieveBatteryInfo {
+    if ( currentBatteryState && ( currentBatteryState->timeLeft < 0) )
+        [self retrieveBatteryStatus];
     return currentBatteryState;
 }
 
