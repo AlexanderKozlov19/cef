@@ -5,6 +5,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <Carbon/Carbon.h>
+#import <CommonCrypto/CommonDigest.h>
 #include "include/cef_app.h"
 #import  "include/cef_application_mac.h"
 #import  "tests/cefclient/SplashScreen/SplashScreen.h"
@@ -228,6 +229,51 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
     
 }
 
+-(BOOL)checkHashForIndex {
+    
+    BOOL resultCheck = YES;
+    
+    NSString *indexH = @"967ef8ac3cf951039c191c056f1e251f";
+    
+    std::string url = client::MainContext::Get()->GetAppWorkingDirectory() + "Resources/index.html";
+    NSString *indexHtml = [ NSString stringWithContentsOfFile:@(url.c_str()) encoding:NSUTF8StringEncoding error:NULL];
+    
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5([indexHtml UTF8String], indexHtml.length, result );
+    
+    NSMutableString *stringHash = [[NSMutableString alloc] init];
+    for ( int i = 0; i <CC_MD5_DIGEST_LENGTH; i++ )
+        [stringHash appendFormat:@"%02x", result[i]];
+    
+    if ( ![stringHash isEqualToString:indexH] ) {
+        NSArray *windowsArray = [[NSApplication sharedApplication] windows];
+        for ( NSWindow *win in windowsArray ) {
+            if ( [win.title isEqualToString:@"Janison Replay"]) {
+                [win orderOut:nil];
+                break;
+            }
+        }
+        
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"OK"];
+        [alert setMessageText:@"Error"];
+        [alert setInformativeText:@"Index.html was changed!"];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        
+        [alert runModal];
+        [alert release];
+        
+        resultCheck = NO;
+    }
+    
+    
+    NSLog(@"%@", stringHash);
+    
+    return resultCheck;
+    
+    
+}
+
 // Create the application on the UI thread.
 - (void)createApplication:(id)object {
   NSApplication* application = [NSApplication sharedApplication];
@@ -281,6 +327,13 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
 
   // Set the delegate for application events.
   [application setDelegate:self];
+    
+  BOOL res = [self checkHashForIndex];
+    if ( !res ) {
+        [[NSApplication sharedApplication] terminate:nil];
+        client::MainMessageLoop::Get()->Quit();
+        return;
+    }
     
    
 
