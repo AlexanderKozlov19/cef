@@ -17,6 +17,7 @@
 -(NSString*)retrieveAppVersion;
 -(void*)retrieveBatteryInfo;
 
+void powerSourceChange(void* context);
 
 
 @end

@@ -34,6 +34,7 @@
     
     BatteryInfo batteryInfo;
     BatteryInfo *currentBatteryState;
+    CFRunLoopSourceRef runLoopSource;
 }
 
 +(id)sharedAppBridge {
@@ -106,7 +107,19 @@
     
 }
 
+void powerSourceChange(void* context) {
+  /*  NSArray* args = [NSArray arrayWithObjects: @"Power Source has changed!", nil];
+    id win = [[(PowerSourceInfoWorker*)context webView] windowScriptObject];
+    [win callWebScriptMethod:@"jsCallback" withArguments:args];
+   */
+    [(AppBridge*)context retrieveBatteryStatus];
+}
+
 -(void)startBatteryService {
+    runLoopSource = (CFRunLoopSourceRef)IOPSNotificationCreateRunLoopSource(powerSourceChange, self);
+    if(runLoopSource) {
+        CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, kCFRunLoopDefaultMode);
+    }
     
 }
 
