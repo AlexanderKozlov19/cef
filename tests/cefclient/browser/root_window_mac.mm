@@ -652,7 +652,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
       [window_ toggleFullScreen:nil];
     //  [window_ setLevel:NSFloatingWindowLevel];
       
-   //   Show(ShowNormal);
+     // Show(ShowNormal);
       
       // Size the window.
       //SetBounds(x, y, width, height);

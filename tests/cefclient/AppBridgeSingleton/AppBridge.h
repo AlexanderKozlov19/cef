@@ -17,6 +17,8 @@
 -(NSString*)retrieveAppVersion;
 -(void*)retrieveBatteryInfo;
 -(const char*)retrieveJSONLayouts;
+-(bool)selectKeyboardLayout:(const char*)codeLayoutJSON;
+-(const char*)retrieveCurrentLayout:(BOOL)inDictionary;
 
 void powerSourceChange(void* context);
 

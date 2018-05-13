@@ -86,6 +86,8 @@ class RootWindowManager : public RootWindow::Delegate {
     
   void NavigateToTestPage( void );
     
+  void SendCallbackMessage( const char *apiName, const char *eventName, const char *args );
+    
   bool request_context_per_browser() const {
     return request_context_per_browser_;
   }

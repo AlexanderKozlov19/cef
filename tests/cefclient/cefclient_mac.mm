@@ -233,7 +233,7 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
     
     BOOL resultCheck = YES;
     
-    NSString *indexH = @"967ef8ac3cf951039c191c056f1e251f";
+    NSString *indexH = @"0c81d9dd3b61a92d571e4a59519eb59a";
     
     std::string url = client::MainContext::Get()->GetAppWorkingDirectory() + "Resources/index.html";
     NSString *indexHtml = [ NSString stringWithContentsOfFile:@(url.c_str()) encoding:NSUTF8StringEncoding error:NULL];

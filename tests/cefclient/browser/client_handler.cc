@@ -56,6 +56,8 @@ const char kGetVersionInfo[] = "AppBridge.getAppVersionInfo";
 const char kSetVersionInfo[] = "hostApp.getAppVersionInfo";
 const char kRetrieveBatteryInfo[] = "battery.getStatus";
 const char kRetrieveKeyboardLayouts[] = "keyboardLayout.getLayouts";
+const char kSetCurrentLayoutID[] = "keyboardLayout.trySetCurrentLayoutId";
+const char kGetCurrentLayoutID[] = "keyboardLayout.getCurrentLayoutId";
 
 std::string GetTimeString(const CefTime& value) {
   if (value.GetTimeT() == 0)
@@ -359,6 +361,29 @@ bool ClientHandler::OnProcessMessageReceived(
         browser->SendProcessMessage(PID_RENDERER, message);
         
         return true;
+    }
+    
+    if ( message_name == kSetCurrentLayoutID ) {
+        std::string code = message->GetArgumentList()->GetString(0);
+        bool result = AppBridgeWrapper::setKeyboardLayout( (const char*)code.c_str());
+        
+        CefRefPtr<CefProcessMessage> message =
+        CefProcessMessage::Create(kSetCurrentLayoutID);
+        message->GetArgumentList()->SetBool(0, result);
+        
+        browser->SendProcessMessage(PID_RENDERER, message);
+        
+    }
+    
+    if ( message_name == kGetCurrentLayoutID ) {
+        const char* result = AppBridgeWrapper::retrieveCurrentLayout();
+        
+        CefRefPtr<CefProcessMessage> message =
+        CefProcessMessage::Create(kGetCurrentLayoutID);
+        message->GetArgumentList()->SetString(0, result );
+        
+        browser->SendProcessMessage(PID_RENDERER, message);
+        
     }
 
   return false;

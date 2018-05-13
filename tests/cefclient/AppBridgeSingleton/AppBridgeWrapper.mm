@@ -30,4 +30,14 @@ namespace AppBridgeWrapper {
         const char *result = [[AppBridge sharedAppBridge] retrieveJSONLayouts];
         return result;
     }
+    
+    bool setKeyboardLayout( const char *codeN ) {
+        bool result = [[AppBridge sharedAppBridge] selectKeyboardLayout:codeN];
+        return result;
+    }
+    
+    const char* retrieveCurrentLayout() {
+        const char *result = [[AppBridge sharedAppBridge] retrieveCurrentLayout:NO];
+        return result;
+    }
 }

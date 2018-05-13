@@ -27,6 +27,8 @@ namespace client {
     const char kRetrieveBatteryInfo[] = "battery.getStatus";
     const char kRetrieveKeyboardLayouts[] = "keyboardLayout.getLayouts";
     const char kSetCurrentLayoutID[] = "keyboardLayout.trySetCurrentLayoutId";
+    const char kGetCurrentLayoutID[] = "keyboardLayout.getCurrentLayoutId";
+    const char kSubscribeToEvents[] =  "subscribeToEvents";
    
         
     bool MyV8Handler::Execute(const CefString& name,
@@ -91,12 +93,17 @@ namespace client {
                 return true;
             }
         else
+            if ( funcName == "hostApp.getDeviceRecord") {
+                CefRefPtr<CefV8Value> cef8String = CefV8Value::CreateString("Not implemented yet!");
+                
+                CefV8ValueList argsForCallback;
+                argsForCallback.push_back(cef8String);
+                
+                arguments[3]->ExecuteFunction(nullptr, argsForCallback);
+            }
+        else
             if ( funcName == "hostApp.getAppVersionInfo" ) {
             
-             //   appVersionResolve = arguments[2];
-             //   appVersionReject = arguments[3];
-              //  client_app_->AddRef()
-                
                 std::string name = funcName;
                 CefRefPtr<CefV8Context> context = CefV8Context::GetCurrentContext();
                 int browser_id = context->GetBrowser()->GetIdentifier();
@@ -105,14 +112,15 @@ namespace client {
                 
                 CefRefPtr<CefProcessMessage> message =
                 CefProcessMessage::Create(kGetVersionInfo);
+               
                 
                 CefRefPtr<CefBrowser> browser = CefV8Context::GetCurrentContext()->GetBrowser();
                 browser->SendProcessMessage(PID_BROWSER, message);
                 
-                
+                return true;
             }
         else 
-            if ( funcName == kRetrieveKeyboardLayouts ) {
+            if ( ( funcName == kRetrieveKeyboardLayouts ) || ( funcName == kGetCurrentLayoutID ) ) {
                 std::string name = funcName;
                 CefRefPtr<CefV8Context> context = CefV8Context::GetCurrentContext();
                 int browser_id = context->GetBrowser()->GetIdentifier();
@@ -120,31 +128,54 @@ namespace client {
                                                 arguments[2]);
                 
                 CefRefPtr<CefProcessMessage> message =
-                CefProcessMessage::Create(kRetrieveKeyboardLayouts);
+                CefProcessMessage::Create(funcName);
                 
                 CefRefPtr<CefBrowser> browser = CefV8Context::GetCurrentContext()->GetBrowser();
                 browser->SendProcessMessage(PID_BROWSER, message);
+                
+                return true;
             }
         else
             if ( funcName == kSetCurrentLayoutID ) {
-                CefRefPtr<CefV8Value> cef8Bool = CefV8Value::CreateBool(true);
                 
-                CefV8ValueList argsForCallback;
-                argsForCallback.push_back(cef8Bool);
+                std::string name = funcName;
+                CefRefPtr<CefV8Context> context = CefV8Context::GetCurrentContext();
+                int browser_id = context->GetBrowser()->GetIdentifier();
+                client_app_->SetMessageCallback(name, browser_id, context,
+                                                arguments[2]);
                 
-                arguments[2]->ExecuteFunction(nullptr, argsForCallback);
+                CefString code = arguments[1]->GetStringValue();
                 
+                CefRefPtr<CefProcessMessage> message =
+                CefProcessMessage::Create(kSetCurrentLayoutID);
+                message->GetArgumentList()->SetString(0, code);
+                
+                CefRefPtr<CefBrowser> browser = CefV8Context::GetCurrentContext()->GetBrowser();
+                browser->SendProcessMessage(PID_BROWSER, message);
+                
+                 return true;
                 }
         else
             {
-            exception = funcName;
+            exception = "no";
             return true;
 
+            }
+
         }
-        
+    else {
+        if ( name ==  kSubscribeToEvents) {
+            
+            CefRefPtr<CefV8Context> context = CefV8Context::GetCurrentContext();
+            int browser_id = context->GetBrowser()->GetIdentifier();
+            client_app_->SetMessageCallback(name, browser_id, context,
+                                            arguments[0]);
+            
+            return true;
+        }
        
     }
-    
+
     
     // Function does not exist.
     return false;

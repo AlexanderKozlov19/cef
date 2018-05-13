@@ -19,6 +19,8 @@ namespace client {
 
 namespace {
 
+const char kSubscribeToEvents[] =  "subscribeToEvents";
+    
 class ClientRequestContextHandler : public CefRequestContextHandler,
                                     public CefExtensionHandler {
  public:
@@ -169,6 +171,17 @@ void RootWindowManager::ReconfigurePage( void ) {
 void RootWindowManager::NavigateToTestPage( void ) {
     CefString url = "file://"+client::MainContext::Get()->GetAppWorkingDirectory() + "Resources/test3.html";
     main_window_->GetBrowser()->GetMainFrame()->LoadURL(url);
+}
+    
+void RootWindowManager::SendCallbackMessage( const char *apiName, const char *eventName, const char *args ) {
+    
+    CefRefPtr<CefProcessMessage> message =
+    CefProcessMessage::Create(kSubscribeToEvents);
+    message->GetArgumentList()->SetString(0, apiName);
+    message->GetArgumentList()->SetString(1, eventName);
+    message->GetArgumentList()->SetString(2, args);
+
+    main_window_->GetBrowser()->SendProcessMessage(PID_RENDERER, message);
 }
 
 scoped_refptr<RootWindow> RootWindowManager::CreateRootWindowAsPopup(

@@ -73,8 +73,25 @@
     keyboardLayouts = [[NSMutableArray alloc] init];
     keyboardLayoutsForSend = [[NSMutableArray alloc] init];
     [self retrieveKeyboardLayouts];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardChanged:) name:NSTextInputContextKeyboardSelectionDidChangeNotification object:nil];
   
+
     return self;
+}
+
+
+- (void) keyboardChanged: (NSNotification *) notification {
+    
+    NSString *apiName = @"keyboardLayout";
+    NSString *eventName = @"layoutChanged";
+    
+    const char *curLayout = [self retrieveCurrentLayout:YES];
+    
+    client::MainContext::Get()->GetRootWindowManager()->SendCallbackMessage([apiName UTF8String], [eventName UTF8String], curLayout);
+    
+
 }
 
 -(void)retrieveBatteryStatus {
@@ -126,7 +143,34 @@
 }
 
 void powerSourceChange(void* context) {
-    [(AppBridge*)context retrieveBatteryStatus];
+    BatteryInfo *batteryInfo = (BatteryInfo*)[(AppBridge*)context retrieveBatteryInfo];
+    
+    NSString *apiName = @"battery";
+    NSString *eventName = @"statusChanged";
+    
+    NSDictionary *dict = NULL;
+    
+    if ( batteryInfo ) {
+        dict = [[NSMutableDictionary alloc] init];
+        [dict setValue:[NSNumber numberWithBool:batteryInfo->isCharging ] forKey:@"isCharging"];
+        [dict setValue:[NSNumber numberWithDouble:batteryInfo->percentage ] forKey:@"level"];
+        [dict setValue:[NSNumber numberWithInt:batteryInfo->timeLeft ] forKey:@"timeLeft"];
+        
+        
+    }
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
+                                                       options:kNilOptions
+                                                         error:&error];
+    NSString *stringJSON = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+
+    
+    client::MainContext::Get()->GetRootWindowManager()->SendCallbackMessage([apiName UTF8String], [eventName UTF8String], [stringJSON UTF8String]);
+    
+  //  NSLog(@"battery sent");
+    
+    
 }
 
 -(void)startBatteryService {
@@ -138,7 +182,7 @@ void powerSourceChange(void* context) {
 }
 
 -(void*)retrieveBatteryInfo {
-    if ( currentBatteryState && ( currentBatteryState->timeLeft < 0) )
+    if ( currentBatteryState ) //&& ( currentBatteryState->timeLeft < 0) )
         [self retrieveBatteryStatus];
     return currentBatteryState;
 }
@@ -208,6 +252,102 @@ void powerSourceChange(void* context) {
     return [stringJSON UTF8String];
 }
 
+-(bool)selectKeyboardLayout:(const char*)codeLayoutJSON{
+    
+    bool result = false;
+    
+    NSString *codeStr = [NSString stringWithUTF8String:codeLayoutJSON ];
+    NSData* jsonData = [codeStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *jsonError;
+    NSString *testString = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&jsonError];
+    
+    NSArray *inputSources = [(NSArray *)TISCreateInputSourceList(NULL,false ) copy];
+    
+    for ( NSMutableDictionary *layout in keyboardLayouts ) {
+        if ( [layout[@"id"] isEqualToString:testString] ) {
+            for ( NSObject *inputSource in inputSources) {
+                NSString *sourceType = (NSString*)TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceType);
+                
+                if ( ![sourceType isEqualToString:@"TISTypeKeyboardLayout"] )
+                    continue;
+                
+                NSString *inputSourceID = (NSString*) TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceID);
+                
+                if ( [ inputSourceID isEqualTo: layout[@"layoutCode"]] ) {
+                    TISSelectInputSource( (TISInputSourceRef)inputSource );
+                    result = true;
+                    break;
+                }
+                
+                
+            }
+            break;
+        }
+    }
+    
+   
+    return result;
+}
+
+-(const char*)retrieveCurrentLayout:(BOOL)inDictionary {
+    const char *result = nil;
+    
+    NSArray *inputSources = [(NSArray *)TISCreateInputSourceList(NULL,false ) copy];
+    NSString *selectedLayout = nil;
+    
+    for ( NSObject *inputSource in inputSources) {
+        NSString *sourceType = (NSString*)TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceType);
+        
+        if ( ![sourceType isEqualToString:@"TISTypeKeyboardLayout"] )
+            continue;
+        
+         CFBooleanRef isSelected = (CFBooleanRef) TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceIsSelected);
+        
+        
+        
+        if ( isSelected == kCFBooleanTrue)  {
+            selectedLayout = (NSString*) TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceID);
+            break;
+        }
+        
+    }
+    
+    if ( selectedLayout != nil ) {
+        for ( NSMutableDictionary *dictionary in keyboardLayouts ) {
+            if ( [dictionary[@"layoutCode"] isEqualToString:selectedLayout] ) {
+                NSString *currentID = dictionary[@"id"];
+                NSError *error;
+                NSData *jsonData = nil;
+                
+                if ( inDictionary ) {
+                    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:currentID, @"layoutId", nil];
+                    
+                    jsonData = [NSJSONSerialization dataWithJSONObject:dict
+                                                               options:NSJSONReadingAllowFragments
+                                                                 error:&error];
+                    
+                }
+                else {
+                    
+                    jsonData = [NSJSONSerialization dataWithJSONObject:currentID
+                                                                       options:NSJSONReadingAllowFragments
+                                                                         error:&error];
+                   
+                }
+                
+                NSString *stringJSON = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+                
+                result = [stringJSON UTF8String];
+            }
+        }
+        
+        
+    }
+    
+    return result;
+    
+}
+
 -(NSString*) retrieveAppVersion {
     return appVersion;
 }
@@ -215,6 +355,7 @@ void powerSourceChange(void* context) {
 
 -(void)quitKioskAndCloseApp {
     client::MainContext::Get()->GetRootWindowManager()->QuitKioskMode();
+
     [[NSApplication sharedApplication] terminate:nil];
 }
 

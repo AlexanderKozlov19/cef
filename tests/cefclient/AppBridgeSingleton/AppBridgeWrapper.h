@@ -13,6 +13,8 @@ namespace AppBridgeWrapper {
     const char* retrieveAppVersionForBridge();
     void *retrieveBatteryInfo();
     const char *retrieveLayouts();
+    bool setKeyboardLayout( const char *code );
+    const char *retrieveCurrentLayout();
 }
 
 #endif /* AppBridgeWrapper_h */

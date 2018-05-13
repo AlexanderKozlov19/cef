@@ -36,6 +36,12 @@ void ClientAppRenderer::OnWebKitInitialized() {
     "    native function handleBrowserRequest();"
     "    return handleBrowserRequest(namem, args, resolve, reject);"
     "  };"
+    "})();"
+    "(function() {"
+    "  __macOsAppHostObject.subscribeToEvents = function( args,resolve, reject ) {"
+    "    native function subscribeToEvents();"
+    "    return subscribeToEvents(args, resolve, reject);"
+    "  };"
     "})();";
     
     // Register the extension.
@@ -212,7 +218,7 @@ bool ClientAppRenderer::OnProcessMessageReceived(
        
     }
     
-    if ( message_name == kRetrieveKeyboardLayouts ) {
+    if ( ( message_name == kRetrieveKeyboardLayouts ) || ( message_name == kGetCurrentLayoutID ) ) {
         
         CefString message_name = message->GetName();
         CallbackMap::const_iterator it = callback_map_.find( std::make_pair(message_name.ToString(), browser->GetIdentifier()));
@@ -240,6 +246,74 @@ bool ClientAppRenderer::OnProcessMessageReceived(
         
         
         return true;
+    }
+    
+    if ( message_name == kSetCurrentLayoutID ) {
+        
+        CefString message_name = message->GetName();
+        CallbackMap::const_iterator it = callback_map_.find( std::make_pair(message_name.ToString(), browser->GetIdentifier()));
+        
+        if (it != callback_map_.end()) {
+            // Enter the context.
+            it->second.first->Enter();
+
+            
+            bool result = message->GetArgumentList()->GetBool(0);
+            
+            CefRefPtr<CefV8Value> cef8String = CefV8Value::CreateBool( result );
+            
+            CefV8ValueList argsForCallback;
+            argsForCallback.push_back(cef8String);
+            
+            // Execute the callback.
+            CefRefPtr<CefV8Value> retval =
+            it->second.second->ExecuteFunction(NULL, argsForCallback);
+            
+            // Exit the context.
+            it->second.first->Exit();
+            
+            callback_map_.erase( it );
+        }
+        
+        
+        return true;
+    }
+    
+    if ( message_name == kSubscribeToEvents ) {
+        CefString message_name = message->GetName();
+        CallbackMap::const_iterator it = callback_map_.find( std::make_pair(message_name.ToString(), browser->GetIdentifier()));
+        
+        if (it != callback_map_.end()) {
+            // Enter the context.
+            it->second.first->Enter();
+            
+            CefString apiName = message->GetArgumentList()->GetString(0);
+            CefString eventName = message->GetArgumentList()->GetString(1);
+            CefString argsJSON = message->GetArgumentList()->GetString(2);
+            
+            CefV8ValueList argsForCallback;
+            
+            CefRefPtr<CefV8Value> cefApiName = CefV8Value::CreateString( apiName );
+            argsForCallback.push_back(cefApiName);
+            
+            CefRefPtr<CefV8Value> cefEventName = CefV8Value::CreateString( eventName );
+            argsForCallback.push_back(cefEventName);
+            
+            CefRefPtr<CefV8Value> cefArgsJSON = CefV8Value::CreateString( argsJSON );
+            argsForCallback.push_back(cefArgsJSON);
+            
+            // Execute the callback.
+            CefRefPtr<CefV8Value> retval =
+            it->second.second->ExecuteFunction(NULL, argsForCallback);
+            
+            // Exit the context.
+            it->second.first->Exit();
+            
+        }
+        
+        
+        return true;
+        
     }
 
   bool handled = false;
