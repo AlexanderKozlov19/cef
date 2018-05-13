@@ -490,6 +490,8 @@ int RunMain(int argc, char* argv[]) {
     
   NSPasteboard *pb = [NSPasteboard generalPasteboard];
   [pb clearContents];
+    
+    [AppBridge sharedAppBridge];
   
   // creating splashScreen
   SplashScreen *splashScreen = [[SplashScreen alloc] initWithWindowNibName:@"SplashScreen"];

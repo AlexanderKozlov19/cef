@@ -377,6 +377,7 @@ set(CEFCLIENT_RESOURCES_RESOURCES_MAC_ENGLISH_LPROJ_SRCS_MACOSX
   resources/mac/English.lproj/MainMenu.xib
   resources/mac/SplashScreen.xib
   resources/mac/QuitDialog.xib
+  resources/mac/iso639_2.plist
   )
 APPEND_PLATFORM_SOURCES(CEFCLIENT_RESOURCES_RESOURCES_MAC_ENGLISH_LPROJ_SRCS)
 source_group(cefclient\\\\resources\\\\mac\\\\English.lproj FILES ${CEFCLIENT_RESOURCES_RESOURCES_MAC_ENGLISH_LPROJ_SRCS})

@@ -25,4 +25,9 @@ namespace AppBridgeWrapper {
         
         return result;
     }
+    
+    const char *retrieveLayouts() {
+        const char *result = [[AppBridge sharedAppBridge] retrieveJSONLayouts];
+        return result;
+    }
 }

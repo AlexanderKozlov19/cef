@@ -12,6 +12,7 @@ namespace AppBridgeWrapper {
     void terminateApp();
     const char* retrieveAppVersionForBridge();
     void *retrieveBatteryInfo();
+    const char *retrieveLayouts();
 }
 
 #endif /* AppBridgeWrapper_h */

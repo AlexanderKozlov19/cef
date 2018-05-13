@@ -163,9 +163,7 @@ bool ClientAppRenderer::OnProcessMessageReceived(
     
     if ( message_name == kRetrieveBatteryInfo ) {
         bool isPresent = message->GetArgumentList()->GetBool(0);
-        
-        CefString verApp = message->GetArgumentList()->GetString(0);
-        
+    
         CefString message_name = message->GetName();
         CallbackMap::const_iterator it = callback_map_.find( std::make_pair(message_name.ToString(), browser->GetIdentifier()));
         
@@ -200,6 +198,35 @@ bool ClientAppRenderer::OnProcessMessageReceived(
             CefV8ValueList argsForCallback;
             argsForCallback.push_back(cef8String);
             
+            
+            // Execute the callback.
+            CefRefPtr<CefV8Value> retval =
+            it->second.second->ExecuteFunction(NULL, argsForCallback);
+            
+            // Exit the context.
+            it->second.first->Exit();
+            
+            callback_map_.erase( it );
+        }
+        
+       
+    }
+    
+    if ( message_name == kRetrieveKeyboardLayouts ) {
+        
+        CefString message_name = message->GetName();
+        CallbackMap::const_iterator it = callback_map_.find( std::make_pair(message_name.ToString(), browser->GetIdentifier()));
+        
+        if (it != callback_map_.end()) {
+            // Enter the context.
+            it->second.first->Enter();
+            
+            CefString stringJSON = message->GetArgumentList()->GetString(0);
+            
+            CefRefPtr<CefV8Value> cef8String = CefV8Value::CreateString(stringJSON);
+            
+            CefV8ValueList argsForCallback;
+            argsForCallback.push_back(cef8String);
             
             // Execute the callback.
             CefRefPtr<CefV8Value> retval =

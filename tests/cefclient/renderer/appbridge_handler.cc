@@ -25,9 +25,10 @@ namespace client {
     const char kAskAdminPassword[] = "AppBridge.AskAmdinPassword";
     const char kGetVersionInfo[] = "AppBridge.getAppVersionInfo";
     const char kRetrieveBatteryInfo[] = "battery.getStatus";
+    const char kRetrieveKeyboardLayouts[] = "keyboardLayout.getLayouts";
+    const char kSetCurrentLayoutID[] = "keyboardLayout.trySetCurrentLayoutId";
    
         
-            
     bool MyV8Handler::Execute(const CefString& name,
                                  CefRefPtr<CefV8Value> object,
                                  const CefV8ValueList& arguments,
@@ -110,10 +111,37 @@ namespace client {
                 
                 
             }
-            else {
-                exception = funcName;
-                return true;
+        else 
+            if ( funcName == kRetrieveKeyboardLayouts ) {
+                std::string name = funcName;
+                CefRefPtr<CefV8Context> context = CefV8Context::GetCurrentContext();
+                int browser_id = context->GetBrowser()->GetIdentifier();
+                client_app_->SetMessageCallback(name, browser_id, context,
+                                                arguments[2]);
+                
+                CefRefPtr<CefProcessMessage> message =
+                CefProcessMessage::Create(kRetrieveKeyboardLayouts);
+                
+                CefRefPtr<CefBrowser> browser = CefV8Context::GetCurrentContext()->GetBrowser();
+                browser->SendProcessMessage(PID_BROWSER, message);
             }
+        else
+            if ( funcName == kSetCurrentLayoutID ) {
+                CefRefPtr<CefV8Value> cef8Bool = CefV8Value::CreateBool(true);
+                
+                CefV8ValueList argsForCallback;
+                argsForCallback.push_back(cef8Bool);
+                
+                arguments[2]->ExecuteFunction(nullptr, argsForCallback);
+                
+                }
+        else
+            {
+            exception = funcName;
+            return true;
+
+        }
+        
        
     }
     

@@ -55,6 +55,7 @@ const char kAskAdminPassword[] = "AppBridge.AskAmdinPassword";
 const char kGetVersionInfo[] = "AppBridge.getAppVersionInfo";
 const char kSetVersionInfo[] = "hostApp.getAppVersionInfo";
 const char kRetrieveBatteryInfo[] = "battery.getStatus";
+const char kRetrieveKeyboardLayouts[] = "keyboardLayout.getLayouts";
 
 std::string GetTimeString(const CefTime& value) {
   if (value.GetTimeT() == 0)
@@ -343,6 +344,17 @@ bool ClientHandler::OnProcessMessageReceived(
             
             
         }
+        
+        browser->SendProcessMessage(PID_RENDERER, message);
+        
+        return true;
+    }
+    
+    if ( message_name == kRetrieveKeyboardLayouts ) {
+        const char *JSON = AppBridgeWrapper::retrieveLayouts();
+        CefRefPtr<CefProcessMessage> message =
+        CefProcessMessage::Create(kRetrieveKeyboardLayouts);
+        message->GetArgumentList()->SetString(0, JSON);
         
         browser->SendProcessMessage(PID_RENDERER, message);
         

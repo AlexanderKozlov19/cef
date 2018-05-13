@@ -5,6 +5,7 @@
 //  Created by Alexander Kozlov on 10.05.2018.
 //
 #import <Cocoa/Cocoa.h>
+#import <Carbon/Carbon.h>
 #import "AppBridge.h"
 #import "tests/cefclient/QuitDialog/QuitDialog.h"
 #include <IOKit/ps/IOPowerSources.h>
@@ -35,6 +36,11 @@
     BatteryInfo batteryInfo;
     BatteryInfo *currentBatteryState;
     CFRunLoopSourceRef runLoopSource;
+    
+    NSMutableArray *keyboardLayouts;
+    NSMutableArray *keyboardLayoutsForSend;
+    
+    NSDictionary *sISO639_2Dictionary;
 }
 
 +(id)sharedAppBridge {
@@ -52,12 +58,21 @@
 }
 
 -(id)init {
+
+    NSString *plistPath = [[NSBundle mainBundle]  pathForResource:@"iso639_2" ofType:@"plist"];
+    
+    sISO639_2Dictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    
     quitDialog = [[QuitDialog alloc] initWithWindowNibName:@"QuitDialog"];
     appVersion = [NSString stringWithFormat:@"%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
     
     [self retrieveBatteryStatus];
     if ( currentBatteryState )  // if battery is present
          [self startBatteryService];
+    
+    keyboardLayouts = [[NSMutableArray alloc] init];
+    keyboardLayoutsForSend = [[NSMutableArray alloc] init];
+    [self retrieveKeyboardLayouts];
   
     return self;
 }
@@ -108,14 +123,9 @@
     currentBatteryState = &batteryInfo;
    
     
-    
 }
 
 void powerSourceChange(void* context) {
-  /*  NSArray* args = [NSArray arrayWithObjects: @"Power Source has changed!", nil];
-    id win = [[(PowerSourceInfoWorker*)context webView] windowScriptObject];
-    [win callWebScriptMethod:@"jsCallback" withArguments:args];
-   */
     [(AppBridge*)context retrieveBatteryStatus];
 }
 
@@ -131,6 +141,71 @@ void powerSourceChange(void* context) {
     if ( currentBatteryState && ( currentBatteryState->timeLeft < 0) )
         [self retrieveBatteryStatus];
     return currentBatteryState;
+}
+
+-(void)retrieveKeyboardLayouts {
+    
+    
+    [keyboardLayouts removeAllObjects];
+    [keyboardLayoutsForSend removeAllObjects];
+    
+    NSLocale *enLocale = [NSLocale localeWithLocaleIdentifier:@"en"];
+    
+    NSArray *inputSources = [(NSArray *)TISCreateInputSourceList(NULL,false ) copy];
+    
+    NSArray *preferredLanguages = [NSLocale preferredLanguages];
+    for ( NSString *languageName in preferredLanguages ) {
+        NSLocale *language = [NSLocale localeWithLocaleIdentifier:languageName];
+        NSMutableDictionary *keyboardLayout = [[NSMutableDictionary alloc] init];
+        [keyboardLayout setValue:language.localeIdentifier forKey:@"id"];
+        [keyboardLayout setValue:language.languageCode forKey:@"code2"];
+        [keyboardLayout setValue:[language localizedStringForLanguageCode:language.languageCode] forKey:@"languageNativeName"];
+        NSLog(@"countryCode %@", language.countryCode );
+        [keyboardLayout setValue:[language localizedStringForCountryCode:language.countryCode] forKey:@"cultureNativeName"];
+        [keyboardLayout setValue:[enLocale localizedStringForLanguageCode:language.languageCode] forKey:@"languageName"];
+        [keyboardLayout setValue:[enLocale localizedStringForCountryCode:language.countryCode] forKey:@"cultureName"];
+        
+        [keyboardLayout setValue:[sISO639_2Dictionary objectForKey:language.languageCode] forKey:@"code3"];
+        
+        for ( NSObject *inputSource in inputSources) {
+            NSString *sourceType = (NSString*)TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceType);
+            
+            if ( ![sourceType isEqualToString:@"TISTypeKeyboardLayout"] )
+                continue;
+           
+            NSString *inputSourceID = (NSString*) TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceID);
+            
+           NSArray *Languages = [(NSArray *)TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceLanguages) copy];
+            NSString *primaryLanguage = NULL;
+            if ([Languages count] > 0) {
+                primaryLanguage = [Languages objectAtIndex:0];
+            }
+            
+            if ( [primaryLanguage isEqualToString:language.languageCode]) {
+                [keyboardLayout setValue:inputSourceID forKey:@"layoutCode"];
+                break;
+            }
+            
+            
+        }
+        
+        [keyboardLayouts addObject:keyboardLayout];
+        
+        NSMutableDictionary *dictForSend = [[NSMutableDictionary alloc] initWithDictionary:keyboardLayout];
+        [dictForSend removeObjectForKey:@"layoutCode"];
+        [keyboardLayoutsForSend addObject:dictForSend];
+        
+    }
+
+}
+
+-(const char*)retrieveJSONLayouts {
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:keyboardLayoutsForSend
+                                                       options:kNilOptions
+                                                         error:&error];
+    NSString *stringJSON = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    return [stringJSON UTF8String];
 }
 
 -(NSString*) retrieveAppVersion {

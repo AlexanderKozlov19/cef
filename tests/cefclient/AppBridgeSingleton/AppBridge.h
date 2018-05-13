@@ -16,6 +16,7 @@
 
 -(NSString*)retrieveAppVersion;
 -(void*)retrieveBatteryInfo;
+-(const char*)retrieveJSONLayouts;
 
 void powerSourceChange(void* context);
 
