@@ -197,6 +197,55 @@ void powerSourceChange(void* context) {
     
     NSArray *inputSources = [(NSArray *)TISCreateInputSourceList(NULL,false ) copy];
     
+    for ( NSObject *inputSource in inputSources) {
+        
+        NSMutableDictionary *keyboardLayout = [[NSMutableDictionary alloc] init];
+        
+        NSString *sourceType = (NSString*)TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceType);
+        
+        if ( ![sourceType isEqualToString:@"TISTypeKeyboardLayout"] )
+            continue;
+        
+        NSString *inputSourceID = (NSString*) TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceID);
+        
+        NSArray *Languages = [(NSArray *)TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceLanguages) copy];
+        NSString *primaryLanguage = NULL;
+        if ([Languages count] > 0) {
+            primaryLanguage = [Languages objectAtIndex:0];
+        }
+        
+        NSLocale* tempLocale = [NSLocale localeWithLocaleIdentifier:primaryLanguage];
+        
+        [keyboardLayout setValue:inputSourceID forKey:@"layoutCode"];
+        
+        [keyboardLayout setValue:tempLocale.localeIdentifier forKey:@"id"];
+        [keyboardLayout setValue:tempLocale.languageCode forKey:@"code2"];
+        [keyboardLayout setValue:[tempLocale localizedStringForLanguageCode:tempLocale.languageCode] forKey:@"languageNativeName"];
+        NSLog(@"countryCode %@", tempLocale.countryCode );
+        [keyboardLayout setValue:[tempLocale localizedStringForCountryCode:tempLocale.countryCode] forKey:@"cultureNativeName"];
+        [keyboardLayout setValue:[enLocale localizedStringForLanguageCode:tempLocale.languageCode] forKey:@"languageName"];
+        [keyboardLayout setValue:[enLocale localizedStringForCountryCode:tempLocale.countryCode] forKey:@"cultureName"];
+        
+        [keyboardLayout setValue:[sISO639_2Dictionary objectForKey:tempLocale.languageCode] forKey:@"code3"];
+        
+        [keyboardLayouts addObject:keyboardLayout];
+        
+        NSMutableDictionary *dictForSend = [[NSMutableDictionary alloc] initWithDictionary:keyboardLayout];
+        [dictForSend removeObjectForKey:@"layoutCode"];
+        [keyboardLayoutsForSend addObject:dictForSend];
+        
+        /*if ( [primaryLanguage isEqualToString:language.languageCode]) {
+            [keyboardLayout setValue:inputSourceID forKey:@"layoutCode"];
+            break;
+        }
+        */
+        
+    }
+    
+   /* NSLocale *enLocale = [NSLocale localeWithLocaleIdentifier:@"en"];
+    
+    NSArray *inputSources = [(NSArray *)TISCreateInputSourceList(NULL,false ) copy];
+    
     NSArray *preferredLanguages = [NSLocale preferredLanguages];
     for ( NSString *languageName in preferredLanguages ) {
         NSLocale *language = [NSLocale localeWithLocaleIdentifier:languageName];
@@ -239,7 +288,7 @@ void powerSourceChange(void* context) {
         [dictForSend removeObjectForKey:@"layoutCode"];
         [keyboardLayoutsForSend addObject:dictForSend];
         
-    }
+    }*/
 
 }
 
