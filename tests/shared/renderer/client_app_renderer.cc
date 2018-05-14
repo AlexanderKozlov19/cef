@@ -116,7 +116,19 @@ void ClientAppRenderer::SetMessageCallback(const std::string& message_name,
                                        int browser_id,
                                        CefRefPtr<CefV8Context> context,
                                        CefRefPtr<CefV8Value> function) {
-        
+    
+    CefString message_name_CEF = message_name;
+    CallbackMap::const_iterator it = callback_map_.begin();
+    
+    while ( it != callback_map_.end()) {
+        std::string testString = it->first.first;
+        if ( testString == message_name ) {
+            callback_map_.erase(it);
+            it = callback_map_.begin();
+        }
+        else it++;
+    }
+    
     callback_map_.insert( std::make_pair(std::make_pair(message_name, browser_id), std::make_pair(context, function)));
 }
 
@@ -126,9 +138,9 @@ bool ClientAppRenderer::OnProcessMessageReceived(
     CefRefPtr<CefProcessMessage> message) {
   DCHECK_EQ(source_process, PID_BROWSER);
     
-    std::string message_name = message->GetName();
+    std::string message_name_test = message->GetName();
     
-    if ( message_name == kSetVersionInfo ) {
+    if ( message_name_test == kSetVersionInfo ) {
         CefString verApp = message->GetArgumentList()->GetString(0);
         
         CefString message_name = message->GetName();
@@ -167,7 +179,7 @@ bool ClientAppRenderer::OnProcessMessageReceived(
         return true;
     }
     
-    if ( message_name == kRetrieveBatteryInfo ) {
+    if ( message_name_test == kRetrieveBatteryInfo ) {
         bool isPresent = message->GetArgumentList()->GetBool(0);
     
         CefString message_name = message->GetName();
@@ -218,7 +230,7 @@ bool ClientAppRenderer::OnProcessMessageReceived(
        
     }
     
-    if ( ( message_name == kRetrieveKeyboardLayouts ) || ( message_name == kGetCurrentLayoutID ) ) {
+    if ( ( message_name_test == kRetrieveKeyboardLayouts ) || ( message_name_test == kGetCurrentLayoutID ) ) {
         
         CefString message_name = message->GetName();
         CallbackMap::const_iterator it = callback_map_.find( std::make_pair(message_name.ToString(), browser->GetIdentifier()));
@@ -248,7 +260,7 @@ bool ClientAppRenderer::OnProcessMessageReceived(
         return true;
     }
     
-    if ( message_name == kSetCurrentLayoutID ) {
+    if ( message_name_test == kSetCurrentLayoutID ) {
         
         CefString message_name = message->GetName();
         CallbackMap::const_iterator it = callback_map_.find( std::make_pair(message_name.ToString(), browser->GetIdentifier()));
@@ -279,7 +291,7 @@ bool ClientAppRenderer::OnProcessMessageReceived(
         return true;
     }
     
-    if ( message_name == kSubscribeToEvents ) {
+    if ( message_name_test == kSubscribeToEvents ) {
         CefString message_name = message->GetName();
         CallbackMap::const_iterator it = callback_map_.find( std::make_pair(message_name.ToString(), browser->GetIdentifier()));
         

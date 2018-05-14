@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2657" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="1090" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ClientAppDelegate"/>
@@ -31,17 +31,6 @@
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="144">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                            </menuItem>
-                            <menuItem title="Hide cefclient" keyEquivalent="h" id="134">
-                                <connections>
-                                    <action selector="hide:" target="-1" id="367"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Hide Others" keyEquivalent="h" id="145">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                <connections>
-                                    <action selector="hideOtherApplications:" target="-1" id="368"/>
-                                </connections>
                             </menuItem>
                             <menuItem title="Show All" id="150">
                                 <connections>
@@ -86,11 +75,6 @@
                             <menuItem isSeparatorItem="YES" id="79" userLabel="7">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Close" keyEquivalent="w" id="73" userLabel="1">
-                                <connections>
-                                    <action selector="performClose:" target="-1" id="193"/>
-                                </connections>
-                            </menuItem>
                             <menuItem title="Save" keyEquivalent="s" id="75" userLabel="3">
                                 <connections>
                                     <action selector="saveDocument:" target="-1" id="362"/>
@@ -110,12 +94,6 @@
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="74" userLabel="2">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                            </menuItem>
-                            <menuItem title="Page Setup..." keyEquivalent="P" id="77" userLabel="5">
-                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
-                                <connections>
-                                    <action selector="runPageLayout:" target="-1" id="87"/>
-                                </connections>
                             </menuItem>
                             <menuItem title="Print…" keyEquivalent="p" id="78" userLabel="6">
                                 <connections>
@@ -254,60 +232,6 @@
                                         </menuItem>
                                     </items>
                                 </menu>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
-                <menuItem title="Format" tag="4" id="299">
-                    <menu key="submenu" title="Format" id="300">
-                        <items>
-                            <menuItem title="Show Fonts" keyEquivalent="t" id="344"/>
-                            <menuItem title="Show Colors" keyEquivalent="C" id="345">
-                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
-                                <connections>
-                                    <action selector="orderFrontColorPanel:" target="-1" id="361"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
-                <menuItem title="View" tag="5" id="295">
-                    <menu key="submenu" title="View" id="296">
-                        <items>
-                            <menuItem title="Show Toolbar" keyEquivalent="t" id="297">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                <connections>
-                                    <action selector="toggleToolbarShown:" target="-1" id="366"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Customize Toolbar…" id="298">
-                                <connections>
-                                    <action selector="runToolbarCustomizationPalette:" target="-1" id="365"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
-                <menuItem title="Window" tag="6" id="19">
-                    <menu key="submenu" title="Window" systemMenu="window" id="24">
-                        <items>
-                            <menuItem title="Minimize" keyEquivalent="m" id="23">
-                                <connections>
-                                    <action selector="performMiniaturize:" target="-1" id="37"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Zoom" id="239">
-                                <connections>
-                                    <action selector="performZoom:" target="-1" id="240"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="92">
-                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                            </menuItem>
-                            <menuItem title="Bring All to Front" id="5">
-                                <connections>
-                                    <action selector="arrangeInFront:" target="-1" id="39"/>
-                                </connections>
                             </menuItem>
                         </items>
                     </menu>
