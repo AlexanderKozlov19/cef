@@ -256,8 +256,8 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
         
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"OK"];
-        [alert setMessageText:@"Error"];
-        [alert setInformativeText:@"Index.html was changed!"];
+        [alert setMessageText:@"Distribution integrity check failed."];
+        [alert setInformativeText:@"Unable to start application because of failed integrity check. Try reinstalling this application to eliminate the error."];
         [alert setAlertStyle:NSWarningAlertStyle];
         
         [alert runModal];
