@@ -5,8 +5,6 @@
 /libcef_dll_wrapper/Debug/*
 /cef.build/*
 /CMakeFiles/*
-/CMakeFiles/3.11.1/*
-/CMakeFiles/3.11.1/CMakeDetermineCompilerABI_C.bin
 /CMakeCache.txt
 /libcef_dll_wrapper/cef.build/*
 /libcef_dll_wrapper/CMakeCache.txt
