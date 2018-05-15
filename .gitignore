@@ -14,3 +14,6 @@
 /cef/libcef_dll/cmake_install.cmake
 /cef/libcef_dll_wrapper/cmake_install.cmake
 /cef/tests/cefclient/cmake_install.cmake
+/cef/cef.build/
+/cef/CMakeFiles/
+/cef/cef.xcodeproj/
