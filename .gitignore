@@ -1,19 +1,19 @@
-/cef/Debug/Chromium Embedded Framework.framework/
-/cef/Release/Chromium Embedded Framework.framework/
-/cef/tests/cefsimple/Debug/cefsimple.app/Contents/Frameworks/Chromium Embedded Framework.framework/
-/cef/libcef_dll_wrapper/Debug
-/cef/cef.build
-/cef/CMakeFiles
-/cef/CMakeCache.txt
-/cef/libcef_dll_wrapper/cef.build/
-/cef/libcef_dll_wrapper/CMakeCache.txt
-/cef/lin/cef/libcef_dll_wrapper/CMakeFiles
-/cef/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.makeDebug
-/cef/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.makeReleases
-/cef/cmake_install.cmake
-/cef/libcef_dll/cmake_install.cmake
-/cef/libcef_dll_wrapper/cmake_install.cmake
-/cef/tests/cefclient/cmake_install.cmake
-/cef/cef.build/
-/cef/CMakeFiles/
-/cef/cef.xcodeproj/
+/Debug/Chromium Embedded Framework.framework/*
+/Release/Chromium Embedded Framework.framework/*
+/tests/cefsimple/Debug/*
+/tests/cefsimple/Release/*
+/libcef_dll_wrapper/Debug/*
+/cef.build/*
+/CMakeFiles/*
+/CMakeCache.txt
+/libcef_dll_wrapper/cef.build/*
+/libcef_dll_wrapper/CMakeCache.txt
+/libcef_dll_wrapper/CMakeFiles/*
+/CMakeScripts/*
+/cmake_install.cmake
+/libcef_dll/cmake_install.cmake
+/libcef_dll_wrapper/cmake_install.cmake
+/tests/cefclient/cmake_install.cmake
+/cef.xcodeproj/*
+/cef.xcodeproj/project.xcworkspace/*
+/cef.xcodeproj/xcuserdata/*
