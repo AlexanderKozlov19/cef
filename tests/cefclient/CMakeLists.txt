@@ -329,25 +329,6 @@ set(CEFCLIENT_WINDOWS_SRCS
 
 # cefclient resources.
 set(CEFCLIENT_RESOURCES_RESOURCES_SRCS
-  resources/binding.html
-  resources/dialogs.html
-  resources/draggable.html
-  resources/drm.html
-  resources/localstorage.html
-  resources/logo.png
-  resources/menu_icon.1x.png
-  resources/menu_icon.2x.png
-  resources/other_tests.html
-  resources/performance.html
-  resources/performance2.html
-  resources/preferences.html
-  resources/response_filter.html
-  resources/server.html
-  resources/transparency.html
-  resources/urlrequest.html
-  resources/websocket.html
-  resources/window.html
-  resources/xmlhttprequest.html
   resources/index.html
   resources/JanisonReplay.jpg
   resources/test3.html
@@ -355,15 +336,6 @@ set(CEFCLIENT_RESOURCES_RESOURCES_SRCS
   resources/unified-app-bridge.js
   )
 source_group(cefclient\\\\resources FILES ${CEFCLIENT_RESOURCES_RESOURCES_SRCS})
-
-set(CEFCLIENT_RESOURCES_RESOURCES_EXTENSIONS_SET_PAGE_COLOR_SRCS
-  resources/extensions/set_page_color/README.md
-  resources/extensions/set_page_color/icon.png
-  resources/extensions/set_page_color/manifest.json
-  resources/extensions/set_page_color/popup.html
-  resources/extensions/set_page_color/popup.js
-  )
-source_group(cefclient\\\\resources\\\\extensions\\\\set_page_color FILES ${CEFCLIENT_RESOURCES_RESOURCES_EXTENSIONS_SET_PAGE_COLOR_SRCS})
 
 set(CEFCLIENT_RESOURCES_RESOURCES_MAC_SRCS_MACOSX
   resources/mac/Info.plist
@@ -385,7 +357,6 @@ source_group(cefclient\\\\resources\\\\mac\\\\English.lproj FILES ${CEFCLIENT_RE
 
 set(CEFCLIENT_RESOURCES_SRCS
   ${CEFCLIENT_RESOURCES_RESOURCES_SRCS}
-  ${CEFCLIENT_RESOURCES_RESOURCES_EXTENSIONS_SET_PAGE_COLOR_SRCS}
   ${CEFCLIENT_RESOURCES_RESOURCES_MAC_SRCS}
   ${CEFCLIENT_RESOURCES_RESOURCES_MAC_ENGLISH_LPROJ_SRCS}
   )
