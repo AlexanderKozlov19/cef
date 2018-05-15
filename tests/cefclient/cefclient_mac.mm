@@ -565,7 +565,7 @@ int RunMain(int argc, char* argv[]) {
     
     while (file = [enumerator nextObject]) {
      //   NSLog(@"%@", file );
-        if ( ![file containsString:@"Local Storage"]) {
+        if ( ![file containsString:@"Local Storage"] && ![file containsString:@"console.log"]) {
             NSError *error = nil;
             [fileManager removeItemAtPath:[folderForClean stringByAppendingPathComponent:file] error:&error];
 
