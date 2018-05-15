@@ -5,6 +5,7 @@
 /libcef_dll_wrapper/Debug/*
 /cef.build/*
 /CMakeFiles/*
+/CMakeFiles/3.11.1/*
 /CMakeCache.txt
 /libcef_dll_wrapper/cef.build/*
 /libcef_dll_wrapper/CMakeCache.txt
@@ -15,5 +16,11 @@
 /libcef_dll_wrapper/cmake_install.cmake
 /tests/cefclient/cmake_install.cmake
 /cef.xcodeproj/*
-/cef.xcodeproj/project.xcworkspace/*
-/cef.xcodeproj/xcuserdata/*
+/tests/cefclient/cef.build/*
+/tests/cefclient/CMakeFiles/*
+/libcef_dll_wrapper/CmakeScripts/*
+/libcef_dll_wrapper/Project.xcodeproj/*
+/tests/cefclient/CMakeScripts/*
+/tests/cefclient/Debug/*
+
+
