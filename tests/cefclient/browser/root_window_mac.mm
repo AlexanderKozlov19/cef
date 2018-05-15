@@ -534,7 +534,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
    }
       
             
-  [window_ setTitle:@"cefclient"];
+  [window_ setTitle:@"cef"];
   [window_ setSharingType:NSWindowSharingNone];
 
   // Create the delegate for control and browser window events.
