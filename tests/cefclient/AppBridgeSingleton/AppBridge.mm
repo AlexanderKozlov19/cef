@@ -41,6 +41,10 @@
     NSMutableArray *keyboardLayoutsForSend;
     
     NSDictionary *sISO639_2Dictionary;
+    
+    NSString *pathToLog;
+    
+    NSDateFormatter* formatter;
 }
 
 +(id)sharedAppBridge {
@@ -58,6 +62,15 @@
 }
 
 -(id)init {
+    
+    
+    formatter = [[NSDateFormatter alloc] init];
+    NSTimeZone *destinationTimeZone = [NSTimeZone systemTimeZone];
+    formatter.timeZone = destinationTimeZone;
+    [formatter setDateStyle:NSDateFormatterLongStyle];
+    [formatter setDateFormat:@"MM/dd/yyyy hh:mma"];
+    
+    pathToLog = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/Contents/Temp/log.txt"];
 
     NSString *plistPath = [[NSBundle mainBundle]  pathForResource:@"iso639_2" ofType:@"plist"];
     
@@ -233,62 +246,10 @@ void powerSourceChange(void* context) {
         NSMutableDictionary *dictForSend = [[NSMutableDictionary alloc] initWithDictionary:keyboardLayout];
         [dictForSend removeObjectForKey:@"layoutCode"];
         [keyboardLayoutsForSend addObject:dictForSend];
-        
-        /*if ( [primaryLanguage isEqualToString:language.languageCode]) {
-            [keyboardLayout setValue:inputSourceID forKey:@"layoutCode"];
-            break;
-        }
-        */
+
         
     }
-    
-   /* NSLocale *enLocale = [NSLocale localeWithLocaleIdentifier:@"en"];
-    
-    NSArray *inputSources = [(NSArray *)TISCreateInputSourceList(NULL,false ) copy];
-    
-    NSArray *preferredLanguages = [NSLocale preferredLanguages];
-    for ( NSString *languageName in preferredLanguages ) {
-        NSLocale *language = [NSLocale localeWithLocaleIdentifier:languageName];
-        NSMutableDictionary *keyboardLayout = [[NSMutableDictionary alloc] init];
-        [keyboardLayout setValue:language.localeIdentifier forKey:@"id"];
-        [keyboardLayout setValue:language.languageCode forKey:@"code2"];
-        [keyboardLayout setValue:[language localizedStringForLanguageCode:language.languageCode] forKey:@"languageNativeName"];
-        NSLog(@"countryCode %@", language.countryCode );
-        [keyboardLayout setValue:[language localizedStringForCountryCode:language.countryCode] forKey:@"cultureNativeName"];
-        [keyboardLayout setValue:[enLocale localizedStringForLanguageCode:language.languageCode] forKey:@"languageName"];
-        [keyboardLayout setValue:[enLocale localizedStringForCountryCode:language.countryCode] forKey:@"cultureName"];
-        
-        [keyboardLayout setValue:[sISO639_2Dictionary objectForKey:language.languageCode] forKey:@"code3"];
-        
-        for ( NSObject *inputSource in inputSources) {
-            NSString *sourceType = (NSString*)TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceType);
-            
-            if ( ![sourceType isEqualToString:@"TISTypeKeyboardLayout"] )
-                continue;
-           
-            NSString *inputSourceID = (NSString*) TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceID);
-            
-           NSArray *Languages = [(NSArray *)TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceLanguages) copy];
-            NSString *primaryLanguage = NULL;
-            if ([Languages count] > 0) {
-                primaryLanguage = [Languages objectAtIndex:0];
-            }
-            
-            if ( [primaryLanguage isEqualToString:language.languageCode]) {
-                [keyboardLayout setValue:inputSourceID forKey:@"layoutCode"];
-                break;
-            }
-            
-            
-        }
-        
-        [keyboardLayouts addObject:keyboardLayout];
-        
-        NSMutableDictionary *dictForSend = [[NSMutableDictionary alloc] initWithDictionary:keyboardLayout];
-        [dictForSend removeObjectForKey:@"layoutCode"];
-        [keyboardLayoutsForSend addObject:dictForSend];
-        
-    }*/
+   
 
 }
 
@@ -445,6 +406,33 @@ void powerSourceChange(void* context) {
         [self quitKioskAndCloseApp];
     }
     [alert release];
+}
+
+-(void)logEvent:(const char*)message {
+    [self logEventForNsString:@(message)];
+
+
+}
+
+-(void)logEventForNsString:(NSString*)message {
+
+    NSString *messageWithTime = [NSString stringWithFormat:@"%@: %@\n", [formatter stringFromDate:[NSDate date]], message ];
+
+    NSFileHandle* fh = [NSFileHandle fileHandleForWritingAtPath:pathToLog];
+    if ( !fh ) {
+        [[NSFileManager defaultManager] createFileAtPath:pathToLog contents:nil attributes:nil];
+        fh = [NSFileHandle fileHandleForWritingAtPath:pathToLog];
+    }
+    if ( !fh ) return;
+    @try {
+        [fh seekToEndOfFile];
+        [fh writeData:[messageWithTime dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    @catch (NSException * e) {
+        
+    }
+    
+    [fh closeFile];
 }
 
 @end

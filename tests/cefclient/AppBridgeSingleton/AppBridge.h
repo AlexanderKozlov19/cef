@@ -20,6 +20,9 @@
 -(bool)selectKeyboardLayout:(const char*)codeLayoutJSON;
 -(const char*)retrieveCurrentLayout:(BOOL)inDictionary;
 
+-(void)logEvent:(const char*)message;
+-(void)logEventForNsString:(NSString*)message;
+
 void powerSourceChange(void* context);
 
 

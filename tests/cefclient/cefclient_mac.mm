@@ -20,31 +20,6 @@
 #include "tests/shared/common/client_switches.h"
 
 
-namespace {
-    
-
-
-// Returns the top menu bar with the specified |tag|.
-NSMenuItem* GetMenuBarMenuWithTag(NSInteger tag) {
-  NSMenu* main_menu = [[NSApplication sharedApplication] mainMenu];
-  NSInteger found_index = [main_menu indexOfItemWithTag:tag];
-  if (found_index >= 0)
-    return [main_menu itemAtIndex:found_index];
-  return nil;
-}
-
-// Returns the item in |menu| that has the specified |action_selector|.
-NSMenuItem* GetMenuItemWithAction(NSMenu* menu, SEL action_selector) {
-  for (NSInteger i = 0; i < menu.numberOfItems; ++i) {
-    NSMenuItem* item = [menu itemAtIndex:i];
-    if (item.action == action_selector)
-      return item;
-  }
-  return nil;
-}
-
-}  // namespace
-
 // Receives notifications from the application. Will delete itself when done.
 @interface ClientAppDelegate : NSObject<NSApplicationDelegate> {
  @private
@@ -55,23 +30,6 @@ NSMenuItem* GetMenuItemWithAction(NSMenu* menu, SEL action_selector) {
 - (id)initWithControls:(bool)with_controls andOsr:(bool)with_osr;
 - (void)createApplication:(id)object;
 - (void)tryToTerminateApplication:(NSApplication*)app;
-- (void)testsItemSelected:(int)command_id;
-- (IBAction)menuTestsGetText:(id)sender;
-- (IBAction)menuTestsGetSource:(id)sender;
-- (IBAction)menuTestsWindowNew:(id)sender;
-- (IBAction)menuTestsWindowPopup:(id)sender;
-- (IBAction)menuTestsRequest:(id)sender;
-- (IBAction)menuTestsPluginInfo:(id)sender;
-- (IBAction)menuTestsZoomIn:(id)sender;
-- (IBAction)menuTestsZoomOut:(id)sender;
-- (IBAction)menuTestsZoomReset:(id)sender;
-- (IBAction)menuTestsSetFPS:(id)sender;
-- (IBAction)menuTestsSetScaleFactor:(id)sender;
-- (IBAction)menuTestsTracingBegin:(id)sender;
-- (IBAction)menuTestsTracingEnd:(id)sender;
-- (IBAction)menuTestsPrint:(id)sender;
-- (IBAction)menuTestsPrintToPdf:(id)sender;
-- (IBAction)menuTestsOtherTests:(id)sender;
 - (void)enableAccessibility:(bool)bEnable;
 @end
 
@@ -267,7 +225,7 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
     }
     
     
-    NSLog(@"%@", stringHash);
+  //  NSLog(@"%@", stringHash);
     
     return resultCheck;
     
@@ -278,6 +236,8 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
 - (void)createApplication:(id)object {
   NSApplication* application = [NSApplication sharedApplication];
     
+  [[AppBridge sharedAppBridge] logEventForNsString:@"Application is created"];
+   /*
     NSApplicationPresentationOptions presentationOptions = (NSApplicationPresentationHideDock |
                                                             NSApplicationPresentationHideMenuBar |
                                                             NSApplicationPresentationDisableAppleMenu |
@@ -287,7 +247,7 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
                                                             NSApplicationPresentationDisableHideApplication );
     
     [NSApp setPresentationOptions:presentationOptions];
-
+*/
   // The top menu is configured using Interface Builder (IB). To modify the menu
   // start by loading MainMenu.xib in IB.
   //
@@ -327,30 +287,14 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
 
   // Set the delegate for application events.
   [application setDelegate:self];
-    
+  [[AppBridge sharedAppBridge] logEventForNsString:@"Checking hash for index.html"];
   BOOL res = [self checkHashForIndex];
     if ( !res ) {
+        [[AppBridge sharedAppBridge] logEventForNsString:@"index.html is corrupted!"];
         [[NSApplication sharedApplication] terminate:nil];
         client::MainMessageLoop::Get()->Quit();
         return;
     }
-    
-   
-
-  if (!with_osr_) {
-    // Remove the OSR-related menu items when OSR is disabled.
-    NSMenuItem* tests_menu = GetMenuBarMenuWithTag(8);
-    if (tests_menu) {
-      NSMenuItem* set_fps_item = GetMenuItemWithAction(
-          tests_menu.submenu, @selector(menuTestsSetFPS:));
-      if (set_fps_item)
-        [tests_menu.submenu removeItem:set_fps_item];
-      NSMenuItem* set_scale_factor_item = GetMenuItemWithAction(
-          tests_menu.submenu, @selector(menuTestsSetScaleFactor:));
-      if (set_scale_factor_item)
-        [tests_menu.submenu removeItem:set_scale_factor_item];
-    }
-  }
 
   client::RootWindowConfig window_config;
   window_config.with_controls = false;//with_controls_;
@@ -359,10 +303,15 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
   window_config.initially_hidden = false;
 
   // Create the first window.
-  client::MainContext::Get()->GetRootWindowManager()->CreateRootWindow(
-      window_config);
     
-    [self registerHotKeys];
+  [[AppBridge sharedAppBridge] logEventForNsString:@"Creating root window"];
+  scoped_refptr<client::RootWindow> rootWindow = client::MainContext::Get()->GetRootWindowManager()->CreateRootWindow(
+      window_config);
+  
+    [[AppBridge sharedAppBridge] logEventForNsString:[NSString stringWithFormat:@"RootWindow created = %d", (bool)rootWindow.get()]];
+  
+    
+  [self registerHotKeys];
 
 }
 
@@ -372,84 +321,6 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
 
 - (void)orderFrontStandardAboutPanel:(id)sender {
   [[NSApplication sharedApplication] orderFrontStandardAboutPanel:nil];
-}
-
-- (void)testsItemSelected:(int)command_id {
-  // Retrieve the active RootWindow.
-  NSWindow* key_window = [[NSApplication sharedApplication] keyWindow];
-  if (!key_window)
-    return;
-
-  scoped_refptr<client::RootWindow> root_window =
-      client::RootWindow::GetForNSWindow(key_window);
-
-  CefRefPtr<CefBrowser> browser = root_window->GetBrowser();
-  if (browser.get())
-    client::test_runner::RunTest(browser, command_id);
-}
-
-- (IBAction)menuTestsGetText:(id)sender {
-  [self testsItemSelected:ID_TESTS_GETTEXT];
-}
-
-- (IBAction)menuTestsGetSource:(id)sender {
-  [self testsItemSelected:ID_TESTS_GETSOURCE];
-}
-
-- (IBAction)menuTestsWindowNew:(id)sender {
-  [self testsItemSelected:ID_TESTS_WINDOW_NEW];
-}
-
-- (IBAction)menuTestsWindowPopup:(id)sender {
-  [self testsItemSelected:ID_TESTS_WINDOW_POPUP];
-}
-
-- (IBAction)menuTestsRequest:(id)sender {
-  [self testsItemSelected:ID_TESTS_REQUEST];
-}
-
-- (IBAction)menuTestsPluginInfo:(id)sender {
-  [self testsItemSelected:ID_TESTS_PLUGIN_INFO];
-}
-
-- (IBAction)menuTestsZoomIn:(id)sender {
-  [self testsItemSelected:ID_TESTS_ZOOM_IN];
-}
-
-- (IBAction)menuTestsZoomOut:(id)sender {
-  [self testsItemSelected:ID_TESTS_ZOOM_OUT];
-}
-
-- (IBAction)menuTestsZoomReset:(id)sender {
-  [self testsItemSelected:ID_TESTS_ZOOM_RESET];
-}
-
-- (IBAction)menuTestsSetFPS:(id)sender {
-  [self testsItemSelected:ID_TESTS_OSR_FPS];
-}
-
-- (IBAction)menuTestsSetScaleFactor:(id)sender {
-  [self testsItemSelected:ID_TESTS_OSR_DSF];
-}
-
-- (IBAction)menuTestsTracingBegin:(id)sender {
-  [self testsItemSelected:ID_TESTS_TRACING_BEGIN];
-}
-
-- (IBAction)menuTestsTracingEnd:(id)sender {
-  [self testsItemSelected:ID_TESTS_TRACING_END];
-}
-
-- (IBAction)menuTestsPrint:(id)sender {
-  [self testsItemSelected:ID_TESTS_PRINT];
-}
-
-- (IBAction)menuTestsPrintToPdf:(id)sender {
-  [self testsItemSelected:ID_TESTS_PRINT_TO_PDF];
-}
-
-- (IBAction)menuTestsOtherTests:(id)sender {
-  [self testsItemSelected:ID_TESTS_OTHER_TESTS];
 }
 
 - (void)enableAccessibility:(bool)bEnable {
@@ -481,6 +352,8 @@ namespace {
 
 int RunMain(int argc, char* argv[]) {
   CefMainArgs main_args(argc, argv);
+    
+  [[AppBridge sharedAppBridge] logEventForNsString:@"Starting application..."];
 
   // Initialize the AutoRelease pool.
   NSAutoreleasePool* autopool = [[NSAutoreleasePool alloc] init];
@@ -491,8 +364,6 @@ int RunMain(int argc, char* argv[]) {
   NSPasteboard *pb = [NSPasteboard generalPasteboard];
   [pb clearContents];
     
-    [AppBridge sharedAppBridge];
-  
   // creating splashScreen
   SplashScreen *splashScreen = [[SplashScreen alloc] initWithWindowNibName:@"SplashScreen"];
   [splashScreen showWindow:nil];
@@ -530,11 +401,14 @@ int RunMain(int argc, char* argv[]) {
     message_loop.reset(new MainMessageLoopStd);
 
   // Initialize CEF.
-  context->Initialize(main_args, settings, app, NULL);
+  [[AppBridge sharedAppBridge] logEventForNsString:@"Context initializing."];
+  BOOL resultBool = context->Initialize(main_args, settings, app, NULL);
+  [[AppBridge sharedAppBridge] logEventForNsString:[NSString stringWithFormat:@"Result = %d", resultBool]];
 
   // Register scheme handlers.
   test_runner::RegisterSchemeHandlers();
 
+  [[AppBridge sharedAppBridge] logEventForNsString:@"Delegate is creating."];
   // Create the application delegate and window.
   ClientAppDelegate* delegate = [[ClientAppDelegate alloc]
       initWithControls:!command_line->HasSwitch(switches::kHideControls)
@@ -545,17 +419,26 @@ int RunMain(int argc, char* argv[]) {
   
   workFolder = client::MainContext::Get()->GetAppWorkingDirectory() +"temp";
     
+  [[AppBridge sharedAppBridge] logEventForNsString:@"Starting message loop."];
+    
   // Run the message loop. This will block until Quit() is called.
   int result = message_loop->Run();
     
+  [[AppBridge sharedAppBridge] logEventForNsString:@"Application is closing..."];
+    
   // Shut down CEF.
   context->Shutdown();
+    
+  [[AppBridge sharedAppBridge] logEventForNsString:@"Finishing with objects..."];
+    
 
   // Release objects in reverse order of creation.
   [delegate release];
   message_loop.reset();
   context.reset();
   [autopool release];
+    
+  [[AppBridge sharedAppBridge] logEventForNsString:@"Cleaning..."];
     
   NSString *folderForClean = [NSString stringWithCString:workFolder.c_str() encoding:[NSString defaultCStringEncoding]];
     
@@ -565,12 +448,15 @@ int RunMain(int argc, char* argv[]) {
     
     while (file = [enumerator nextObject]) {
      //   NSLog(@"%@", file );
-        if ( ![file containsString:@"Local Storage"] && ![file containsString:@"console.log"]) {
+        if ( ![file containsString:@"Local Storage"] && ![file containsString:@"console.log"] && ![file containsString:@"log.txt"]) {
             NSError *error = nil;
             [fileManager removeItemAtPath:[folderForClean stringByAppendingPathComponent:file] error:&error];
 
         }
     }
+    
+  [[AppBridge sharedAppBridge] logEventForNsString:@"Application is closed"];
+  [[AppBridge sharedAppBridge] logEventForNsString:@"---------------------"];
 
   return result;
 }

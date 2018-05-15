@@ -40,4 +40,8 @@ namespace AppBridgeWrapper {
         const char *result = [[AppBridge sharedAppBridge] retrieveCurrentLayout:NO];
         return result;
     }
+    
+    void logEvent( const char *message ) {
+        [[AppBridge sharedAppBridge] logEvent:message];
+    }
 }
