@@ -751,6 +751,7 @@ cef_return_value_t ClientHandler::OnBeforeResourceLoad(
     CefRefPtr<CefRequestCallback> callback) {
   CEF_REQUIRE_IO_THREAD();
     
+/*
     CefRequest::HeaderMap currentRequestHeader;
     request->GetHeaderMap(currentRequestHeader);
     
@@ -763,7 +764,7 @@ cef_return_value_t ClientHandler::OnBeforeResourceLoad(
         request->SetHeaderMap( currentRequestHeader );
         
     }
-
+*/
     return resource_manager_->OnBeforeResourceLoad(browser, frame, request,
                                                  callback);
 }

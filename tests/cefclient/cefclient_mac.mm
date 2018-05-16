@@ -237,7 +237,7 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
   NSApplication* application = [NSApplication sharedApplication];
     
   [[AppBridge sharedAppBridge] logEventForNsString:@"Application is created"];
-   /*
+   
     NSApplicationPresentationOptions presentationOptions = (NSApplicationPresentationHideDock |
                                                             NSApplicationPresentationHideMenuBar |
                                                             NSApplicationPresentationDisableAppleMenu |
@@ -247,7 +247,7 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
                                                             NSApplicationPresentationDisableHideApplication );
     
     [NSApp setPresentationOptions:presentationOptions];
-*/
+
   // The top menu is configured using Interface Builder (IB). To modify the menu
   // start by loading MainMenu.xib in IB.
   //
@@ -388,8 +388,13 @@ int RunMain(int argc, char* argv[]) {
   context->PopulateSettings(&settings);
     
   std::string workFolder = context->GetAppWorkingDirectory() +"temp";
-    
   CefString(&settings.cache_path).FromString( workFolder );
+    
+  NSProcessInfo *pInfo = [NSProcessInfo processInfo];
+  NSOperatingSystemVersion version = [pInfo operatingSystemVersion];
+  NSString *strUA = [NSString stringWithFormat:@"Mozilla/5.0 (Macintosh; Intel Mac OS X %ld_%ld_%ld) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36 SEB", version.majorVersion, version.minorVersion, version.patchVersion];
+    
+  CefString(&settings.user_agent).FromString( [strUA UTF8String] );
     
   settings.no_sandbox = true;
 
