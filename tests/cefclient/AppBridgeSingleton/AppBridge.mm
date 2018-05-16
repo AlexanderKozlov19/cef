@@ -79,6 +79,9 @@
     quitDialog = [[QuitDialog alloc] initWithWindowNibName:@"QuitDialog"];
     appVersion = [NSString stringWithFormat:@"%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
     
+    [self logEventForNsString:@"Starting application..."];
+    [self logEventForNsString:[NSString stringWithFormat:@"AppVersion: %@", appVersion]];
+    
     [self retrieveBatteryStatus];
     if ( currentBatteryState )  // if battery is present
          [self startBatteryService];
@@ -115,7 +118,10 @@
     CFArrayRef sources = IOPSCopyPowerSourcesList(blob);
     
     int numOfSources = CFArrayGetCount(sources);
-    if (numOfSources == 0) return ;
+    if (numOfSources == 0) {
+        [self logEventForNsString:@"BatteryInfo: Battery not found"];
+        return ;
+    }
     
     CFDictionaryRef pSource = NULL;
     const void *psValue;
@@ -145,6 +151,8 @@
         CFNumberGetValue((CFNumberRef)psValue, kCFNumberIntType, &timeLeft);
         batteryInfo.timeLeft = timeLeft * 60;
         
+        [self logEventForNsString:[ NSString stringWithFormat:@"BatteryInfo: charging: %d percantage = %f timeLeft = %ud", batteryInfo.isCharging, batteryInfo.percentage, batteryInfo.timeLeft ]];
+        
      //   NSLog(@"charging: %d percantage = %f timeLeft = %ud", batteryInfo.isCharging, batteryInfo.percentage, batteryInfo.timeLeft);
         
         
@@ -157,6 +165,8 @@
 
 void powerSourceChange(void* context) {
     BatteryInfo *batteryInfo = (BatteryInfo*)[(AppBridge*)context retrieveBatteryInfo];
+    
+    [[ AppBridge sharedAppBridge] logEventForNsString:@"BatteryInfo: Battery status has changed."];
     
     NSString *apiName = @"battery";
     NSString *eventName = @"statusChanged";
@@ -190,6 +200,7 @@ void powerSourceChange(void* context) {
     runLoopSource = (CFRunLoopSourceRef)IOPSNotificationCreateRunLoopSource(powerSourceChange, self);
     if(runLoopSource) {
         CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, kCFRunLoopDefaultMode);
+        [self logEventForNsString:@"BatteryInfo: Battery service had started."];
     }
     
 }
@@ -246,6 +257,8 @@ void powerSourceChange(void* context) {
         NSMutableDictionary *dictForSend = [[NSMutableDictionary alloc] initWithDictionary:keyboardLayout];
         [dictForSend removeObjectForKey:@"layoutCode"];
         [keyboardLayoutsForSend addObject:dictForSend];
+        
+        [self logEventForNsString:[NSString stringWithFormat:@"Keyboard Info: layout was found: %@", primaryLanguage]];
 
         
     }
@@ -353,6 +366,8 @@ void powerSourceChange(void* context) {
         
         
     }
+    
+    [self logEventForNsString:[NSString stringWithFormat:@"Keyboard Info: currentLayout %@", @(result)]];
     
     return result;
     

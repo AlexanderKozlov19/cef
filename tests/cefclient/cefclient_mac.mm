@@ -353,7 +353,7 @@ namespace {
 int RunMain(int argc, char* argv[]) {
   CefMainArgs main_args(argc, argv);
     
-  [[AppBridge sharedAppBridge] logEventForNsString:@"Starting application..."];
+  [AppBridge sharedAppBridge];
 
   // Initialize the AutoRelease pool.
   NSAutoreleasePool* autopool = [[NSAutoreleasePool alloc] init];
@@ -448,7 +448,7 @@ int RunMain(int argc, char* argv[]) {
     
     while (file = [enumerator nextObject]) {
      //   NSLog(@"%@", file );
-        if ( ![file containsString:@"Local Storage"] && ![file containsString:@"console.log"] && ![file containsString:@"log.txt"]) {
+        if ( ![file containsString:@"Local Storage"] && ![file containsString:@"log.txt"]) {
             NSError *error = nil;
             [fileManager removeItemAtPath:[folderForClean stringByAppendingPathComponent:file] error:&error];
 

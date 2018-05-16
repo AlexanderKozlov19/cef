@@ -50,7 +50,7 @@ enum client_menu_ids {
 };
 
 // Musr match the value in client_renderer.cc.
-const char kFocusedNodeChangedMessage[] = "ClientRenderer.FocusedNodeChanged";
+//const char kFocusedNodeChangedMessage[] = "ClientRenderer.FocusedNodeChanged";
 const char kAskAdminPassword[] = "AppBridge.AskAmdinPassword";
 const char kGetVersionInfo[] = "AppBridge.getAppVersionInfo";
 const char kSetVersionInfo[] = "hostApp.getAppVersionInfo";
@@ -300,22 +300,15 @@ bool ClientHandler::OnProcessMessageReceived(
 
   // Check for messages from the client renderer.
   std::string message_name = message->GetName();
-  if (message_name == kFocusedNodeChangedMessage) {
-    // A message is sent from ClientRenderDelegate to tell us whether the
-    // currently focused DOM node is editable. Use of |focus_on_editable_field_|
-    // is redundant with CefKeyEvent.focus_on_editable_field in OnPreKeyEvent
-    // but is useful for demonstration purposes.
-    focus_on_editable_field_ = message->GetArgumentList()->GetBool(0);
-      
-    return true;
-  }
     
     if ( message_name == kAskAdminPassword ) {
+        AppBridgeWrapper::logEvent("Message: terminate request");
         AppBridgeWrapper::terminateApp();
         return true;
     }
     
     if ( message_name == kGetVersionInfo ) {
+        AppBridgeWrapper::logEvent("Message: AppVersrion");
         const char *strRes = AppBridgeWrapper::retrieveAppVersionForBridge();
         
         std::string appVer( strRes );
@@ -329,6 +322,7 @@ bool ClientHandler::OnProcessMessageReceived(
     }
     
     if ( message_name == kRetrieveBatteryInfo ) {
+        AppBridgeWrapper::logEvent("Message: BatteryInfo");
         void *res = AppBridgeWrapper::retrieveBatteryInfo();
         
         CefRefPtr<CefProcessMessage> message =
@@ -353,6 +347,8 @@ bool ClientHandler::OnProcessMessageReceived(
     }
     
     if ( message_name == kRetrieveKeyboardLayouts ) {
+        AppBridgeWrapper::logEvent("Message: KeyboardLayouts");
+        
         const char *JSON = AppBridgeWrapper::retrieveLayouts();
         CefRefPtr<CefProcessMessage> message =
         CefProcessMessage::Create(kRetrieveKeyboardLayouts);
@@ -364,6 +360,8 @@ bool ClientHandler::OnProcessMessageReceived(
     }
     
     if ( message_name == kSetCurrentLayoutID ) {
+        AppBridgeWrapper::logEvent("Message: setKeyoboardLayout");
+        
         std::string code = message->GetArgumentList()->GetString(0);
         bool result = AppBridgeWrapper::setKeyboardLayout( (const char*)code.c_str());
         
@@ -376,6 +374,7 @@ bool ClientHandler::OnProcessMessageReceived(
     }
     
     if ( message_name == kGetCurrentLayoutID ) {
+        AppBridgeWrapper::logEvent("Message: getCurrentLayout");
         const char* result = AppBridgeWrapper::retrieveCurrentLayout();
         
         CefRefPtr<CefProcessMessage> message =
@@ -423,7 +422,7 @@ bool ClientHandler::OnContextMenuCommand(CefRefPtr<CefBrowser> browser,
       ShowSSLInformation(browser);
       return true;
     default:  // Allow default handling, if any.
-      return ExecuteTestMenu(command_id);
+          return true;
   }
 }
     
@@ -471,40 +470,49 @@ bool ClientHandler::OnConsoleMessage(CefRefPtr<CefBrowser> browser,
                                      const CefString& source,
                                      int line) {
   CEF_REQUIRE_UI_THREAD();
+    
+  std::string logMessage = "Console message:\nLevel: ";
 
-  FILE* file = fopen(console_log_file_.c_str(), "a");
-  if (file) {
+//  FILE* file = fopen(console_log_file_.c_str(), "a");
+//  if (file) {
     std::stringstream ss;
-    ss << "Level: ";
+//    ss << "Level: ";
     switch (level) {
       case LOGSEVERITY_DEBUG:
-        ss << "Debug" << NEWLINE;
+//        ss << "Debug" << NEWLINE;
+            logMessage.append("Debug: ");
         break;
       case LOGSEVERITY_INFO:
-        ss << "Info" << NEWLINE;
+ //       ss << "Info" << NEWLINE;
+            logMessage.append("Info: ");
         break;
       case LOGSEVERITY_WARNING:
-        ss << "Warn" << NEWLINE;
+ //       ss << "Warn" << NEWLINE;
+            logMessage.append("Warn: ");
         break;
       case LOGSEVERITY_ERROR:
-        ss << "Error" << NEWLINE;
+//        ss << "Error" << NEWLINE;
+            logMessage.append("Error: ");
         break;
       default:
         NOTREACHED();
         break;
     }
-    ss << "Message: " << message.ToString() << NEWLINE
-       << "Source: " << source.ToString() << NEWLINE << "Line: " << line
-       << NEWLINE << "-----------------------" << NEWLINE;
-    fputs(ss.str().c_str(), file);
-    fclose(file);
+//    ss << "Message: " << message.ToString() << NEWLINE
+//       << "Source: " << source.ToString() << NEWLINE << "Line: " << line
+//       << NEWLINE << "-----------------------" << NEWLINE;
+//    fputs(ss.str().c_str(), file);
+//    fclose(file);
+      
+      logMessage.append( message.ToString() + " Source: " + source.ToString());
+      AppBridgeWrapper::logEvent(logMessage.c_str());
 
     if (first_console_message_) {
     //  test_runner::Alert(
    //       browser, "Console messages written to \"" + console_log_file_ + "\"");
       first_console_message_ = false;
     }
-  }
+//  }
 
   return false;
 }
@@ -1136,43 +1144,6 @@ void ClientHandler::NotifyTakeFocus(bool next) {
 
   if (delegate_)
     delegate_->OnTakeFocus(next);
-}
-
-void ClientHandler::BuildTestMenu(CefRefPtr<CefMenuModel> model) {
-  if (model->GetCount() > 0)
-    model->AddSeparator();
-
-  // Build the sub menu.
-  CefRefPtr<CefMenuModel> submenu =
-      model->AddSubMenu(CLIENT_ID_TESTMENU_SUBMENU, "Context Menu Test");
-  submenu->AddCheckItem(CLIENT_ID_TESTMENU_CHECKITEM, "Check Item");
-  submenu->AddRadioItem(CLIENT_ID_TESTMENU_RADIOITEM1, "Radio Item 1", 0);
-  submenu->AddRadioItem(CLIENT_ID_TESTMENU_RADIOITEM2, "Radio Item 2", 0);
-  submenu->AddRadioItem(CLIENT_ID_TESTMENU_RADIOITEM3, "Radio Item 3", 0);
-
-  // Check the check item.
-  if (test_menu_state_.check_item)
-    submenu->SetChecked(CLIENT_ID_TESTMENU_CHECKITEM, true);
-
-  // Check the selected radio item.
-  submenu->SetChecked(
-      CLIENT_ID_TESTMENU_RADIOITEM1 + test_menu_state_.radio_item, true);
-}
-
-bool ClientHandler::ExecuteTestMenu(int command_id) {
-  if (command_id == CLIENT_ID_TESTMENU_CHECKITEM) {
-    // Toggle the check item.
-    test_menu_state_.check_item ^= 1;
-    return true;
-  } else if (command_id >= CLIENT_ID_TESTMENU_RADIOITEM1 &&
-             command_id <= CLIENT_ID_TESTMENU_RADIOITEM3) {
-    // Store the selected radio item.
-    test_menu_state_.radio_item = (command_id - CLIENT_ID_TESTMENU_RADIOITEM1);
-    return true;
-  }
-
-  // Allow default handling to proceed.
-  return false;
 }
 
 }  // namespace client
