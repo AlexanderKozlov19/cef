@@ -21,5 +21,9 @@
 /libcef_dll_wrapper/Project.xcodeproj/*
 /tests/cefclient/CMakeScripts/*
 /tests/cefclient/Debug/*
+/cmake_install.cmake
+/tests/cefclient/cmake_install.cmake
+/libcef_dll/cmake_install.cmake
+/libcef_dll_wrapper/cmake_install.cmake
 
 
