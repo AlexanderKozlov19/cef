@@ -795,7 +795,7 @@ bool ClientHandler::OnQuotaRequest(CefRefPtr<CefBrowser> browser,
                                    CefRefPtr<CefRequestCallback> callback) {
   CEF_REQUIRE_IO_THREAD();
 
-  static const int64 max_size = 1024 * 1024 * 20;  // 20mb.
+  static const int64 max_size = 1024 * 1024 * 200;  // 20mb.
 
   // Grant the quota request if the size is reasonable.
   callback->Continue(new_size <= max_size);
