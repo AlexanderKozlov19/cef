@@ -25,6 +25,8 @@
 
 -(NSString*)retrieveMachineName;
 
+- (BOOL)forceQuitWindowCheck;
+
 void powerSourceChange(void* context);
 
 

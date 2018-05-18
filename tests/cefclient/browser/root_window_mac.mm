@@ -17,6 +17,7 @@
 #include "tests/cefclient/browser/window_test_runner_mac.h"
 #include "tests/shared/browser/main_message_loop.h"
 #include "tests/shared/common/client_switches.h"
+#include "tests/cefclient/AppBridgeSingleton/AppBridgeWrapper.h"
 
 // Receives notifications from controls and the browser window. Will delete
 // itself when done.
@@ -459,7 +460,7 @@ void RootWindowMac::ShowDevTools() {
     
 void RootWindowMac::QuitKioskMode( void ) {
   //[[window_ contentView] exitFullScreenModeWithOptions:nil];
-     [window_ toggleFullScreen:nil];
+  //   [window_ toggleFullScreen:nil];
 }
 
 void RootWindowMac::WindowDestroyed() {
@@ -536,6 +537,8 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
             
   [window_ setTitle:@"cef"];
   [window_ setSharingType:NSWindowSharingNone];
+  [window_ toggleFullScreen:nil];
+
 
   // Create the delegate for control and browser window events.
   RootWindowDelegate* delegate =
@@ -649,7 +652,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
       :[NSScreen mainScreen] withOptions: fullScreenOptions];
      */
      // [window_ makeMainWindow];
-      [window_ toggleFullScreen:nil];
+     // [window_ toggleFullScreen:nil];
     //  [window_ setLevel:NSFloatingWindowLevel];
       
      // Show(ShowNormal);
@@ -684,6 +687,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
           //[blankWindow toggleFullScreen:nil];
       }
       
+  //    [window_ makeKeyAndOrderFront:nil];
 
   } else {
     // With popups we already have a browser window. Parent the browser window
@@ -731,7 +735,7 @@ void RootWindowMac::OnBrowserCreated(CefRefPtr<CefBrowser> browser) {
   NSArray *windowsArray = [[NSApplication sharedApplication] windows];
   for ( NSWindow *win in windowsArray ) {
         if ( [win.title isEqualToString:@"Janison Replay"]) {
-            [win orderOut:nil];
+            [win close];
             break;
         }
     }

@@ -14,6 +14,7 @@
 #include "tests/shared/browser/extension_util.h"
 #include "tests/shared/browser/resource_util.h"
 #include "tests/shared/common/client_switches.h"
+#include "tests/cefclient/AppBridgeSingleton/AppBridgeWrapper.h"
 
 namespace client {
 
@@ -144,6 +145,13 @@ scoped_refptr<RootWindow> RootWindowManager::CreateRootWindow(
 
   scoped_refptr<RootWindow> root_window =
       RootWindow::Create(MainContext::Get()->UseViews());
+  bool quitApp = AppBridgeWrapper::checkForForceQuitWindow();
+  if ( quitApp ) {
+      root_window->Close(true);
+      return nullptr;
+  }
+
+    
   root_window->Init(this, config, settings);
 
   // Store a reference to the root window on the main thread.
@@ -151,6 +159,8 @@ scoped_refptr<RootWindow> RootWindowManager::CreateRootWindow(
     
   if ( config.mainWindow )
       main_window_ = root_window;
+    
+ 
 
   return root_window;
 }
@@ -202,6 +212,8 @@ scoped_refptr<RootWindow> RootWindowManager::CreateRootWindowAsPopup(
 
   // Store a reference to the root window on the main thread.
   OnRootWindowCreated(root_window);
+    
+
 
   return root_window;
 }

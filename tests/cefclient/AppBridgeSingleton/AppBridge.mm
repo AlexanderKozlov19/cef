@@ -457,4 +457,63 @@ void powerSourceChange(void* context) {
     return machineName;
 }
 
+- (BOOL)forceQuitWindowCheck
+{
+    BOOL process = [self forceQuitWindowOpen];
+    BOOL userQuit = NO;
+    while ( process ) {
+        // Show alert that the Force Quit window is open
+        NSLog(@"Force Quit window is open, show error message and ask user to close it or quit SEB.");
+        NSAlert *newAlert = [[NSAlert alloc] init];
+        [newAlert setMessageText:NSLocalizedString(@"Close Force Quit Window", nil)];
+        [newAlert setInformativeText:NSLocalizedString(@"Janison Replay cannot run when the Force Quit window is open. Close the window or quit Janison Replay.", nil)];
+        [newAlert setAlertStyle:NSCriticalAlertStyle];
+        [newAlert addButtonWithTitle:NSLocalizedString(@"Retry", nil)];
+        [newAlert addButtonWithTitle:NSLocalizedString(@"Quit", nil)];
+        int answer = [newAlert runModal];
+        switch(answer)
+        {
+            case NSAlertFirstButtonReturn:
+                NSLog(@"Force Quit window was open, user clicked retry");
+                process = [self forceQuitWindowOpen];
+                break; // Test if window is closed now
+                
+            case NSAlertSecondButtonReturn:
+            {
+                // Quit SEB
+                NSLog(@"Force Quit window was open, user decided to quit Janison Replay.");
+                process = NO;
+                userQuit = YES;
+                break;
+                //quittingMyself = TRUE; //SEB is terminating itself
+              
+            }
+        }
+        
+      
+    }
+    
+    if ( userQuit )
+        [[NSApplication sharedApplication] terminate: nil];
+    
+    return userQuit;
+        
+}
+
+
+// Check if the Force Quit window is open
+- (BOOL)forceQuitWindowOpen
+{
+    BOOL forceQuitWindowOpen = false;
+    NSArray *windowList = CFBridgingRelease(CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly, kCGNullWindowID));
+    for (NSDictionary *windowInformation in windowList) {
+        if ([[windowInformation valueForKey:@"kCGWindowOwnerName"] isEqualToString:@"loginwindow"]) {
+            forceQuitWindowOpen = true;
+            break;
+        }
+    }
+    return forceQuitWindowOpen;
+}
+
+
 @end

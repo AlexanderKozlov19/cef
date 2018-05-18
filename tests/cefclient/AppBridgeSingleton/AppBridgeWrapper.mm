@@ -49,4 +49,9 @@ namespace AppBridgeWrapper {
         const char *str = [[[AppBridge sharedAppBridge] retrieveMachineName] UTF8String];
         return str ;
     }
+    
+    bool checkForForceQuitWindow() {
+        BOOL result = [[AppBridge sharedAppBridge] forceQuitWindowCheck];
+        return result;
+    }
 }
