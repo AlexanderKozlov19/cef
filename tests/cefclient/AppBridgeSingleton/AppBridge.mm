@@ -45,6 +45,8 @@
     NSString *pathToLog;
     
     NSDateFormatter* formatter;
+    
+    NSString *machineName;
 }
 
 +(id)sharedAppBridge {
@@ -63,13 +65,14 @@
 
 -(id)init {
     
-    
+    machineName = [[NSHost currentHost] localizedName];
+
     formatter = [[NSDateFormatter alloc] init];
     NSTimeZone *destinationTimeZone = [NSTimeZone systemTimeZone];
     formatter.timeZone = destinationTimeZone;
     [formatter setDateStyle:NSDateFormatterLongStyle];
     [formatter setDateFormat:@"MM/dd/yyyy hh:mma"];
-    
+        
     pathToLog = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/Contents/Temp/log.txt"];
 
     NSString *plistPath = [[NSBundle mainBundle]  pathForResource:@"iso639_2" ofType:@"plist"];
@@ -448,6 +451,10 @@ void powerSourceChange(void* context) {
     }
     
     [fh closeFile];
+}
+
+-(NSString*)retrieveMachineName {
+    return machineName;
 }
 
 @end

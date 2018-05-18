@@ -44,4 +44,9 @@ namespace AppBridgeWrapper {
     void logEvent( const char *message ) {
         [[AppBridge sharedAppBridge] logEvent:message];
     }
+    
+    const char *retriveMachinName() {
+        const char *str = [[[AppBridge sharedAppBridge] retrieveMachineName] UTF8String];
+        return str ;
+    }
 }

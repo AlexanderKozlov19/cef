@@ -16,6 +16,7 @@ namespace AppBridgeWrapper {
     bool setKeyboardLayout( const char *code );
     const char *retrieveCurrentLayout();
     void logEvent( const char *message );
+    const char *retriveMachineName();
 }
 
 #endif /* AppBridgeWrapper_h */

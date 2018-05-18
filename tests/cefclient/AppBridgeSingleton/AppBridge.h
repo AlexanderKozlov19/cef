@@ -23,6 +23,8 @@
 -(void)logEvent:(const char*)message;
 -(void)logEventForNsString:(NSString*)message;
 
+-(NSString*)retrieveMachineName;
+
 void powerSourceChange(void* context);
 
 
