@@ -8,6 +8,7 @@
 #import <Carbon/Carbon.h>
 #import "AppBridge.h"
 #import "tests/cefclient/QuitDialog/QuitDialog.h"
+#include "NSWindow+SEBWindow.h"
 #include <IOKit/ps/IOPowerSources.h>
 #include <IOKit/ps/IOPSKeys.h>
 
@@ -66,6 +67,8 @@
 -(id)init {
     
     machineName = [[NSHost currentHost] localizedName];
+    
+    [NSWindow setupChangingWindowLevels];
 
     formatter = [[NSDateFormatter alloc] init];
     NSTimeZone *destinationTimeZone = [NSTimeZone systemTimeZone];

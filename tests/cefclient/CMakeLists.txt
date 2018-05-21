@@ -208,6 +208,10 @@ set(CEFCLIENT_APPBRIDGE
   AppBridgeSingleton/AppBridge.mm
   AppBridgeSingleton/AppBridgeWrapper.h
   AppBridgeSingleton/AppBridgeWrapper.mm
+  AppBridgeSingleton/MethodSwizzling.h
+  AppBridgeSingleton/MethodSwizzling.mm
+  AppBridgeSingleton/NSWindow+SEBWindow.h
+  AppBridgeSingleton/NSWindow+SEBWindow.mm
 )
 source_group(cefclient\\\\AppBridgeSingleton FILES ${CEFCLIENT_APPBRIDGE})
 

@@ -23,7 +23,7 @@ const char *text3 = "uftu";//test";
     [super windowDidLoad];
     
     passwordTextField.delegate = self;
-    [self.window setLevel:NSMainMenuWindowLevel+3];//]
+   // [self.window setLevel:NSMainMenuWindowLevel+3];//]
 
 }
 

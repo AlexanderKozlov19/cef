@@ -367,7 +367,7 @@ int RunMain(int argc, char* argv[]) {
   // creating splashScreen
   SplashScreen *splashScreen = [[SplashScreen alloc] initWithWindowNibName:@"SplashScreen"];
   [splashScreen showWindow:nil];
-  [splashScreen.window setLevel:NSFloatingWindowLevel];
+    [splashScreen.window setLevel:NSModalPanelWindowLevel];//NSFloatingWindowLevel];
 
   // Parse command-line arguments.
   CefRefPtr<CefCommandLine> command_line = CefCommandLine::CreateCommandLine();

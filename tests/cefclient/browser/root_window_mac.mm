@@ -537,6 +537,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
                    defer:NO
                    screen:browserScreen
                    ];
+        window_.releasedWhenClosed = NO;
     }
     else {
         window_rect = NSMakeRect(screen_rect.origin.x, screen_rect.origin.y, screen_rect.size.width, screen_rect.size.height);
@@ -548,13 +549,13 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
                    initWithContentRect:window_rect
                    styleMask: /*(NSTitledWindowMask | NSClosableWindowMask |
                    NSMiniaturizableWindowMask | NSResizableWindowMask |
-                   NSUnifiedTitleAndToolbarWindowMask) */ NSWindowStyleMaskBorderless
+                               NSUnifiedTitleAndToolbarWindowMask)*/  NSWindowStyleMaskBorderless
                    backing:NSBackingStoreBuffered
                    defer:NO
                    screen:browserScreen
                    ];
         
-      //  window_.releasedWhenClosed = YES;
+      window_.releasedWhenClosed = YES;
     }
     
  
@@ -727,14 +728,14 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
           //[blankWindow toggleFullScreen:nil];
       }
       
-      [window_ setLevel:NSMainMenuWindowLevel+2];//NSMainMenuWindowLevel+2];
+      [window_ setLevel:NSNormalWindowLevel];//NSMainMenuWindowLevel+2];
       
       [window_ makeKeyAndOrderFront:nil];
 
   } else {
     // With popups we already have a browser window. Parent the browser window
     // to the root window and show it in the correct location.
-    [window_ setLevel:NSFloatingWindowLevel+1];
+   // [window_ setLevel:NSFloatingWindowLevel+1];
     browser_window_->ShowPopup(contentView, 0, 0, contentBounds.size.width,
                                contentBounds.size.height);
       
@@ -746,7 +747,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
              SetBounds(x, y, width, height);
       }
       [window_ makeKeyAndOrderFront:nil];
-      [window_ setLevel:NSMainMenuWindowLevel+3];//NSModalPanelWindowLevel];
+      [window_ setLevel:NSModalPanelWindowLevel];//NSMainMenuWindowLevel+3];//NSModalPanelWindowLevel];
       [window_ orderFrontRegardless];
   }
    /*
