@@ -509,8 +509,12 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
         }
     
   NSRect screen_rect = [browserScreen frame];
-  NSRect window_rect =
-      NSMakeRect(screen_rect.origin.x, screen_rect.origin.y, width, height);
+  NSRect window_rect;
+    if ( is_popup_)
+      window_rect = NSMakeRect(screen_rect.origin.x, screen_rect.origin.y, width, height);
+    else
+        window_rect = NSMakeRect(screen_rect.origin.x, screen_rect.origin.y, screen_rect.size.width, screen_rect.size.height);
+    
   window_ = [[UnderlayOpenGLHostingWindow alloc]
       initWithContentRect:window_rect
                 styleMask:(NSTitledWindowMask | NSClosableWindowMask |
