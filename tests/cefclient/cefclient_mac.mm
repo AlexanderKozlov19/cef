@@ -288,14 +288,14 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
   // Set the delegate for application events.
   [application setDelegate:self];
   [[AppBridge sharedAppBridge] logEventForNsString:@"Checking hash for index.html"];
-  BOOL res = [self checkHashForIndex];
+/*  BOOL res = [self checkHashForIndex];
     if ( !res ) {
         [[AppBridge sharedAppBridge] logEventForNsString:@"index.html is corrupted!"];
         [[NSApplication sharedApplication] terminate:nil];
         client::MainMessageLoop::Get()->Quit();
         return;
     }
-
+*/
   client::RootWindowConfig window_config;
   window_config.with_controls = false;//with_controls_;
   window_config.with_osr = with_osr_;

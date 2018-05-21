@@ -21,6 +21,16 @@
 
 // Receives notifications from controls and the browser window. Will delete
 // itself when done.
+
+@implementation UnderlayOpenGLHostingWindow
+
+- (BOOL)canBecomeKeyWindow
+{
+    return YES;
+}
+
+@end
+
 @interface RootWindowDelegate : NSObject<NSWindowDelegate> {
  @private
   NSWindow* window_;
@@ -210,6 +220,7 @@
 
   // Allow the close.
   return YES;
+
 }
 
 // Deletes itself.
@@ -459,6 +470,11 @@ void RootWindowMac::ShowDevTools() {
 }
     
 void RootWindowMac::QuitKioskMode( void ) {
+    [window_ close];
+    window_destroyed_ = true;
+    window_ = nil;
+  // [window_ performClose:nil];
+ //   Close( true );
   //[[window_ contentView] exitFullScreenModeWithOptions:nil];
   //   [window_ toggleFullScreen:nil];
 }
@@ -510,20 +526,39 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
     
   NSRect screen_rect = [browserScreen frame];
   NSRect window_rect;
-    if ( is_popup_)
+    if ( is_popup_) {
       window_rect = NSMakeRect(screen_rect.origin.x, screen_rect.origin.y, width, height);
-    else
+        window_ = [[UnderlayOpenGLHostingWindow alloc]
+                   initWithContentRect:window_rect
+                   styleMask:(NSTitledWindowMask | NSClosableWindowMask |
+                              NSMiniaturizableWindowMask | NSResizableWindowMask |
+                              NSUnifiedTitleAndToolbarWindowMask)
+                   backing:NSBackingStoreBuffered
+                   defer:NO
+                   screen:browserScreen
+                   ];
+    }
+    else {
         window_rect = NSMakeRect(screen_rect.origin.x, screen_rect.origin.y, screen_rect.size.width, screen_rect.size.height);
+        
+
+        
+        window_ = [[UnderlayOpenGLHostingWindow alloc]
+                   
+                   initWithContentRect:window_rect
+                   styleMask: /*(NSTitledWindowMask | NSClosableWindowMask |
+                   NSMiniaturizableWindowMask | NSResizableWindowMask |
+                   NSUnifiedTitleAndToolbarWindowMask) */ NSWindowStyleMaskBorderless
+                   backing:NSBackingStoreBuffered
+                   defer:NO
+                   screen:browserScreen
+                   ];
+        
+      //  window_.releasedWhenClosed = YES;
+    }
     
-  window_ = [[UnderlayOpenGLHostingWindow alloc]
-      initWithContentRect:window_rect
-                styleMask:(NSTitledWindowMask | NSClosableWindowMask |
-                           NSMiniaturizableWindowMask | NSResizableWindowMask |
-                           NSUnifiedTitleAndToolbarWindowMask)
-                  backing:NSBackingStoreBuffered
-                    defer:NO
-             screen:browserScreen
-             ];
+ 
+
     
 
   NSWindow* blankWindow = nil;
@@ -534,15 +569,15 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
                                                    backing:NSBackingStoreBuffered
                                                      defer:NO
                                                     screen:blankScreen];
-      [blankWindow setSharingType:NSWindowSharingNone];
+   //   [blankWindow setSharingType:NSWindowSharingNone];
       [blankWindow setFrame:rect2 display:YES];
    }
       
             
   [window_ setTitle:@"cef"];
-  [window_ setSharingType:NSWindowSharingNone];
-  if (!is_popup_)
-      [window_ toggleFullScreen:nil];
+//  [window_ setSharingType:NSWindowSharingNone];
+//  if (!is_popup_)
+//      [window_ toggleFullScreen:nil];
 
 
   // Create the delegate for control and browser window events.
@@ -553,7 +588,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
   // releasing when the window gets closed. We use the delegate to do
   // everything from the autorelease pool so the window isn't on the stack
   // during cleanup (ie, a window close from javascript).
-  [window_ setReleasedWhenClosed:NO];
+ // [window_ setReleasedWhenClosed:NO];
     
   const cef_color_t background_color = MainContext::Get()->GetBackgroundColor();
   [window_
@@ -692,7 +727,9 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
           //[blankWindow toggleFullScreen:nil];
       }
       
-  //    [window_ makeKeyAndOrderFront:nil];
+      [window_ setLevel:NSMainMenuWindowLevel+2];//NSMainMenuWindowLevel+2];
+      
+      [window_ makeKeyAndOrderFront:nil];
 
   } else {
     // With popups we already have a browser window. Parent the browser window
@@ -709,7 +746,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
              SetBounds(x, y, width, height);
       }
       [window_ makeKeyAndOrderFront:nil];
-      [window_ setLevel:NSModalPanelWindowLevel];
+      [window_ setLevel:NSMainMenuWindowLevel+3];//NSModalPanelWindowLevel];
       [window_ orderFrontRegardless];
   }
    /*
