@@ -60,6 +60,11 @@
              withMethod:@selector(newSetLevel:)];
 }
 
+- (BOOL)canBecomeKeyWindow
+{
+    return YES;
+}
+
 /*
 -(void)addViewToTitleBar:(NSView*)viewToAdd atLeftOffset:(CGFloat)x
 {

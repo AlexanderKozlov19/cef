@@ -21,7 +21,7 @@
 
 // Receives notifications from controls and the browser window. Will delete
 // itself when done.
-
+/*
 @implementation UnderlayOpenGLHostingWindow
 
 - (BOOL)canBecomeKeyWindow
@@ -30,7 +30,7 @@
 }
 
 @end
-
+*/
 @interface RootWindowDelegate : NSObject<NSWindowDelegate> {
  @private
   NSWindow* window_;
