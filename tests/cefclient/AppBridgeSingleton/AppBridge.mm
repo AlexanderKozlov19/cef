@@ -89,7 +89,7 @@
     
     machineName = [[NSHost currentHost] localizedName];
     
-  //  [NSWindow setupChangingWindowLevels];
+    [NSWindow setupChangingWindowLevels];
 
     formatter = [[NSDateFormatter alloc] init];
     NSTimeZone *destinationTimeZone = [NSTimeZone systemTimeZone];
