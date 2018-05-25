@@ -27,7 +27,7 @@
 
 - (BOOL)forceQuitWindowCheck;
 
-void powerSourceChange(void* context);
+-(const char*)retrieveStartURL;
 
 
 @end

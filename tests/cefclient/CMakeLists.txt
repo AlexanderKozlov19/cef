@@ -338,6 +338,7 @@ set(CEFCLIENT_RESOURCES_RESOURCES_SRCS
   resources/test3.html
   resources/unified-app-bridge-angular.js
   resources/unified-app-bridge.js
+  resources/config.json
   )
 source_group(cefclient\\\\resources FILES ${CEFCLIENT_RESOURCES_RESOURCES_SRCS})
 

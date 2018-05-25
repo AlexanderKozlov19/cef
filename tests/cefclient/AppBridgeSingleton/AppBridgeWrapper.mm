@@ -54,4 +54,9 @@ namespace AppBridgeWrapper {
         BOOL result = [[AppBridge sharedAppBridge] forceQuitWindowCheck];
         return result;
     }
+    
+    const char *retrieveStartURL() {
+        const char *result = [[AppBridge sharedAppBridge] retrieveStartURL];
+        return result;
+    }
 }

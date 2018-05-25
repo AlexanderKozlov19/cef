@@ -48,6 +48,8 @@
     NSDateFormatter* formatter;
     
     NSString *machineName;
+    
+    NSString *startURL;
 }
 
 +(id)sharedAppBridge {
@@ -64,11 +66,30 @@
     
 }
 
+-(void)loadStartURL {
+    startURL = nil;
+    
+    NSString *configFileName = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/Contents/Resources/config.json"];
+    
+    BOOL jsonExists = [[NSFileManager defaultManager] fileExistsAtPath:configFileName];
+    if ( jsonExists ) {
+        
+        NSString *stringJSON = [[NSString alloc] initWithContentsOfFile:configFileName encoding:NSUTF8StringEncoding error:NULL];
+        NSError *error =  nil;
+        NSDictionary *jsonConfig = [NSJSONSerialization JSONObjectWithData:[stringJSON dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
+        
+        if ( [jsonConfig objectForKey:@"startUrl"] != nil ) {
+            startURL = jsonConfig[@"startUrl"];
+        }
+    }
+        
+}
+
 -(id)init {
     
     machineName = [[NSHost currentHost] localizedName];
     
-    [NSWindow setupChangingWindowLevels];
+  //  [NSWindow setupChangingWindowLevels];
 
     formatter = [[NSDateFormatter alloc] init];
     NSTimeZone *destinationTimeZone = [NSTimeZone systemTimeZone];
@@ -77,6 +98,8 @@
     [formatter setDateFormat:@"MM/dd/yyyy hh:mma"];
         
     pathToLog = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/Contents/Temp/log.txt"];
+    
+    [self loadStartURL];
 
     NSString *plistPath = [[NSBundle mainBundle]  pathForResource:@"iso639_2" ofType:@"plist"];
     
@@ -505,8 +528,7 @@ void powerSourceChange(void* context) {
 
 
 // Check if the Force Quit window is open
-- (BOOL)forceQuitWindowOpen
-{
+- (BOOL)forceQuitWindowOpen {
     BOOL forceQuitWindowOpen = false;
     NSArray *windowList = CFBridgingRelease(CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly, kCGNullWindowID));
     for (NSDictionary *windowInformation in windowList) {
@@ -516,6 +538,10 @@ void powerSourceChange(void* context) {
         }
     }
     return forceQuitWindowOpen;
+}
+
+- (const char*)retrieveStartURL {
+    return [startURL UTF8String];
 }
 
 
