@@ -696,15 +696,13 @@ void ClientHandler::OnLoadingStateChange(CefRefPtr<CefBrowser> browser,
             std::string fileName = stringURL.substr( pos + 1, stringURL.length() - pos );
             if ( fileName == "index.html" ) {
                 const char *startURL = AppBridgeWrapper::retrieveStartURL();
-                std::string javaScript = "var inputTextField = document.getElementsByClassName('connect-page__url')[0]; inputTextField.value = '";
+
+                std::string javaScript = "var scope = angular.element(document.getElementsByClassName('connect-page__url')[0]).scope(); scope.pc.serverUrl ='";
                 javaScript += startURL;
                 javaScript += "'";
                 
                 frame->ExecuteJavaScript(javaScript, frame->GetURL(), 0);
-                
-                javaScript = "var buttonConnect = document.getElementsByClassName('connect-page__connect-btn')[0]; buttonConnect.disabled = false";
-                
-                frame->ExecuteJavaScript(javaScript, frame->GetURL(), 0);
+               
             }
         }
     }
