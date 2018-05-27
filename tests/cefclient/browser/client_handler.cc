@@ -702,6 +702,9 @@ void ClientHandler::OnLoadingStateChange(CefRefPtr<CefBrowser> browser,
                     javaScript += "'";
                     
                     frame->ExecuteJavaScript(javaScript, frame->GetURL(), 0);
+                    
+                    javaScript = "angular.element(document.getElementsByClassName('connect-page__connect-btn')[0]).triggerHandler('click');";
+                    frame->ExecuteJavaScript(javaScript, frame->GetURL(), 0);
                 }
                
             }
