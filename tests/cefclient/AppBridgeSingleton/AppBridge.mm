@@ -89,7 +89,7 @@
     
     machineName = [[NSHost currentHost] localizedName];
     
-    [NSWindow setupChangingWindowLevels];
+   // [NSWindow setupChangingWindowLevels];
 
     formatter = [[NSDateFormatter alloc] init];
     NSTimeZone *destinationTimeZone = [NSTimeZone systemTimeZone];
@@ -479,8 +479,21 @@ void powerSourceChange(void* context) {
     [fh closeFile];
 }
 
--(NSString*)retrieveMachineName {
-    return machineName;
+-(const char*)retrieveMachineName {
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:self->machineName, @"name", nil];
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
+                                               options:NSJSONReadingAllowFragments
+                                                 error:&error];
+    
+    
+
+    NSString *stringJSON = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+
+    const char *result = [stringJSON UTF8String];
+    
+    return result;
 }
 
 - (BOOL)forceQuitWindowCheck

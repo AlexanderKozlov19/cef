@@ -29,6 +29,7 @@ namespace client {
     const char kSetCurrentLayoutID[] = "keyboardLayout.trySetCurrentLayoutId";
     const char kGetCurrentLayoutID[] = "keyboardLayout.getCurrentLayoutId";
     const char kSubscribeToEvents[] =  "subscribeToEvents";
+    const char kMachineName[] = "hostApp.getMachineName";
    
         
     bool MyV8Handler::Execute(const CefString& name,
@@ -154,6 +155,24 @@ namespace client {
                 browser->SendProcessMessage(PID_BROWSER, message);
                 
                  return true;
+                }
+        else
+            if ( funcName == kMachineName ) {
+                
+                std::string name = funcName;
+                CefRefPtr<CefV8Context> context = CefV8Context::GetCurrentContext();
+                int browser_id = context->GetBrowser()->GetIdentifier();
+                client_app_->SetMessageCallback(name, browser_id, context,
+                                                arguments[2]);
+                
+                CefRefPtr<CefProcessMessage> message =
+                CefProcessMessage::Create(kMachineName);
+                
+                
+                CefRefPtr<CefBrowser> browser = CefV8Context::GetCurrentContext()->GetBrowser();
+                browser->SendProcessMessage(PID_BROWSER, message);
+                
+                return true;
                 }
         else
             {

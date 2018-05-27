@@ -23,7 +23,7 @@
 -(void)logEvent:(const char*)message;
 -(void)logEventForNsString:(NSString*)message;
 
--(NSString*)retrieveMachineName;
+-(const char*)retrieveMachineName;
 
 - (BOOL)forceQuitWindowCheck;
 

@@ -58,6 +58,7 @@ const char kRetrieveBatteryInfo[] = "battery.getStatus";
 const char kRetrieveKeyboardLayouts[] = "keyboardLayout.getLayouts";
 const char kSetCurrentLayoutID[] = "keyboardLayout.trySetCurrentLayoutId";
 const char kGetCurrentLayoutID[] = "keyboardLayout.getCurrentLayoutId";
+const char kMachineName[] = "hostApp.getMachineName";
 
 std::string GetTimeString(const CefTime& value) {
   if (value.GetTimeT() == 0)
@@ -319,6 +320,19 @@ bool ClientHandler::OnProcessMessageReceived(
         browser->SendProcessMessage(PID_RENDERER, message);
         
         return true;
+    }
+    
+    if ( message_name == kMachineName ) {
+        AppBridgeWrapper::logEvent("Message: MachineName");
+        const char *strRes = AppBridgeWrapper::retriveMachineName();
+        
+        std::string machineName( strRes );
+        
+        CefRefPtr<CefProcessMessage> message =
+        CefProcessMessage::Create(kMachineName);
+        message->GetArgumentList()->SetString(0, machineName);
+        browser->SendProcessMessage(PID_RENDERER, message);
+        
     }
     
     if ( message_name == kRetrieveBatteryInfo ) {

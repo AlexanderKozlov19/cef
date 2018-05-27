@@ -230,7 +230,7 @@ bool ClientAppRenderer::OnProcessMessageReceived(
        
     }
     
-    if ( ( message_name_test == kRetrieveKeyboardLayouts ) || ( message_name_test == kGetCurrentLayoutID ) ) {
+    if ( ( message_name_test == kRetrieveKeyboardLayouts ) || ( message_name_test == kGetCurrentLayoutID ) || ( message_name_test == kMachineName) ) {
         
         CefString message_name = message->GetName();
         CallbackMap::const_iterator it = callback_map_.find( std::make_pair(message_name.ToString(), browser->GetIdentifier()));
