@@ -14,8 +14,8 @@
 @implementation QuitDialog
 
 const char *text1 = "FYJU$sfqmbz";
-const char *text2 = "sfdpogjhvsf";
-const char *text3 = "uftu";//test";
+const char *text2 = "dpogjhvsf";//"sfdpogjhvsf";
+const char *text3 = "uftu";
 
 @synthesize passwordTextField;
 
