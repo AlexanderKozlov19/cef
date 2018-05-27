@@ -74,21 +74,13 @@
     BOOL jsonExists = [[NSFileManager defaultManager] fileExistsAtPath:configFileName];
     if ( jsonExists ) {
         
-        [self logEventForNsString:@"config.json is present"];
-        
         NSString *stringJSON = [[NSString alloc] initWithContentsOfFile:configFileName encoding:NSUTF8StringEncoding error:NULL];
         NSError *error =  nil;
         NSDictionary *jsonConfig = [NSJSONSerialization JSONObjectWithData:[stringJSON dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
         
         if ( [jsonConfig objectForKey:@"startUrl"] != nil ) {
             startURL = jsonConfig[@"startUrl"];
-            [self logEventForNsString:[NSString stringWithFormat:@"startUrl is %@", startURL]];
         }
-        else
-            [self logEventForNsString:@"startUrl is absent"];
-    }
-    else {
-        [self logEventForNsString:@"config.json is absent"];
     }
         
 }
@@ -118,7 +110,6 @@
     
     [self logEventForNsString:@"Starting application..."];
     [self logEventForNsString:[NSString stringWithFormat:@"AppVersion: %@", appVersion]];
-    [self logEventForNsString:[NSString stringWithFormat:@"MachineName: %@", machineName]];
     
     [self retrieveBatteryStatus];
     if ( currentBatteryState )  // if battery is present
