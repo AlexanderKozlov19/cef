@@ -540,7 +540,7 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
         window_.releasedWhenClosed = NO;
     }
     else {
-        window_rect = NSMakeRect(screen_rect.origin.x, screen_rect.origin.y, screen_rect.size.width, screen_rect.size.height);
+        window_rect = NSMakeRect(0, 0, screen_rect.size.width, screen_rect.size.height);
         
 
         
