@@ -50,6 +50,8 @@
     NSString *machineName;
     
     NSString *startURL;
+    
+    BOOL _isTerminating;
 }
 
 +(id)sharedAppBridge {
@@ -86,6 +88,8 @@
 }
 
 -(id)init {
+    
+    _isTerminating = NO;
     
     machineName = [[NSHost currentHost] localizedName];
     
@@ -128,6 +132,8 @@
 
 
 - (void) keyboardChanged: (NSNotification *) notification {
+    
+    if ( [[AppBridge sharedAppBridge] isTerminating] ) return;
     
     NSString *apiName = @"keyboardLayout";
     NSString *eventName = @"layoutChanged";
@@ -193,6 +199,8 @@
 }
 
 void powerSourceChange(void* context) {
+    if ( [[AppBridge sharedAppBridge] isTerminating ]) return;
+    
     BatteryInfo *batteryInfo = (BatteryInfo*)[(AppBridge*)context retrieveBatteryInfo];
     
     [[ AppBridge sharedAppBridge] logEventForNsString:@"BatteryInfo: Battery status has changed."];
@@ -557,5 +565,11 @@ void powerSourceChange(void* context) {
     return [startURL UTF8String];
 }
 
+-(void)prepareToTerminate {
+    _isTerminating = YES;
+}
 
+-(BOOL)isTerminating {
+    return _isTerminating;
+}
 @end

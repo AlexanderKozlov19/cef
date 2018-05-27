@@ -29,5 +29,8 @@
 
 -(const char*)retrieveStartURL;
 
+-(void)prepareToTerminate;
+-(BOOL)isTerminating;
+
 
 @end

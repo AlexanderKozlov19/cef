@@ -316,6 +316,7 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
 }
 
 - (void)tryToTerminateApplication:(NSApplication*)app {
+[[AppBridge sharedAppBridge] prepareToTerminate];
   client::MainContext::Get()->GetRootWindowManager()->CloseAllWindows(false);
 }
 
