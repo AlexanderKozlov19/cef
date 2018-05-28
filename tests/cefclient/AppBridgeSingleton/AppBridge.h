@@ -28,6 +28,7 @@
 - (BOOL)forceQuitWindowCheck;
 
 -(const char*)retrieveStartURL;
+-(void)clearStartURL;
 
 -(void)prepareToTerminate;
 -(BOOL)isTerminating;

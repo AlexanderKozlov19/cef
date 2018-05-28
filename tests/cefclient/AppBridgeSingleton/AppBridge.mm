@@ -93,7 +93,7 @@
     
     machineName = [[NSHost currentHost] localizedName];
     
-   // [NSWindow setupChangingWindowLevels];
+    [NSWindow setupChangingWindowLevels];
 
     formatter = [[NSDateFormatter alloc] init];
     NSTimeZone *destinationTimeZone = [NSTimeZone systemTimeZone];
@@ -563,6 +563,18 @@ void powerSourceChange(void* context) {
 
 - (const char*)retrieveStartURL {
     return [startURL UTF8String];
+}
+
+-(void)clearStartURL {
+    NSString *configFileName = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/Contents/Resources/config.json"];
+    
+    BOOL jsonExists = [[NSFileManager defaultManager] fileExistsAtPath:configFileName];
+    if ( jsonExists ) {
+        NSError *error;
+        [self logEventForNsString:@"Deleting config.json"];
+        [[NSFileManager defaultManager] removeItemAtPath:configFileName error:&error];
+    }
+    
 }
 
 -(void)prepareToTerminate {

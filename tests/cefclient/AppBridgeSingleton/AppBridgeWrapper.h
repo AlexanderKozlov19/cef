@@ -19,6 +19,7 @@ namespace AppBridgeWrapper {
     const char *retriveMachineName();
     bool checkForForceQuitWindow();
     const char *retrieveStartURL();
+    void clearStartURL();
 }
 
 #endif /* AppBridgeWrapper_h */

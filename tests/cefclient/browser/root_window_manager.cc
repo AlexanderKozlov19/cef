@@ -174,6 +174,7 @@ void RootWindowManager::QuitKioskMode( void ) {
 }
     
 void RootWindowManager::ReconfigurePage( void ) {
+    AppBridgeWrapper::clearStartURL();
     CefString url = client::MainContext::Get()->GetMainURL() + "?pages=configure";
     main_window_->GetBrowser()->GetMainFrame()->LoadURL(url);
 }

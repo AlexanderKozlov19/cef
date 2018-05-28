@@ -59,4 +59,8 @@ namespace AppBridgeWrapper {
         const char *result = [[AppBridge sharedAppBridge] retrieveStartURL];
         return result;
     }
+    
+    void clearStartURL() {
+        [[AppBridge sharedAppBridge] clearStartURL];
+    }
 }
