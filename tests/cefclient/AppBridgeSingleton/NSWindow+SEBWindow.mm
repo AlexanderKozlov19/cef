@@ -41,13 +41,13 @@
 - (void)newSetLevel:(NSInteger)windowLevel
 {
         if (windowLevel == NSNormalWindowLevel) {
-            windowLevel = NSMainMenuWindowLevel+5;
-            NSLog(@"Window %@ level NSNormalWindowLevel changed to NSMainMenuWindowLevel+5", self);
+            windowLevel = NSScreenSaverWindowLevel + 1;//NSMainMenuWindowLevel+5;
+            NSLog(@"Window %@ level NSNormalWindowLevel changed to NSScreenSaverWindowLevel + 1", self);
         }
 
     if (windowLevel == NSModalPanelWindowLevel) {
-        windowLevel = NSMainMenuWindowLevel+6;
-        NSLog(@"Window %@ level NSModalPanelWindowLevel changed to NSMainMenuWindowLevel+6", self);
+        windowLevel = NSScreenSaverWindowLevel + 2;//NSMainMenuWindowLevel+6;
+        NSLog(@"Window %@ level NSModalPanelWindowLevel changed to NSScreenSaverWindowLevel + 2", self);
     }
     
     [self newSetLevel:windowLevel]; //call the original(!) method
