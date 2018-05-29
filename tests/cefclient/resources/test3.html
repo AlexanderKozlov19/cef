@@ -56,19 +56,21 @@
             <li>
                 <h3>List</h3>
                 <button type="button"
+
                         ng-style="{color: tc.layout.id == item.id ? 'red' : 'black'}"
                         ng-click="tc.selectLayout(item)"
-                        ng-repeat="item in tc.layouts">{{item.id}}</button>
+                        ng-repeat="item in tc.layouts">
+                        {{item.englishName}}
+                </button>
             </li>
             <li>
                 <h3>Details</h3>
                 <p>id: {{tc.layout.id}}</p>
-                <p>code2: {{tc.layout.code2}}</p>
-                <p>code3: {{tc.layout.code3}}</p>
-                <p>languageName: {{tc.layout.languageName}}</p>
-                <p>languageNativeName: {{tc.layout.languageNativeName}}</p>
-                <p>cultureName: {{tc.layout.cultureName}}</p>
-                <p>cultureNativeName: {{tc.layout.cultureNativeName}}</p>
+                <p>englishName: {{tc.layout.englishName}}</p>
+                <p>localizedName: {{tc.layout.localizedName}}</p>
+                <p>languageCode2: {{tc.layout.languageCode2}}</p>
+                <p>languageCode3: {{tc.layout.languageCode3}}</p>
+                <p>cultureCode: {{tc.layout.cultureCode}}</p>
             </li>
             <li>
                 <h3>Type here</h3>
@@ -104,7 +106,7 @@
 
             jrHostApp.getPlatformName()
                 .then(r => self.platform = r, console.error);
-                
+
             jrHostApp.getAppVersionInfo()
                 .then(r => self.appVersion = r, console.error);
 

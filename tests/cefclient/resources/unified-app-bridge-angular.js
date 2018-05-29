@@ -66,357 +66,2891 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/main-angular.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = 95);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ "./src/angular/Wrapper.ts":
-/*!********************************!*\
-  !*** ./src/angular/Wrapper.ts ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/******/ ([
+/* 0 */,
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar Wrapper = /** @class */ (function () {\n    function Wrapper($rootScope, $q) {\n        this.$rootScope = $rootScope;\n        this.$q = $q;\n    }\n    Wrapper.prototype.promise = function (promise) {\n        var deferred = this.$q.defer();\n        promise.then(deferred.resolve, deferred.reject);\n        return deferred.promise;\n    };\n    Wrapper.prototype.event = function (subFunc) {\n        var _this = this;\n        return function (handler) { return subFunc(function (args) {\n            // TODO: Check behaviour, maybe try/finally is the bad idea here.\n            try {\n                handler(args);\n            }\n            finally {\n                _this.$rootScope.$apply();\n            }\n        }); };\n    };\n    return Wrapper;\n}());\nexports.Wrapper = Wrapper;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvYW5ndWxhci9XcmFwcGVyLnRzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL2FuZ3VsYXIvV3JhcHBlci50cz9iNTFhIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7RXZlbnRIYW5kbGVyLCBVbnN1YnNjcmliZUZ1bmN0aW9ufSBmcm9tIFwiLi4vY29tbW9uL2V2ZW50c1wiO1xuXG5leHBvcnQgdHlwZSBFdmVudDxUQXJncz4gPSAoaGFuZGxlcjogRXZlbnRIYW5kbGVyPFRBcmdzPikgPT4gUHJvbWlzZTxVbnN1YnNjcmliZUZ1bmN0aW9uPlxuXG5leHBvcnQgY2xhc3MgV3JhcHBlciB7XG5cbiAgICBjb25zdHJ1Y3RvcihyZWFkb25seSAkcm9vdFNjb3BlOiBhbnksIHJlYWRvbmx5ICRxOiBhbnkpIHt9XG5cbiAgICBwcm9taXNlPFRSZXN1bHQ+KHByb21pc2U6IFByb21pc2U8VFJlc3VsdD4pOiBQcm9taXNlPFRSZXN1bHQ+IHtcbiAgICAgICAgY29uc3QgZGVmZXJyZWQgPSB0aGlzLiRxLmRlZmVyKCk7XG4gICAgICAgIHByb21pc2UudGhlbihkZWZlcnJlZC5yZXNvbHZlLCBkZWZlcnJlZC5yZWplY3QpO1xuICAgICAgICByZXR1cm4gZGVmZXJyZWQucHJvbWlzZTtcbiAgICB9XG5cbiAgICBldmVudDxUQXJncz4oc3ViRnVuYzogRXZlbnQ8VEFyZ3M+KTogRXZlbnQ8VEFyZ3M+IHtcbiAgICAgICAgcmV0dXJuIGhhbmRsZXIgPT4gc3ViRnVuYyhcbiAgICAgICAgICAgIChhcmdzOiBUQXJncykgPT4ge1xuICAgICAgICAgICAgICAgIC8vIFRPRE86IENoZWNrIGJlaGF2aW91ciwgbWF5YmUgdHJ5L2ZpbmFsbHkgaXMgdGhlIGJhZCBpZGVhIGhlcmUuXG4gICAgICAgICAgICAgICAgdHJ5IHtcbiAgICAgICAgICAgICAgICAgICAgaGFuZGxlcihhcmdzKTtcbiAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgZmluYWxseSB7XG4gICAgICAgICAgICAgICAgICAgIHRoaXMuJHJvb3RTY29wZS4kYXBwbHkoKTtcbiAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICB9XG4gICAgICAgICk7XG4gICAgfVxufVxuIl0sIm1hcHBpbmdzIjoiOztBQUlBO0FBRUE7QUFBQTtBQUFBO0FBQUE7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBRUE7QUFBQTtBQUNBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBQ0E7QUFBQTtBQXZCQTsiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/angular/Wrapper.ts\n");
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_fn_promise__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var core_js_fn_promise__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_fn_promise__WEBPACK_IMPORTED_MODULE_0__);
+
 
 /***/ }),
-
-/***/ "./src/angular/index.ts":
-/*!******************************!*\
-  !*** ./src/angular/index.ts ***!
-  \******************************/
-/*! no static exports found */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("\nfunction __export(m) {\n    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./jrBatteryService */ \"./src/angular/jrBatteryService.ts\"));\n__export(__webpack_require__(/*! ./jrHostAppService */ \"./src/angular/jrHostAppService.ts\"));\n__export(__webpack_require__(/*! ./jrKeyboardLayoutService */ \"./src/angular/jrKeyboardLayoutService.ts\"));\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvYW5ndWxhci9pbmRleC50cy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9hbmd1bGFyL2luZGV4LnRzP2YwYzMiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0ICogZnJvbSBcIi4vanJCYXR0ZXJ5U2VydmljZVwiO1xuZXhwb3J0ICogZnJvbSBcIi4vanJIb3N0QXBwU2VydmljZVwiO1xuZXhwb3J0ICogZnJvbSBcIi4vanJLZXlib2FyZExheW91dFNlcnZpY2VcIjsiXSwibWFwcGluZ3MiOiI7Ozs7O0FBQUE7QUFDQTtBQUNBOyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/angular/index.ts\n");
+__webpack_require__(3);
+__webpack_require__(24);
+__webpack_require__(49);
+__webpack_require__(53);
+__webpack_require__(70);
+__webpack_require__(71);
+module.exports = __webpack_require__(8).Promise;
+
 
 /***/ }),
-
-/***/ "./src/angular/jrBatteryService.ts":
-/*!*****************************************!*\
-  !*** ./src/angular/jrBatteryService.ts ***!
-  \*****************************************/
-/*! no static exports found */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar Wrapper_1 = __webpack_require__(/*! ./Wrapper */ \"./src/angular/Wrapper.ts\");\nfunction jrBatteryService($rootScope, $q) {\n    var api = window.jrBattery;\n    var wrap = new Wrapper_1.Wrapper($rootScope, $q);\n    return {\n        onStatusChanged: wrap.event(function (h) { return api.onStatusChanged(h); }),\n        getStatus: function () { return wrap.promise(api.getStatus()); }\n    };\n}\nexports.jrBatteryService = jrBatteryService;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvYW5ndWxhci9qckJhdHRlcnlTZXJ2aWNlLnRzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL2FuZ3VsYXIvanJCYXR0ZXJ5U2VydmljZS50cz8yYmI0Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7V3JhcHBlcn0gZnJvbSBcIi4vV3JhcHBlclwiO1xuXG5leHBvcnQgZnVuY3Rpb24ganJCYXR0ZXJ5U2VydmljZSgkcm9vdFNjb3BlOiBhbnksICRxOiBhbnkpOiBvYmplY3Qge1xuICAgIGNvbnN0IGFwaSA9IHdpbmRvdy5qckJhdHRlcnk7XG4gICAgY29uc3Qgd3JhcCA9IG5ldyBXcmFwcGVyKCRyb290U2NvcGUsICRxKTtcbiAgICByZXR1cm4ge1xuICAgICAgICBvblN0YXR1c0NoYW5nZWQ6IHdyYXAuZXZlbnQoaCA9PiBhcGkub25TdGF0dXNDaGFuZ2VkKGgpKSxcbiAgICAgICAgZ2V0U3RhdHVzOiAoKSA9PiB3cmFwLnByb21pc2UoYXBpLmdldFN0YXR1cygpKVxuICAgIH07XG59XG4iXSwibWFwcGluZ3MiOiI7O0FBQUE7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBUEE7Iiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/angular/jrBatteryService.ts\n");
+
+// 19.1.3.6 Object.prototype.toString()
+var classof = __webpack_require__(4);
+var test = {};
+test[__webpack_require__(6)('toStringTag')] = 'z';
+if (test + '' != '[object z]') {
+  __webpack_require__(12)(Object.prototype, 'toString', function toString() {
+    return '[object ' + classof(this) + ']';
+  }, true);
+}
+
 
 /***/ }),
-
-/***/ "./src/angular/jrHostAppService.ts":
-/*!*****************************************!*\
-  !*** ./src/angular/jrHostAppService.ts ***!
-  \*****************************************/
-/*! no static exports found */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar Wrapper_1 = __webpack_require__(/*! ./Wrapper */ \"./src/angular/Wrapper.ts\");\nfunction jrHostAppService($rootScope, $q) {\n    var api = window.jrHostApp;\n    var wrap = new Wrapper_1.Wrapper($rootScope, $q);\n    return {\n        getPlatformName: function () { return wrap.promise(api.getPlatformName()); },\n        getAppVersionInfo: function () { return wrap.promise(api.getAppVersionInfo()); },\n        getDeviceRecord: function () { return wrap.promise(api.getDeviceRecord()); },\n        notifyInitialized: function () { return wrap.promise(api.notifyInitialized()); },\n        requestTermination: function () { return wrap.promise(api.requestTermination()); },\n        getMachineName: function () { return wrap.promise(api.getMachineName()); }\n    };\n}\nexports.jrHostAppService = jrHostAppService;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvYW5ndWxhci9qckhvc3RBcHBTZXJ2aWNlLnRzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL2FuZ3VsYXIvanJIb3N0QXBwU2VydmljZS50cz83NjMzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7V3JhcHBlcn0gZnJvbSBcIi4vV3JhcHBlclwiO1xuXG5leHBvcnQgZnVuY3Rpb24ganJIb3N0QXBwU2VydmljZSgkcm9vdFNjb3BlOiBhbnksICRxOiBhbnkpOiBvYmplY3Qge1xuICAgIGNvbnN0IGFwaSA9IHdpbmRvdy5qckhvc3RBcHA7XG4gICAgY29uc3Qgd3JhcCA9IG5ldyBXcmFwcGVyKCRyb290U2NvcGUsICRxKTtcbiAgICByZXR1cm4ge1xuICAgICAgICBnZXRQbGF0Zm9ybU5hbWU6ICgpID0+IHdyYXAucHJvbWlzZShhcGkuZ2V0UGxhdGZvcm1OYW1lKCkpLFxuICAgICAgICBnZXRBcHBWZXJzaW9uSW5mbzogKCkgPT4gd3JhcC5wcm9taXNlKGFwaS5nZXRBcHBWZXJzaW9uSW5mbygpKSxcbiAgICAgICAgZ2V0RGV2aWNlUmVjb3JkOiAoKSA9PiB3cmFwLnByb21pc2UoYXBpLmdldERldmljZVJlY29yZCgpKSxcbiAgICAgICAgbm90aWZ5SW5pdGlhbGl6ZWQ6ICgpID0+IHdyYXAucHJvbWlzZShhcGkubm90aWZ5SW5pdGlhbGl6ZWQoKSksXG4gICAgICAgIHJlcXVlc3RUZXJtaW5hdGlvbjogKCkgPT4gd3JhcC5wcm9taXNlKGFwaS5yZXF1ZXN0VGVybWluYXRpb24oKSksXG4gICAgICAgIGdldE1hY2hpbmVOYW1lOiAoKSA9PiB3cmFwLnByb21pc2UoYXBpLmdldE1hY2hpbmVOYW1lKCkpXG4gICAgfTtcbn1cbiJdLCJtYXBwaW5ncyI6Ijs7QUFBQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQVhBOyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/angular/jrHostAppService.ts\n");
+// getting tag from 19.1.3.6 Object.prototype.toString()
+var cof = __webpack_require__(5);
+var TAG = __webpack_require__(6)('toStringTag');
+// ES3 wrong here
+var ARG = cof(function () { return arguments; }()) == 'Arguments';
+
+// fallback for IE11 Script Access Denied error
+var tryGet = function (it, key) {
+  try {
+    return it[key];
+  } catch (e) { /* empty */ }
+};
+
+module.exports = function (it) {
+  var O, T, B;
+  return it === undefined ? 'Undefined' : it === null ? 'Null'
+    // @@toStringTag case
+    : typeof (T = tryGet(O = Object(it), TAG)) == 'string' ? T
+    // builtinTag case
+    : ARG ? cof(O)
+    // ES3 arguments fallback
+    : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
+};
+
 
 /***/ }),
+/* 5 */
+/***/ (function(module, exports) {
 
-/***/ "./src/angular/jrKeyboardLayoutService.ts":
-/*!************************************************!*\
-  !*** ./src/angular/jrKeyboardLayoutService.ts ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+var toString = {}.toString;
 
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar Wrapper_1 = __webpack_require__(/*! ./Wrapper */ \"./src/angular/Wrapper.ts\");\nfunction jrKeyboardLayoutService($rootScope, $q) {\n    var api = window.jrKeyboardLayout;\n    var wrap = new Wrapper_1.Wrapper($rootScope, $q);\n    return {\n        onLayoutChanged: wrap.event(function (h) { return api.onLayoutChanged(h); }),\n        getLayouts: function () { return wrap.promise(api.getLayouts()); },\n        getLayout: function (id) { return wrap.promise(api.getLayout(id)); },\n        getCurrentLayoutId: function () { return wrap.promise(api.getCurrentLayoutId()); },\n        trySetCurrentLayoutId: function (id) { return wrap.promise(api.trySetCurrentLayoutId(id)); }\n    };\n}\nexports.jrKeyboardLayoutService = jrKeyboardLayoutService;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvYW5ndWxhci9qcktleWJvYXJkTGF5b3V0U2VydmljZS50cy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9hbmd1bGFyL2pyS2V5Ym9hcmRMYXlvdXRTZXJ2aWNlLnRzPzJlNTQiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtXcmFwcGVyfSBmcm9tIFwiLi9XcmFwcGVyXCI7XG5cbmV4cG9ydCBmdW5jdGlvbiBqcktleWJvYXJkTGF5b3V0U2VydmljZSgkcm9vdFNjb3BlOiBhbnksICRxOiBhbnkpOiBvYmplY3Qge1xuICAgIGNvbnN0IGFwaSA9IHdpbmRvdy5qcktleWJvYXJkTGF5b3V0O1xuICAgIGNvbnN0IHdyYXAgPSBuZXcgV3JhcHBlcigkcm9vdFNjb3BlLCAkcSk7XG4gICAgcmV0dXJuIHtcbiAgICAgICAgb25MYXlvdXRDaGFuZ2VkOiB3cmFwLmV2ZW50KGggPT4gYXBpLm9uTGF5b3V0Q2hhbmdlZChoKSksXG4gICAgICAgIGdldExheW91dHM6ICgpID0+IHdyYXAucHJvbWlzZShhcGkuZ2V0TGF5b3V0cygpKSxcbiAgICAgICAgZ2V0TGF5b3V0OiAoaWQ6IHN0cmluZykgPT4gd3JhcC5wcm9taXNlKGFwaS5nZXRMYXlvdXQoaWQpKSxcbiAgICAgICAgZ2V0Q3VycmVudExheW91dElkOiAoKSA9PiB3cmFwLnByb21pc2UoYXBpLmdldEN1cnJlbnRMYXlvdXRJZCgpKSxcbiAgICAgICAgdHJ5U2V0Q3VycmVudExheW91dElkOiAoaWQ6IHN0cmluZykgPT4gd3JhcC5wcm9taXNlKGFwaS50cnlTZXRDdXJyZW50TGF5b3V0SWQoaWQpKVxuICAgIH07XG59XG4iXSwibWFwcGluZ3MiOiI7O0FBQUE7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBVkE7Iiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/angular/jrKeyboardLayoutService.ts\n");
+module.exports = function (it) {
+  return toString.call(it).slice(8, -1);
+};
 
-/***/ }),
-
-/***/ "./src/apis/Api.ts":
-/*!*************************!*\
-  !*** ./src/apis/Api.ts ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar initApiHandler_1 = __webpack_require__(/*! ../common/initApiHandler */ \"./src/common/initApiHandler.ts\");\n/**\n * Represents abstract API object.\n */\nvar Api = /** @class */ (function () {\n    function Api() {\n    }\n    /**\n     * Executes API method with given args and returns promise which resolves with execution result.\n     * @param {string} methodName\n     * @param args\n     * @returns {Promise<any>}\n     */\n    Api.prototype.execute = function (methodName, args) {\n        var _this = this;\n        return initApiHandler_1.initApiHandler()\n            .then(function (apiHandler) { return apiHandler.execute(_this.apiName, methodName, args); })\n            .catch(function (reason) { return Promise.reject(\"Unable to execute \" + _this.apiName + \".\" + methodName + \": \" + reason); });\n    };\n    /**\n     * Subscribes for certain event and returns unsubscribe function.\n     * @param {string} eventType\n     * @param {EventHandler<TArgs>} handler\n     * @returns {Promise<UnsubscribeFunction>}\n     */\n    Api.prototype.subscribe = function (eventType, handler) {\n        var _this = this;\n        return initApiHandler_1.initApiHandler()\n            .then(function (apiHandler) { return apiHandler.subscribe(_this.apiName + \".\" + eventType, handler); })\n            .catch(function (reason) { return Promise.reject(\"Unable to subscribe to \" + _this.apiName + \".\" + eventType + \": \" + reason); });\n    };\n    return Api;\n}());\nexports.Api = Api;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvYXBpcy9BcGkudHMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvYXBpcy9BcGkudHM/YjJjNSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge2luaXRBcGlIYW5kbGVyfSBmcm9tIFwiLi4vY29tbW9uL2luaXRBcGlIYW5kbGVyXCI7XG5pbXBvcnQge0V2ZW50SGFuZGxlciwgVW5zdWJzY3JpYmVGdW5jdGlvbn0gZnJvbSBcIi4uL2NvbW1vbi9ldmVudHNcIjtcblxuLyoqXG4gKiBSZXByZXNlbnRzIGFic3RyYWN0IEFQSSBvYmplY3QuXG4gKi9cbmV4cG9ydCBhYnN0cmFjdCBjbGFzcyBBcGkge1xuXG4gICAgLyoqXG4gICAgICogUmV0dXJucyBBUEkgbmFtZS5cbiAgICAgKiBAcmV0dXJucyB7c3RyaW5nfVxuICAgICAqL1xuICAgIHByb3RlY3RlZCBhYnN0cmFjdCBnZXQgYXBpTmFtZSgpOiBzdHJpbmc7XG5cbiAgICAvKipcbiAgICAgKiBFeGVjdXRlcyBBUEkgbWV0aG9kIHdpdGggZ2l2ZW4gYXJncyBhbmQgcmV0dXJucyBwcm9taXNlIHdoaWNoIHJlc29sdmVzIHdpdGggZXhlY3V0aW9uIHJlc3VsdC5cbiAgICAgKiBAcGFyYW0ge3N0cmluZ30gbWV0aG9kTmFtZVxuICAgICAqIEBwYXJhbSBhcmdzXG4gICAgICogQHJldHVybnMge1Byb21pc2U8YW55Pn1cbiAgICAgKi9cbiAgICBwcm90ZWN0ZWQgZXhlY3V0ZShtZXRob2ROYW1lOiBzdHJpbmcsIGFyZ3M/OiBhbnkpOiBQcm9taXNlPGFueT4ge1xuICAgICAgICByZXR1cm4gaW5pdEFwaUhhbmRsZXIoKVxuICAgICAgICAgICAgLnRoZW4oYXBpSGFuZGxlciA9PiBhcGlIYW5kbGVyLmV4ZWN1dGUodGhpcy5hcGlOYW1lLCBtZXRob2ROYW1lLCBhcmdzKSlcbiAgICAgICAgICAgIC5jYXRjaChyZWFzb24gPT4gUHJvbWlzZS5yZWplY3QoYFVuYWJsZSB0byBleGVjdXRlICR7dGhpcy5hcGlOYW1lfS4ke21ldGhvZE5hbWV9OiAke3JlYXNvbn1gKSk7XG4gICAgfVxuXG4gICAgLyoqXG4gICAgICogU3Vic2NyaWJlcyBmb3IgY2VydGFpbiBldmVudCBhbmQgcmV0dXJucyB1bnN1YnNjcmliZSBmdW5jdGlvbi5cbiAgICAgKiBAcGFyYW0ge3N0cmluZ30gZXZlbnRUeXBlXG4gICAgICogQHBhcmFtIHtFdmVudEhhbmRsZXI8VEFyZ3M+fSBoYW5kbGVyXG4gICAgICogQHJldHVybnMge1Byb21pc2U8VW5zdWJzY3JpYmVGdW5jdGlvbj59XG4gICAgICovXG4gICAgcHJvdGVjdGVkIHN1YnNjcmliZTxUQXJncz4oZXZlbnRUeXBlOiBzdHJpbmcsIGhhbmRsZXI6IEV2ZW50SGFuZGxlcjxUQXJncz4pOiBQcm9taXNlPFVuc3Vic2NyaWJlRnVuY3Rpb24+IHtcbiAgICAgICAgcmV0dXJuIGluaXRBcGlIYW5kbGVyKClcbiAgICAgICAgICAgIC50aGVuKGFwaUhhbmRsZXIgPT4gYXBpSGFuZGxlci5zdWJzY3JpYmUoYCR7dGhpcy5hcGlOYW1lfS4ke2V2ZW50VHlwZX1gLCBoYW5kbGVyKSlcbiAgICAgICAgICAgIC5jYXRjaChyZWFzb24gPT4gUHJvbWlzZS5yZWplY3QoYFVuYWJsZSB0byBzdWJzY3JpYmUgdG8gJHt0aGlzLmFwaU5hbWV9LiR7ZXZlbnRUeXBlfTogJHtyZWFzb259YCkpO1xuICAgIH1cbn0iXSwibWFwcGluZ3MiOiI7O0FBQUE7QUFHQTs7QUFFQTtBQUNBO0FBQUE7QUErQkE7QUF2QkE7Ozs7O0FBS0E7QUFDQTtBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTs7Ozs7QUFLQTtBQUNBO0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUEvQkE7Iiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/apis/Api.ts\n");
 
 /***/ }),
-
-/***/ "./src/apis/battery/BatteryApi.ts":
-/*!****************************************!*\
-  !*** ./src/apis/battery/BatteryApi.ts ***!
-  \****************************************/
-/*! no static exports found */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = Object.setPrototypeOf ||\n        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar Api_1 = __webpack_require__(/*! ../Api */ \"./src/apis/Api.ts\");\n/**\n * Implements battery API which allows to retrieve info about battery status.\n */\nvar BatteryApi = /** @class */ (function (_super) {\n    __extends(BatteryApi, _super);\n    function BatteryApi() {\n        return _super !== null && _super.apply(this, arguments) || this;\n    }\n    Object.defineProperty(BatteryApi.prototype, \"apiName\", {\n        /**\n         * Gets API name.\n         * @returns {string}\n         */\n        get: function () { return \"battery\"; },\n        enumerable: true,\n        configurable: true\n    });\n    /**\n     * Subscribes to battery status changed event and returns unsubscribe function.\n     * @param {EventHandler<BatteryStatusChangedEventArgs>} handler\n     * @returns {Promise<UnsubscribeFunction>}\n     */\n    BatteryApi.prototype.onStatusChanged = function (handler) {\n        return this.subscribe(\"statusChanged\", handler);\n    };\n    /**\n     * Returns current battery status.\n     * @returns {Promise<BatteryStatus>}\n     */\n    BatteryApi.prototype.getStatus = function () {\n        return this.execute(\"getStatus\");\n    };\n    return BatteryApi;\n}(Api_1.Api));\nexports.BatteryApi = BatteryApi;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvYXBpcy9iYXR0ZXJ5L0JhdHRlcnlBcGkudHMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvYXBpcy9iYXR0ZXJ5L0JhdHRlcnlBcGkudHM/NTkyMCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0FwaX0gZnJvbSBcIi4uL0FwaVwiO1xuaW1wb3J0IHtCYXR0ZXJ5U3RhdHVzLCBCYXR0ZXJ5U3RhdHVzQ2hhbmdlZEV2ZW50QXJnc30gZnJvbSBcIi4vbW9kZWxzXCI7XG5pbXBvcnQge0V2ZW50SGFuZGxlciwgVW5zdWJzY3JpYmVGdW5jdGlvbn0gZnJvbSBcIi4uLy4uL2NvbW1vbi9ldmVudHNcIjtcblxuLyoqXG4gKiBJbXBsZW1lbnRzIGJhdHRlcnkgQVBJIHdoaWNoIGFsbG93cyB0byByZXRyaWV2ZSBpbmZvIGFib3V0IGJhdHRlcnkgc3RhdHVzLlxuICovXG5leHBvcnQgY2xhc3MgQmF0dGVyeUFwaSBleHRlbmRzIEFwaSB7XG5cbiAgICAvKipcbiAgICAgKiBHZXRzIEFQSSBuYW1lLlxuICAgICAqIEByZXR1cm5zIHtzdHJpbmd9XG4gICAgICovXG4gICAgcHJvdGVjdGVkIGdldCBhcGlOYW1lKCk6IHN0cmluZyB7IHJldHVybiBcImJhdHRlcnlcIjsgfVxuXG4gICAgLyoqXG4gICAgICogU3Vic2NyaWJlcyB0byBiYXR0ZXJ5IHN0YXR1cyBjaGFuZ2VkIGV2ZW50IGFuZCByZXR1cm5zIHVuc3Vic2NyaWJlIGZ1bmN0aW9uLlxuICAgICAqIEBwYXJhbSB7RXZlbnRIYW5kbGVyPEJhdHRlcnlTdGF0dXNDaGFuZ2VkRXZlbnRBcmdzPn0gaGFuZGxlclxuICAgICAqIEByZXR1cm5zIHtQcm9taXNlPFVuc3Vic2NyaWJlRnVuY3Rpb24+fVxuICAgICAqL1xuICAgIG9uU3RhdHVzQ2hhbmdlZChoYW5kbGVyOiBFdmVudEhhbmRsZXI8QmF0dGVyeVN0YXR1c0NoYW5nZWRFdmVudEFyZ3M+KTogUHJvbWlzZTxVbnN1YnNjcmliZUZ1bmN0aW9uPiB7XG4gICAgICAgIHJldHVybiB0aGlzLnN1YnNjcmliZShcInN0YXR1c0NoYW5nZWRcIiwgaGFuZGxlcik7XG4gICAgfVxuXG4gICAgLyoqXG4gICAgICogUmV0dXJucyBjdXJyZW50IGJhdHRlcnkgc3RhdHVzLlxuICAgICAqIEByZXR1cm5zIHtQcm9taXNlPEJhdHRlcnlTdGF0dXM+fVxuICAgICAqL1xuICAgIGdldFN0YXR1cygpOiBQcm9taXNlPEJhdHRlcnlTdGF0dXM+IHtcbiAgICAgICAgcmV0dXJuIHRoaXMuZXhlY3V0ZShcImdldFN0YXR1c1wiKTtcbiAgICB9XG59XG4iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFBO0FBSUE7O0FBRUE7QUFDQTtBQUFBO0FBQUE7O0FBd0JBO0FBbEJBO0FBSkE7OztBQUdBO0FBQ0E7OztBQUFBO0FBRUE7Ozs7QUFJQTtBQUNBO0FBQ0E7QUFDQTtBQUVBOzs7QUFHQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUF4QkE7Iiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/apis/battery/BatteryApi.ts\n");
+var store = __webpack_require__(7)('wks');
+var uid = __webpack_require__(11);
+var Symbol = __webpack_require__(9).Symbol;
+var USE_SYMBOL = typeof Symbol == 'function';
+
+var $exports = module.exports = function (name) {
+  return store[name] || (store[name] =
+    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));
+};
+
+$exports.store = store;
+
 
 /***/ }),
-
-/***/ "./src/apis/hostApp/HostAppApi.ts":
-/*!****************************************!*\
-  !*** ./src/apis/hostApp/HostAppApi.ts ***!
-  \****************************************/
-/*! no static exports found */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = Object.setPrototypeOf ||\n        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar Api_1 = __webpack_require__(/*! ../Api */ \"./src/apis/Api.ts\");\nvar initApiHandler_1 = __webpack_require__(/*! ../../common/initApiHandler */ \"./src/common/initApiHandler.ts\");\n/**\n * Implements host app API.\n */\nvar HostAppApi = /** @class */ (function (_super) {\n    __extends(HostAppApi, _super);\n    function HostAppApi() {\n        return _super !== null && _super.apply(this, arguments) || this;\n    }\n    Object.defineProperty(HostAppApi.prototype, \"apiName\", {\n        /**\n         * Gets API name.\n         * @returns {string}\n         */\n        get: function () { return \"hostApp\"; },\n        enumerable: true,\n        configurable: true\n    });\n    /**\n     * Returns current platform name.\n     * Use this method to check that custom APIs are available.\n     * @returns {Promise<string>}\n     */\n    HostAppApi.prototype.getPlatformName = function () {\n        return initApiHandler_1.initApiHandler()\n            .then(function (apiHandler) { return apiHandler.name; }, function (reason) { return Promise.reject(\"Unable to initialize: \" + reason); });\n    };\n    /**\n     * Notifies host application about successful app bridge initialization.\n     * Might be useful in order to perform some startup actions on the host side.\n     * @returns {Promise<void>}\n     */\n    HostAppApi.prototype.notifyInitialized = function () {\n        return this.execute(\"notifyInitialized\");\n    };\n    /**\n     * Returns host app version info.\n     * @returns {Promise<AppVersionInfo>}\n     */\n    HostAppApi.prototype.getAppVersionInfo = function () {\n        return this.execute(\"getAppVersionInfo\");\n    };\n    /**\n     * Retrieves device record which persisted by host app.\n     * @returns {Promise<DeviceRecord | null>}\n     */\n    HostAppApi.prototype.getDeviceRecord = function () {\n        return this.execute(\"getDeviceRecord\");\n    };\n    /**\n     * Requests host app termination (i.e. sends \"quit\" command).\n     * @returns {Promise<void>}\n     */\n    HostAppApi.prototype.requestTermination = function () {\n        return this.execute(\"requestTermination\");\n    };\n    /**\n    * Returns Machine Name.\n    * @returns {Promise<MachineName>}\n    */\n    HostAppApi.prototype.getMachineName = function () {\n        return this.execute(\"getMachineName\");\n    };\n    return HostAppApi;\n}(Api_1.Api));\nexports.HostAppApi = HostAppApi;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvYXBpcy9ob3N0QXBwL0hvc3RBcHBBcGkudHMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvYXBpcy9ob3N0QXBwL0hvc3RBcHBBcGkudHM/NzlmYSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0FwaX0gZnJvbSBcIi4uL0FwaVwiO1xuaW1wb3J0IHtBcHBWZXJzaW9uSW5mbywgRGV2aWNlUmVjb3JkLCBNYWNoaW5lTmFtZX0gZnJvbSBcIi4vbW9kZWxzXCI7XG5pbXBvcnQge2luaXRBcGlIYW5kbGVyfSBmcm9tIFwiLi4vLi4vY29tbW9uL2luaXRBcGlIYW5kbGVyXCI7XG5pbXBvcnQge1BsYXRmb3JtTmFtZX0gZnJvbSBcIi4uLy4uL3BsYXRmb3Jtcy9QbGF0Zm9ybU5hbWVcIjtcblxuLyoqXG4gKiBJbXBsZW1lbnRzIGhvc3QgYXBwIEFQSS5cbiAqL1xuZXhwb3J0IGNsYXNzIEhvc3RBcHBBcGkgZXh0ZW5kcyBBcGkge1xuXG4gICAgLyoqXG4gICAgICogR2V0cyBBUEkgbmFtZS5cbiAgICAgKiBAcmV0dXJucyB7c3RyaW5nfVxuICAgICAqL1xuICAgIHByb3RlY3RlZCBnZXQgYXBpTmFtZSgpOiBzdHJpbmcgeyByZXR1cm4gXCJob3N0QXBwXCI7IH1cblxuICAgIC8qKlxuICAgICAqIFJldHVybnMgY3VycmVudCBwbGF0Zm9ybSBuYW1lLlxuICAgICAqIFVzZSB0aGlzIG1ldGhvZCB0byBjaGVjayB0aGF0IGN1c3RvbSBBUElzIGFyZSBhdmFpbGFibGUuXG4gICAgICogQHJldHVybnMge1Byb21pc2U8c3RyaW5nPn1cbiAgICAgKi9cbiAgICBnZXRQbGF0Zm9ybU5hbWUoKTogUHJvbWlzZTxQbGF0Zm9ybU5hbWU+IHtcbiAgICAgICAgcmV0dXJuIGluaXRBcGlIYW5kbGVyKClcbiAgICAgICAgICAgIC50aGVuKFxuICAgICAgICAgICAgICAgIGFwaUhhbmRsZXIgPT4gYXBpSGFuZGxlci5uYW1lLFxuICAgICAgICAgICAgICAgIHJlYXNvbiA9PiBQcm9taXNlLnJlamVjdChgVW5hYmxlIHRvIGluaXRpYWxpemU6ICR7cmVhc29ufWApXG4gICAgICAgICAgICApO1xuICAgIH1cblxuICAgIC8qKlxuICAgICAqIE5vdGlmaWVzIGhvc3QgYXBwbGljYXRpb24gYWJvdXQgc3VjY2Vzc2Z1bCBhcHAgYnJpZGdlIGluaXRpYWxpemF0aW9uLlxuICAgICAqIE1pZ2h0IGJlIHVzZWZ1bCBpbiBvcmRlciB0byBwZXJmb3JtIHNvbWUgc3RhcnR1cCBhY3Rpb25zIG9uIHRoZSBob3N0IHNpZGUuXG4gICAgICogQHJldHVybnMge1Byb21pc2U8dm9pZD59XG4gICAgICovXG4gICAgbm90aWZ5SW5pdGlhbGl6ZWQoKTogUHJvbWlzZTx2b2lkPiB7XG4gICAgICAgIHJldHVybiB0aGlzLmV4ZWN1dGUoXCJub3RpZnlJbml0aWFsaXplZFwiKTtcbiAgICB9XG5cbiAgICAvKipcbiAgICAgKiBSZXR1cm5zIGhvc3QgYXBwIHZlcnNpb24gaW5mby5cbiAgICAgKiBAcmV0dXJucyB7UHJvbWlzZTxBcHBWZXJzaW9uSW5mbz59XG4gICAgICovXG4gICAgZ2V0QXBwVmVyc2lvbkluZm8oKTogUHJvbWlzZTxBcHBWZXJzaW9uSW5mbz4ge1xuICAgICAgICByZXR1cm4gdGhpcy5leGVjdXRlKFwiZ2V0QXBwVmVyc2lvbkluZm9cIik7XG4gICAgfVxuXG4gICAgLyoqXG4gICAgICogUmV0cmlldmVzIGRldmljZSByZWNvcmQgd2hpY2ggcGVyc2lzdGVkIGJ5IGhvc3QgYXBwLlxuICAgICAqIEByZXR1cm5zIHtQcm9taXNlPERldmljZVJlY29yZCB8IG51bGw+fVxuICAgICAqL1xuICAgIGdldERldmljZVJlY29yZCgpOiBQcm9taXNlPERldmljZVJlY29yZHxudWxsPiB7XG4gICAgICAgIHJldHVybiB0aGlzLmV4ZWN1dGUoXCJnZXREZXZpY2VSZWNvcmRcIik7XG4gICAgfVxuXG4gICAgLyoqXG4gICAgICogUmVxdWVzdHMgaG9zdCBhcHAgdGVybWluYXRpb24gKGkuZS4gc2VuZHMgXCJxdWl0XCIgY29tbWFuZCkuXG4gICAgICogQHJldHVybnMge1Byb21pc2U8dm9pZD59XG4gICAgICovXG4gICAgcmVxdWVzdFRlcm1pbmF0aW9uKCk6IFByb21pc2U8dm9pZD4ge1xuICAgICAgICByZXR1cm4gdGhpcy5leGVjdXRlKFwicmVxdWVzdFRlcm1pbmF0aW9uXCIpO1xuICAgIH1cblxuICAgICAvKipcbiAgICAgKiBSZXR1cm5zIE1hY2hpbmUgTmFtZS5cbiAgICAgKiBAcmV0dXJucyB7UHJvbWlzZTxNYWNoaW5lTmFtZT59XG4gICAgICovXG4gICAgZ2V0TWFjaGluZU5hbWUoKTogUHJvbWlzZTxNYWNoaW5lTmFtZT4ge1xuICAgICAgICByZXR1cm4gdGhpcy5leGVjdXRlKFwiZ2V0TWFjaGluZU5hbWVcIik7XG4gICAgfVxufSJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0FBQUE7QUFFQTtBQUdBOztBQUVBO0FBQ0E7QUFBQTtBQUFBOztBQTZEQTtBQXZEQTtBQUpBOzs7QUFHQTtBQUNBOzs7QUFBQTtBQUVBOzs7O0FBSUE7QUFDQTtBQUNBO0FBQ0E7QUFJQTtBQUVBOzs7O0FBSUE7QUFDQTtBQUNBO0FBQ0E7QUFFQTs7O0FBR0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTs7O0FBR0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTs7O0FBR0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTs7O0FBR0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBN0RBOyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/apis/hostApp/HostAppApi.ts\n");
+var core = __webpack_require__(8);
+var global = __webpack_require__(9);
+var SHARED = '__core-js_shared__';
+var store = global[SHARED] || (global[SHARED] = {});
+
+(module.exports = function (key, value) {
+  return store[key] || (store[key] = value !== undefined ? value : {});
+})('versions', []).push({
+  version: core.version,
+  mode: __webpack_require__(10) ? 'pure' : 'global',
+  copyright: '© 2018 Denis Pushkarev (zloirock.ru)'
+});
+
 
 /***/ }),
+/* 8 */
+/***/ (function(module, exports) {
 
-/***/ "./src/apis/hostApp/models/AppVersionInfo.ts":
-/*!***************************************************!*\
-  !*** ./src/apis/hostApp/models/AppVersionInfo.ts ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+var core = module.exports = { version: '2.5.6' };
+if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n/**\n * Represents host app version info.\n */\nvar AppVersionInfo = /** @class */ (function () {\n    /**\n     * Constructor.\n     * @param {string} number - version number.\n     * @param {string} name - version name.\n     */\n    function AppVersionInfo(number, name) {\n        this.number = number;\n        this.name = name;\n    }\n    return AppVersionInfo;\n}());\nexports.AppVersionInfo = AppVersionInfo;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvYXBpcy9ob3N0QXBwL21vZGVscy9BcHBWZXJzaW9uSW5mby50cy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9hcGlzL2hvc3RBcHAvbW9kZWxzL0FwcFZlcnNpb25JbmZvLnRzPzI0ZTMiXSwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBSZXByZXNlbnRzIGhvc3QgYXBwIHZlcnNpb24gaW5mby5cbiAqL1xuZXhwb3J0IGNsYXNzIEFwcFZlcnNpb25JbmZvIHtcblxuICAgIC8qKlxuICAgICAqIENvbnN0cnVjdG9yLlxuICAgICAqIEBwYXJhbSB7c3RyaW5nfSBudW1iZXIgLSB2ZXJzaW9uIG51bWJlci5cbiAgICAgKiBAcGFyYW0ge3N0cmluZ30gbmFtZSAtIHZlcnNpb24gbmFtZS5cbiAgICAgKi9cbiAgICBjb25zdHJ1Y3RvcihcbiAgICAgICAgcmVhZG9ubHkgbnVtYmVyOiBzdHJpbmcsXG4gICAgICAgIHJlYWRvbmx5IG5hbWU6IHN0cmluZ1xuICAgICkgeyB9XG5cbn0iXSwibWFwcGluZ3MiOiI7O0FBQUE7O0FBRUE7QUFDQTtBQUVBOzs7O0FBSUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBQUE7QUFaQTsiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/apis/hostApp/models/AppVersionInfo.ts\n");
 
 /***/ }),
+/* 9 */
+/***/ (function(module, exports) {
 
-/***/ "./src/apis/hostApp/models/DeviceRecord.ts":
-/*!*************************************************!*\
-  !*** ./src/apis/hostApp/models/DeviceRecord.ts ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self
+  // eslint-disable-next-line no-new-func
+  : Function('return this')();
+if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n/**\n * Represents device record.\n */\nvar DeviceRecord = /** @class */ (function () {\n    /**\n     * Constructor.\n     * @param {string} id - device ID.\n     * @param {string} name - device name.\n     */\n    function DeviceRecord(id, name) {\n    }\n    return DeviceRecord;\n}());\nexports.DeviceRecord = DeviceRecord;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvYXBpcy9ob3N0QXBwL21vZGVscy9EZXZpY2VSZWNvcmQudHMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvYXBpcy9ob3N0QXBwL21vZGVscy9EZXZpY2VSZWNvcmQudHM/ODBjNyJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIFJlcHJlc2VudHMgZGV2aWNlIHJlY29yZC5cbiAqL1xuZXhwb3J0IGNsYXNzIERldmljZVJlY29yZCB7XG5cbiAgICAvKipcbiAgICAgKiBDb25zdHJ1Y3Rvci5cbiAgICAgKiBAcGFyYW0ge3N0cmluZ30gaWQgLSBkZXZpY2UgSUQuXG4gICAgICogQHBhcmFtIHtzdHJpbmd9IG5hbWUgLSBkZXZpY2UgbmFtZS5cbiAgICAgKi9cbiAgICBjb25zdHJ1Y3RvcihcbiAgICAgICAgaWQ6IHN0cmluZyxcbiAgICAgICAgbmFtZTogc3RyaW5nXG4gICAgKSB7IH1cblxufSJdLCJtYXBwaW5ncyI6Ijs7QUFBQTs7QUFFQTtBQUNBO0FBRUE7Ozs7QUFJQTtBQUNBO0FBR0E7QUFFQTtBQUFBO0FBWkE7Iiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/apis/hostApp/models/DeviceRecord.ts\n");
-
-/***/ }),
-
-/***/ "./src/apis/hostApp/models/MachineName.ts":
-/*!************************************************!*\
-  !*** ./src/apis/hostApp/models/MachineName.ts ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n/**\n * Represents Machine Name.\n */\nvar MachineName = /** @class */ (function () {\n    /**\n     * Constructor.\n     * @param {string} name - MachineName\n     */\n    function MachineName(name) {\n        this.name = name;\n    }\n    return MachineName;\n}());\nexports.MachineName = MachineName;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvYXBpcy9ob3N0QXBwL21vZGVscy9NYWNoaW5lTmFtZS50cy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9hcGlzL2hvc3RBcHAvbW9kZWxzL01hY2hpbmVOYW1lLnRzPzY1M2YiXSwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBSZXByZXNlbnRzIE1hY2hpbmUgTmFtZS5cbiAqL1xuZXhwb3J0IGNsYXNzIE1hY2hpbmVOYW1lIHtcblxuICAgIC8qKlxuICAgICAqIENvbnN0cnVjdG9yLlxuICAgICAqIEBwYXJhbSB7c3RyaW5nfSBuYW1lIC0gTWFjaGluZU5hbWVcbiAgICAgKi9cbiAgICBjb25zdHJ1Y3RvcihcbiAgICAgICAgcmVhZG9ubHkgbmFtZTogc3RyaW5nXG4gICAgKSB7IH1cblxufSJdLCJtYXBwaW5ncyI6Ijs7QUFBQTs7QUFFQTtBQUNBO0FBRUE7OztBQUdBO0FBQ0E7QUFDQTtBQUNBO0FBRUE7QUFBQTtBQVZBOyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/apis/hostApp/models/MachineName.ts\n");
 
 /***/ }),
+/* 10 */
+/***/ (function(module, exports) {
 
-/***/ "./src/apis/hostApp/models/index.ts":
-/*!******************************************!*\
-  !*** ./src/apis/hostApp/models/index.ts ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+module.exports = false;
 
-"use strict";
-eval("\nfunction __export(m) {\n    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./AppVersionInfo */ \"./src/apis/hostApp/models/AppVersionInfo.ts\"));\n__export(__webpack_require__(/*! ./DeviceRecord */ \"./src/apis/hostApp/models/DeviceRecord.ts\"));\n__export(__webpack_require__(/*! ./MachineName */ \"./src/apis/hostApp/models/MachineName.ts\"));\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvYXBpcy9ob3N0QXBwL21vZGVscy9pbmRleC50cy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9hcGlzL2hvc3RBcHAvbW9kZWxzL2luZGV4LnRzPzA3ODEiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0ICogZnJvbSBcIi4vQXBwVmVyc2lvbkluZm9cIjtcbmV4cG9ydCAqIGZyb20gXCIuL0RldmljZVJlY29yZFwiO1xuZXhwb3J0ICogZnJvbSBcIi4vTWFjaGluZU5hbWVcIjsiXSwibWFwcGluZ3MiOiI7Ozs7O0FBQUE7QUFDQTtBQUNBOyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/apis/hostApp/models/index.ts\n");
 
 /***/ }),
+/* 11 */
+/***/ (function(module, exports) {
 
-/***/ "./src/apis/index.ts":
-/*!***************************!*\
-  !*** ./src/apis/index.ts ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+var id = 0;
+var px = Math.random();
+module.exports = function (key) {
+  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+};
 
-"use strict";
-eval("\nfunction __export(m) {\n    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./hostApp/HostAppApi */ \"./src/apis/hostApp/HostAppApi.ts\"));\n__export(__webpack_require__(/*! ./battery/BatteryApi */ \"./src/apis/battery/BatteryApi.ts\"));\n__export(__webpack_require__(/*! ./keyboardLayout/KeyboardLayoutApi */ \"./src/apis/keyboardLayout/KeyboardLayoutApi.ts\"));\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvYXBpcy9pbmRleC50cy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9hcGlzL2luZGV4LnRzP2M5NDkiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0ICogZnJvbSBcIi4vaG9zdEFwcC9Ib3N0QXBwQXBpXCI7XG5leHBvcnQgKiBmcm9tIFwiLi9iYXR0ZXJ5L0JhdHRlcnlBcGlcIjtcbmV4cG9ydCAqIGZyb20gXCIuL2tleWJvYXJkTGF5b3V0L0tleWJvYXJkTGF5b3V0QXBpXCI7Il0sIm1hcHBpbmdzIjoiOzs7OztBQUFBO0FBQ0E7QUFDQTsiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/apis/index.ts\n");
-
-/***/ }),
-
-/***/ "./src/apis/keyboardLayout/KeyboardLayoutApi.ts":
-/*!******************************************************!*\
-  !*** ./src/apis/keyboardLayout/KeyboardLayoutApi.ts ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = Object.setPrototypeOf ||\n        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar Api_1 = __webpack_require__(/*! ../Api */ \"./src/apis/Api.ts\");\n/**\n * Implements keyboard layout API which allows to get available layouts and manage current one.\n */\nvar KeyboardLayoutApi = /** @class */ (function (_super) {\n    __extends(KeyboardLayoutApi, _super);\n    function KeyboardLayoutApi() {\n        return _super !== null && _super.apply(this, arguments) || this;\n    }\n    Object.defineProperty(KeyboardLayoutApi.prototype, \"apiName\", {\n        /**\n         * Gets API name.\n         * @returns {string}\n         */\n        get: function () { return \"keyboardLayout\"; },\n        enumerable: true,\n        configurable: true\n    });\n    /**\n     * Subscribes to keyboard layout changed event and returns unsubscribe function.\n     * @param {EventHandler<KeyboardLayoutChangedEventArgs>} handler\n     * @returns {Promise<UnsubscribeFunction>}\n     */\n    KeyboardLayoutApi.prototype.onLayoutChanged = function (handler) {\n        return this.subscribe(\"layoutChanged\", handler);\n    };\n    /**\n     * Returns list of all available keyboard layouts.\n     * @returns {Promise<KeyboardLayout[]>}\n     */\n    KeyboardLayoutApi.prototype.getLayouts = function () {\n        return this.execute(\"getLayouts\");\n    };\n    /**\n     * Returns certain keyboard layout by given ID (or null if corresponding layout isn't found).\n     * @param {string} layoutId\n     * @returns {Promise<KeyboardLayout>}\n     */\n    KeyboardLayoutApi.prototype.getLayout = function (layoutId) {\n        return this.execute(\"getLayout\", layoutId);\n    };\n    /**\n     * Returns current keyboard layout ID.\n     * @returns {Promise<string>}\n     */\n    KeyboardLayoutApi.prototype.getCurrentLayoutId = function () {\n        return this.execute(\"getCurrentLayoutId\");\n    };\n    /**\n     * Sets current keyboard layout ID and returns true in case of success.\n     * In case of fail false will be returned (which means that layout with given ID is not exists).\n     * @param {string} layoutId\n     * @returns {Promise<boolean>}\n     */\n    KeyboardLayoutApi.prototype.trySetCurrentLayoutId = function (layoutId) {\n        return this.execute(\"trySetCurrentLayoutId\", layoutId);\n    };\n    return KeyboardLayoutApi;\n}(Api_1.Api));\nexports.KeyboardLayoutApi = KeyboardLayoutApi;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvYXBpcy9rZXlib2FyZExheW91dC9LZXlib2FyZExheW91dEFwaS50cy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9hcGlzL2tleWJvYXJkTGF5b3V0L0tleWJvYXJkTGF5b3V0QXBpLnRzPzZiMWYiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtBcGl9IGZyb20gXCIuLi9BcGlcIjtcbmltcG9ydCB7S2V5Ym9hcmRMYXlvdXQsIEtleWJvYXJkTGF5b3V0Q2hhbmdlZEV2ZW50QXJnc30gZnJvbSBcIi4vbW9kZWxzXCI7XG5pbXBvcnQge0V2ZW50SGFuZGxlciwgVW5zdWJzY3JpYmVGdW5jdGlvbn0gZnJvbSBcIi4uLy4uL2NvbW1vbi9ldmVudHNcIjtcblxuLyoqXG4gKiBJbXBsZW1lbnRzIGtleWJvYXJkIGxheW91dCBBUEkgd2hpY2ggYWxsb3dzIHRvIGdldCBhdmFpbGFibGUgbGF5b3V0cyBhbmQgbWFuYWdlIGN1cnJlbnQgb25lLlxuICovXG5leHBvcnQgY2xhc3MgS2V5Ym9hcmRMYXlvdXRBcGkgZXh0ZW5kcyBBcGkge1xuXG4gICAgLyoqXG4gICAgICogR2V0cyBBUEkgbmFtZS5cbiAgICAgKiBAcmV0dXJucyB7c3RyaW5nfVxuICAgICAqL1xuICAgIHByb3RlY3RlZCBnZXQgYXBpTmFtZSgpOiBzdHJpbmcgeyByZXR1cm4gXCJrZXlib2FyZExheW91dFwiOyB9XG5cbiAgICAvKipcbiAgICAgKiBTdWJzY3JpYmVzIHRvIGtleWJvYXJkIGxheW91dCBjaGFuZ2VkIGV2ZW50IGFuZCByZXR1cm5zIHVuc3Vic2NyaWJlIGZ1bmN0aW9uLlxuICAgICAqIEBwYXJhbSB7RXZlbnRIYW5kbGVyPEtleWJvYXJkTGF5b3V0Q2hhbmdlZEV2ZW50QXJncz59IGhhbmRsZXJcbiAgICAgKiBAcmV0dXJucyB7UHJvbWlzZTxVbnN1YnNjcmliZUZ1bmN0aW9uPn1cbiAgICAgKi9cbiAgICBvbkxheW91dENoYW5nZWQoaGFuZGxlcjogRXZlbnRIYW5kbGVyPEtleWJvYXJkTGF5b3V0Q2hhbmdlZEV2ZW50QXJncz4pOiBQcm9taXNlPFVuc3Vic2NyaWJlRnVuY3Rpb24+IHtcbiAgICAgICAgcmV0dXJuIHRoaXMuc3Vic2NyaWJlKFwibGF5b3V0Q2hhbmdlZFwiLCBoYW5kbGVyKTtcbiAgICB9XG5cbiAgICAvKipcbiAgICAgKiBSZXR1cm5zIGxpc3Qgb2YgYWxsIGF2YWlsYWJsZSBrZXlib2FyZCBsYXlvdXRzLlxuICAgICAqIEByZXR1cm5zIHtQcm9taXNlPEtleWJvYXJkTGF5b3V0W10+fVxuICAgICAqL1xuICAgIGdldExheW91dHMoKTogUHJvbWlzZTxLZXlib2FyZExheW91dFtdPiB7XG4gICAgICAgIHJldHVybiB0aGlzLmV4ZWN1dGUoXCJnZXRMYXlvdXRzXCIpO1xuICAgIH1cblxuICAgIC8qKlxuICAgICAqIFJldHVybnMgY2VydGFpbiBrZXlib2FyZCBsYXlvdXQgYnkgZ2l2ZW4gSUQgKG9yIG51bGwgaWYgY29ycmVzcG9uZGluZyBsYXlvdXQgaXNuJ3QgZm91bmQpLlxuICAgICAqIEBwYXJhbSB7c3RyaW5nfSBsYXlvdXRJZFxuICAgICAqIEByZXR1cm5zIHtQcm9taXNlPEtleWJvYXJkTGF5b3V0Pn1cbiAgICAgKi9cbiAgICBnZXRMYXlvdXQobGF5b3V0SWQ6IHN0cmluZyk6IFByb21pc2U8S2V5Ym9hcmRMYXlvdXQ+IHtcbiAgICAgICAgcmV0dXJuIHRoaXMuZXhlY3V0ZShcImdldExheW91dFwiLCBsYXlvdXRJZCk7XG4gICAgfVxuXG4gICAgLyoqXG4gICAgICogUmV0dXJucyBjdXJyZW50IGtleWJvYXJkIGxheW91dCBJRC5cbiAgICAgKiBAcmV0dXJucyB7UHJvbWlzZTxzdHJpbmc+fVxuICAgICAqL1xuICAgIGdldEN1cnJlbnRMYXlvdXRJZCgpOiBQcm9taXNlPHN0cmluZz4ge1xuICAgICAgICByZXR1cm4gdGhpcy5leGVjdXRlKFwiZ2V0Q3VycmVudExheW91dElkXCIpO1xuICAgIH1cblxuICAgIC8qKlxuICAgICAqIFNldHMgY3VycmVudCBrZXlib2FyZCBsYXlvdXQgSUQgYW5kIHJldHVybnMgdHJ1ZSBpbiBjYXNlIG9mIHN1Y2Nlc3MuXG4gICAgICogSW4gY2FzZSBvZiBmYWlsIGZhbHNlIHdpbGwgYmUgcmV0dXJuZWQgKHdoaWNoIG1lYW5zIHRoYXQgbGF5b3V0IHdpdGggZ2l2ZW4gSUQgaXMgbm90IGV4aXN0cykuXG4gICAgICogQHBhcmFtIHtzdHJpbmd9IGxheW91dElkXG4gICAgICogQHJldHVybnMge1Byb21pc2U8Ym9vbGVhbj59XG4gICAgICovXG4gICAgdHJ5U2V0Q3VycmVudExheW91dElkKGxheW91dElkOiBzdHJpbmcpOiBQcm9taXNlPGJvb2xlYW4+IHtcbiAgICAgICAgcmV0dXJuIHRoaXMuZXhlY3V0ZShcInRyeVNldEN1cnJlbnRMYXlvdXRJZFwiLCBsYXlvdXRJZCk7XG4gICAgfVxufVxuXG4iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFBO0FBSUE7O0FBRUE7QUFDQTtBQUFBO0FBQUE7O0FBbURBO0FBN0NBO0FBSkE7OztBQUdBO0FBQ0E7OztBQUFBO0FBRUE7Ozs7QUFJQTtBQUNBO0FBQ0E7QUFDQTtBQUVBOzs7QUFHQTtBQUNBO0FBQ0E7QUFDQTtBQUVBOzs7O0FBSUE7QUFDQTtBQUNBO0FBQ0E7QUFFQTs7O0FBR0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTs7Ozs7QUFLQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUFuREE7Iiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/apis/keyboardLayout/KeyboardLayoutApi.ts\n");
 
 /***/ }),
-
-/***/ "./src/common/initApiHandler.ts":
-/*!**************************************!*\
-  !*** ./src/common/initApiHandler.ts ***!
-  \**************************************/
-/*! no static exports found */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("\nvar __assign = (this && this.__assign) || Object.assign || function(t) {\n    for (var s, i = 1, n = arguments.length; i < n; i++) {\n        s = arguments[i];\n        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))\n            t[p] = s[p];\n    }\n    return t;\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar platforms = __webpack_require__(/*! ../platforms/index */ \"./src/platforms/index.ts\");\nvar apiHandlerInitPromise = null;\n/**\n * Returns promise which resolves with initialized API handler for current platform.\n * @returns {Promise<ApiHandler>}\n */\nfunction initApiHandler() {\n    return apiHandlerInitPromise || (apiHandlerInitPromise = createApiHandlerInitPromise());\n}\nexports.initApiHandler = initApiHandler;\n/**\n * Creates API handler initialization promise.\n * @returns {Promise<ApiHandler>}\n */\nfunction createApiHandlerInitPromise() {\n    var bootstrappersMap = Object\n        .keys(platforms)\n        .reduce(function (a, id) {\n        try {\n            return __assign({}, a, (_a = {}, _a[id] = new (platforms)[id](), _a));\n        }\n        catch (reason) {\n            console.error(\"Unable to construct \" + id + \": \" + reason);\n            return a;\n        }\n        var _a;\n    }, {});\n    var platformIdPromises = Object\n        .keys(bootstrappersMap)\n        .map(function (id) { return bootstrappersMap[id]\n        .checkPlatform()\n        .then(function (canInit) { return canInit ? id : null; }, function (reason) {\n        console.error(\"Platform check failed by \" + id + \": \" + reason);\n        return null;\n    }); });\n    return Promise\n        .all(platformIdPromises)\n        .then(function (ids) { return ids.filter(function (id) { return id != null; }); })\n        .then(function (ids) { return ids.length === 1\n        ? bootstrappersMap[ids[0]]\n            .bootstrap()\n            .catch(function (reason) { return Promise.reject(ids[0] + \" is failed to bootstrap: \" + reason); })\n        : Promise.reject(ids.length\n            ? \"Either \" + humanReadableJoin(ids) + \" are able to bootstrap on current platform.\"\n            : \"No appropriate bootstrapper found for current platform.\"); })\n        .catch(function (reason) { return Promise.reject(\"Unable to bootstrap JR APIs: \" + reason); });\n}\nfunction humanReadableJoin(items) {\n    return items.reduce(function (a, v, i) { return \"\" + a + (i == 0 ? \"\" : i < items.length - 1 ? \", \" : \" and \") + v; }, \"\");\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvY29tbW9uL2luaXRBcGlIYW5kbGVyLnRzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL2NvbW1vbi9pbml0QXBpSGFuZGxlci50cz80NDA3Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7QXBpSGFuZGxlcn0gZnJvbSBcIi4uL3BsYXRmb3Jtcy9BcGlIYW5kbGVyXCI7XG5pbXBvcnQge0FwaUhhbmRsZXJCb290c3RyYXBwZXJ9IGZyb20gXCIuLi9wbGF0Zm9ybXMvQXBpSGFuZGxlckJvb3RzdHJhcHBlclwiO1xuaW1wb3J0ICogYXMgcGxhdGZvcm1zIGZyb20gXCIuLi9wbGF0Zm9ybXMvaW5kZXhcIjtcblxubGV0IGFwaUhhbmRsZXJJbml0UHJvbWlzZTogUHJvbWlzZTxBcGlIYW5kbGVyPnxudWxsID0gbnVsbDtcblxuLyoqXG4gKiBSZXR1cm5zIHByb21pc2Ugd2hpY2ggcmVzb2x2ZXMgd2l0aCBpbml0aWFsaXplZCBBUEkgaGFuZGxlciBmb3IgY3VycmVudCBwbGF0Zm9ybS5cbiAqIEByZXR1cm5zIHtQcm9taXNlPEFwaUhhbmRsZXI+fVxuICovXG5leHBvcnQgZnVuY3Rpb24gaW5pdEFwaUhhbmRsZXIoKTogUHJvbWlzZTxBcGlIYW5kbGVyPiB7XG4gICAgcmV0dXJuIGFwaUhhbmRsZXJJbml0UHJvbWlzZSB8fCAoYXBpSGFuZGxlckluaXRQcm9taXNlID0gY3JlYXRlQXBpSGFuZGxlckluaXRQcm9taXNlKCkpO1xufVxuXG50eXBlIFBsYXRmb3Jtc01hcCA9IHtbaWQ6IHN0cmluZ106IG5ldyAoKSA9PiBBcGlIYW5kbGVyQm9vdHN0cmFwcGVyPEFwaUhhbmRsZXI+fTtcblxuLyoqXG4gKiBDcmVhdGVzIEFQSSBoYW5kbGVyIGluaXRpYWxpemF0aW9uIHByb21pc2UuXG4gKiBAcmV0dXJucyB7UHJvbWlzZTxBcGlIYW5kbGVyPn1cbiAqL1xuZnVuY3Rpb24gY3JlYXRlQXBpSGFuZGxlckluaXRQcm9taXNlKCk6IFByb21pc2U8QXBpSGFuZGxlcj4ge1xuXG4gICAgY29uc3QgYm9vdHN0cmFwcGVyc01hcDoge1tpZDogc3RyaW5nXTogQXBpSGFuZGxlckJvb3RzdHJhcHBlcjxBcGlIYW5kbGVyPn0gPSBPYmplY3RcbiAgICAgICAgLmtleXMoPFBsYXRmb3Jtc01hcD5wbGF0Zm9ybXMpXG4gICAgICAgIC5yZWR1Y2UoXG4gICAgICAgICAgICAoYSwgaWQpID0+IHtcbiAgICAgICAgICAgICAgICB0cnkge1xuICAgICAgICAgICAgICAgICAgICByZXR1cm4gey4uLmEsIC4uLntbaWRdOiBuZXcgKCg8UGxhdGZvcm1zTWFwPnBsYXRmb3JtcykpW2lkXSgpfX07XG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIGNhdGNoIChyZWFzb24pIHtcbiAgICAgICAgICAgICAgICAgICAgY29uc29sZS5lcnJvcihgVW5hYmxlIHRvIGNvbnN0cnVjdCAke2lkfTogJHtyZWFzb259YCk7XG4gICAgICAgICAgICAgICAgICAgIHJldHVybiBhO1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH0sXG4gICAgICAgICAgICB7fVxuICAgICAgICApO1xuXG4gICAgY29uc3QgcGxhdGZvcm1JZFByb21pc2VzID0gT2JqZWN0XG4gICAgICAgIC5rZXlzKGJvb3RzdHJhcHBlcnNNYXApXG4gICAgICAgIC5tYXAoXG4gICAgICAgICAgICBpZCA9PiBib290c3RyYXBwZXJzTWFwW2lkXVxuICAgICAgICAgICAgICAgIC5jaGVja1BsYXRmb3JtKClcbiAgICAgICAgICAgICAgICAudGhlbihcbiAgICAgICAgICAgICAgICAgICAgY2FuSW5pdCA9PiBjYW5Jbml0ID8gaWQgOiBudWxsLFxuICAgICAgICAgICAgICAgICAgICByZWFzb24gPT4ge1xuICAgICAgICAgICAgICAgICAgICAgICAgY29uc29sZS5lcnJvcihgUGxhdGZvcm0gY2hlY2sgZmFpbGVkIGJ5ICR7aWR9OiAke3JlYXNvbn1gKTtcbiAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiBudWxsO1xuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgKVxuICAgICAgICApO1xuXG4gICAgcmV0dXJuIFByb21pc2VcbiAgICAgICAgLmFsbChwbGF0Zm9ybUlkUHJvbWlzZXMpXG4gICAgICAgIC50aGVuKGlkcyA9PiA8c3RyaW5nW10+aWRzLmZpbHRlcihpZCA9PiBpZCAhPSBudWxsKSlcbiAgICAgICAgLnRoZW4oXG4gICAgICAgICAgICBpZHMgPT4gaWRzLmxlbmd0aCA9PT0gMVxuICAgICAgICAgICAgICAgID8gYm9vdHN0cmFwcGVyc01hcFtpZHNbMF1dXG4gICAgICAgICAgICAgICAgICAgIC5ib290c3RyYXAoKVxuICAgICAgICAgICAgICAgICAgICAuY2F0Y2gocmVhc29uID0+IFByb21pc2UucmVqZWN0KGAke2lkc1swXX0gaXMgZmFpbGVkIHRvIGJvb3RzdHJhcDogJHtyZWFzb259YCkpXG4gICAgICAgICAgICAgICAgOiBQcm9taXNlLnJlamVjdChcbiAgICAgICAgICAgICAgICAgICAgaWRzLmxlbmd0aFxuICAgICAgICAgICAgICAgICAgICAgICAgPyBgRWl0aGVyICR7aHVtYW5SZWFkYWJsZUpvaW4oaWRzKX0gYXJlIGFibGUgdG8gYm9vdHN0cmFwIG9uIGN1cnJlbnQgcGxhdGZvcm0uYFxuICAgICAgICAgICAgICAgICAgICAgICAgOiBcIk5vIGFwcHJvcHJpYXRlIGJvb3RzdHJhcHBlciBmb3VuZCBmb3IgY3VycmVudCBwbGF0Zm9ybS5cIlxuICAgICAgICAgICAgICAgIClcbiAgICAgICAgKVxuICAgICAgICAuY2F0Y2gocmVhc29uID0+IFByb21pc2UucmVqZWN0KGBVbmFibGUgdG8gYm9vdHN0cmFwIEpSIEFQSXM6ICR7cmVhc29ufWApKTtcbn1cblxuZnVuY3Rpb24gaHVtYW5SZWFkYWJsZUpvaW4oaXRlbXM6IGFueVtdKTogc3RyaW5nIHtcbiAgICByZXR1cm4gaXRlbXMucmVkdWNlKChhLCB2LCBpKSA9PiBgJHthfSR7aSA9PSAwID8gXCJcIiA6IGkgPCBpdGVtcy5sZW5ndGggLSAxID8gXCIsIFwiIDogXCIgYW5kIFwifSR7dn1gLCBcIlwiKTtcbn0iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFFQTtBQUVBO0FBRUE7OztBQUdBO0FBQ0E7QUFDQTtBQUNBO0FBRkE7QUFNQTs7O0FBR0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUNBO0FBSUE7QUFDQTtBQUNBO0FBRUE7QUFDQTtBQUdBO0FBQ0E7QUFDQTtBQUlBO0FBQ0E7QUFDQTtBQUNBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUNBO0FBR0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTsiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/common/initApiHandler.ts\n");
+var global = __webpack_require__(9);
+var hide = __webpack_require__(13);
+var has = __webpack_require__(23);
+var SRC = __webpack_require__(11)('src');
+var TO_STRING = 'toString';
+var $toString = Function[TO_STRING];
+var TPL = ('' + $toString).split(TO_STRING);
+
+__webpack_require__(8).inspectSource = function (it) {
+  return $toString.call(it);
+};
+
+(module.exports = function (O, key, val, safe) {
+  var isFunction = typeof val == 'function';
+  if (isFunction) has(val, 'name') || hide(val, 'name', key);
+  if (O[key] === val) return;
+  if (isFunction) has(val, SRC) || hide(val, SRC, O[key] ? '' + O[key] : TPL.join(String(key)));
+  if (O === global) {
+    O[key] = val;
+  } else if (!safe) {
+    delete O[key];
+    hide(O, key, val);
+  } else if (O[key]) {
+    O[key] = val;
+  } else {
+    hide(O, key, val);
+  }
+// add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
+})(Function.prototype, TO_STRING, function toString() {
+  return typeof this == 'function' && this[SRC] || $toString.call(this);
+});
+
 
 /***/ }),
-
-/***/ "./src/extendWindow.ts":
-/*!*****************************!*\
-  !*** ./src/extendWindow.ts ***!
-  \*****************************/
-/*! no static exports found */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar apis_1 = __webpack_require__(/*! ./apis */ \"./src/apis/index.ts\");\n/**\n * Extends window with global JR API objects.\n */\nfunction extendWindow() {\n    // TODO: Freeze API objects!\n    var hostAppApi = new apis_1.HostAppApi();\n    window.initAppBridge = function () { return Promise.resolve(hostAppApi); };\n    window.jrHostApp = hostAppApi;\n    window.jrBattery = new apis_1.BatteryApi();\n    window.jrKeyboardLayout = new apis_1.KeyboardLayoutApi();\n}\nexports.extendWindow = extendWindow;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvZXh0ZW5kV2luZG93LnRzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL2V4dGVuZFdpbmRvdy50cz83MmNlIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7SG9zdEFwcEFwaSwgQmF0dGVyeUFwaSwgS2V5Ym9hcmRMYXlvdXRBcGl9IGZyb20gXCIuL2FwaXNcIjtcblxuZGVjbGFyZSBnbG9iYWwge1xuICAgIGludGVyZmFjZSBXaW5kb3cge1xuXG4gICAgICAgIC8qKlxuICAgICAgICAgKiBARGVwcmVjYXRlZFxuICAgICAgICAgKiBSZXR1cm5zIHByb21pc2Ugd2hpY2ggcmVzb2x2ZXMgd2l0aCBhcHAgYnJpZGdlIEFQSS5cbiAgICAgICAgICogQHJldHVybnMge1Byb21pc2U8SG9zdEFwcEFwaT59XG4gICAgICAgICAqL1xuICAgICAgICByZWFkb25seSBpbml0QXBwQnJpZGdlOiAoKSA9PiBQcm9taXNlPEhvc3RBcHBBcGk+O1xuXG4gICAgICAgIC8qKlxuICAgICAgICAgKiBSZXR1cm5zIGhvc3QgYXBwIEFQSS5cbiAgICAgICAgICovXG4gICAgICAgIHJlYWRvbmx5IGpySG9zdEFwcDogSG9zdEFwcEFwaTtcblxuICAgICAgICAvKipcbiAgICAgICAgICogUmV0dXJucyBiYXR0ZXJ5IEFQSS5cbiAgICAgICAgICovXG4gICAgICAgIHJlYWRvbmx5IGpyQmF0dGVyeTogQmF0dGVyeUFwaTtcblxuICAgICAgICAvKipcbiAgICAgICAgICogUmV0dXJucyBrZXlib2FyZCBsYXlvdXQgQVBJLlxuICAgICAgICAgKi9cbiAgICAgICAgcmVhZG9ubHkganJLZXlib2FyZExheW91dDogS2V5Ym9hcmRMYXlvdXRBcGk7XG4gICAgfVxufVxuXG4vKipcbiAqIEV4dGVuZHMgd2luZG93IHdpdGggZ2xvYmFsIEpSIEFQSSBvYmplY3RzLlxuICovXG5leHBvcnQgZnVuY3Rpb24gZXh0ZW5kV2luZG93KCkge1xuICAgIC8vIFRPRE86IEZyZWV6ZSBBUEkgb2JqZWN0cyFcbiAgICBjb25zdCBob3N0QXBwQXBpID0gbmV3IEhvc3RBcHBBcGkoKTtcbiAgICAoPGFueT53aW5kb3cpLmluaXRBcHBCcmlkZ2UgPSAoKSA9PiBQcm9taXNlLnJlc29sdmUoaG9zdEFwcEFwaSk7XG4gICAgKDxhbnk+d2luZG93KS5qckhvc3RBcHAgPSBob3N0QXBwQXBpO1xuICAgICg8YW55PndpbmRvdykuanJCYXR0ZXJ5ID0gbmV3IEJhdHRlcnlBcGkoKTtcbiAgICAoPGFueT53aW5kb3cpLmpyS2V5Ym9hcmRMYXlvdXQgPSBuZXcgS2V5Ym9hcmRMYXlvdXRBcGkoKTtcbn0iXSwibWFwcGluZ3MiOiI7O0FBQUE7QUE2QkE7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBUEE7Iiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/extendWindow.ts\n");
+var dP = __webpack_require__(14);
+var createDesc = __webpack_require__(22);
+module.exports = __webpack_require__(18) ? function (object, key, value) {
+  return dP.f(object, key, createDesc(1, value));
+} : function (object, key, value) {
+  object[key] = value;
+  return object;
+};
+
 
 /***/ }),
-
-/***/ "./src/main-angular.ts":
-/*!*****************************!*\
-  !*** ./src/main-angular.ts ***!
-  \*****************************/
-/*! no static exports found */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar extendWindow_1 = __webpack_require__(/*! ./extendWindow */ \"./src/extendWindow.ts\");\nvar angular_1 = __webpack_require__(/*! ./angular */ \"./src/angular/index.ts\");\nextendWindow_1.extendWindow();\nvar angular = window.angular;\nif (angular == null)\n    throw new Error(\"Unable to find angular, make sure that this script is included AFTER angular script.\");\nangular\n    .module(\"jr-browser-api-extensions\", [])\n    .service(\"jrHostApp\", [\"$rootScope\", \"$q\", angular_1.jrHostAppService])\n    .service(\"jrBattery\", [\"$rootScope\", \"$q\", angular_1.jrBatteryService])\n    .service(\"jrKeyboardLayout\", [\"$rootScope\", \"$q\", angular_1.jrKeyboardLayoutService]);\n// TODO: Deprecated, remove this.\nangular\n    .module(\"unified-app-bridge\", [])\n    .service(\"appBridge\", [\"$rootScope\", \"$q\", angular_1.jrHostAppService]);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvbWFpbi1hbmd1bGFyLnRzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL21haW4tYW5ndWxhci50cz9kMTMzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7ZXh0ZW5kV2luZG93fSBmcm9tIFwiLi9leHRlbmRXaW5kb3dcIjtcbmltcG9ydCB7anJCYXR0ZXJ5U2VydmljZSwganJIb3N0QXBwU2VydmljZSwganJLZXlib2FyZExheW91dFNlcnZpY2V9IGZyb20gXCIuL2FuZ3VsYXJcIjtcblxuZXh0ZW5kV2luZG93KCk7XG5cbmNvbnN0IGFuZ3VsYXI6IGFueSA9ICg8YW55PndpbmRvdykuYW5ndWxhcjtcbmlmIChhbmd1bGFyID09IG51bGwpXG4gICAgdGhyb3cgbmV3IEVycm9yKFwiVW5hYmxlIHRvIGZpbmQgYW5ndWxhciwgbWFrZSBzdXJlIHRoYXQgdGhpcyBzY3JpcHQgaXMgaW5jbHVkZWQgQUZURVIgYW5ndWxhciBzY3JpcHQuXCIpO1xuXG5hbmd1bGFyXG4gICAgLm1vZHVsZShcImpyLWJyb3dzZXItYXBpLWV4dGVuc2lvbnNcIiwgW10pXG4gICAgLnNlcnZpY2UoXCJqckhvc3RBcHBcIiwgW1wiJHJvb3RTY29wZVwiLCBcIiRxXCIsIGpySG9zdEFwcFNlcnZpY2VdKVxuICAgIC5zZXJ2aWNlKFwianJCYXR0ZXJ5XCIsIFtcIiRyb290U2NvcGVcIiwgXCIkcVwiLCBqckJhdHRlcnlTZXJ2aWNlXSlcbiAgICAuc2VydmljZShcImpyS2V5Ym9hcmRMYXlvdXRcIiwgW1wiJHJvb3RTY29wZVwiLCBcIiRxXCIsIGpyS2V5Ym9hcmRMYXlvdXRTZXJ2aWNlXSk7XG5cbi8vIFRPRE86IERlcHJlY2F0ZWQsIHJlbW92ZSB0aGlzLlxuYW5ndWxhclxuICAgIC5tb2R1bGUoXCJ1bmlmaWVkLWFwcC1icmlkZ2VcIiwgW10pXG4gICAgLnNlcnZpY2UoXCJhcHBCcmlkZ2VcIiwgW1wiJHJvb3RTY29wZVwiLCBcIiRxXCIsIGpySG9zdEFwcFNlcnZpY2VdKTsiXSwibWFwcGluZ3MiOiI7O0FBQUE7QUFDQTtBQUVBO0FBRUE7QUFDQTtBQUNBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUNBOyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/main-angular.ts\n");
+var anObject = __webpack_require__(15);
+var IE8_DOM_DEFINE = __webpack_require__(17);
+var toPrimitive = __webpack_require__(21);
+var dP = Object.defineProperty;
+
+exports.f = __webpack_require__(18) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+  anObject(O);
+  P = toPrimitive(P, true);
+  anObject(Attributes);
+  if (IE8_DOM_DEFINE) try {
+    return dP(O, P, Attributes);
+  } catch (e) { /* empty */ }
+  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported!');
+  if ('value' in Attributes) O[P] = Attributes.value;
+  return O;
+};
+
 
 /***/ }),
-
-/***/ "./src/platforms/ApiHandler.ts":
-/*!*************************************!*\
-  !*** ./src/platforms/ApiHandler.ts ***!
-  \*************************************/
-/*! no static exports found */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n/**\n * Represents abstract API handler.\n */\nvar ApiHandler = /** @class */ (function () {\n    function ApiHandler() {\n        // Registered API event handlers.\n        this.eventHandlers = {};\n    }\n    /**\n     * Dispatches event from host.\n     * @param {string} eventType\n     * @param args\n     */\n    ApiHandler.prototype.dispatch = function (eventType, args) {\n        var handlers = this.eventHandlers[eventType];\n        if (handlers != null)\n            for (var _i = 0, handlers_1 = handlers; _i < handlers_1.length; _i++) {\n                var handler = handlers_1[_i];\n                handler(args);\n            }\n    };\n    /**\n     * Adds event listener for certain event and returns unsubscribe function.\n     * @param {string} eventType\n     * @param {EventHandler<any>} handler\n     * @returns {UnsubscribeFunction}\n     */\n    ApiHandler.prototype.subscribe = function (eventType, handler) {\n        var _this = this;\n        var handlers = this.eventHandlers[eventType] || (this.eventHandlers[eventType] = []);\n        if (handlers.indexOf(handler) === -1)\n            handlers.push(handler);\n        return function () { return _this.unsubscribe(eventType, handler); };\n    };\n    /**\n     * Removes given event handler for certain event.\n     * @param {string} eventType\n     * @param {EventHandler<any>} handler\n     */\n    ApiHandler.prototype.unsubscribe = function (eventType, handler) {\n        var handlers = this.eventHandlers[eventType];\n        if (handlers == null)\n            return;\n        var idx = handlers.indexOf(handler);\n        if (idx !== -1)\n            handlers.splice(idx, 1);\n    };\n    return ApiHandler;\n}());\nexports.ApiHandler = ApiHandler;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcGxhdGZvcm1zL0FwaUhhbmRsZXIudHMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvcGxhdGZvcm1zL0FwaUhhbmRsZXIudHM/N2Q5MCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0V2ZW50SGFuZGxlciwgVW5zdWJzY3JpYmVGdW5jdGlvbn0gZnJvbSBcIi4uL2NvbW1vbi9ldmVudHNcIjtcbmltcG9ydCB7UGxhdGZvcm1OYW1lfSBmcm9tIFwiLi9QbGF0Zm9ybU5hbWVcIjtcblxuLyoqXG4gKiBSZXByZXNlbnRzIGFic3RyYWN0IEFQSSBoYW5kbGVyLlxuICovXG5leHBvcnQgYWJzdHJhY3QgY2xhc3MgQXBpSGFuZGxlciB7XG5cbiAgICAvLyBSZWdpc3RlcmVkIEFQSSBldmVudCBoYW5kbGVycy5cbiAgICBwcml2YXRlIHJlYWRvbmx5IGV2ZW50SGFuZGxlcnM6IHtbaWQ6IHN0cmluZ106IEV2ZW50SGFuZGxlcjxhbnk+W119ID0ge307XG5cbiAgICAvKipcbiAgICAgKiBSZXR1cm5zIEFQSSBoYW5kbGVyIG5hbWUgKGkuZS4gcGxhdGZvcm0gbmFtZSkuXG4gICAgICogQHJldHVybnMge3N0cmluZ31cbiAgICAgKi9cbiAgICBhYnN0cmFjdCBnZXQgbmFtZSgpOiBQbGF0Zm9ybU5hbWU7XG5cbiAgICAvKipcbiAgICAgKiBEaXNwYXRjaGVzIGV2ZW50IGZyb20gaG9zdC5cbiAgICAgKiBAcGFyYW0ge3N0cmluZ30gZXZlbnRUeXBlXG4gICAgICogQHBhcmFtIGFyZ3NcbiAgICAgKi9cbiAgICBwcm90ZWN0ZWQgZGlzcGF0Y2goZXZlbnRUeXBlOiBzdHJpbmcsIGFyZ3M6IGFueSk6IHZvaWQge1xuICAgICAgICBjb25zdCBoYW5kbGVycyA9IHRoaXMuZXZlbnRIYW5kbGVyc1tldmVudFR5cGVdO1xuICAgICAgICBpZiAoaGFuZGxlcnMgIT0gbnVsbClcbiAgICAgICAgICAgIGZvcihsZXQgaGFuZGxlciBvZiBoYW5kbGVycylcbiAgICAgICAgICAgICAgICBoYW5kbGVyKGFyZ3MpO1xuICAgIH1cblxuICAgIC8qKlxuICAgICAqIEFkZHMgZXZlbnQgbGlzdGVuZXIgZm9yIGNlcnRhaW4gZXZlbnQgYW5kIHJldHVybnMgdW5zdWJzY3JpYmUgZnVuY3Rpb24uXG4gICAgICogQHBhcmFtIHtzdHJpbmd9IGV2ZW50VHlwZVxuICAgICAqIEBwYXJhbSB7RXZlbnRIYW5kbGVyPGFueT59IGhhbmRsZXJcbiAgICAgKiBAcmV0dXJucyB7VW5zdWJzY3JpYmVGdW5jdGlvbn1cbiAgICAgKi9cbiAgICBzdWJzY3JpYmUoZXZlbnRUeXBlOiBzdHJpbmcsIGhhbmRsZXI6IEV2ZW50SGFuZGxlcjxhbnk+KTogVW5zdWJzY3JpYmVGdW5jdGlvbiB7XG4gICAgICAgIGxldCBoYW5kbGVycyA9IHRoaXMuZXZlbnRIYW5kbGVyc1tldmVudFR5cGVdIHx8ICh0aGlzLmV2ZW50SGFuZGxlcnNbZXZlbnRUeXBlXSA9IFtdKTtcbiAgICAgICAgaWYgKGhhbmRsZXJzLmluZGV4T2YoaGFuZGxlcikgPT09IC0xKVxuICAgICAgICAgICAgaGFuZGxlcnMucHVzaChoYW5kbGVyKTtcbiAgICAgICAgcmV0dXJuICgpID0+IHRoaXMudW5zdWJzY3JpYmUoZXZlbnRUeXBlLCBoYW5kbGVyKTtcbiAgICB9XG5cbiAgICAvKipcbiAgICAgKiBIYW5kbGVzIHJlcXVlc3QgdG8gY2VydGFpbiBBUEkuXG4gICAgICogQHBhcmFtIHtzdHJpbmd9IGFwaU5hbWVcbiAgICAgKiBAcGFyYW0ge3N0cmluZ30gbWV0aG9kTmFtZVxuICAgICAqIEBwYXJhbSBhcmdzXG4gICAgICogQHJldHVybnMge1Byb21pc2U8YW55Pn1cbiAgICAgKi9cbiAgICBhYnN0cmFjdCBleGVjdXRlKGFwaU5hbWU6IHN0cmluZywgbWV0aG9kTmFtZTogc3RyaW5nLCBhcmdzOiBhbnkpOiBQcm9taXNlPGFueT47XG5cbiAgICAvKipcbiAgICAgKiBSZW1vdmVzIGdpdmVuIGV2ZW50IGhhbmRsZXIgZm9yIGNlcnRhaW4gZXZlbnQuXG4gICAgICogQHBhcmFtIHtzdHJpbmd9IGV2ZW50VHlwZVxuICAgICAqIEBwYXJhbSB7RXZlbnRIYW5kbGVyPGFueT59IGhhbmRsZXJcbiAgICAgKi9cbiAgICBwcml2YXRlIHVuc3Vic2NyaWJlKGV2ZW50VHlwZTogc3RyaW5nLCBoYW5kbGVyOiBFdmVudEhhbmRsZXI8YW55Pik6IHZvaWQge1xuICAgICAgICBsZXQgaGFuZGxlcnMgPSB0aGlzLmV2ZW50SGFuZGxlcnNbZXZlbnRUeXBlXTtcbiAgICAgICAgaWYgKGhhbmRsZXJzID09IG51bGwpXG4gICAgICAgICAgICByZXR1cm47XG4gICAgICAgIGNvbnN0IGlkeCA9IGhhbmRsZXJzLmluZGV4T2YoaGFuZGxlcik7XG4gICAgICAgIGlmIChpZHggIT09IC0xKVxuICAgICAgICAgICAgaGFuZGxlcnMuc3BsaWNlKGlkeCwgMSk7XG4gICAgfVxufSJdLCJtYXBwaW5ncyI6Ijs7QUFHQTs7QUFFQTtBQUNBO0FBQUE7QUFFQTtBQUNBO0FBdURBO0FBL0NBOzs7O0FBSUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBQ0E7QUFBQTtBQUNBO0FBRUE7Ozs7O0FBS0E7QUFDQTtBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQVdBOzs7O0FBSUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQTFEQTsiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/platforms/ApiHandler.ts\n");
+var isObject = __webpack_require__(16);
+module.exports = function (it) {
+  if (!isObject(it)) throw TypeError(it + ' is not an object!');
+  return it;
+};
+
 
 /***/ }),
+/* 16 */
+/***/ (function(module, exports) {
 
-/***/ "./src/platforms/ApiHandlerBootstrapper.ts":
-/*!*************************************************!*\
-  !*** ./src/platforms/ApiHandlerBootstrapper.ts ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+module.exports = function (it) {
+  return typeof it === 'object' ? it !== null : typeof it === 'function';
+};
 
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar ApiHandlerBootstrapper = /** @class */ (function () {\n    function ApiHandlerBootstrapper() {\n    }\n    return ApiHandlerBootstrapper;\n}());\nexports.ApiHandlerBootstrapper = ApiHandlerBootstrapper;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcGxhdGZvcm1zL0FwaUhhbmRsZXJCb290c3RyYXBwZXIudHMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvcGxhdGZvcm1zL0FwaUhhbmRsZXJCb290c3RyYXBwZXIudHM/NWM1MiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0FwaUhhbmRsZXJ9IGZyb20gXCIuL0FwaUhhbmRsZXJcIjtcblxuZXhwb3J0IGFic3RyYWN0IGNsYXNzIEFwaUhhbmRsZXJCb290c3RyYXBwZXI8VEFwaUhhbmRsZXIgZXh0ZW5kcyBBcGlIYW5kbGVyPiB7XG5cbiAgICBhYnN0cmFjdCBjaGVja1BsYXRmb3JtKCk6IFByb21pc2U8Ym9vbGVhbj47XG5cbiAgICBhYnN0cmFjdCBib290c3RyYXAoKTogUHJvbWlzZTxUQXBpSGFuZGxlcj47XG5cbn0iXSwibWFwcGluZ3MiOiI7O0FBRUE7QUFBQTtBQU1BO0FBQUE7QUFBQTtBQU5BOyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/platforms/ApiHandlerBootstrapper.ts\n");
 
 /***/ }),
-
-/***/ "./src/platforms/PlatformName.ts":
-/*!***************************************!*\
-  !*** ./src/platforms/PlatformName.ts ***!
-  \***************************************/
-/*! no static exports found */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar PlatformName;\n(function (PlatformName) {\n    PlatformName[\"Android\"] = \"Android\";\n    PlatformName[\"IOS\"] = \"iOS\";\n    PlatformName[\"MacOS\"] = \"macOS\";\n    PlatformName[\"Windows\"] = \"Windows\";\n})(PlatformName = exports.PlatformName || (exports.PlatformName = {}));\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcGxhdGZvcm1zL1BsYXRmb3JtTmFtZS50cy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9wbGF0Zm9ybXMvUGxhdGZvcm1OYW1lLnRzPzY3ZTEiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGVudW0gUGxhdGZvcm1OYW1lIHtcbiAgICBBbmRyb2lkID0gXCJBbmRyb2lkXCIsXG4gICAgSU9TID0gXCJpT1NcIixcbiAgICBNYWNPUyA9IFwibWFjT1NcIixcbiAgICBXaW5kb3dzID0gXCJXaW5kb3dzXCJcbn0iXSwibWFwcGluZ3MiOiI7O0FBQUE7QUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7Iiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/platforms/PlatformName.ts\n");
+module.exports = !__webpack_require__(18) && !__webpack_require__(19)(function () {
+  return Object.defineProperty(__webpack_require__(20)('div'), 'a', { get: function () { return 7; } }).a != 7;
+});
+
 
 /***/ }),
-
-/***/ "./src/platforms/android/AndroidApiHandler.ts":
-/*!****************************************************!*\
-  !*** ./src/platforms/android/AndroidApiHandler.ts ***!
-  \****************************************************/
-/*! no static exports found */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = Object.setPrototypeOf ||\n        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar ApiHandler_1 = __webpack_require__(/*! ../ApiHandler */ \"./src/platforms/ApiHandler.ts\");\nvar models_1 = __webpack_require__(/*! ../../apis/hostApp/models */ \"./src/apis/hostApp/models/index.ts\");\nvar PlatformName_1 = __webpack_require__(/*! ../PlatformName */ \"./src/platforms/PlatformName.ts\");\nvar AndroidApiHandler = /** @class */ (function (_super) {\n    __extends(AndroidApiHandler, _super);\n    function AndroidApiHandler(hostObj) {\n        var _this = _super.call(this) || this;\n        _this.hostObj = hostObj;\n        if (hostObj == null)\n            throw new Error(\"Given host object is null.\");\n        return _this;\n    }\n    Object.defineProperty(AndroidApiHandler.prototype, \"name\", {\n        get: function () { return PlatformName_1.PlatformName.Android; },\n        enumerable: true,\n        configurable: true\n    });\n    AndroidApiHandler.prototype.execute = function (apiName, methodName, args) {\n        var _this = this;\n        switch (apiName + \".\" + methodName) {\n            case \"hostApp.getAppVersionInfo\":\n                return new Promise(function (resolve) { return resolve(new models_1.AppVersionInfo(_this.hostObj.getAppVersionNumber(), _this.hostObj.getAppVersionName())); });\n            case \"hostApp.requestTermination\":\n                return new Promise(function (resolve) {\n                    _this.hostObj.ExitApp();\n                    resolve();\n                });\n            default:\n                return Promise.reject(\"Method isn't supported for current platform.\");\n        }\n    };\n    return AndroidApiHandler;\n}(ApiHandler_1.ApiHandler));\nexports.AndroidApiHandler = AndroidApiHandler;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcGxhdGZvcm1zL2FuZHJvaWQvQW5kcm9pZEFwaUhhbmRsZXIudHMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvcGxhdGZvcm1zL2FuZHJvaWQvQW5kcm9pZEFwaUhhbmRsZXIudHM/Y2JiMCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0FwaUhhbmRsZXJ9IGZyb20gXCIuLi9BcGlIYW5kbGVyXCI7XG5pbXBvcnQge0FwcFZlcnNpb25JbmZvfSBmcm9tIFwiLi4vLi4vYXBpcy9ob3N0QXBwL21vZGVsc1wiO1xuaW1wb3J0IHtQbGF0Zm9ybU5hbWV9IGZyb20gXCIuLi9QbGF0Zm9ybU5hbWVcIjtcblxuZXhwb3J0IGNsYXNzIEFuZHJvaWRBcGlIYW5kbGVyIGV4dGVuZHMgQXBpSGFuZGxlciB7XG5cbiAgICBjb25zdHJ1Y3Rvcihwcml2YXRlIGhvc3RPYmo6IGFueSkge1xuICAgICAgICBzdXBlcigpO1xuICAgICAgICBpZiAoaG9zdE9iaiA9PSBudWxsKVxuICAgICAgICAgICAgdGhyb3cgbmV3IEVycm9yKFwiR2l2ZW4gaG9zdCBvYmplY3QgaXMgbnVsbC5cIik7XG4gICAgfVxuXG4gICAgZ2V0IG5hbWUoKTogUGxhdGZvcm1OYW1lIHsgcmV0dXJuIFBsYXRmb3JtTmFtZS5BbmRyb2lkOyB9XG5cbiAgICBleGVjdXRlKGFwaU5hbWU6IHN0cmluZywgbWV0aG9kTmFtZTogc3RyaW5nLCBhcmdzOiBhbnkpOiBQcm9taXNlPGFueT4ge1xuICAgICAgICBzd2l0Y2ggKGAke2FwaU5hbWV9LiR7bWV0aG9kTmFtZX1gKSB7XG4gICAgICAgICAgICBjYXNlIFwiaG9zdEFwcC5nZXRBcHBWZXJzaW9uSW5mb1wiOlxuICAgICAgICAgICAgICAgIHJldHVybiBuZXcgUHJvbWlzZTxBcHBWZXJzaW9uSW5mbz4oXG4gICAgICAgICAgICAgICAgICAgIHJlc29sdmUgPT4gcmVzb2x2ZShcbiAgICAgICAgICAgICAgICAgICAgICAgIG5ldyBBcHBWZXJzaW9uSW5mbyhcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0aGlzLmhvc3RPYmouZ2V0QXBwVmVyc2lvbk51bWJlcigpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHRoaXMuaG9zdE9iai5nZXRBcHBWZXJzaW9uTmFtZSgpXG4gICAgICAgICAgICAgICAgICAgICAgICApXG4gICAgICAgICAgICAgICAgICAgIClcbiAgICAgICAgICAgICAgICApO1xuICAgICAgICAgICAgY2FzZSBcImhvc3RBcHAucmVxdWVzdFRlcm1pbmF0aW9uXCI6XG4gICAgICAgICAgICAgICAgcmV0dXJuIG5ldyBQcm9taXNlPHZvaWQ+KFxuICAgICAgICAgICAgICAgICAgICByZXNvbHZlID0+IHtcbiAgICAgICAgICAgICAgICAgICAgICAgIHRoaXMuaG9zdE9iai5FeGl0QXBwKCk7XG4gICAgICAgICAgICAgICAgICAgICAgICByZXNvbHZlKCk7XG4gICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICApO1xuICAgICAgICAgICAgZGVmYXVsdDpcbiAgICAgICAgICAgICAgICByZXR1cm4gUHJvbWlzZS5yZWplY3QoXCJNZXRob2QgaXNuJ3Qgc3VwcG9ydGVkIGZvciBjdXJyZW50IHBsYXRmb3JtLlwiKTtcbiAgICAgICAgfVxuICAgIH1cbn0iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFBO0FBQ0E7QUFDQTtBQUVBO0FBQUE7QUFFQTtBQUFBO0FBQUE7QUFFQTtBQUNBOztBQUNBO0FBRUE7QUFBQTs7O0FBQUE7QUFFQTtBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBUUE7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQWhDQTsiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/platforms/android/AndroidApiHandler.ts\n");
+// Thank's IE8 for his funny defineProperty
+module.exports = !__webpack_require__(19)(function () {
+  return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
+});
+
 
 /***/ }),
+/* 19 */
+/***/ (function(module, exports) {
 
-/***/ "./src/platforms/android/AndroidApiHandlerBootstrapper.ts":
-/*!****************************************************************!*\
-  !*** ./src/platforms/android/AndroidApiHandlerBootstrapper.ts ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+module.exports = function (exec) {
+  try {
+    return !!exec();
+  } catch (e) {
+    return true;
+  }
+};
 
-"use strict";
-eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = Object.setPrototypeOf ||\n        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar ApiHandlerBootstrapper_1 = __webpack_require__(/*! ../ApiHandlerBootstrapper */ \"./src/platforms/ApiHandlerBootstrapper.ts\");\nvar AndroidApiHandler_1 = __webpack_require__(/*! ./AndroidApiHandler */ \"./src/platforms/android/AndroidApiHandler.ts\");\n/**\n * Implements Android API handler bootstrapping features.\n */\nvar AndroidApiHandlerBootstrapper = /** @class */ (function (_super) {\n    __extends(AndroidApiHandlerBootstrapper, _super);\n    function AndroidApiHandlerBootstrapper() {\n        return _super !== null && _super.apply(this, arguments) || this;\n    }\n    AndroidApiHandlerBootstrapper.prototype.checkPlatform = function () {\n        return Promise.resolve(AndroidApiHandlerBootstrapper.getDroidJsObj() != null);\n    };\n    AndroidApiHandlerBootstrapper.prototype.bootstrap = function () {\n        return Promise.resolve(new AndroidApiHandler_1.AndroidApiHandler(AndroidApiHandlerBootstrapper.getDroidJsObj()));\n    };\n    AndroidApiHandlerBootstrapper.getDroidJsObj = function () {\n        return window.DroidJS;\n    };\n    return AndroidApiHandlerBootstrapper;\n}(ApiHandlerBootstrapper_1.ApiHandlerBootstrapper));\nexports.AndroidApiHandlerBootstrapper = AndroidApiHandlerBootstrapper;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcGxhdGZvcm1zL2FuZHJvaWQvQW5kcm9pZEFwaUhhbmRsZXJCb290c3RyYXBwZXIudHMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvcGxhdGZvcm1zL2FuZHJvaWQvQW5kcm9pZEFwaUhhbmRsZXJCb290c3RyYXBwZXIudHM/NTg2MSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0FwaUhhbmRsZXJCb290c3RyYXBwZXJ9IGZyb20gXCIuLi9BcGlIYW5kbGVyQm9vdHN0cmFwcGVyXCI7XG5pbXBvcnQge0FuZHJvaWRBcGlIYW5kbGVyfSBmcm9tIFwiLi9BbmRyb2lkQXBpSGFuZGxlclwiO1xuXG4vKipcbiAqIEltcGxlbWVudHMgQW5kcm9pZCBBUEkgaGFuZGxlciBib290c3RyYXBwaW5nIGZlYXR1cmVzLlxuICovXG5leHBvcnQgY2xhc3MgQW5kcm9pZEFwaUhhbmRsZXJCb290c3RyYXBwZXIgZXh0ZW5kcyBBcGlIYW5kbGVyQm9vdHN0cmFwcGVyPEFuZHJvaWRBcGlIYW5kbGVyPiB7XG5cbiAgICBjaGVja1BsYXRmb3JtKCk6IFByb21pc2U8Ym9vbGVhbj4ge1xuICAgICAgICByZXR1cm4gUHJvbWlzZS5yZXNvbHZlKFxuICAgICAgICAgICAgQW5kcm9pZEFwaUhhbmRsZXJCb290c3RyYXBwZXIuZ2V0RHJvaWRKc09iaigpICE9IG51bGxcbiAgICAgICAgKTtcbiAgICB9XG5cbiAgICBib290c3RyYXAoKTogUHJvbWlzZTxBbmRyb2lkQXBpSGFuZGxlcj4ge1xuICAgICAgICByZXR1cm4gUHJvbWlzZS5yZXNvbHZlKFxuICAgICAgICAgICAgbmV3IEFuZHJvaWRBcGlIYW5kbGVyKEFuZHJvaWRBcGlIYW5kbGVyQm9vdHN0cmFwcGVyLmdldERyb2lkSnNPYmooKSlcbiAgICAgICAgKTtcbiAgICB9XG5cbiAgICBwcml2YXRlIHN0YXRpYyBnZXREcm9pZEpzT2JqKCk6IGFueSB7XG4gICAgICAgIHJldHVybiAoPGFueT53aW5kb3cpLkRyb2lkSlM7XG4gICAgfVxuXG59Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7QUFBQTtBQUNBO0FBRUE7O0FBRUE7QUFDQTtBQUFBO0FBQUE7O0FBa0JBO0FBaEJBO0FBQ0E7QUFHQTtBQUVBO0FBQ0E7QUFHQTtBQUVBO0FBQ0E7QUFDQTtBQUVBO0FBQUE7QUFsQkE7Iiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/platforms/android/AndroidApiHandlerBootstrapper.ts\n");
-
-/***/ }),
-
-/***/ "./src/platforms/index.ts":
-/*!********************************!*\
-  !*** ./src/platforms/index.ts ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nfunction __export(m) {\n    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./android/AndroidApiHandlerBootstrapper */ \"./src/platforms/android/AndroidApiHandlerBootstrapper.ts\"));\n__export(__webpack_require__(/*! ./ios/IosApiHandlerBootstrapper */ \"./src/platforms/ios/IosApiHandlerBootstrapper.ts\"));\n__export(__webpack_require__(/*! ./macos/MacosApiHandlerBootstrapper */ \"./src/platforms/macos/MacosApiHandlerBootstrapper.ts\"));\n__export(__webpack_require__(/*! ./windows/WindowsApiHandlerBootstrapper */ \"./src/platforms/windows/WindowsApiHandlerBootstrapper.ts\"));\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcGxhdGZvcm1zL2luZGV4LnRzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL3BsYXRmb3Jtcy9pbmRleC50cz9mNmU2Il0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCAqIGZyb20gXCIuL2FuZHJvaWQvQW5kcm9pZEFwaUhhbmRsZXJCb290c3RyYXBwZXJcIjtcbmV4cG9ydCAqIGZyb20gXCIuL2lvcy9Jb3NBcGlIYW5kbGVyQm9vdHN0cmFwcGVyXCI7XG5leHBvcnQgKiBmcm9tIFwiLi9tYWNvcy9NYWNvc0FwaUhhbmRsZXJCb290c3RyYXBwZXJcIjtcbmV4cG9ydCAqIGZyb20gXCIuL3dpbmRvd3MvV2luZG93c0FwaUhhbmRsZXJCb290c3RyYXBwZXJcIjsiXSwibWFwcGluZ3MiOiI7Ozs7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7Iiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/platforms/index.ts\n");
 
 /***/ }),
-
-/***/ "./src/platforms/ios/IosApiHandler.ts":
-/*!********************************************!*\
-  !*** ./src/platforms/ios/IosApiHandler.ts ***!
-  \********************************************/
-/*! no static exports found */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = Object.setPrototypeOf ||\n        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar ApiHandler_1 = __webpack_require__(/*! ../ApiHandler */ \"./src/platforms/ApiHandler.ts\");\nvar models_1 = __webpack_require__(/*! ../../apis/hostApp/models */ \"./src/apis/hostApp/models/index.ts\");\nvar PlatformName_1 = __webpack_require__(/*! ../PlatformName */ \"./src/platforms/PlatformName.ts\");\nvar IosApiHandler = /** @class */ (function (_super) {\n    __extends(IosApiHandler, _super);\n    function IosApiHandler(hostObj) {\n        var _this = _super.call(this) || this;\n        _this.hostObj = hostObj;\n        if (hostObj == null)\n            throw new Error(\"Given host object is null.\");\n        return _this;\n    }\n    Object.defineProperty(IosApiHandler.prototype, \"name\", {\n        get: function () { return PlatformName_1.PlatformName.IOS; },\n        enumerable: true,\n        configurable: true\n    });\n    IosApiHandler.prototype.execute = function (apiName, methodName, args) {\n        var _this = this;\n        switch (apiName + \".\" + methodName) {\n            case \"hostApp.getAppVersionInfo\":\n                return new Promise(function (resolve, reject) { return _this.hostObj.callHandler(\"getAppVersion\", function (response) {\n                    if (response == \"\")\n                        reject(\"Unable to get app version.\");\n                    else\n                        resolve(new models_1.AppVersionInfo(null, response));\n                }); });\n            case \"hostApp.requestTermination\":\n                return new Promise(function (resolve) {\n                    _this.hostObj.callHandler(\"quitPages\", {});\n                    resolve();\n                });\n            default:\n                return Promise.reject(\"Method isn't supported for current platform.\");\n        }\n    };\n    return IosApiHandler;\n}(ApiHandler_1.ApiHandler));\nexports.IosApiHandler = IosApiHandler;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcGxhdGZvcm1zL2lvcy9Jb3NBcGlIYW5kbGVyLnRzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL3BsYXRmb3Jtcy9pb3MvSW9zQXBpSGFuZGxlci50cz80N2YzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7QXBpSGFuZGxlcn0gZnJvbSBcIi4uL0FwaUhhbmRsZXJcIjtcbmltcG9ydCB7QXBwVmVyc2lvbkluZm99IGZyb20gXCIuLi8uLi9hcGlzL2hvc3RBcHAvbW9kZWxzXCI7XG5pbXBvcnQge1BsYXRmb3JtTmFtZX0gZnJvbSBcIi4uL1BsYXRmb3JtTmFtZVwiO1xuXG5leHBvcnQgY2xhc3MgSW9zQXBpSGFuZGxlciBleHRlbmRzIEFwaUhhbmRsZXIge1xuXG4gICAgY29uc3RydWN0b3IocHJpdmF0ZSBob3N0T2JqOiBhbnkpIHtcbiAgICAgICAgc3VwZXIoKTtcbiAgICAgICAgaWYgKGhvc3RPYmogPT0gbnVsbClcbiAgICAgICAgICAgIHRocm93IG5ldyBFcnJvcihcIkdpdmVuIGhvc3Qgb2JqZWN0IGlzIG51bGwuXCIpO1xuICAgIH1cblxuICAgIGdldCBuYW1lKCk6IFBsYXRmb3JtTmFtZSB7IHJldHVybiBQbGF0Zm9ybU5hbWUuSU9TOyB9XG5cbiAgICBleGVjdXRlKGFwaU5hbWU6IHN0cmluZywgbWV0aG9kTmFtZTogc3RyaW5nLCBhcmdzOiBhbnkpOiBQcm9taXNlPGFueT4ge1xuICAgICAgICBzd2l0Y2ggKGAke2FwaU5hbWV9LiR7bWV0aG9kTmFtZX1gKSB7XG4gICAgICAgICAgICBjYXNlIFwiaG9zdEFwcC5nZXRBcHBWZXJzaW9uSW5mb1wiOlxuICAgICAgICAgICAgICAgIHJldHVybiBuZXcgUHJvbWlzZTxBcHBWZXJzaW9uSW5mbz4oXG4gICAgICAgICAgICAgICAgICAgIChyZXNvbHZlLCByZWplY3QpID0+IHRoaXMuaG9zdE9iai5jYWxsSGFuZGxlcihcbiAgICAgICAgICAgICAgICAgICAgICAgIFwiZ2V0QXBwVmVyc2lvblwiLFxuICAgICAgICAgICAgICAgICAgICAgICAgKHJlc3BvbnNlOiBhbnkpID0+IHtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZiAocmVzcG9uc2UgPT0gXCJcIilcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmVqZWN0KFwiVW5hYmxlIHRvIGdldCBhcHAgdmVyc2lvbi5cIik7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZWxzZVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXNvbHZlKG5ldyBBcHBWZXJzaW9uSW5mbyg8YW55Pm51bGwsIHJlc3BvbnNlKSk7XG4gICAgICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgICAgIClcbiAgICAgICAgICAgICAgICApO1xuICAgICAgICAgICAgY2FzZSBcImhvc3RBcHAucmVxdWVzdFRlcm1pbmF0aW9uXCI6XG4gICAgICAgICAgICAgICAgcmV0dXJuIG5ldyBQcm9taXNlPHZvaWQ+KFxuICAgICAgICAgICAgICAgICAgICByZXNvbHZlID0+IHtcbiAgICAgICAgICAgICAgICAgICAgICAgIHRoaXMuaG9zdE9iai5jYWxsSGFuZGxlcihcInF1aXRQYWdlc1wiLCB7fSk7XG4gICAgICAgICAgICAgICAgICAgICAgICByZXNvbHZlKCk7XG4gICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICApO1xuICAgICAgICAgICAgZGVmYXVsdDpcbiAgICAgICAgICAgICAgICByZXR1cm4gUHJvbWlzZS5yZWplY3QoXCJNZXRob2QgaXNuJ3Qgc3VwcG9ydGVkIGZvciBjdXJyZW50IHBsYXRmb3JtLlwiKTtcbiAgICAgICAgfVxuICAgIH1cblxufSJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0FBQUE7QUFDQTtBQUNBO0FBRUE7QUFBQTtBQUVBO0FBQUE7QUFBQTtBQUVBO0FBQ0E7O0FBQ0E7QUFFQTtBQUFBOzs7QUFBQTtBQUVBO0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFJQTtBQUNBOztBQUVBO0FBQ0E7QUFHQTtBQUNBO0FBRUE7QUFDQTtBQUNBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUFBO0FBcENBOyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/platforms/ios/IosApiHandler.ts\n");
+var isObject = __webpack_require__(16);
+var document = __webpack_require__(9).document;
+// typeof document.createElement is 'object' in old IE
+var is = isObject(document) && isObject(document.createElement);
+module.exports = function (it) {
+  return is ? document.createElement(it) : {};
+};
+
 
 /***/ }),
-
-/***/ "./src/platforms/ios/IosApiHandlerBootstrapper.ts":
-/*!********************************************************!*\
-  !*** ./src/platforms/ios/IosApiHandlerBootstrapper.ts ***!
-  \********************************************************/
-/*! no static exports found */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = Object.setPrototypeOf ||\n        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar ApiHandlerBootstrapper_1 = __webpack_require__(/*! ../ApiHandlerBootstrapper */ \"./src/platforms/ApiHandlerBootstrapper.ts\");\nvar IosApiHandler_1 = __webpack_require__(/*! ./IosApiHandler */ \"./src/platforms/ios/IosApiHandler.ts\");\n/**\n * Implements iOS API handler bootstrapping features.\n */\nvar IosApiHandlerBootstrapper = /** @class */ (function (_super) {\n    __extends(IosApiHandlerBootstrapper, _super);\n    function IosApiHandlerBootstrapper() {\n        return _super !== null && _super.apply(this, arguments) || this;\n    }\n    IosApiHandlerBootstrapper.prototype.checkPlatform = function () {\n        return new Promise(function (resolve) {\n            var standalone = window.navigator.standalone;\n            var userAgent = window.navigator.userAgent.toLowerCase();\n            var safari = /safari/.test(userAgent);\n            var ios = /iphone|ipod|ipad/.test(userAgent);\n            resolve(ios && !standalone && !safari);\n        });\n    };\n    IosApiHandlerBootstrapper.prototype.bootstrap = function () {\n        return new Promise(function (resolve) {\n            var callback = function (bridge) { return resolve(new IosApiHandler_1.IosApiHandler(bridge)); };\n            var wvJsBridge = window.WebViewJavascriptBridge;\n            if (wvJsBridge) {\n                callback(wvJsBridge);\n                return;\n            }\n            var wvCallbacks = window.WVJBCallbacks;\n            if (wvCallbacks) {\n                wvCallbacks.push(callback);\n                return;\n            }\n            window.WVJBCallbacks = [callback];\n            var wvIFrame = document.createElement('iframe');\n            wvIFrame.style.display = 'none';\n            wvIFrame.src = 'https://__bridge_loaded__';\n            document.documentElement.appendChild(wvIFrame);\n            setTimeout(function () { return document.documentElement.removeChild(wvIFrame); }, 0);\n        });\n    };\n    return IosApiHandlerBootstrapper;\n}(ApiHandlerBootstrapper_1.ApiHandlerBootstrapper));\nexports.IosApiHandlerBootstrapper = IosApiHandlerBootstrapper;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcGxhdGZvcm1zL2lvcy9Jb3NBcGlIYW5kbGVyQm9vdHN0cmFwcGVyLnRzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL3BsYXRmb3Jtcy9pb3MvSW9zQXBpSGFuZGxlckJvb3RzdHJhcHBlci50cz81YzhkIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7QXBpSGFuZGxlckJvb3RzdHJhcHBlcn0gZnJvbSBcIi4uL0FwaUhhbmRsZXJCb290c3RyYXBwZXJcIjtcbmltcG9ydCB7SW9zQXBpSGFuZGxlcn0gZnJvbSBcIi4vSW9zQXBpSGFuZGxlclwiO1xuXG4vKipcbiAqIEltcGxlbWVudHMgaU9TIEFQSSBoYW5kbGVyIGJvb3RzdHJhcHBpbmcgZmVhdHVyZXMuXG4gKi9cbmV4cG9ydCBjbGFzcyBJb3NBcGlIYW5kbGVyQm9vdHN0cmFwcGVyIGV4dGVuZHMgQXBpSGFuZGxlckJvb3RzdHJhcHBlcjxJb3NBcGlIYW5kbGVyPiB7XG5cbiAgICBjaGVja1BsYXRmb3JtKCk6IFByb21pc2U8Ym9vbGVhbj4ge1xuICAgICAgICByZXR1cm4gbmV3IFByb21pc2UoXG4gICAgICAgICAgICByZXNvbHZlID0+IHtcbiAgICAgICAgICAgICAgICBjb25zdCBzdGFuZGFsb25lID0gKDxhbnk+d2luZG93Lm5hdmlnYXRvcikuc3RhbmRhbG9uZTtcbiAgICAgICAgICAgICAgICBjb25zdCB1c2VyQWdlbnQgPSB3aW5kb3cubmF2aWdhdG9yLnVzZXJBZ2VudC50b0xvd2VyQ2FzZSgpO1xuICAgICAgICAgICAgICAgIGNvbnN0IHNhZmFyaSA9IC9zYWZhcmkvLnRlc3QodXNlckFnZW50KTtcbiAgICAgICAgICAgICAgICBjb25zdCBpb3MgPSAvaXBob25lfGlwb2R8aXBhZC8udGVzdCh1c2VyQWdlbnQpO1xuICAgICAgICAgICAgICAgIHJlc29sdmUoaW9zICYmICFzdGFuZGFsb25lICYmICFzYWZhcmkpXG4gICAgICAgICAgICB9XG4gICAgICAgICk7XG4gICAgfVxuXG4gICAgYm9vdHN0cmFwKCk6IFByb21pc2U8SW9zQXBpSGFuZGxlcj4ge1xuICAgICAgICByZXR1cm4gbmV3IFByb21pc2UoXG4gICAgICAgICAgICByZXNvbHZlID0+IHtcblxuICAgICAgICAgICAgICAgIGNvbnN0IGNhbGxiYWNrID0gKGJyaWRnZTogYW55KSA9PiByZXNvbHZlKG5ldyBJb3NBcGlIYW5kbGVyKGJyaWRnZSkpO1xuXG4gICAgICAgICAgICAgICAgY29uc3Qgd3ZKc0JyaWRnZSA9ICg8YW55PndpbmRvdykuV2ViVmlld0phdmFzY3JpcHRCcmlkZ2U7XG4gICAgICAgICAgICAgICAgaWYgKHd2SnNCcmlkZ2UpIHtcbiAgICAgICAgICAgICAgICAgICAgY2FsbGJhY2sod3ZKc0JyaWRnZSk7XG4gICAgICAgICAgICAgICAgICAgIHJldHVybjtcbiAgICAgICAgICAgICAgICB9XG5cbiAgICAgICAgICAgICAgICBjb25zdCB3dkNhbGxiYWNrcyA9ICg8YW55PndpbmRvdykuV1ZKQkNhbGxiYWNrcztcbiAgICAgICAgICAgICAgICBpZiAod3ZDYWxsYmFja3MpIHtcbiAgICAgICAgICAgICAgICAgICAgd3ZDYWxsYmFja3MucHVzaChjYWxsYmFjayk7XG4gICAgICAgICAgICAgICAgICAgIHJldHVybjtcbiAgICAgICAgICAgICAgICB9XG5cbiAgICAgICAgICAgICAgICAoPGFueT53aW5kb3cpLldWSkJDYWxsYmFja3MgPSBbY2FsbGJhY2tdO1xuXG4gICAgICAgICAgICAgICAgY29uc3Qgd3ZJRnJhbWUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdpZnJhbWUnKTtcbiAgICAgICAgICAgICAgICB3dklGcmFtZS5zdHlsZS5kaXNwbGF5ID0gJ25vbmUnO1xuICAgICAgICAgICAgICAgIHd2SUZyYW1lLnNyYyA9ICdodHRwczovL19fYnJpZGdlX2xvYWRlZF9fJztcbiAgICAgICAgICAgICAgICBkb2N1bWVudC5kb2N1bWVudEVsZW1lbnQuYXBwZW5kQ2hpbGQod3ZJRnJhbWUpO1xuXG4gICAgICAgICAgICAgICAgc2V0VGltZW91dCgoKSA9PiBkb2N1bWVudC5kb2N1bWVudEVsZW1lbnQucmVtb3ZlQ2hpbGQod3ZJRnJhbWUpLCAwKTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgKTtcbiAgICB9XG5cbn0iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFBO0FBQ0E7QUFFQTs7QUFFQTtBQUNBO0FBQUE7QUFBQTs7QUE0Q0E7QUExQ0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBRUE7QUFDQTtBQUdBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBRUE7QUFDQTtBQUVBO0FBRUE7QUFBQTtBQTVDQTsiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/platforms/ios/IosApiHandlerBootstrapper.ts\n");
+// 7.1.1 ToPrimitive(input [, PreferredType])
+var isObject = __webpack_require__(16);
+// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+// and the second argument - flag - preferred type is a string
+module.exports = function (it, S) {
+  if (!isObject(it)) return it;
+  var fn, val;
+  if (S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  throw TypeError("Can't convert object to primitive value");
+};
+
 
 /***/ }),
+/* 22 */
+/***/ (function(module, exports) {
 
-/***/ "./src/platforms/macos/MacosApiHandler.ts":
-/*!************************************************!*\
-  !*** ./src/platforms/macos/MacosApiHandler.ts ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+module.exports = function (bitmap, value) {
+  return {
+    enumerable: !(bitmap & 1),
+    configurable: !(bitmap & 2),
+    writable: !(bitmap & 4),
+    value: value
+  };
+};
 
-"use strict";
-eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = Object.setPrototypeOf ||\n        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar ApiHandler_1 = __webpack_require__(/*! ../ApiHandler */ \"./src/platforms/ApiHandler.ts\");\nvar PlatformName_1 = __webpack_require__(/*! ../PlatformName */ \"./src/platforms/PlatformName.ts\");\nvar MacosApiHandler = /** @class */ (function (_super) {\n    __extends(MacosApiHandler, _super);\n    function MacosApiHandler(hostObj) {\n        var _this = _super.call(this) || this;\n        _this.hostObj = hostObj;\n        if (hostObj == null)\n            throw new Error(\"Given host object is null.\");\n        return _this;\n    }\n    Object.defineProperty(MacosApiHandler.prototype, \"name\", {\n        get: function () { return PlatformName_1.PlatformName.MacOS; },\n        enumerable: true,\n        configurable: true\n    });\n    MacosApiHandler.prototype.execute = function (apiName, methodName, args) {\n        var _this = this;\n        return new Promise(function (resolve, reject) {\n            _this.hostObj.handleBrowserRequest(apiName + \".\" + methodName, MacosApiHandler.serializeMethodArgs(apiName, methodName, args), resolve, reject);\n        })\n            .then(function (resultJson) { return MacosApiHandler.deserializeMethodResult(apiName, methodName, resultJson); });\n    };\n    MacosApiHandler.prototype.handleEvent = function (apiName, eventName, argsJson) {\n        try {\n            this.dispatch(apiName + \".\" + eventName, MacosApiHandler.deserializeEventArgs(apiName, eventName, argsJson));\n        }\n        catch (reason) {\n            throw \"Unable to handle event \" + apiName + \".\" + eventName + \": \" + reason;\n        }\n    };\n    MacosApiHandler.serializeMethodArgs = function (apiName, methodName, args) {\n        try {\n            return JSON.stringify(args);\n        }\n        catch (reason) {\n            throw \"Unable to serialize method args '\" + args + \"': \" + reason;\n        }\n    };\n    MacosApiHandler.deserializeMethodResult = function (apiName, methodName, resultJson) {\n        try {\n            return JSON.parse(resultJson);\n        }\n        catch (reason) {\n            throw \"Unable to parse result '\" + resultJson + \"': \" + reason;\n        }\n    };\n    MacosApiHandler.deserializeEventArgs = function (apiName, eventName, argsJson) {\n        try {\n            return JSON.parse(argsJson);\n        }\n        catch (reason) {\n            throw \"Unable to deserialize event args '\" + argsJson + \"': \" + reason;\n        }\n    };\n    return MacosApiHandler;\n}(ApiHandler_1.ApiHandler));\nexports.MacosApiHandler = MacosApiHandler;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcGxhdGZvcm1zL21hY29zL01hY29zQXBpSGFuZGxlci50cy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9wbGF0Zm9ybXMvbWFjb3MvTWFjb3NBcGlIYW5kbGVyLnRzP2E5N2YiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtBcGlIYW5kbGVyfSBmcm9tIFwiLi4vQXBpSGFuZGxlclwiO1xuaW1wb3J0IHtQbGF0Zm9ybU5hbWV9IGZyb20gXCIuLi9QbGF0Zm9ybU5hbWVcIjtcblxuZXhwb3J0IGNsYXNzIE1hY29zQXBpSGFuZGxlciBleHRlbmRzIEFwaUhhbmRsZXIge1xuXG4gICAgY29uc3RydWN0b3IocHJpdmF0ZSBob3N0T2JqOiBhbnkpIHtcbiAgICAgICAgc3VwZXIoKTtcbiAgICAgICAgaWYgKGhvc3RPYmogPT0gbnVsbClcbiAgICAgICAgICAgIHRocm93IG5ldyBFcnJvcihcIkdpdmVuIGhvc3Qgb2JqZWN0IGlzIG51bGwuXCIpO1xuICAgIH1cblxuICAgIGdldCBuYW1lKCk6IFBsYXRmb3JtTmFtZSB7IHJldHVybiBQbGF0Zm9ybU5hbWUuTWFjT1M7IH1cblxuICAgIGV4ZWN1dGUoYXBpTmFtZTogc3RyaW5nLCBtZXRob2ROYW1lOiBzdHJpbmcsIGFyZ3M6IGFueSk6IFByb21pc2U8YW55PiB7XG4gICAgICAgIHJldHVybiBuZXcgUHJvbWlzZTxhbnk+KFxuICAgICAgICAgICAgKHJlc29sdmUsIHJlamVjdCkgPT4ge1xuICAgICAgICAgICAgICAgIHRoaXMuaG9zdE9iai5oYW5kbGVCcm93c2VyUmVxdWVzdChcbiAgICAgICAgICAgICAgICAgICAgYCR7YXBpTmFtZX0uJHttZXRob2ROYW1lfWAsXG4gICAgICAgICAgICAgICAgICAgIE1hY29zQXBpSGFuZGxlci5zZXJpYWxpemVNZXRob2RBcmdzKGFwaU5hbWUsIG1ldGhvZE5hbWUsIGFyZ3MpLFxuICAgICAgICAgICAgICAgICAgICByZXNvbHZlLFxuICAgICAgICAgICAgICAgICAgICByZWplY3RcbiAgICAgICAgICAgICAgICApO1xuICAgICAgICAgICAgfVxuICAgICAgICApXG4gICAgICAgIC50aGVuKHJlc3VsdEpzb24gPT4gTWFjb3NBcGlIYW5kbGVyLmRlc2VyaWFsaXplTWV0aG9kUmVzdWx0KGFwaU5hbWUsIG1ldGhvZE5hbWUsIHJlc3VsdEpzb24pKVxuICAgIH1cblxuICAgIGhhbmRsZUV2ZW50KGFwaU5hbWU6IHN0cmluZywgZXZlbnROYW1lOiBzdHJpbmcsIGFyZ3NKc29uOiBzdHJpbmcpOiB2b2lkIHtcbiAgICAgICAgdHJ5IHtcbiAgICAgICAgICAgIHRoaXMuZGlzcGF0Y2goXG4gICAgICAgICAgICAgICAgYCR7YXBpTmFtZX0uJHtldmVudE5hbWV9YCxcbiAgICAgICAgICAgICAgICBNYWNvc0FwaUhhbmRsZXIuZGVzZXJpYWxpemVFdmVudEFyZ3MoYXBpTmFtZSwgZXZlbnROYW1lLCBhcmdzSnNvbilcbiAgICAgICAgICAgICk7XG4gICAgICAgIH1cbiAgICAgICAgY2F0Y2ggKHJlYXNvbikge1xuICAgICAgICAgICAgdGhyb3cgYFVuYWJsZSB0byBoYW5kbGUgZXZlbnQgJHthcGlOYW1lfS4ke2V2ZW50TmFtZX06ICR7cmVhc29ufWA7XG4gICAgICAgIH1cbiAgICB9XG5cbiAgICBwcml2YXRlIHN0YXRpYyBzZXJpYWxpemVNZXRob2RBcmdzKGFwaU5hbWU6IHN0cmluZywgbWV0aG9kTmFtZTogc3RyaW5nLCBhcmdzOiBhbnkpOiBzdHJpbmcge1xuICAgICAgICB0cnkge1xuICAgICAgICAgICAgcmV0dXJuIEpTT04uc3RyaW5naWZ5KGFyZ3MpXG4gICAgICAgIH1cbiAgICAgICAgY2F0Y2ggKHJlYXNvbikge1xuICAgICAgICAgICAgdGhyb3cgYFVuYWJsZSB0byBzZXJpYWxpemUgbWV0aG9kIGFyZ3MgJyR7YXJnc30nOiAke3JlYXNvbn1gO1xuICAgICAgICB9XG4gICAgfVxuXG4gICAgcHJpdmF0ZSBzdGF0aWMgZGVzZXJpYWxpemVNZXRob2RSZXN1bHQoYXBpTmFtZTogc3RyaW5nLCBtZXRob2ROYW1lOiBzdHJpbmcsIHJlc3VsdEpzb246IHN0cmluZyk6IGFueSB7XG4gICAgICAgIHRyeSB7XG4gICAgICAgICAgICByZXR1cm4gSlNPTi5wYXJzZShyZXN1bHRKc29uKTtcbiAgICAgICAgfVxuICAgICAgICBjYXRjaCAocmVhc29uKSB7XG4gICAgICAgICAgICB0aHJvdyBgVW5hYmxlIHRvIHBhcnNlIHJlc3VsdCAnJHtyZXN1bHRKc29ufSc6ICR7cmVhc29ufWA7XG4gICAgICAgIH1cbiAgICB9XG5cbiAgICBwcml2YXRlIHN0YXRpYyBkZXNlcmlhbGl6ZUV2ZW50QXJncyhhcGlOYW1lOiBzdHJpbmcsIGV2ZW50TmFtZTogc3RyaW5nLCBhcmdzSnNvbjogc3RyaW5nKTogYW55IHtcbiAgICAgICAgdHJ5IHtcbiAgICAgICAgICAgIHJldHVybiBKU09OLnBhcnNlKGFyZ3NKc29uKTtcbiAgICAgICAgfVxuICAgICAgICBjYXRjaCAocmVhc29uKSB7XG4gICAgICAgICAgICB0aHJvdyBgVW5hYmxlIHRvIGRlc2VyaWFsaXplIGV2ZW50IGFyZ3MgJyR7YXJnc0pzb259JzogJHtyZWFzb259YDtcbiAgICAgICAgfVxuICAgIH1cbn0iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFBO0FBQ0E7QUFFQTtBQUFBO0FBRUE7QUFBQTtBQUFBO0FBRUE7QUFDQTs7QUFDQTtBQUVBO0FBQUE7OztBQUFBO0FBRUE7QUFBQTtBQUNBO0FBRUE7QUFNQTtBQUVBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFJQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQTlEQTsiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/platforms/macos/MacosApiHandler.ts\n");
-
-/***/ }),
-
-/***/ "./src/platforms/macos/MacosApiHandlerBootstrapper.ts":
-/*!************************************************************!*\
-  !*** ./src/platforms/macos/MacosApiHandlerBootstrapper.ts ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = Object.setPrototypeOf ||\n        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar ApiHandlerBootstrapper_1 = __webpack_require__(/*! ../ApiHandlerBootstrapper */ \"./src/platforms/ApiHandlerBootstrapper.ts\");\nvar MacosApiHandler_1 = __webpack_require__(/*! ./MacosApiHandler */ \"./src/platforms/macos/MacosApiHandler.ts\");\n/**\n * Implements macOS API handler bootstrapping features.\n */\nvar MacosApiHandlerBootstrapper = /** @class */ (function (_super) {\n    __extends(MacosApiHandlerBootstrapper, _super);\n    function MacosApiHandlerBootstrapper() {\n        return _super !== null && _super.apply(this, arguments) || this;\n    }\n    MacosApiHandlerBootstrapper.prototype.checkPlatform = function () {\n        return Promise.resolve(MacosApiHandlerBootstrapper.getHostObject() != null);\n    };\n    MacosApiHandlerBootstrapper.prototype.bootstrap = function () {\n        return new Promise(function (resolve) {\n            var hostObj = MacosApiHandlerBootstrapper.getHostObject();\n            var handler = new MacosApiHandler_1.MacosApiHandler(hostObj);\n            hostObj.subscribeToEvents(function (a, e, j) { return handler.handleEvent(a, e, j); });\n            resolve(handler);\n        });\n    };\n    MacosApiHandlerBootstrapper.getHostObject = function () {\n        return window.__macOsAppHostObject;\n    };\n    return MacosApiHandlerBootstrapper;\n}(ApiHandlerBootstrapper_1.ApiHandlerBootstrapper));\nexports.MacosApiHandlerBootstrapper = MacosApiHandlerBootstrapper;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcGxhdGZvcm1zL21hY29zL01hY29zQXBpSGFuZGxlckJvb3RzdHJhcHBlci50cy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9wbGF0Zm9ybXMvbWFjb3MvTWFjb3NBcGlIYW5kbGVyQm9vdHN0cmFwcGVyLnRzP2MyNzQiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtBcGlIYW5kbGVyQm9vdHN0cmFwcGVyfSBmcm9tIFwiLi4vQXBpSGFuZGxlckJvb3RzdHJhcHBlclwiO1xuaW1wb3J0IHtNYWNvc0FwaUhhbmRsZXJ9IGZyb20gXCIuL01hY29zQXBpSGFuZGxlclwiO1xuXG4vKipcbiAqIEltcGxlbWVudHMgbWFjT1MgQVBJIGhhbmRsZXIgYm9vdHN0cmFwcGluZyBmZWF0dXJlcy5cbiAqL1xuZXhwb3J0IGNsYXNzIE1hY29zQXBpSGFuZGxlckJvb3RzdHJhcHBlciBleHRlbmRzIEFwaUhhbmRsZXJCb290c3RyYXBwZXI8TWFjb3NBcGlIYW5kbGVyPiB7XG4gICAgXG4gICAgIGNoZWNrUGxhdGZvcm0oKTogUHJvbWlzZTxib29sZWFuPiB7XG4gICAgICAgIHJldHVybiBQcm9taXNlLnJlc29sdmUoXG4gICAgICAgICAgICBNYWNvc0FwaUhhbmRsZXJCb290c3RyYXBwZXIuZ2V0SG9zdE9iamVjdCgpICE9IG51bGxcbiAgICAgICAgKTtcbiAgICB9XG4gICAgXG4gXHRib290c3RyYXAoKTogUHJvbWlzZTxNYWNvc0FwaUhhbmRsZXI+IHtcbiAgICAgICAgcmV0dXJuIG5ldyBQcm9taXNlKFxuICAgICAgICAgICAgKHJlc29sdmUpID0+IHtcbiAgICAgICAgICAgIFxuICAgICAgICAgICBcdFx0Y29uc3QgaG9zdE9iaiA9IE1hY29zQXBpSGFuZGxlckJvb3RzdHJhcHBlci5nZXRIb3N0T2JqZWN0KCk7XG4gICAgICAgICAgICAgICAgY29uc3QgaGFuZGxlciA9IG5ldyBNYWNvc0FwaUhhbmRsZXIoaG9zdE9iaik7XG5cdFx0XHRcdFxuXHRcdFx0XHRob3N0T2JqLnN1YnNjcmliZVRvRXZlbnRzKChhOiBzdHJpbmcsIGU6IHN0cmluZywgajogc3RyaW5nKSA9PiBoYW5kbGVyLmhhbmRsZUV2ZW50KGEsIGUsIGopKTtcbiAgICAgICAgICAgICAgICByZXNvbHZlKGhhbmRsZXIpO1xuXG5cbiAgICAgICAgICAgIH1cbiAgICAgICAgKTtcbiAgICB9XG4gICAgXG4gICAgICBwcml2YXRlIHN0YXRpYyBnZXRIb3N0T2JqZWN0KCk6IGFueSB7XG4gICAgICAgIHJldHVybiAoPGFueT53aW5kb3cpLl9fbWFjT3NBcHBIb3N0T2JqZWN0O1xuICAgIH1cblxufSJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0FBQUE7QUFDQTtBQUVBOztBQUVBO0FBQ0E7QUFBQTtBQUFBOztBQTJCQTtBQXpCQTtBQUNBO0FBR0E7QUFFQTtBQUNBO0FBR0E7QUFDQTtBQUVBO0FBQ0E7QUFHQTtBQUVBO0FBRUE7QUFDQTtBQUNBO0FBRUE7QUFBQTtBQTNCQTsiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/platforms/macos/MacosApiHandlerBootstrapper.ts\n");
 
 /***/ }),
+/* 23 */
+/***/ (function(module, exports) {
 
-/***/ "./src/platforms/windows/WindowsApiHandler.ts":
-/*!****************************************************!*\
-  !*** ./src/platforms/windows/WindowsApiHandler.ts ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+var hasOwnProperty = {}.hasOwnProperty;
+module.exports = function (it, key) {
+  return hasOwnProperty.call(it, key);
+};
 
-"use strict";
-eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = Object.setPrototypeOf ||\n        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar ApiHandler_1 = __webpack_require__(/*! ../ApiHandler */ \"./src/platforms/ApiHandler.ts\");\nvar PlatformName_1 = __webpack_require__(/*! ../PlatformName */ \"./src/platforms/PlatformName.ts\");\nvar WindowsApiHandler = /** @class */ (function (_super) {\n    __extends(WindowsApiHandler, _super);\n    function WindowsApiHandler(hostObj) {\n        var _this = _super.call(this) || this;\n        _this.hostObj = hostObj;\n        if (hostObj == null)\n            throw new Error(\"Given host object is null.\");\n        return _this;\n    }\n    Object.defineProperty(WindowsApiHandler.prototype, \"name\", {\n        get: function () { return PlatformName_1.PlatformName.Windows; },\n        enumerable: true,\n        configurable: true\n    });\n    WindowsApiHandler.prototype.execute = function (apiName, methodName, args) {\n        var _this = this;\n        return new Promise(function (resolve, reject) {\n            _this.hostObj.handleBrowserRequest(apiName + \".\" + methodName, WindowsApiHandler.serializeMethodArgs(apiName, methodName, args), resolve, reject);\n        })\n            .then(function (resultJson) { return WindowsApiHandler.deserializeMethodResult(apiName, methodName, resultJson); });\n    };\n    WindowsApiHandler.prototype.handleEvent = function (apiName, eventName, argsJson) {\n        try {\n            this.dispatch(apiName + \".\" + eventName, WindowsApiHandler.deserializeEventArgs(apiName, eventName, argsJson));\n        }\n        catch (reason) {\n            throw \"Unable to handle event \" + apiName + \".\" + eventName + \": \" + reason;\n        }\n    };\n    WindowsApiHandler.serializeMethodArgs = function (apiName, methodName, args) {\n        try {\n            return JSON.stringify(args);\n        }\n        catch (reason) {\n            throw \"Unable to serialize method args '\" + args + \"': \" + reason;\n        }\n    };\n    WindowsApiHandler.deserializeMethodResult = function (apiName, methodName, resultJson) {\n        try {\n            return JSON.parse(resultJson);\n        }\n        catch (reason) {\n            throw \"Unable to parse result '\" + resultJson + \"': \" + reason;\n        }\n    };\n    WindowsApiHandler.deserializeEventArgs = function (apiName, eventName, argsJson) {\n        try {\n            return JSON.parse(argsJson);\n        }\n        catch (reason) {\n            throw \"Unable to deserialize event args '\" + argsJson + \"': \" + reason;\n        }\n    };\n    return WindowsApiHandler;\n}(ApiHandler_1.ApiHandler));\nexports.WindowsApiHandler = WindowsApiHandler;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcGxhdGZvcm1zL3dpbmRvd3MvV2luZG93c0FwaUhhbmRsZXIudHMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvcGxhdGZvcm1zL3dpbmRvd3MvV2luZG93c0FwaUhhbmRsZXIudHM/ODhmZSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0FwaUhhbmRsZXJ9IGZyb20gXCIuLi9BcGlIYW5kbGVyXCI7XG5pbXBvcnQge1BsYXRmb3JtTmFtZX0gZnJvbSBcIi4uL1BsYXRmb3JtTmFtZVwiO1xuXG5leHBvcnQgY2xhc3MgV2luZG93c0FwaUhhbmRsZXIgZXh0ZW5kcyBBcGlIYW5kbGVyIHtcblxuICAgIGNvbnN0cnVjdG9yKHByaXZhdGUgaG9zdE9iajogYW55KSB7XG4gICAgICAgIHN1cGVyKCk7XG4gICAgICAgIGlmIChob3N0T2JqID09IG51bGwpXG4gICAgICAgICAgICB0aHJvdyBuZXcgRXJyb3IoXCJHaXZlbiBob3N0IG9iamVjdCBpcyBudWxsLlwiKTtcbiAgICB9XG5cbiAgICBnZXQgbmFtZSgpOiBQbGF0Zm9ybU5hbWUgeyByZXR1cm4gUGxhdGZvcm1OYW1lLldpbmRvd3M7IH1cblxuICAgIGV4ZWN1dGUoYXBpTmFtZTogc3RyaW5nLCBtZXRob2ROYW1lOiBzdHJpbmcsIGFyZ3M6IGFueSk6IFByb21pc2U8YW55PiB7XG4gICAgICAgIHJldHVybiBuZXcgUHJvbWlzZTxhbnk+KFxuICAgICAgICAgICAgKHJlc29sdmUsIHJlamVjdCkgPT4ge1xuICAgICAgICAgICAgICAgIHRoaXMuaG9zdE9iai5oYW5kbGVCcm93c2VyUmVxdWVzdChcbiAgICAgICAgICAgICAgICAgICAgYCR7YXBpTmFtZX0uJHttZXRob2ROYW1lfWAsXG4gICAgICAgICAgICAgICAgICAgIFdpbmRvd3NBcGlIYW5kbGVyLnNlcmlhbGl6ZU1ldGhvZEFyZ3MoYXBpTmFtZSwgbWV0aG9kTmFtZSwgYXJncyksXG4gICAgICAgICAgICAgICAgICAgIHJlc29sdmUsXG4gICAgICAgICAgICAgICAgICAgIHJlamVjdFxuICAgICAgICAgICAgICAgICk7XG4gICAgICAgICAgICB9XG4gICAgICAgIClcbiAgICAgICAgLnRoZW4ocmVzdWx0SnNvbiA9PiBXaW5kb3dzQXBpSGFuZGxlci5kZXNlcmlhbGl6ZU1ldGhvZFJlc3VsdChhcGlOYW1lLCBtZXRob2ROYW1lLCByZXN1bHRKc29uKSlcbiAgICB9XG5cbiAgICBoYW5kbGVFdmVudChhcGlOYW1lOiBzdHJpbmcsIGV2ZW50TmFtZTogc3RyaW5nLCBhcmdzSnNvbjogc3RyaW5nKTogdm9pZCB7XG4gICAgICAgIHRyeSB7XG4gICAgICAgICAgICB0aGlzLmRpc3BhdGNoKFxuICAgICAgICAgICAgICAgIGAke2FwaU5hbWV9LiR7ZXZlbnROYW1lfWAsXG4gICAgICAgICAgICAgICAgV2luZG93c0FwaUhhbmRsZXIuZGVzZXJpYWxpemVFdmVudEFyZ3MoYXBpTmFtZSwgZXZlbnROYW1lLCBhcmdzSnNvbilcbiAgICAgICAgICAgICk7XG4gICAgICAgIH1cbiAgICAgICAgY2F0Y2ggKHJlYXNvbikge1xuICAgICAgICAgICAgdGhyb3cgYFVuYWJsZSB0byBoYW5kbGUgZXZlbnQgJHthcGlOYW1lfS4ke2V2ZW50TmFtZX06ICR7cmVhc29ufWA7XG4gICAgICAgIH1cbiAgICB9XG5cbiAgICBwcml2YXRlIHN0YXRpYyBzZXJpYWxpemVNZXRob2RBcmdzKGFwaU5hbWU6IHN0cmluZywgbWV0aG9kTmFtZTogc3RyaW5nLCBhcmdzOiBhbnkpOiBzdHJpbmcge1xuICAgICAgICB0cnkge1xuICAgICAgICAgICAgcmV0dXJuIEpTT04uc3RyaW5naWZ5KGFyZ3MpXG4gICAgICAgIH1cbiAgICAgICAgY2F0Y2ggKHJlYXNvbikge1xuICAgICAgICAgICAgdGhyb3cgYFVuYWJsZSB0byBzZXJpYWxpemUgbWV0aG9kIGFyZ3MgJyR7YXJnc30nOiAke3JlYXNvbn1gO1xuICAgICAgICB9XG4gICAgfVxuXG4gICAgcHJpdmF0ZSBzdGF0aWMgZGVzZXJpYWxpemVNZXRob2RSZXN1bHQoYXBpTmFtZTogc3RyaW5nLCBtZXRob2ROYW1lOiBzdHJpbmcsIHJlc3VsdEpzb246IHN0cmluZyk6IGFueSB7XG4gICAgICAgIHRyeSB7XG4gICAgICAgICAgICByZXR1cm4gSlNPTi5wYXJzZShyZXN1bHRKc29uKTtcbiAgICAgICAgfVxuICAgICAgICBjYXRjaCAocmVhc29uKSB7XG4gICAgICAgICAgICB0aHJvdyBgVW5hYmxlIHRvIHBhcnNlIHJlc3VsdCAnJHtyZXN1bHRKc29ufSc6ICR7cmVhc29ufWA7XG4gICAgICAgIH1cbiAgICB9XG5cbiAgICBwcml2YXRlIHN0YXRpYyBkZXNlcmlhbGl6ZUV2ZW50QXJncyhhcGlOYW1lOiBzdHJpbmcsIGV2ZW50TmFtZTogc3RyaW5nLCBhcmdzSnNvbjogc3RyaW5nKTogYW55IHtcbiAgICAgICAgdHJ5IHtcbiAgICAgICAgICAgIHJldHVybiBKU09OLnBhcnNlKGFyZ3NKc29uKTtcbiAgICAgICAgfVxuICAgICAgICBjYXRjaCAocmVhc29uKSB7XG4gICAgICAgICAgICB0aHJvdyBgVW5hYmxlIHRvIGRlc2VyaWFsaXplIGV2ZW50IGFyZ3MgJyR7YXJnc0pzb259JzogJHtyZWFzb259YDtcbiAgICAgICAgfVxuICAgIH1cbn0iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFBO0FBQ0E7QUFFQTtBQUFBO0FBRUE7QUFBQTtBQUFBO0FBRUE7QUFDQTs7QUFDQTtBQUVBO0FBQUE7OztBQUFBO0FBRUE7QUFBQTtBQUNBO0FBRUE7QUFNQTtBQUVBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFJQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQTlEQTsiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/platforms/windows/WindowsApiHandler.ts\n");
 
 /***/ }),
-
-/***/ "./src/platforms/windows/WindowsApiHandlerBootstrapper.ts":
-/*!****************************************************************!*\
-  !*** ./src/platforms/windows/WindowsApiHandlerBootstrapper.ts ***!
-  \****************************************************************/
-/*! no static exports found */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = Object.setPrototypeOf ||\n        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar ApiHandlerBootstrapper_1 = __webpack_require__(/*! ../ApiHandlerBootstrapper */ \"./src/platforms/ApiHandlerBootstrapper.ts\");\nvar WindowsApiHandler_1 = __webpack_require__(/*! ./WindowsApiHandler */ \"./src/platforms/windows/WindowsApiHandler.ts\");\n/**\n * Implements Windows API handler bootstrapping features.\n */\nvar WindowsApiHandlerBootstrapper = /** @class */ (function (_super) {\n    __extends(WindowsApiHandlerBootstrapper, _super);\n    function WindowsApiHandlerBootstrapper() {\n        return _super !== null && _super.apply(this, arguments) || this;\n    }\n    WindowsApiHandlerBootstrapper.prototype.checkPlatform = function () {\n        return Promise.resolve(WindowsApiHandlerBootstrapper.getHostObject() != null);\n    };\n    WindowsApiHandlerBootstrapper.prototype.bootstrap = function () {\n        return new Promise(function (resolve, reject) {\n            var hostObj = WindowsApiHandlerBootstrapper.getHostObject();\n            var handler = new WindowsApiHandler_1.WindowsApiHandler(hostObj);\n            hostObj\n                .subscribeToEvents(function (a, e, j) { return handler.handleEvent(a, e, j); })\n                .then(function () { return resolve(handler); }, function (reason) { return reject(\"Unable to subscribe for host events: \" + reason); });\n        });\n    };\n    WindowsApiHandlerBootstrapper.getHostObject = function () {\n        return window.__windowsAppHostObject;\n    };\n    return WindowsApiHandlerBootstrapper;\n}(ApiHandlerBootstrapper_1.ApiHandlerBootstrapper));\nexports.WindowsApiHandlerBootstrapper = WindowsApiHandlerBootstrapper;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcGxhdGZvcm1zL3dpbmRvd3MvV2luZG93c0FwaUhhbmRsZXJCb290c3RyYXBwZXIudHMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvcGxhdGZvcm1zL3dpbmRvd3MvV2luZG93c0FwaUhhbmRsZXJCb290c3RyYXBwZXIudHM/MmQ2NSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0FwaUhhbmRsZXJCb290c3RyYXBwZXJ9IGZyb20gXCIuLi9BcGlIYW5kbGVyQm9vdHN0cmFwcGVyXCI7XG5pbXBvcnQge1dpbmRvd3NBcGlIYW5kbGVyfSBmcm9tIFwiLi9XaW5kb3dzQXBpSGFuZGxlclwiO1xuXG4vKipcbiAqIEltcGxlbWVudHMgV2luZG93cyBBUEkgaGFuZGxlciBib290c3RyYXBwaW5nIGZlYXR1cmVzLlxuICovXG5leHBvcnQgY2xhc3MgV2luZG93c0FwaUhhbmRsZXJCb290c3RyYXBwZXIgZXh0ZW5kcyBBcGlIYW5kbGVyQm9vdHN0cmFwcGVyPFdpbmRvd3NBcGlIYW5kbGVyPiB7XG5cbiAgICBjaGVja1BsYXRmb3JtKCk6IFByb21pc2U8Ym9vbGVhbj4ge1xuICAgICAgICByZXR1cm4gUHJvbWlzZS5yZXNvbHZlKFxuICAgICAgICAgICAgV2luZG93c0FwaUhhbmRsZXJCb290c3RyYXBwZXIuZ2V0SG9zdE9iamVjdCgpICE9IG51bGxcbiAgICAgICAgKTtcbiAgICB9XG5cbiAgICBib290c3RyYXAoKTogUHJvbWlzZTxXaW5kb3dzQXBpSGFuZGxlcj4ge1xuICAgICAgICByZXR1cm4gbmV3IFByb21pc2UoXG4gICAgICAgICAgICAocmVzb2x2ZSwgcmVqZWN0KSA9PiB7XG4gICAgICAgICAgICAgICAgY29uc3QgaG9zdE9iaiA9IFdpbmRvd3NBcGlIYW5kbGVyQm9vdHN0cmFwcGVyLmdldEhvc3RPYmplY3QoKTtcbiAgICAgICAgICAgICAgICBjb25zdCBoYW5kbGVyID0gbmV3IFdpbmRvd3NBcGlIYW5kbGVyKGhvc3RPYmopO1xuICAgICAgICAgICAgICAgIGhvc3RPYmpcbiAgICAgICAgICAgICAgICAgICAgLnN1YnNjcmliZVRvRXZlbnRzKChhOiBzdHJpbmcsIGU6IHN0cmluZywgajogc3RyaW5nKSA9PiBoYW5kbGVyLmhhbmRsZUV2ZW50KGEsIGUsIGopKVxuICAgICAgICAgICAgICAgICAgICAudGhlbihcbiAgICAgICAgICAgICAgICAgICAgICAgICgpID0+IHJlc29sdmUoaGFuZGxlciksXG4gICAgICAgICAgICAgICAgICAgICAgICAocmVhc29uOiBhbnkpID0+IHJlamVjdChgVW5hYmxlIHRvIHN1YnNjcmliZSBmb3IgaG9zdCBldmVudHM6ICR7cmVhc29ufWApXG4gICAgICAgICAgICAgICAgICAgICk7XG4gICAgICAgICAgICB9XG4gICAgICAgICk7XG4gICAgfVxuXG4gICAgcHJpdmF0ZSBzdGF0aWMgZ2V0SG9zdE9iamVjdCgpOiBhbnkge1xuICAgICAgICByZXR1cm4gKDxhbnk+d2luZG93KS5fX3dpbmRvd3NBcHBIb3N0T2JqZWN0O1xuICAgIH1cblxufSJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0FBQUE7QUFDQTtBQUVBOztBQUVBO0FBQ0E7QUFBQTtBQUFBOztBQTJCQTtBQXpCQTtBQUNBO0FBR0E7QUFFQTtBQUNBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUlBO0FBRUE7QUFFQTtBQUNBO0FBQ0E7QUFFQTtBQUFBO0FBM0JBOyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/platforms/windows/WindowsApiHandlerBootstrapper.ts\n");
+
+var $at = __webpack_require__(25)(true);
+
+// 21.1.3.27 String.prototype[@@iterator]()
+__webpack_require__(28)(String, 'String', function (iterated) {
+  this._t = String(iterated); // target
+  this._i = 0;                // next index
+// 21.1.5.2.1 %StringIteratorPrototype%.next()
+}, function () {
+  var O = this._t;
+  var index = this._i;
+  var point;
+  if (index >= O.length) return { value: undefined, done: true };
+  point = $at(O, index);
+  this._i += point.length;
+  return { value: point, done: false };
+});
+
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var toInteger = __webpack_require__(26);
+var defined = __webpack_require__(27);
+// true  -> String#at
+// false -> String#codePointAt
+module.exports = function (TO_STRING) {
+  return function (that, pos) {
+    var s = String(defined(that));
+    var i = toInteger(pos);
+    var l = s.length;
+    var a, b;
+    if (i < 0 || i >= l) return TO_STRING ? '' : undefined;
+    a = s.charCodeAt(i);
+    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
+      ? TO_STRING ? s.charAt(i) : a
+      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
+  };
+};
+
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports) {
+
+// 7.1.4 ToInteger
+var ceil = Math.ceil;
+var floor = Math.floor;
+module.exports = function (it) {
+  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
+};
+
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports) {
+
+// 7.2.1 RequireObjectCoercible(argument)
+module.exports = function (it) {
+  if (it == undefined) throw TypeError("Can't call method on  " + it);
+  return it;
+};
+
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var LIBRARY = __webpack_require__(10);
+var $export = __webpack_require__(29);
+var redefine = __webpack_require__(12);
+var hide = __webpack_require__(13);
+var Iterators = __webpack_require__(32);
+var $iterCreate = __webpack_require__(33);
+var setToStringTag = __webpack_require__(46);
+var getPrototypeOf = __webpack_require__(47);
+var ITERATOR = __webpack_require__(6)('iterator');
+var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
+var FF_ITERATOR = '@@iterator';
+var KEYS = 'keys';
+var VALUES = 'values';
+
+var returnThis = function () { return this; };
+
+module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED) {
+  $iterCreate(Constructor, NAME, next);
+  var getMethod = function (kind) {
+    if (!BUGGY && kind in proto) return proto[kind];
+    switch (kind) {
+      case KEYS: return function keys() { return new Constructor(this, kind); };
+      case VALUES: return function values() { return new Constructor(this, kind); };
+    } return function entries() { return new Constructor(this, kind); };
+  };
+  var TAG = NAME + ' Iterator';
+  var DEF_VALUES = DEFAULT == VALUES;
+  var VALUES_BUG = false;
+  var proto = Base.prototype;
+  var $native = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT];
+  var $default = $native || getMethod(DEFAULT);
+  var $entries = DEFAULT ? !DEF_VALUES ? $default : getMethod('entries') : undefined;
+  var $anyNative = NAME == 'Array' ? proto.entries || $native : $native;
+  var methods, key, IteratorPrototype;
+  // Fix native
+  if ($anyNative) {
+    IteratorPrototype = getPrototypeOf($anyNative.call(new Base()));
+    if (IteratorPrototype !== Object.prototype && IteratorPrototype.next) {
+      // Set @@toStringTag to native iterators
+      setToStringTag(IteratorPrototype, TAG, true);
+      // fix for some old engines
+      if (!LIBRARY && typeof IteratorPrototype[ITERATOR] != 'function') hide(IteratorPrototype, ITERATOR, returnThis);
+    }
+  }
+  // fix Array#{values, @@iterator}.name in V8 / FF
+  if (DEF_VALUES && $native && $native.name !== VALUES) {
+    VALUES_BUG = true;
+    $default = function values() { return $native.call(this); };
+  }
+  // Define iterator
+  if ((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])) {
+    hide(proto, ITERATOR, $default);
+  }
+  // Plug for library
+  Iterators[NAME] = $default;
+  Iterators[TAG] = returnThis;
+  if (DEFAULT) {
+    methods = {
+      values: DEF_VALUES ? $default : getMethod(VALUES),
+      keys: IS_SET ? $default : getMethod(KEYS),
+      entries: $entries
+    };
+    if (FORCED) for (key in methods) {
+      if (!(key in proto)) redefine(proto, key, methods[key]);
+    } else $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
+  }
+  return methods;
+};
+
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__(9);
+var core = __webpack_require__(8);
+var hide = __webpack_require__(13);
+var redefine = __webpack_require__(12);
+var ctx = __webpack_require__(30);
+var PROTOTYPE = 'prototype';
+
+var $export = function (type, name, source) {
+  var IS_FORCED = type & $export.F;
+  var IS_GLOBAL = type & $export.G;
+  var IS_STATIC = type & $export.S;
+  var IS_PROTO = type & $export.P;
+  var IS_BIND = type & $export.B;
+  var target = IS_GLOBAL ? global : IS_STATIC ? global[name] || (global[name] = {}) : (global[name] || {})[PROTOTYPE];
+  var exports = IS_GLOBAL ? core : core[name] || (core[name] = {});
+  var expProto = exports[PROTOTYPE] || (exports[PROTOTYPE] = {});
+  var key, own, out, exp;
+  if (IS_GLOBAL) source = name;
+  for (key in source) {
+    // contains in native
+    own = !IS_FORCED && target && target[key] !== undefined;
+    // export native or passed
+    out = (own ? target : source)[key];
+    // bind timers to global for call from export context
+    exp = IS_BIND && own ? ctx(out, global) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+    // extend global
+    if (target) redefine(target, key, out, type & $export.U);
+    // export
+    if (exports[key] != out) hide(exports, key, exp);
+    if (IS_PROTO && expProto[key] != out) expProto[key] = out;
+  }
+};
+global.core = core;
+// type bitmap
+$export.F = 1;   // forced
+$export.G = 2;   // global
+$export.S = 4;   // static
+$export.P = 8;   // proto
+$export.B = 16;  // bind
+$export.W = 32;  // wrap
+$export.U = 64;  // safe
+$export.R = 128; // real proto method for `library`
+module.exports = $export;
+
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// optional / simple context binding
+var aFunction = __webpack_require__(31);
+module.exports = function (fn, that, length) {
+  aFunction(fn);
+  if (that === undefined) return fn;
+  switch (length) {
+    case 1: return function (a) {
+      return fn.call(that, a);
+    };
+    case 2: return function (a, b) {
+      return fn.call(that, a, b);
+    };
+    case 3: return function (a, b, c) {
+      return fn.call(that, a, b, c);
+    };
+  }
+  return function (/* ...args */) {
+    return fn.apply(that, arguments);
+  };
+};
+
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
+
+module.exports = function (it) {
+  if (typeof it != 'function') throw TypeError(it + ' is not a function!');
+  return it;
+};
+
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports) {
+
+module.exports = {};
+
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var create = __webpack_require__(34);
+var descriptor = __webpack_require__(22);
+var setToStringTag = __webpack_require__(46);
+var IteratorPrototype = {};
+
+// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
+__webpack_require__(13)(IteratorPrototype, __webpack_require__(6)('iterator'), function () { return this; });
+
+module.exports = function (Constructor, NAME, next) {
+  Constructor.prototype = create(IteratorPrototype, { next: descriptor(1, next) });
+  setToStringTag(Constructor, NAME + ' Iterator');
+};
+
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
+var anObject = __webpack_require__(15);
+var dPs = __webpack_require__(35);
+var enumBugKeys = __webpack_require__(44);
+var IE_PROTO = __webpack_require__(43)('IE_PROTO');
+var Empty = function () { /* empty */ };
+var PROTOTYPE = 'prototype';
+
+// Create object with fake `null` prototype: use iframe Object with cleared prototype
+var createDict = function () {
+  // Thrash, waste and sodomy: IE GC bug
+  var iframe = __webpack_require__(20)('iframe');
+  var i = enumBugKeys.length;
+  var lt = '<';
+  var gt = '>';
+  var iframeDocument;
+  iframe.style.display = 'none';
+  __webpack_require__(45).appendChild(iframe);
+  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
+  // createDict = iframe.contentWindow.Object;
+  // html.removeChild(iframe);
+  iframeDocument = iframe.contentWindow.document;
+  iframeDocument.open();
+  iframeDocument.write(lt + 'script' + gt + 'document.F=Object' + lt + '/script' + gt);
+  iframeDocument.close();
+  createDict = iframeDocument.F;
+  while (i--) delete createDict[PROTOTYPE][enumBugKeys[i]];
+  return createDict();
+};
+
+module.exports = Object.create || function create(O, Properties) {
+  var result;
+  if (O !== null) {
+    Empty[PROTOTYPE] = anObject(O);
+    result = new Empty();
+    Empty[PROTOTYPE] = null;
+    // add "__proto__" for Object.getPrototypeOf polyfill
+    result[IE_PROTO] = O;
+  } else result = createDict();
+  return Properties === undefined ? result : dPs(result, Properties);
+};
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var dP = __webpack_require__(14);
+var anObject = __webpack_require__(15);
+var getKeys = __webpack_require__(36);
+
+module.exports = __webpack_require__(18) ? Object.defineProperties : function defineProperties(O, Properties) {
+  anObject(O);
+  var keys = getKeys(Properties);
+  var length = keys.length;
+  var i = 0;
+  var P;
+  while (length > i) dP.f(O, P = keys[i++], Properties[P]);
+  return O;
+};
+
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.14 / 15.2.3.14 Object.keys(O)
+var $keys = __webpack_require__(37);
+var enumBugKeys = __webpack_require__(44);
+
+module.exports = Object.keys || function keys(O) {
+  return $keys(O, enumBugKeys);
+};
+
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var has = __webpack_require__(23);
+var toIObject = __webpack_require__(38);
+var arrayIndexOf = __webpack_require__(40)(false);
+var IE_PROTO = __webpack_require__(43)('IE_PROTO');
+
+module.exports = function (object, names) {
+  var O = toIObject(object);
+  var i = 0;
+  var result = [];
+  var key;
+  for (key in O) if (key != IE_PROTO) has(O, key) && result.push(key);
+  // Don't enum bug & hidden keys
+  while (names.length > i) if (has(O, key = names[i++])) {
+    ~arrayIndexOf(result, key) || result.push(key);
+  }
+  return result;
+};
+
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// to indexed object, toObject with fallback for non-array-like ES3 strings
+var IObject = __webpack_require__(39);
+var defined = __webpack_require__(27);
+module.exports = function (it) {
+  return IObject(defined(it));
+};
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
+var cof = __webpack_require__(5);
+// eslint-disable-next-line no-prototype-builtins
+module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
+  return cof(it) == 'String' ? it.split('') : Object(it);
+};
+
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// false -> Array#indexOf
+// true  -> Array#includes
+var toIObject = __webpack_require__(38);
+var toLength = __webpack_require__(41);
+var toAbsoluteIndex = __webpack_require__(42);
+module.exports = function (IS_INCLUDES) {
+  return function ($this, el, fromIndex) {
+    var O = toIObject($this);
+    var length = toLength(O.length);
+    var index = toAbsoluteIndex(fromIndex, length);
+    var value;
+    // Array#includes uses SameValueZero equality algorithm
+    // eslint-disable-next-line no-self-compare
+    if (IS_INCLUDES && el != el) while (length > index) {
+      value = O[index++];
+      // eslint-disable-next-line no-self-compare
+      if (value != value) return true;
+    // Array#indexOf ignores holes, Array#includes - not
+    } else for (;length > index; index++) if (IS_INCLUDES || index in O) {
+      if (O[index] === el) return IS_INCLUDES || index || 0;
+    } return !IS_INCLUDES && -1;
+  };
+};
+
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.15 ToLength
+var toInteger = __webpack_require__(26);
+var min = Math.min;
+module.exports = function (it) {
+  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+};
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var toInteger = __webpack_require__(26);
+var max = Math.max;
+var min = Math.min;
+module.exports = function (index, length) {
+  index = toInteger(index);
+  return index < 0 ? max(index + length, 0) : min(index, length);
+};
+
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var shared = __webpack_require__(7)('keys');
+var uid = __webpack_require__(11);
+module.exports = function (key) {
+  return shared[key] || (shared[key] = uid(key));
+};
+
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports) {
+
+// IE 8- don't enum bug keys
+module.exports = (
+  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
+).split(',');
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var document = __webpack_require__(9).document;
+module.exports = document && document.documentElement;
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var def = __webpack_require__(14).f;
+var has = __webpack_require__(23);
+var TAG = __webpack_require__(6)('toStringTag');
+
+module.exports = function (it, tag, stat) {
+  if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, { configurable: true, value: tag });
+};
+
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
+var has = __webpack_require__(23);
+var toObject = __webpack_require__(48);
+var IE_PROTO = __webpack_require__(43)('IE_PROTO');
+var ObjectProto = Object.prototype;
+
+module.exports = Object.getPrototypeOf || function (O) {
+  O = toObject(O);
+  if (has(O, IE_PROTO)) return O[IE_PROTO];
+  if (typeof O.constructor == 'function' && O instanceof O.constructor) {
+    return O.constructor.prototype;
+  } return O instanceof Object ? ObjectProto : null;
+};
+
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__(27);
+module.exports = function (it) {
+  return Object(defined(it));
+};
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $iterators = __webpack_require__(50);
+var getKeys = __webpack_require__(36);
+var redefine = __webpack_require__(12);
+var global = __webpack_require__(9);
+var hide = __webpack_require__(13);
+var Iterators = __webpack_require__(32);
+var wks = __webpack_require__(6);
+var ITERATOR = wks('iterator');
+var TO_STRING_TAG = wks('toStringTag');
+var ArrayValues = Iterators.Array;
+
+var DOMIterables = {
+  CSSRuleList: true, // TODO: Not spec compliant, should be false.
+  CSSStyleDeclaration: false,
+  CSSValueList: false,
+  ClientRectList: false,
+  DOMRectList: false,
+  DOMStringList: false,
+  DOMTokenList: true,
+  DataTransferItemList: false,
+  FileList: false,
+  HTMLAllCollection: false,
+  HTMLCollection: false,
+  HTMLFormElement: false,
+  HTMLSelectElement: false,
+  MediaList: true, // TODO: Not spec compliant, should be false.
+  MimeTypeArray: false,
+  NamedNodeMap: false,
+  NodeList: true,
+  PaintRequestList: false,
+  Plugin: false,
+  PluginArray: false,
+  SVGLengthList: false,
+  SVGNumberList: false,
+  SVGPathSegList: false,
+  SVGPointList: false,
+  SVGStringList: false,
+  SVGTransformList: false,
+  SourceBufferList: false,
+  StyleSheetList: true, // TODO: Not spec compliant, should be false.
+  TextTrackCueList: false,
+  TextTrackList: false,
+  TouchList: false
+};
+
+for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++) {
+  var NAME = collections[i];
+  var explicit = DOMIterables[NAME];
+  var Collection = global[NAME];
+  var proto = Collection && Collection.prototype;
+  var key;
+  if (proto) {
+    if (!proto[ITERATOR]) hide(proto, ITERATOR, ArrayValues);
+    if (!proto[TO_STRING_TAG]) hide(proto, TO_STRING_TAG, NAME);
+    Iterators[NAME] = ArrayValues;
+    if (explicit) for (key in $iterators) if (!proto[key]) redefine(proto, key, $iterators[key], true);
+  }
+}
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var addToUnscopables = __webpack_require__(51);
+var step = __webpack_require__(52);
+var Iterators = __webpack_require__(32);
+var toIObject = __webpack_require__(38);
+
+// 22.1.3.4 Array.prototype.entries()
+// 22.1.3.13 Array.prototype.keys()
+// 22.1.3.29 Array.prototype.values()
+// 22.1.3.30 Array.prototype[@@iterator]()
+module.exports = __webpack_require__(28)(Array, 'Array', function (iterated, kind) {
+  this._t = toIObject(iterated); // target
+  this._i = 0;                   // next index
+  this._k = kind;                // kind
+// 22.1.5.2.1 %ArrayIteratorPrototype%.next()
+}, function () {
+  var O = this._t;
+  var kind = this._k;
+  var index = this._i++;
+  if (!O || index >= O.length) {
+    this._t = undefined;
+    return step(1);
+  }
+  if (kind == 'keys') return step(0, index);
+  if (kind == 'values') return step(0, O[index]);
+  return step(0, [index, O[index]]);
+}, 'values');
+
+// argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
+Iterators.Arguments = Iterators.Array;
+
+addToUnscopables('keys');
+addToUnscopables('values');
+addToUnscopables('entries');
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 22.1.3.31 Array.prototype[@@unscopables]
+var UNSCOPABLES = __webpack_require__(6)('unscopables');
+var ArrayProto = Array.prototype;
+if (ArrayProto[UNSCOPABLES] == undefined) __webpack_require__(13)(ArrayProto, UNSCOPABLES, {});
+module.exports = function (key) {
+  ArrayProto[UNSCOPABLES][key] = true;
+};
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports) {
+
+module.exports = function (done, value) {
+  return { value: value, done: !!done };
+};
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var LIBRARY = __webpack_require__(10);
+var global = __webpack_require__(9);
+var ctx = __webpack_require__(30);
+var classof = __webpack_require__(4);
+var $export = __webpack_require__(29);
+var isObject = __webpack_require__(16);
+var aFunction = __webpack_require__(31);
+var anInstance = __webpack_require__(54);
+var forOf = __webpack_require__(55);
+var speciesConstructor = __webpack_require__(59);
+var task = __webpack_require__(60).set;
+var microtask = __webpack_require__(62)();
+var newPromiseCapabilityModule = __webpack_require__(63);
+var perform = __webpack_require__(64);
+var userAgent = __webpack_require__(65);
+var promiseResolve = __webpack_require__(66);
+var PROMISE = 'Promise';
+var TypeError = global.TypeError;
+var process = global.process;
+var versions = process && process.versions;
+var v8 = versions && versions.v8 || '';
+var $Promise = global[PROMISE];
+var isNode = classof(process) == 'process';
+var empty = function () { /* empty */ };
+var Internal, newGenericPromiseCapability, OwnPromiseCapability, Wrapper;
+var newPromiseCapability = newGenericPromiseCapability = newPromiseCapabilityModule.f;
+
+var USE_NATIVE = !!function () {
+  try {
+    // correct subclassing with @@species support
+    var promise = $Promise.resolve(1);
+    var FakePromise = (promise.constructor = {})[__webpack_require__(6)('species')] = function (exec) {
+      exec(empty, empty);
+    };
+    // unhandled rejections tracking support, NodeJS Promise without it fails @@species test
+    return (isNode || typeof PromiseRejectionEvent == 'function')
+      && promise.then(empty) instanceof FakePromise
+      // v8 6.6 (Node 10 and Chrome 66) have a bug with resolving custom thenables
+      // https://bugs.chromium.org/p/chromium/issues/detail?id=830565
+      // we can't detect it synchronously, so just check versions
+      && v8.indexOf('6.6') !== 0
+      && userAgent.indexOf('Chrome/66') === -1;
+  } catch (e) { /* empty */ }
+}();
+
+// helpers
+var isThenable = function (it) {
+  var then;
+  return isObject(it) && typeof (then = it.then) == 'function' ? then : false;
+};
+var notify = function (promise, isReject) {
+  if (promise._n) return;
+  promise._n = true;
+  var chain = promise._c;
+  microtask(function () {
+    var value = promise._v;
+    var ok = promise._s == 1;
+    var i = 0;
+    var run = function (reaction) {
+      var handler = ok ? reaction.ok : reaction.fail;
+      var resolve = reaction.resolve;
+      var reject = reaction.reject;
+      var domain = reaction.domain;
+      var result, then, exited;
+      try {
+        if (handler) {
+          if (!ok) {
+            if (promise._h == 2) onHandleUnhandled(promise);
+            promise._h = 1;
+          }
+          if (handler === true) result = value;
+          else {
+            if (domain) domain.enter();
+            result = handler(value); // may throw
+            if (domain) {
+              domain.exit();
+              exited = true;
+            }
+          }
+          if (result === reaction.promise) {
+            reject(TypeError('Promise-chain cycle'));
+          } else if (then = isThenable(result)) {
+            then.call(result, resolve, reject);
+          } else resolve(result);
+        } else reject(value);
+      } catch (e) {
+        if (domain && !exited) domain.exit();
+        reject(e);
+      }
+    };
+    while (chain.length > i) run(chain[i++]); // variable length - can't use forEach
+    promise._c = [];
+    promise._n = false;
+    if (isReject && !promise._h) onUnhandled(promise);
+  });
+};
+var onUnhandled = function (promise) {
+  task.call(global, function () {
+    var value = promise._v;
+    var unhandled = isUnhandled(promise);
+    var result, handler, console;
+    if (unhandled) {
+      result = perform(function () {
+        if (isNode) {
+          process.emit('unhandledRejection', value, promise);
+        } else if (handler = global.onunhandledrejection) {
+          handler({ promise: promise, reason: value });
+        } else if ((console = global.console) && console.error) {
+          console.error('Unhandled promise rejection', value);
+        }
+      });
+      // Browsers should not trigger `rejectionHandled` event if it was handled here, NodeJS - should
+      promise._h = isNode || isUnhandled(promise) ? 2 : 1;
+    } promise._a = undefined;
+    if (unhandled && result.e) throw result.v;
+  });
+};
+var isUnhandled = function (promise) {
+  return promise._h !== 1 && (promise._a || promise._c).length === 0;
+};
+var onHandleUnhandled = function (promise) {
+  task.call(global, function () {
+    var handler;
+    if (isNode) {
+      process.emit('rejectionHandled', promise);
+    } else if (handler = global.onrejectionhandled) {
+      handler({ promise: promise, reason: promise._v });
+    }
+  });
+};
+var $reject = function (value) {
+  var promise = this;
+  if (promise._d) return;
+  promise._d = true;
+  promise = promise._w || promise; // unwrap
+  promise._v = value;
+  promise._s = 2;
+  if (!promise._a) promise._a = promise._c.slice();
+  notify(promise, true);
+};
+var $resolve = function (value) {
+  var promise = this;
+  var then;
+  if (promise._d) return;
+  promise._d = true;
+  promise = promise._w || promise; // unwrap
+  try {
+    if (promise === value) throw TypeError("Promise can't be resolved itself");
+    if (then = isThenable(value)) {
+      microtask(function () {
+        var wrapper = { _w: promise, _d: false }; // wrap
+        try {
+          then.call(value, ctx($resolve, wrapper, 1), ctx($reject, wrapper, 1));
+        } catch (e) {
+          $reject.call(wrapper, e);
+        }
+      });
+    } else {
+      promise._v = value;
+      promise._s = 1;
+      notify(promise, false);
+    }
+  } catch (e) {
+    $reject.call({ _w: promise, _d: false }, e); // wrap
+  }
+};
+
+// constructor polyfill
+if (!USE_NATIVE) {
+  // 25.4.3.1 Promise(executor)
+  $Promise = function Promise(executor) {
+    anInstance(this, $Promise, PROMISE, '_h');
+    aFunction(executor);
+    Internal.call(this);
+    try {
+      executor(ctx($resolve, this, 1), ctx($reject, this, 1));
+    } catch (err) {
+      $reject.call(this, err);
+    }
+  };
+  // eslint-disable-next-line no-unused-vars
+  Internal = function Promise(executor) {
+    this._c = [];             // <- awaiting reactions
+    this._a = undefined;      // <- checked in isUnhandled reactions
+    this._s = 0;              // <- state
+    this._d = false;          // <- done
+    this._v = undefined;      // <- value
+    this._h = 0;              // <- rejection state, 0 - default, 1 - handled, 2 - unhandled
+    this._n = false;          // <- notify
+  };
+  Internal.prototype = __webpack_require__(67)($Promise.prototype, {
+    // 25.4.5.3 Promise.prototype.then(onFulfilled, onRejected)
+    then: function then(onFulfilled, onRejected) {
+      var reaction = newPromiseCapability(speciesConstructor(this, $Promise));
+      reaction.ok = typeof onFulfilled == 'function' ? onFulfilled : true;
+      reaction.fail = typeof onRejected == 'function' && onRejected;
+      reaction.domain = isNode ? process.domain : undefined;
+      this._c.push(reaction);
+      if (this._a) this._a.push(reaction);
+      if (this._s) notify(this, false);
+      return reaction.promise;
+    },
+    // 25.4.5.1 Promise.prototype.catch(onRejected)
+    'catch': function (onRejected) {
+      return this.then(undefined, onRejected);
+    }
+  });
+  OwnPromiseCapability = function () {
+    var promise = new Internal();
+    this.promise = promise;
+    this.resolve = ctx($resolve, promise, 1);
+    this.reject = ctx($reject, promise, 1);
+  };
+  newPromiseCapabilityModule.f = newPromiseCapability = function (C) {
+    return C === $Promise || C === Wrapper
+      ? new OwnPromiseCapability(C)
+      : newGenericPromiseCapability(C);
+  };
+}
+
+$export($export.G + $export.W + $export.F * !USE_NATIVE, { Promise: $Promise });
+__webpack_require__(46)($Promise, PROMISE);
+__webpack_require__(68)(PROMISE);
+Wrapper = __webpack_require__(8)[PROMISE];
+
+// statics
+$export($export.S + $export.F * !USE_NATIVE, PROMISE, {
+  // 25.4.4.5 Promise.reject(r)
+  reject: function reject(r) {
+    var capability = newPromiseCapability(this);
+    var $$reject = capability.reject;
+    $$reject(r);
+    return capability.promise;
+  }
+});
+$export($export.S + $export.F * (LIBRARY || !USE_NATIVE), PROMISE, {
+  // 25.4.4.6 Promise.resolve(x)
+  resolve: function resolve(x) {
+    return promiseResolve(LIBRARY && this === Wrapper ? $Promise : this, x);
+  }
+});
+$export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(69)(function (iter) {
+  $Promise.all(iter)['catch'](empty);
+})), PROMISE, {
+  // 25.4.4.1 Promise.all(iterable)
+  all: function all(iterable) {
+    var C = this;
+    var capability = newPromiseCapability(C);
+    var resolve = capability.resolve;
+    var reject = capability.reject;
+    var result = perform(function () {
+      var values = [];
+      var index = 0;
+      var remaining = 1;
+      forOf(iterable, false, function (promise) {
+        var $index = index++;
+        var alreadyCalled = false;
+        values.push(undefined);
+        remaining++;
+        C.resolve(promise).then(function (value) {
+          if (alreadyCalled) return;
+          alreadyCalled = true;
+          values[$index] = value;
+          --remaining || resolve(values);
+        }, reject);
+      });
+      --remaining || resolve(values);
+    });
+    if (result.e) reject(result.v);
+    return capability.promise;
+  },
+  // 25.4.4.4 Promise.race(iterable)
+  race: function race(iterable) {
+    var C = this;
+    var capability = newPromiseCapability(C);
+    var reject = capability.reject;
+    var result = perform(function () {
+      forOf(iterable, false, function (promise) {
+        C.resolve(promise).then(capability.resolve, reject);
+      });
+    });
+    if (result.e) reject(result.v);
+    return capability.promise;
+  }
+});
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports) {
+
+module.exports = function (it, Constructor, name, forbiddenField) {
+  if (!(it instanceof Constructor) || (forbiddenField !== undefined && forbiddenField in it)) {
+    throw TypeError(name + ': incorrect invocation!');
+  } return it;
+};
+
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var ctx = __webpack_require__(30);
+var call = __webpack_require__(56);
+var isArrayIter = __webpack_require__(57);
+var anObject = __webpack_require__(15);
+var toLength = __webpack_require__(41);
+var getIterFn = __webpack_require__(58);
+var BREAK = {};
+var RETURN = {};
+var exports = module.exports = function (iterable, entries, fn, that, ITERATOR) {
+  var iterFn = ITERATOR ? function () { return iterable; } : getIterFn(iterable);
+  var f = ctx(fn, that, entries ? 2 : 1);
+  var index = 0;
+  var length, step, iterator, result;
+  if (typeof iterFn != 'function') throw TypeError(iterable + ' is not iterable!');
+  // fast case for arrays with default iterator
+  if (isArrayIter(iterFn)) for (length = toLength(iterable.length); length > index; index++) {
+    result = entries ? f(anObject(step = iterable[index])[0], step[1]) : f(iterable[index]);
+    if (result === BREAK || result === RETURN) return result;
+  } else for (iterator = iterFn.call(iterable); !(step = iterator.next()).done;) {
+    result = call(iterator, f, step.value, entries);
+    if (result === BREAK || result === RETURN) return result;
+  }
+};
+exports.BREAK = BREAK;
+exports.RETURN = RETURN;
+
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// call something on iterator step with safe closing on error
+var anObject = __webpack_require__(15);
+module.exports = function (iterator, fn, value, entries) {
+  try {
+    return entries ? fn(anObject(value)[0], value[1]) : fn(value);
+  // 7.4.6 IteratorClose(iterator, completion)
+  } catch (e) {
+    var ret = iterator['return'];
+    if (ret !== undefined) anObject(ret.call(iterator));
+    throw e;
+  }
+};
+
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// check on default Array iterator
+var Iterators = __webpack_require__(32);
+var ITERATOR = __webpack_require__(6)('iterator');
+var ArrayProto = Array.prototype;
+
+module.exports = function (it) {
+  return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
+};
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var classof = __webpack_require__(4);
+var ITERATOR = __webpack_require__(6)('iterator');
+var Iterators = __webpack_require__(32);
+module.exports = __webpack_require__(8).getIteratorMethod = function (it) {
+  if (it != undefined) return it[ITERATOR]
+    || it['@@iterator']
+    || Iterators[classof(it)];
+};
+
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.3.20 SpeciesConstructor(O, defaultConstructor)
+var anObject = __webpack_require__(15);
+var aFunction = __webpack_require__(31);
+var SPECIES = __webpack_require__(6)('species');
+module.exports = function (O, D) {
+  var C = anObject(O).constructor;
+  var S;
+  return C === undefined || (S = anObject(C)[SPECIES]) == undefined ? D : aFunction(S);
+};
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var ctx = __webpack_require__(30);
+var invoke = __webpack_require__(61);
+var html = __webpack_require__(45);
+var cel = __webpack_require__(20);
+var global = __webpack_require__(9);
+var process = global.process;
+var setTask = global.setImmediate;
+var clearTask = global.clearImmediate;
+var MessageChannel = global.MessageChannel;
+var Dispatch = global.Dispatch;
+var counter = 0;
+var queue = {};
+var ONREADYSTATECHANGE = 'onreadystatechange';
+var defer, channel, port;
+var run = function () {
+  var id = +this;
+  // eslint-disable-next-line no-prototype-builtins
+  if (queue.hasOwnProperty(id)) {
+    var fn = queue[id];
+    delete queue[id];
+    fn();
+  }
+};
+var listener = function (event) {
+  run.call(event.data);
+};
+// Node.js 0.9+ & IE10+ has setImmediate, otherwise:
+if (!setTask || !clearTask) {
+  setTask = function setImmediate(fn) {
+    var args = [];
+    var i = 1;
+    while (arguments.length > i) args.push(arguments[i++]);
+    queue[++counter] = function () {
+      // eslint-disable-next-line no-new-func
+      invoke(typeof fn == 'function' ? fn : Function(fn), args);
+    };
+    defer(counter);
+    return counter;
+  };
+  clearTask = function clearImmediate(id) {
+    delete queue[id];
+  };
+  // Node.js 0.8-
+  if (__webpack_require__(5)(process) == 'process') {
+    defer = function (id) {
+      process.nextTick(ctx(run, id, 1));
+    };
+  // Sphere (JS game engine) Dispatch API
+  } else if (Dispatch && Dispatch.now) {
+    defer = function (id) {
+      Dispatch.now(ctx(run, id, 1));
+    };
+  // Browsers with MessageChannel, includes WebWorkers
+  } else if (MessageChannel) {
+    channel = new MessageChannel();
+    port = channel.port2;
+    channel.port1.onmessage = listener;
+    defer = ctx(port.postMessage, port, 1);
+  // Browsers with postMessage, skip WebWorkers
+  // IE8 has postMessage, but it's sync & typeof its postMessage is 'object'
+  } else if (global.addEventListener && typeof postMessage == 'function' && !global.importScripts) {
+    defer = function (id) {
+      global.postMessage(id + '', '*');
+    };
+    global.addEventListener('message', listener, false);
+  // IE8-
+  } else if (ONREADYSTATECHANGE in cel('script')) {
+    defer = function (id) {
+      html.appendChild(cel('script'))[ONREADYSTATECHANGE] = function () {
+        html.removeChild(this);
+        run.call(id);
+      };
+    };
+  // Rest old browsers
+  } else {
+    defer = function (id) {
+      setTimeout(ctx(run, id, 1), 0);
+    };
+  }
+}
+module.exports = {
+  set: setTask,
+  clear: clearTask
+};
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports) {
+
+// fast apply, http://jsperf.lnkit.com/fast-apply/5
+module.exports = function (fn, args, that) {
+  var un = that === undefined;
+  switch (args.length) {
+    case 0: return un ? fn()
+                      : fn.call(that);
+    case 1: return un ? fn(args[0])
+                      : fn.call(that, args[0]);
+    case 2: return un ? fn(args[0], args[1])
+                      : fn.call(that, args[0], args[1]);
+    case 3: return un ? fn(args[0], args[1], args[2])
+                      : fn.call(that, args[0], args[1], args[2]);
+    case 4: return un ? fn(args[0], args[1], args[2], args[3])
+                      : fn.call(that, args[0], args[1], args[2], args[3]);
+  } return fn.apply(that, args);
+};
+
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__(9);
+var macrotask = __webpack_require__(60).set;
+var Observer = global.MutationObserver || global.WebKitMutationObserver;
+var process = global.process;
+var Promise = global.Promise;
+var isNode = __webpack_require__(5)(process) == 'process';
+
+module.exports = function () {
+  var head, last, notify;
+
+  var flush = function () {
+    var parent, fn;
+    if (isNode && (parent = process.domain)) parent.exit();
+    while (head) {
+      fn = head.fn;
+      head = head.next;
+      try {
+        fn();
+      } catch (e) {
+        if (head) notify();
+        else last = undefined;
+        throw e;
+      }
+    } last = undefined;
+    if (parent) parent.enter();
+  };
+
+  // Node.js
+  if (isNode) {
+    notify = function () {
+      process.nextTick(flush);
+    };
+  // browsers with MutationObserver, except iOS Safari - https://github.com/zloirock/core-js/issues/339
+  } else if (Observer && !(global.navigator && global.navigator.standalone)) {
+    var toggle = true;
+    var node = document.createTextNode('');
+    new Observer(flush).observe(node, { characterData: true }); // eslint-disable-line no-new
+    notify = function () {
+      node.data = toggle = !toggle;
+    };
+  // environments with maybe non-completely correct, but existent Promise
+  } else if (Promise && Promise.resolve) {
+    // Promise.resolve without an argument throws an error in LG WebOS 2
+    var promise = Promise.resolve(undefined);
+    notify = function () {
+      promise.then(flush);
+    };
+  // for other environments - macrotask based on:
+  // - setImmediate
+  // - MessageChannel
+  // - window.postMessag
+  // - onreadystatechange
+  // - setTimeout
+  } else {
+    notify = function () {
+      // strange IE + webpack dev server bug - use .call(global)
+      macrotask.call(global, flush);
+    };
+  }
+
+  return function (fn) {
+    var task = { fn: fn, next: undefined };
+    if (last) last.next = task;
+    if (!head) {
+      head = task;
+      notify();
+    } last = task;
+  };
+};
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 25.4.1.5 NewPromiseCapability(C)
+var aFunction = __webpack_require__(31);
+
+function PromiseCapability(C) {
+  var resolve, reject;
+  this.promise = new C(function ($$resolve, $$reject) {
+    if (resolve !== undefined || reject !== undefined) throw TypeError('Bad Promise constructor');
+    resolve = $$resolve;
+    reject = $$reject;
+  });
+  this.resolve = aFunction(resolve);
+  this.reject = aFunction(reject);
+}
+
+module.exports.f = function (C) {
+  return new PromiseCapability(C);
+};
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports) {
+
+module.exports = function (exec) {
+  try {
+    return { e: false, v: exec() };
+  } catch (e) {
+    return { e: true, v: e };
+  }
+};
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__(9);
+var navigator = global.navigator;
+
+module.exports = navigator && navigator.userAgent || '';
+
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var anObject = __webpack_require__(15);
+var isObject = __webpack_require__(16);
+var newPromiseCapability = __webpack_require__(63);
+
+module.exports = function (C, x) {
+  anObject(C);
+  if (isObject(x) && x.constructor === C) return x;
+  var promiseCapability = newPromiseCapability.f(C);
+  var resolve = promiseCapability.resolve;
+  resolve(x);
+  return promiseCapability.promise;
+};
+
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var redefine = __webpack_require__(12);
+module.exports = function (target, src, safe) {
+  for (var key in src) redefine(target, key, src[key], safe);
+  return target;
+};
+
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var global = __webpack_require__(9);
+var dP = __webpack_require__(14);
+var DESCRIPTORS = __webpack_require__(18);
+var SPECIES = __webpack_require__(6)('species');
+
+module.exports = function (KEY) {
+  var C = global[KEY];
+  if (DESCRIPTORS && C && !C[SPECIES]) dP.f(C, SPECIES, {
+    configurable: true,
+    get: function () { return this; }
+  });
+};
+
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var ITERATOR = __webpack_require__(6)('iterator');
+var SAFE_CLOSING = false;
+
+try {
+  var riter = [7][ITERATOR]();
+  riter['return'] = function () { SAFE_CLOSING = true; };
+  // eslint-disable-next-line no-throw-literal
+  Array.from(riter, function () { throw 2; });
+} catch (e) { /* empty */ }
+
+module.exports = function (exec, skipClosing) {
+  if (!skipClosing && !SAFE_CLOSING) return false;
+  var safe = false;
+  try {
+    var arr = [7];
+    var iter = arr[ITERATOR]();
+    iter.next = function () { return { done: safe = true }; };
+    arr[ITERATOR] = function () { return iter; };
+    exec(arr);
+  } catch (e) { /* empty */ }
+  return safe;
+};
+
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// https://github.com/tc39/proposal-promise-finally
+
+var $export = __webpack_require__(29);
+var core = __webpack_require__(8);
+var global = __webpack_require__(9);
+var speciesConstructor = __webpack_require__(59);
+var promiseResolve = __webpack_require__(66);
+
+$export($export.P + $export.R, 'Promise', { 'finally': function (onFinally) {
+  var C = speciesConstructor(this, core.Promise || global.Promise);
+  var isFunction = typeof onFinally == 'function';
+  return this.then(
+    isFunction ? function (x) {
+      return promiseResolve(C, onFinally()).then(function () { return x; });
+    } : onFinally,
+    isFunction ? function (e) {
+      return promiseResolve(C, onFinally()).then(function () { throw e; });
+    } : onFinally
+  );
+} });
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// https://github.com/tc39/proposal-promise-try
+var $export = __webpack_require__(29);
+var newPromiseCapability = __webpack_require__(63);
+var perform = __webpack_require__(64);
+
+$export($export.S, 'Promise', { 'try': function (callbackfn) {
+  var promiseCapability = newPromiseCapability.f(this);
+  var result = perform(callbackfn);
+  (result.e ? promiseCapability.reject : promiseCapability.resolve)(result.v);
+  return promiseCapability.promise;
+} });
+
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var apis_1 = __webpack_require__(73);
+/**
+ * Extends window with global JR API objects.
+ */
+function extendWindow() {
+    // TODO: Freeze API objects!
+    var hostAppApi = new apis_1.HostAppApi();
+    window.initAppBridge = function () { return Promise.resolve(hostAppApi); };
+    window.jrHostApp = hostAppApi;
+    window.jrBattery = new apis_1.BatteryApi();
+    window.jrKeyboardLayout = new apis_1.KeyboardLayoutApi();
+}
+exports.extendWindow = extendWindow;
+
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(74));
+__export(__webpack_require__(93));
+__export(__webpack_require__(94));
+
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Api_1 = __webpack_require__(75);
+var initApiHandler_1 = __webpack_require__(76);
+/**
+ * Implements host app API.
+ */
+var HostAppApi = /** @class */ (function (_super) {
+    __extends(HostAppApi, _super);
+    function HostAppApi() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Object.defineProperty(HostAppApi.prototype, "apiName", {
+        /**
+         * Gets API name.
+         * @returns {string}
+         */
+        get: function () { return "hostApp"; },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Returns current platform name.
+     * Use this method to check that custom APIs are available.
+     * @returns {Promise<string>}
+     */
+    HostAppApi.prototype.getPlatformName = function () {
+        return initApiHandler_1.initApiHandler()
+            .then(function (apiHandler) { return apiHandler.name; }, function (reason) { return Promise.reject("Unable to initialize: " + reason); });
+    };
+    /**
+     * Notifies host application about successful app bridge initialization.
+     * Might be useful in order to perform some startup actions on the host side.
+     * @returns {Promise<void>}
+     */
+    HostAppApi.prototype.notifyInitialized = function () {
+        return this.execute("notifyInitialized");
+    };
+    /**
+     * Returns host app version info.
+     * @returns {Promise<AppVersionInfo>}
+     */
+    HostAppApi.prototype.getAppVersionInfo = function () {
+        return this.execute("getAppVersionInfo");
+    };
+    /**
+     * Retrieves device record which persisted by host app.
+     * @returns {Promise<DeviceRecord | null>}
+     */
+    HostAppApi.prototype.getDeviceRecord = function () {
+        return this.execute("getDeviceRecord");
+    };
+    /**
+     * Requests host app termination (i.e. sends "quit" command).
+     * @returns {Promise<void>}
+     */
+    HostAppApi.prototype.requestTermination = function () {
+        return this.execute("requestTermination");
+    };
+    /**
+    * Returns Machine Name.
+    * @returns {Promise<MachineName>}
+    */
+    HostAppApi.prototype.getMachineName = function () {
+        return this.execute("getMachineName");
+    };
+    return HostAppApi;
+}(Api_1.Api));
+exports.HostAppApi = HostAppApi;
+
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var initApiHandler_1 = __webpack_require__(76);
+/**
+ * Represents abstract API object.
+ */
+var Api = /** @class */ (function () {
+    function Api() {
+    }
+    /**
+     * Executes API method with given args and returns promise which resolves with execution result.
+     * @param {string} methodName
+     * @param args
+     * @returns {Promise<any>}
+     */
+    Api.prototype.execute = function (methodName, args) {
+        var _this = this;
+        return initApiHandler_1.initApiHandler()
+            .then(function (apiHandler) { return apiHandler.execute(_this.apiName, methodName, args); })
+            .catch(function (reason) { return Promise.reject("Unable to execute " + _this.apiName + "." + methodName + ": " + reason); });
+    };
+    /**
+     * Subscribes for certain event and returns unsubscribe function.
+     * @param {string} eventType
+     * @param {EventHandler<TArgs>} handler
+     * @returns {Promise<UnsubscribeFunction>}
+     */
+    Api.prototype.subscribe = function (eventType, handler) {
+        var _this = this;
+        return initApiHandler_1.initApiHandler()
+            .then(function (apiHandler) { return apiHandler.subscribe(_this.apiName + "." + eventType, handler); })
+            .catch(function (reason) { return Promise.reject("Unable to subscribe to " + _this.apiName + "." + eventType + ": " + reason); });
+    };
+    return Api;
+}());
+exports.Api = Api;
+
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var platforms = __webpack_require__(77);
+var apiHandlerInitPromise = null;
+/**
+ * Returns promise which resolves with initialized API handler for current platform.
+ * @returns {Promise<ApiHandler>}
+ */
+function initApiHandler() {
+    return apiHandlerInitPromise || (apiHandlerInitPromise = createApiHandlerInitPromise());
+}
+exports.initApiHandler = initApiHandler;
+/**
+ * Creates API handler initialization promise.
+ * @returns {Promise<ApiHandler>}
+ */
+function createApiHandlerInitPromise() {
+    var bootstrappersMap = Object
+        .keys(platforms)
+        .reduce(function (a, id) {
+        try {
+            return __assign({}, a, (_a = {}, _a[id] = new (platforms)[id](), _a));
+        }
+        catch (reason) {
+            console.error("Unable to construct " + id + ": " + reason);
+            return a;
+        }
+        var _a;
+    }, {});
+    var platformIdPromises = Object
+        .keys(bootstrappersMap)
+        .map(function (id) { return bootstrappersMap[id]
+        .checkPlatform()
+        .then(function (canInit) { return canInit ? id : null; }, function (reason) {
+        console.error("Platform check failed by " + id + ": " + reason);
+        return null;
+    }); });
+    return Promise
+        .all(platformIdPromises)
+        .then(function (ids) { return ids.filter(function (id) { return id != null; }); })
+        .then(function (ids) { return ids.length === 1
+        ? bootstrappersMap[ids[0]]
+            .bootstrap()
+            .catch(function (reason) { return Promise.reject(ids[0] + " is failed to bootstrap: " + reason); })
+        : Promise.reject(ids.length
+            ? "Either " + humanReadableJoin(ids) + " are able to bootstrap on current platform."
+            : "No appropriate bootstrapper found for current platform."); })
+        .catch(function (reason) { return Promise.reject("Unable to bootstrap JR APIs: " + reason); });
+}
+function humanReadableJoin(items) {
+    return items.reduce(function (a, v, i) { return "" + a + (i == 0 ? "" : i < items.length - 1 ? ", " : " and ") + v; }, "");
+}
+
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(78));
+__export(__webpack_require__(87));
+__export(__webpack_require__(89));
+__export(__webpack_require__(91));
+
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var ApiHandlerBootstrapper_1 = __webpack_require__(79);
+var AndroidApiHandler_1 = __webpack_require__(80);
+/**
+ * Implements Android API handler bootstrapping features.
+ */
+var AndroidApiHandlerBootstrapper = /** @class */ (function (_super) {
+    __extends(AndroidApiHandlerBootstrapper, _super);
+    function AndroidApiHandlerBootstrapper() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    AndroidApiHandlerBootstrapper.prototype.checkPlatform = function () {
+        return Promise.resolve(AndroidApiHandlerBootstrapper.getDroidJsObj() != null);
+    };
+    AndroidApiHandlerBootstrapper.prototype.bootstrap = function () {
+        return Promise.resolve(new AndroidApiHandler_1.AndroidApiHandler(AndroidApiHandlerBootstrapper.getDroidJsObj()));
+    };
+    AndroidApiHandlerBootstrapper.getDroidJsObj = function () {
+        return window.DroidJS;
+    };
+    return AndroidApiHandlerBootstrapper;
+}(ApiHandlerBootstrapper_1.ApiHandlerBootstrapper));
+exports.AndroidApiHandlerBootstrapper = AndroidApiHandlerBootstrapper;
+
+
+/***/ }),
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ApiHandlerBootstrapper = /** @class */ (function () {
+    function ApiHandlerBootstrapper() {
+    }
+    return ApiHandlerBootstrapper;
+}());
+exports.ApiHandlerBootstrapper = ApiHandlerBootstrapper;
+
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var ApiHandler_1 = __webpack_require__(81);
+var models_1 = __webpack_require__(82);
+var PlatformName_1 = __webpack_require__(86);
+var AndroidApiHandler = /** @class */ (function (_super) {
+    __extends(AndroidApiHandler, _super);
+    function AndroidApiHandler(hostObj) {
+        var _this = _super.call(this) || this;
+        _this.hostObj = hostObj;
+        if (hostObj == null)
+            throw new Error("Given host object is null.");
+        return _this;
+    }
+    Object.defineProperty(AndroidApiHandler.prototype, "name", {
+        get: function () { return PlatformName_1.PlatformName.Android; },
+        enumerable: true,
+        configurable: true
+    });
+    AndroidApiHandler.prototype.execute = function (apiName, methodName, args) {
+        var _this = this;
+        switch (apiName + "." + methodName) {
+            case "hostApp.getAppVersionInfo":
+                return new Promise(function (resolve) { return resolve(new models_1.AppVersionInfo(_this.hostObj.getAppVersionNumber(), _this.hostObj.getAppVersionName())); });
+            case "hostApp.requestTermination":
+                return new Promise(function (resolve) {
+                    _this.hostObj.ExitApp();
+                    resolve();
+                });
+            default:
+                return Promise.reject("Method isn't supported for current platform.");
+        }
+    };
+    return AndroidApiHandler;
+}(ApiHandler_1.ApiHandler));
+exports.AndroidApiHandler = AndroidApiHandler;
+
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Represents abstract API handler.
+ */
+var ApiHandler = /** @class */ (function () {
+    function ApiHandler() {
+        // Registered API event handlers.
+        this.eventHandlers = {};
+    }
+    /**
+     * Dispatches event from host.
+     * @param {string} eventType
+     * @param args
+     */
+    ApiHandler.prototype.dispatch = function (eventType, args) {
+        var handlers = this.eventHandlers[eventType];
+        if (handlers != null)
+            for (var _i = 0, handlers_1 = handlers; _i < handlers_1.length; _i++) {
+                var handler = handlers_1[_i];
+                handler(args);
+            }
+    };
+    /**
+     * Adds event listener for certain event and returns unsubscribe function.
+     * @param {string} eventType
+     * @param {EventHandler<any>} handler
+     * @returns {UnsubscribeFunction}
+     */
+    ApiHandler.prototype.subscribe = function (eventType, handler) {
+        var _this = this;
+        var handlers = this.eventHandlers[eventType] || (this.eventHandlers[eventType] = []);
+        if (handlers.indexOf(handler) === -1)
+            handlers.push(handler);
+        return function () { return _this.unsubscribe(eventType, handler); };
+    };
+    /**
+     * Removes given event handler for certain event.
+     * @param {string} eventType
+     * @param {EventHandler<any>} handler
+     */
+    ApiHandler.prototype.unsubscribe = function (eventType, handler) {
+        var handlers = this.eventHandlers[eventType];
+        if (handlers == null)
+            return;
+        var idx = handlers.indexOf(handler);
+        if (idx !== -1)
+            handlers.splice(idx, 1);
+    };
+    return ApiHandler;
+}());
+exports.ApiHandler = ApiHandler;
+
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(83));
+__export(__webpack_require__(84));
+__export(__webpack_require__(85));
+
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Represents host app version info.
+ */
+var AppVersionInfo = /** @class */ (function () {
+    /**
+     * Constructor.
+     * @param {string} number - version number.
+     * @param {string} name - version name.
+     */
+    function AppVersionInfo(number, name) {
+        this.number = number;
+        this.name = name;
+    }
+    return AppVersionInfo;
+}());
+exports.AppVersionInfo = AppVersionInfo;
+
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Represents device record.
+ */
+var DeviceRecord = /** @class */ (function () {
+    /**
+     * Constructor.
+     * @param {string} id - device ID.
+     * @param {string} name - device name.
+     */
+    function DeviceRecord(id, name) {
+    }
+    return DeviceRecord;
+}());
+exports.DeviceRecord = DeviceRecord;
+
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Represents Machine Name.
+ */
+var MachineName = /** @class */ (function () {
+    /**
+     * Constructor.
+     * @param {string} name - MachineName
+     */
+    function MachineName(name) {
+        this.name = name;
+    }
+    return MachineName;
+}());
+exports.MachineName = MachineName;
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var PlatformName;
+(function (PlatformName) {
+    PlatformName["Android"] = "Android";
+    PlatformName["IOS"] = "iOS";
+    PlatformName["MacOS"] = "macOS";
+    PlatformName["Windows"] = "Windows";
+})(PlatformName = exports.PlatformName || (exports.PlatformName = {}));
+
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var ApiHandlerBootstrapper_1 = __webpack_require__(79);
+var IosApiHandler_1 = __webpack_require__(88);
+/**
+ * Implements iOS API handler bootstrapping features.
+ */
+var IosApiHandlerBootstrapper = /** @class */ (function (_super) {
+    __extends(IosApiHandlerBootstrapper, _super);
+    function IosApiHandlerBootstrapper() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    IosApiHandlerBootstrapper.prototype.checkPlatform = function () {
+        return new Promise(function (resolve) {
+            var standalone = window.navigator.standalone;
+            var userAgent = window.navigator.userAgent.toLowerCase();
+            var safari = /safari/.test(userAgent);
+            var ios = /iphone|ipod|ipad/.test(userAgent);
+            resolve(ios && !standalone && !safari);
+        });
+    };
+    IosApiHandlerBootstrapper.prototype.bootstrap = function () {
+        return new Promise(function (resolve) {
+            var callback = function (bridge) { return resolve(new IosApiHandler_1.IosApiHandler(bridge)); };
+            var wvJsBridge = window.WebViewJavascriptBridge;
+            if (wvJsBridge) {
+                callback(wvJsBridge);
+                return;
+            }
+            var wvCallbacks = window.WVJBCallbacks;
+            if (wvCallbacks) {
+                wvCallbacks.push(callback);
+                return;
+            }
+            window.WVJBCallbacks = [callback];
+            var wvIFrame = document.createElement('iframe');
+            wvIFrame.style.display = 'none';
+            wvIFrame.src = 'https://__bridge_loaded__';
+            document.documentElement.appendChild(wvIFrame);
+            setTimeout(function () { return document.documentElement.removeChild(wvIFrame); }, 0);
+        });
+    };
+    return IosApiHandlerBootstrapper;
+}(ApiHandlerBootstrapper_1.ApiHandlerBootstrapper));
+exports.IosApiHandlerBootstrapper = IosApiHandlerBootstrapper;
+
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var ApiHandler_1 = __webpack_require__(81);
+var models_1 = __webpack_require__(82);
+var PlatformName_1 = __webpack_require__(86);
+var IosApiHandler = /** @class */ (function (_super) {
+    __extends(IosApiHandler, _super);
+    function IosApiHandler(hostObj) {
+        var _this = _super.call(this) || this;
+        _this.hostObj = hostObj;
+        if (hostObj == null)
+            throw new Error("Given host object is null.");
+        return _this;
+    }
+    Object.defineProperty(IosApiHandler.prototype, "name", {
+        get: function () { return PlatformName_1.PlatformName.IOS; },
+        enumerable: true,
+        configurable: true
+    });
+    IosApiHandler.prototype.execute = function (apiName, methodName, args) {
+        var _this = this;
+        switch (apiName + "." + methodName) {
+            case "hostApp.getAppVersionInfo":
+                return new Promise(function (resolve, reject) { return _this.hostObj.callHandler("getAppVersion", function (response) {
+                    if (response == "")
+                        reject("Unable to get app version.");
+                    else
+                        resolve(new models_1.AppVersionInfo(null, response));
+                }); });
+            case "hostApp.requestTermination":
+                return new Promise(function (resolve) {
+                    _this.hostObj.callHandler("quitPages", {});
+                    resolve();
+                });
+            default:
+                return Promise.reject("Method isn't supported for current platform.");
+        }
+    };
+    return IosApiHandler;
+}(ApiHandler_1.ApiHandler));
+exports.IosApiHandler = IosApiHandler;
+
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var ApiHandlerBootstrapper_1 = __webpack_require__(79);
+var MacosApiHandler_1 = __webpack_require__(90);
+/**
+ * Implements macOS API handler bootstrapping features.
+ */
+var MacosApiHandlerBootstrapper = /** @class */ (function (_super) {
+    __extends(MacosApiHandlerBootstrapper, _super);
+    function MacosApiHandlerBootstrapper() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    MacosApiHandlerBootstrapper.prototype.checkPlatform = function () {
+        return Promise.resolve(MacosApiHandlerBootstrapper.getHostObject() != null);
+    };
+    MacosApiHandlerBootstrapper.prototype.bootstrap = function () {
+        return new Promise(function (resolve) {
+            var hostObj = MacosApiHandlerBootstrapper.getHostObject();
+            var handler = new MacosApiHandler_1.MacosApiHandler(hostObj);
+            hostObj.subscribeToEvents(function (a, e, j) { return handler.handleEvent(a, e, j); });
+            resolve(handler);
+        });
+    };
+    MacosApiHandlerBootstrapper.getHostObject = function () {
+        return window.__macOsAppHostObject;
+    };
+    return MacosApiHandlerBootstrapper;
+}(ApiHandlerBootstrapper_1.ApiHandlerBootstrapper));
+exports.MacosApiHandlerBootstrapper = MacosApiHandlerBootstrapper;
+
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var ApiHandler_1 = __webpack_require__(81);
+var PlatformName_1 = __webpack_require__(86);
+var MacosApiHandler = /** @class */ (function (_super) {
+    __extends(MacosApiHandler, _super);
+    function MacosApiHandler(hostObj) {
+        var _this = _super.call(this) || this;
+        _this.hostObj = hostObj;
+        if (hostObj == null)
+            throw new Error("Given host object is null.");
+        return _this;
+    }
+    Object.defineProperty(MacosApiHandler.prototype, "name", {
+        get: function () { return PlatformName_1.PlatformName.MacOS; },
+        enumerable: true,
+        configurable: true
+    });
+    MacosApiHandler.prototype.execute = function (apiName, methodName, args) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.hostObj.handleBrowserRequest(apiName + "." + methodName, MacosApiHandler.serializeMethodArgs(apiName, methodName, args), resolve, reject);
+        })
+            .then(function (resultJson) { return MacosApiHandler.deserializeMethodResult(apiName, methodName, resultJson); });
+    };
+    MacosApiHandler.prototype.handleEvent = function (apiName, eventName, argsJson) {
+        try {
+            this.dispatch(apiName + "." + eventName, MacosApiHandler.deserializeEventArgs(apiName, eventName, argsJson));
+        }
+        catch (reason) {
+            throw "Unable to handle event " + apiName + "." + eventName + ": " + reason;
+        }
+    };
+    MacosApiHandler.serializeMethodArgs = function (apiName, methodName, args) {
+        try {
+            return JSON.stringify(args);
+        }
+        catch (reason) {
+            throw "Unable to serialize method args '" + args + "': " + reason;
+        }
+    };
+    MacosApiHandler.deserializeMethodResult = function (apiName, methodName, resultJson) {
+        try {
+            return JSON.parse(resultJson);
+        }
+        catch (reason) {
+            throw "Unable to parse result '" + resultJson + "': " + reason;
+        }
+    };
+    MacosApiHandler.deserializeEventArgs = function (apiName, eventName, argsJson) {
+        try {
+            return JSON.parse(argsJson);
+        }
+        catch (reason) {
+            throw "Unable to deserialize event args '" + argsJson + "': " + reason;
+        }
+    };
+    return MacosApiHandler;
+}(ApiHandler_1.ApiHandler));
+exports.MacosApiHandler = MacosApiHandler;
+
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var ApiHandlerBootstrapper_1 = __webpack_require__(79);
+var WindowsApiHandler_1 = __webpack_require__(92);
+/**
+ * Implements Windows API handler bootstrapping features.
+ */
+var WindowsApiHandlerBootstrapper = /** @class */ (function (_super) {
+    __extends(WindowsApiHandlerBootstrapper, _super);
+    function WindowsApiHandlerBootstrapper() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    WindowsApiHandlerBootstrapper.prototype.checkPlatform = function () {
+        return Promise.resolve(WindowsApiHandlerBootstrapper.getHostObject() != null);
+    };
+    WindowsApiHandlerBootstrapper.prototype.bootstrap = function () {
+        return new Promise(function (resolve, reject) {
+            var hostObj = WindowsApiHandlerBootstrapper.getHostObject();
+            var handler = new WindowsApiHandler_1.WindowsApiHandler(hostObj);
+            hostObj
+                .subscribeToEvents(function (a, e, j) { return handler.handleEvent(a, e, j); })
+                .then(function () { return resolve(handler); }, function (reason) { return reject("Unable to subscribe for host events: " + reason); });
+        });
+    };
+    WindowsApiHandlerBootstrapper.getHostObject = function () {
+        return window.__windowsAppHostObject;
+    };
+    return WindowsApiHandlerBootstrapper;
+}(ApiHandlerBootstrapper_1.ApiHandlerBootstrapper));
+exports.WindowsApiHandlerBootstrapper = WindowsApiHandlerBootstrapper;
+
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var ApiHandler_1 = __webpack_require__(81);
+var PlatformName_1 = __webpack_require__(86);
+var WindowsApiHandler = /** @class */ (function (_super) {
+    __extends(WindowsApiHandler, _super);
+    function WindowsApiHandler(hostObj) {
+        var _this = _super.call(this) || this;
+        _this.hostObj = hostObj;
+        if (hostObj == null)
+            throw new Error("Given host object is null.");
+        return _this;
+    }
+    Object.defineProperty(WindowsApiHandler.prototype, "name", {
+        get: function () { return PlatformName_1.PlatformName.Windows; },
+        enumerable: true,
+        configurable: true
+    });
+    WindowsApiHandler.prototype.execute = function (apiName, methodName, args) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.hostObj.handleBrowserRequest(apiName + "." + methodName, WindowsApiHandler.serializeMethodArgs(apiName, methodName, args), resolve, reject);
+        })
+            .then(function (resultJson) { return WindowsApiHandler.deserializeMethodResult(apiName, methodName, resultJson); });
+    };
+    WindowsApiHandler.prototype.handleEvent = function (apiName, eventName, argsJson) {
+        try {
+            this.dispatch(apiName + "." + eventName, WindowsApiHandler.deserializeEventArgs(apiName, eventName, argsJson));
+        }
+        catch (reason) {
+            throw "Unable to handle event " + apiName + "." + eventName + ": " + reason;
+        }
+    };
+    WindowsApiHandler.serializeMethodArgs = function (apiName, methodName, args) {
+        try {
+            return JSON.stringify(args);
+        }
+        catch (reason) {
+            throw "Unable to serialize method args '" + args + "': " + reason;
+        }
+    };
+    WindowsApiHandler.deserializeMethodResult = function (apiName, methodName, resultJson) {
+        try {
+            return JSON.parse(resultJson);
+        }
+        catch (reason) {
+            throw "Unable to parse result '" + resultJson + "': " + reason;
+        }
+    };
+    WindowsApiHandler.deserializeEventArgs = function (apiName, eventName, argsJson) {
+        try {
+            return JSON.parse(argsJson);
+        }
+        catch (reason) {
+            throw "Unable to deserialize event args '" + argsJson + "': " + reason;
+        }
+    };
+    return WindowsApiHandler;
+}(ApiHandler_1.ApiHandler));
+exports.WindowsApiHandler = WindowsApiHandler;
+
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Api_1 = __webpack_require__(75);
+/**
+ * Implements battery API which allows to retrieve info about battery status.
+ */
+var BatteryApi = /** @class */ (function (_super) {
+    __extends(BatteryApi, _super);
+    function BatteryApi() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Object.defineProperty(BatteryApi.prototype, "apiName", {
+        /**
+         * Gets API name.
+         * @returns {string}
+         */
+        get: function () { return "battery"; },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Subscribes to battery status changed event and returns unsubscribe function.
+     * @param {EventHandler<BatteryStatusChangedEventArgs>} handler
+     * @returns {Promise<UnsubscribeFunction>}
+     */
+    BatteryApi.prototype.onStatusChanged = function (handler) {
+        return this.subscribe("statusChanged", handler);
+    };
+    /**
+     * Returns current battery status.
+     * @returns {Promise<BatteryStatus>}
+     */
+    BatteryApi.prototype.getStatus = function () {
+        return this.execute("getStatus");
+    };
+    return BatteryApi;
+}(Api_1.Api));
+exports.BatteryApi = BatteryApi;
+
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Api_1 = __webpack_require__(75);
+/**
+ * Implements keyboard layout API which allows to get available layouts and manage current one.
+ */
+var KeyboardLayoutApi = /** @class */ (function (_super) {
+    __extends(KeyboardLayoutApi, _super);
+    function KeyboardLayoutApi() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Object.defineProperty(KeyboardLayoutApi.prototype, "apiName", {
+        /**
+         * Gets API name.
+         * @returns {string}
+         */
+        get: function () { return "keyboardLayout"; },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Subscribes to keyboard layout changed event and returns unsubscribe function.
+     * @param {EventHandler<KeyboardLayoutChangedEventArgs>} handler
+     * @returns {Promise<UnsubscribeFunction>}
+     */
+    KeyboardLayoutApi.prototype.onLayoutChanged = function (handler) {
+        return this.subscribe("layoutChanged", handler);
+    };
+    /**
+     * Returns list of all available keyboard layouts.
+     * @returns {Promise<KeyboardLayout[]>}
+     */
+    KeyboardLayoutApi.prototype.getLayouts = function () {
+        return this.execute("getLayouts");
+    };
+    /**
+     * Returns certain keyboard layout by given ID (or null if corresponding layout isn't found).
+     * @param {string} layoutId
+     * @returns {Promise<KeyboardLayout>}
+     */
+    KeyboardLayoutApi.prototype.getLayout = function (layoutId) {
+        return this.execute("getLayout", layoutId);
+    };
+    /**
+     * Returns current keyboard layout ID.
+     * @returns {Promise<string>}
+     */
+    KeyboardLayoutApi.prototype.getCurrentLayoutId = function () {
+        return this.execute("getCurrentLayoutId");
+    };
+    /**
+     * Sets current keyboard layout ID and returns true in case of success.
+     * In case of fail false will be returned (which means that layout with given ID is not exists).
+     * @param {string} layoutId
+     * @returns {Promise<boolean>}
+     */
+    KeyboardLayoutApi.prototype.trySetCurrentLayoutId = function (layoutId) {
+        return this.execute("trySetCurrentLayoutId", layoutId);
+    };
+    return KeyboardLayoutApi;
+}(Api_1.Api));
+exports.KeyboardLayoutApi = KeyboardLayoutApi;
+
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+__webpack_require__(1);
+var extendWindow_1 = __webpack_require__(72);
+var angular_1 = __webpack_require__(96);
+extendWindow_1.extendWindow();
+var angular = window.angular;
+if (angular == null)
+    throw new Error("Unable to find angular, make sure that this script is included AFTER angular script.");
+angular
+    .module("jr-browser-api-extensions", [])
+    .service("jrHostApp", ["$rootScope", "$q", angular_1.jrHostAppService])
+    .service("jrBattery", ["$rootScope", "$q", angular_1.jrBatteryService])
+    .service("jrKeyboardLayout", ["$rootScope", "$q", angular_1.jrKeyboardLayoutService]);
+// TODO: Deprecated, remove this.
+angular
+    .module("unified-app-bridge", [])
+    .service("appBridge", ["$rootScope", "$q", angular_1.jrHostAppService]);
+
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(97));
+__export(__webpack_require__(99));
+__export(__webpack_require__(100));
+
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Wrapper_1 = __webpack_require__(98);
+function jrBatteryService($rootScope, $q) {
+    var api = window.jrBattery;
+    var wrap = new Wrapper_1.Wrapper($rootScope, $q);
+    return {
+        onStatusChanged: wrap.event(function (h) { return api.onStatusChanged(h); }),
+        getStatus: function () { return wrap.promise(api.getStatus()); }
+    };
+}
+exports.jrBatteryService = jrBatteryService;
+
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Wrapper = /** @class */ (function () {
+    function Wrapper($rootScope, $q) {
+        this.$rootScope = $rootScope;
+        this.$q = $q;
+    }
+    Wrapper.prototype.promise = function (promise) {
+        var deferred = this.$q.defer();
+        promise.then(deferred.resolve, deferred.reject);
+        return deferred.promise;
+    };
+    Wrapper.prototype.event = function (subFunc) {
+        var _this = this;
+        return function (handler) { return subFunc(function (args) {
+            // TODO: Check behaviour, maybe try/finally is the bad idea here.
+            try {
+                handler(args);
+            }
+            finally {
+                _this.$rootScope.$apply();
+            }
+        }); };
+    };
+    return Wrapper;
+}());
+exports.Wrapper = Wrapper;
+
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Wrapper_1 = __webpack_require__(98);
+function jrHostAppService($rootScope, $q) {
+    var api = window.jrHostApp;
+    var wrap = new Wrapper_1.Wrapper($rootScope, $q);
+    return {
+        getPlatformName: function () { return wrap.promise(api.getPlatformName()); },
+        getAppVersionInfo: function () { return wrap.promise(api.getAppVersionInfo()); },
+        getDeviceRecord: function () { return wrap.promise(api.getDeviceRecord()); },
+        notifyInitialized: function () { return wrap.promise(api.notifyInitialized()); },
+        requestTermination: function () { return wrap.promise(api.requestTermination()); },
+        getMachineName: function () { return wrap.promise(api.getMachineName()); }
+    };
+}
+exports.jrHostAppService = jrHostAppService;
+
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Wrapper_1 = __webpack_require__(98);
+function jrKeyboardLayoutService($rootScope, $q) {
+    var api = window.jrKeyboardLayout;
+    var wrap = new Wrapper_1.Wrapper($rootScope, $q);
+    return {
+        onLayoutChanged: wrap.event(function (h) { return api.onLayoutChanged(h); }),
+        getLayouts: function () { return wrap.promise(api.getLayouts()); },
+        getLayout: function (id) { return wrap.promise(api.getLayout(id)); },
+        getCurrentLayoutId: function () { return wrap.promise(api.getCurrentLayoutId()); },
+        trySetCurrentLayoutId: function (id) { return wrap.promise(api.trySetCurrentLayoutId(id)); }
+    };
+}
+exports.jrKeyboardLayoutService = jrKeyboardLayoutService;
+
 
 /***/ })
-
-/******/ });
+/******/ ]);
