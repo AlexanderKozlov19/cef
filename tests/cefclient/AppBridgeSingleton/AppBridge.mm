@@ -586,6 +586,8 @@ void powerSourceChange(void* context) {
         [[NSFileManager defaultManager] removeItemAtPath:configFileName error:&error];
     }
     
+    startURL = nil;
+    
 }
 
 -(void)prepareToTerminate {

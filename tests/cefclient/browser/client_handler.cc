@@ -699,9 +699,10 @@ void ClientHandler::OnLoadingStateChange(CefRefPtr<CefBrowser> browser,
                                          bool canGoBack,
                                          bool canGoForward) {
   CEF_REQUIRE_UI_THREAD();
+   /*
     CefRefPtr<CefFrame> frame = browser->GetMainFrame();
     CefString url = frame->GetURL();
-    
+   
     if ( !isLoading && !(url.empty()) ) {
         std::string stringURL = url.ToString();
         if ( stringURL.find("file://") != std::string::npos) {
@@ -724,6 +725,7 @@ void ClientHandler::OnLoadingStateChange(CefRefPtr<CefBrowser> browser,
             }
         }
     }
+    */
   NotifyLoadingState(isLoading, canGoBack, canGoForward);
     
     
@@ -835,8 +837,13 @@ bool ClientHandler::OnQuotaRequest(CefRefPtr<CefBrowser> browser,
                                    CefRefPtr<CefRequestCallback> callback) {
   CEF_REQUIRE_IO_THREAD();
 
-  static const int64 max_size = 1024 * 1024 * 2000;  // 20mb.
-
+  static const int64 max_size = 1024 * 1024 * 2000;  // 2000 mb.
+   
+  char buff[100];
+  snprintf(buff, sizeof(buff), "requested quota %lld - %lld", new_size/1000, max_size /1000);
+    
+  AppBridgeWrapper::logEvent(&buff[0]);
+  
   // Grant the quota request if the size is reasonable.
   callback->Continue(new_size <= max_size);
   return true;

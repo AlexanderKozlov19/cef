@@ -7,6 +7,7 @@
 #include "include/cef_parser.h"
 #include "include/cef_web_plugin.h"
 #include "tests/shared/common/client_switches.h"
+#include "tests/cefclient/AppBridgeSingleton/AppBridgeWrapper.h"
 
 namespace client {
 
@@ -122,8 +123,14 @@ std::string MainContextImpl::GetConsoleLogPath() {
 }
 
 std::string MainContextImpl::GetMainURL() {
-  
-    return "file://"+GetAppWorkingDirectory() + "Resources/index.html";//main_url_;
+    const char *startURL = AppBridgeWrapper::retrieveStartURL();
+    std::string returnURL = "file://"+GetAppWorkingDirectory() + "Resources/index.html";
+    if ( startURL != nullptr ) {
+        returnURL += "?startUrl=";
+        returnURL += startURL;
+    }
+    
+    return returnURL;
 }
 
 cef_color_t MainContextImpl::GetBackgroundColor() {
