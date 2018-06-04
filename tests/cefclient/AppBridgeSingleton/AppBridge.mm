@@ -250,11 +250,11 @@ void powerSourceChange(void* context) {
 
 -(void)retrieveKeyboardLayouts {
     
-    
     [keyboardLayouts removeAllObjects];
     [keyboardLayoutsForSend removeAllObjects];
     
-    NSLocale *enLocale = [NSLocale localeWithLocaleIdentifier:@"en"];
+  //  NSLocale *enLocale = [NSLocale localeWithLocaleIdentifier:@"en"];
+    NSLocale *curLocale = [NSLocale currentLocale];
     
     NSArray *inputSources = [(NSArray *)TISCreateInputSourceList(NULL,false ) copy];
     
@@ -268,35 +268,50 @@ void powerSourceChange(void* context) {
             continue;
         
         NSString *inputSourceID = (NSString*) TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceID);
-        
-        
+
         NSString *inputLocalizedName = (NSString*) TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyLocalizedName);
         
-       /* NSString *str1 = [NSLocale canonicalLocaleIdentifierFromString:inputLocalizedName];
-        
-        NSDictionary *str2 = [NSLocale componentsFromLocaleIdentifier:inputLocalizedName];
-        
-        NSString *str3 = [NSLocale canonicalLanguageIdentifierFromString:inputLocalizedName];
-        */
         NSArray *Languages = [(NSArray *)TISGetInputSourceProperty((TISInputSourceRef)inputSource, kTISPropertyInputSourceLanguages) copy];
         NSString *primaryLanguage = NULL;
         if ([Languages count] > 0) {
             primaryLanguage = [Languages objectAtIndex:0];
         }
         
+        NSString *region;
+        if ( [inputLocalizedName.lowercaseString isEqualToString: @"u.s."]) {
+            region = @"US";
+        }
+        else
+            if ( [inputLocalizedName.lowercaseString isEqualTo: @"british"] ) {
+                region = @"GB";
+            }
+        else
+            region = [inputLocalizedName substringToIndex:2];
+        
+        NSString *cultureCode = primaryLanguage;//[NSString stringWithFormat:@"%@_%@", primaryLanguage, region];
+       
         NSLocale* tempLocale = [NSLocale localeWithLocaleIdentifier:inputLocalizedName];
         
         [keyboardLayout setValue:inputSourceID forKey:@"layoutCode"];
         
-        [keyboardLayout setValue:inputLocalizedName/*tempLocale.localeIdentifier*/ forKey:@"id"];
+        [keyboardLayout setValue:inputLocalizedName forKey:@"id"];
         [keyboardLayout setValue:inputLocalizedName/*tempLocale.localeIdentifier*/ forKey:@"englishName"];
         
+       
+        
         [keyboardLayout setValue:primaryLanguage/*tempLocale.languageCode*/ forKey:@"languageCode2"/*"code2"*/];
-        [keyboardLayout setValue:[tempLocale localizedStringForLanguageCode:tempLocale.languageCode] forKey:@"localizedName"/*languageNativeName*/];
+        [keyboardLayout setValue:[curLocale localizedStringForLanguageCode:tempLocale.languageCode] forKey:@"localizedName"/*languageNativeName*/];
+        
+        if ( [keyboardLayout objectForKey:@"localizedName"] == nil ) {
+           cultureCode = [NSString stringWithFormat:@"%@_%@", primaryLanguage, region];
+           tempLocale = [NSLocale localeWithLocaleIdentifier:cultureCode];
+            NSString *nativeLang = [NSString stringWithFormat:@"%@-%@", [curLocale localizedStringForLanguageCode:tempLocale.languageCode], [curLocale localizedStringForCountryCode:tempLocale.countryCode]];
+           [keyboardLayout setValue:nativeLang forKey:@"localizedName"/*languageNativeName*/];
+        }
        // NSLog(@"countryCode %@", tempLocale.countryCode );
      //   [keyboardLayout setValue:[tempLocale localizedStringForCountryCode:tempLocale.countryCode] forKey:@"cultureNativeName"];
         /*[keyboardLayout setValue:[enLocale localizedStringForLanguageCode:tempLocale.languageCode] forKey:@"languageName"];*/
-        [keyboardLayout setValue:[enLocale localizedStringForCountryCode:tempLocale.countryCode] forKey:@"cultureCode"/*"cultureName"*/];
+        [keyboardLayout setValue:cultureCode forKey:@"cultureCode"/*"cultureName"*/];
         
         [keyboardLayout setValue:[sISO639_2Dictionary objectForKey:primaryLanguage/*tempLocale.languageCode*/] forKey:@"languageCode3"/*"code3"*/];
         

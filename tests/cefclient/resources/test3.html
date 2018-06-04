@@ -56,11 +56,11 @@
             <li>
                 <h3>List</h3>
                 <button type="button"
-
+                        style="text-align: left; margin-right: 8px; padding: 8px"
                         ng-style="{color: tc.layout.id == item.id ? 'red' : 'black'}"
                         ng-click="tc.selectLayout(item)"
                         ng-repeat="item in tc.layouts">
-                        {{item.englishName}}
+                        {{item.cultureCode}}<br />{{item.localizedName}}
                 </button>
             </li>
             <li>
