@@ -388,7 +388,7 @@ int RunMain(int argc, char* argv[]) {
   // Populate the settings based on command line arguments.
   context->PopulateSettings(&settings);
     
-  std::string workFolder = context->GetAppWorkingDirectory() +"temp";
+    std::string workFolder = context->GetAppWorkingDirectory() +"temp"; //"/Library/Caches/JanisonReplay";
   CefString(&settings.cache_path).FromString( workFolder );
     
   NSProcessInfo *pInfo = [NSProcessInfo processInfo];

@@ -570,13 +570,13 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
                                                    backing:NSBackingStoreBuffered
                                                      defer:NO
                                                     screen:blankScreen];
-   //   [blankWindow setSharingType:NSWindowSharingNone];
+      [blankWindow setSharingType:NSWindowSharingNone];
       [blankWindow setFrame:rect2 display:YES];
    }
       
             
   [window_ setTitle:@"cef"];
-//  [window_ setSharingType:NSWindowSharingNone];
+  [window_ setSharingType:NSWindowSharingNone];
 //  if (!is_popup_)
 //      [window_ toggleFullScreen:nil];
 
