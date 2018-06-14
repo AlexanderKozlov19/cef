@@ -186,9 +186,9 @@
         CFNumberGetValue((CFNumberRef)psValue, kCFNumberIntType, &timeLeft);
         batteryInfo.timeLeft = timeLeft * 60;
         
-        [self logEventForNsString:[ NSString stringWithFormat:@"BatteryInfo: charging: %d percantage = %f timeLeft = %ud", batteryInfo.isCharging, batteryInfo.percentage, batteryInfo.timeLeft ]];
+        [self logEventForNsString:[ NSString stringWithFormat:@"BatteryInfo: charging: %d percentage = %f timeLeft = %ud", batteryInfo.isCharging, batteryInfo.percentage, batteryInfo.timeLeft ]];
         
-     //   NSLog(@"charging: %d percantage = %f timeLeft = %ud", batteryInfo.isCharging, batteryInfo.percentage, batteryInfo.timeLeft);
+     //   NSLog(@"charging: %d percentage = %f timeLeft = %ud", batteryInfo.isCharging, batteryInfo.percentage, batteryInfo.timeLeft);
         
         
     }

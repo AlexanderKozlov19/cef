@@ -309,7 +309,7 @@ bool ClientHandler::OnProcessMessageReceived(
     }
     
     if ( message_name == kGetVersionInfo ) {
-        AppBridgeWrapper::logEvent("Message: AppVersrion");
+        AppBridgeWrapper::logEvent("Message: AppVersion");
         const char *strRes = AppBridgeWrapper::retrieveAppVersionForBridge();
         
         std::string appVer( strRes );
