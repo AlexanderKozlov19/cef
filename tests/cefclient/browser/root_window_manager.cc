@@ -142,6 +142,12 @@ scoped_refptr<RootWindow> RootWindowManager::CreateRootWindow(
     const RootWindowConfig& config) {
   CefBrowserSettings settings;
   MainContext::Get()->PopulateBrowserSettings(&settings);
+    
+    settings.file_access_from_file_urls = STATE_ENABLED;
+    settings.universal_access_from_file_urls = STATE_ENABLED;
+    settings.local_storage = STATE_ENABLED;
+    settings.databases = STATE_ENABLED;
+    settings.application_cache = STATE_ENABLED;
 
   scoped_refptr<RootWindow> root_window =
       RootWindow::Create(MainContext::Get()->UseViews());

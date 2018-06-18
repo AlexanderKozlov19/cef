@@ -443,7 +443,7 @@ int RunMain(int argc, char* argv[]) {
   message_loop.reset();
   context.reset();
   [autopool release];
-  /*
+  
   [[AppBridge sharedAppBridge] logEventForNsString:@"Cleaning..."];
     
   NSString *folderForClean = [NSString stringWithCString:workFolder.c_str() encoding:[NSString defaultCStringEncoding]];
@@ -460,7 +460,7 @@ int RunMain(int argc, char* argv[]) {
 
         }
     }
-  */
+  
   [[AppBridge sharedAppBridge] logEventForNsString:@"Application is closed"];
   [[AppBridge sharedAppBridge] logEventForNsString:@"---------------------"];
 
