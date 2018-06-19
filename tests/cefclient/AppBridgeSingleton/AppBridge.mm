@@ -88,7 +88,6 @@
 }
 
 -(id)init {
-    
     _isTerminating = NO;
     
     machineName = [[NSHost currentHost] localizedName];

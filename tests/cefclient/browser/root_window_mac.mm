@@ -466,7 +466,9 @@ bool RootWindowMac::WithExtension() const {
 }
     
 void RootWindowMac::ShowDevTools() {
-   browser_window_->ShowDevTools( browser_window_->GetBrowser() );
+    #ifndef NDEBUG
+    browser_window_->ShowDevTools( browser_window_->GetBrowser() );
+    #endif
 }
     
 void RootWindowMac::QuitKioskMode( void ) {

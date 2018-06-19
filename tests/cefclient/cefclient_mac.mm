@@ -150,8 +150,6 @@ OSStatus OnHotKeyEvent(EventHandlerCallRef nextHandler, EventRef anEvent, void *
 
             break;
 
-            
-            
         default:
             NSLog(@"unknown key");
             break;
