@@ -572,16 +572,17 @@ void RootWindowMac::CreateRootWindow(const CefBrowserSettings& settings,
                                                    backing:NSBackingStoreBuffered
                                                      defer:NO
                                                     screen:blankScreen];
+      #if NDEBUG
       [blankWindow setSharingType:NSWindowSharingNone];
+      #endif
       [blankWindow setFrame:rect2 display:YES];
    }
       
             
   [window_ setTitle:@"cef"];
+  #if NDEBUG
   [window_ setSharingType:NSWindowSharingNone];
-//  if (!is_popup_)
-//      [window_ toggleFullScreen:nil];
-
+  #endif
 
   // Create the delegate for control and browser window events.
   RootWindowDelegate* delegate =
