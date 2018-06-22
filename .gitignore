@@ -16,7 +16,6 @@
 /tests/cefclient/cmake_install.cmake
 /cef.xcodeproj/*
 /tests/cefclient/cef.build/*
-/tests/cefclient/CMakeFiles/*
 /libcef_dll_wrapper/CmakeScripts/*
 /libcef_dll_wrapper/Project.xcodeproj/*
 /tests/cefclient/CMakeScripts/*
