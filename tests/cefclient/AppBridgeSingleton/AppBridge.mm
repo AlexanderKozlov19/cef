@@ -298,27 +298,27 @@ void powerSourceChange(void* context) {
         //-----  layout
         [keyboardLayout setValue:inputLocalizedName forKey:@"id"];
         [keyboardLayout setValue:inputLocalizedName forKey:@"englishName"];
-        [keyboardLayout setValue:[curLocale localizedStringForLanguageCode:[tempLocale objectForKey:NSLocaleLanguageCode]] forKey:@"localizedName"];
+        [keyboardLayout setValue:[curLocale displayNameForKey:NSLocaleLanguageCode value: [tempLocale objectForKey:NSLocaleLanguageCode]] forKey:@"localizedName"];
         
         if ( [keyboardLayout objectForKey:@"localizedName"] == nil ) {
             cultureCode = [NSString stringWithFormat:@"%@_%@", primaryLanguage, region];
             tempLocale = [NSLocale localeWithLocaleIdentifier:cultureCode];
-            NSString *nativeLang = [NSString stringWithFormat:@"%@-%@", [curLocale localizedStringForLanguageCode:[tempLocale objectForKey:NSLocaleLanguageCode]], [curLocale localizedStringForCountryCode:[tempLocale objectForKey:NSLocaleCountryCode]]];
+            NSString *nativeLang = [NSString stringWithFormat:@"%@-%@", [curLocale displayNameForKey:NSLocaleLanguageCode value:[tempLocale objectForKey:NSLocaleLanguageCode]], [curLocale localizedStringForCountryCode:[tempLocale objectForKey:NSLocaleCountryCode]]];
             [keyboardLayout setValue:nativeLang forKey:@"localizedName"];
         }
         
         //---- keyboard
         [keyboardLayout setValue:primaryLanguage forKey:@"languageCode2"];
         [keyboardLayout setValue:[sISO639_2Dictionary objectForKey:primaryLanguage] forKey:@"languageCode3"];
-        [keyboardLayout setValue:[enLocale localizedStringForLanguageCode:[tempLocale objectForKey:NSLocaleLanguageCode]] forKey:@"languageEnglishName"];
-        [keyboardLayout setValue:[curLocale localizedStringForLanguageCode:[tempLocale objectForKey:NSLocaleLanguageCode]] forKey:@"languageLocalizedName"];
-        [keyboardLayout setValue:[tempLocale localizedStringForLanguageCode:[tempLocale objectForKey:NSLocaleLanguageCode]] forKey:@"languageNativeName"];
+        [keyboardLayout setValue:[enLocale displayNameForKey:NSLocaleLanguageCode value:[tempLocale objectForKey:NSLocaleLanguageCode]] forKey:@"languageEnglishName"];
+        [keyboardLayout setValue:[curLocale displayNameForKey:NSLocaleLanguageCode value:[tempLocale objectForKey:NSLocaleLanguageCode]] forKey:@"languageLocalizedName"];
+        [keyboardLayout setValue:[tempLocale displayNameForKey:NSLocaleLanguageCode value:[tempLocale objectForKey:NSLocaleLanguageCode]] forKey:@"languageNativeName"];
         
         //---- culture
         [keyboardLayout setValue:cultureCode forKey:@"cultureCode"/*"cultureName"*/];
-        [keyboardLayout setValue:[enLocale localizedStringForLocaleIdentifier:tempLocale.localeIdentifier] forKey:@"cultureEnglishName"];
-        [keyboardLayout setValue:[curLocale localizedStringForLocaleIdentifier:tempLocale.localeIdentifier] forKey:@"cultureLocalizedName"];
-        [keyboardLayout setValue:[tempLocale localizedStringForLocaleIdentifier:tempLocale.localeIdentifier] forKey:@"cultureNativeName"];
+        [keyboardLayout setValue:[enLocale displayNameForKey:NSLocaleIdentifier value:tempLocale.localeIdentifier] forKey:@"cultureEnglishName"];
+        [keyboardLayout setValue:[curLocale displayNameForKey:NSLocaleIdentifier value:tempLocale.localeIdentifier] forKey:@"cultureLocalizedName"];
+        [keyboardLayout setValue:[tempLocale displayNameForKey:NSLocaleIdentifier value:tempLocale.localeIdentifier] forKey:@"cultureNativeName"];
         
         [keyboardLayouts addObject:keyboardLayout];
         
