@@ -303,7 +303,7 @@ void powerSourceChange(void* context) {
         if ( [keyboardLayout objectForKey:@"localizedName"] == nil ) {
             cultureCode = [NSString stringWithFormat:@"%@_%@", primaryLanguage, region];
             tempLocale = [NSLocale localeWithLocaleIdentifier:cultureCode];
-            NSString *nativeLang = [NSString stringWithFormat:@"%@-%@", [curLocale displayNameForKey:NSLocaleLanguageCode value:[tempLocale objectForKey:NSLocaleLanguageCode]], [curLocale localizedStringForCountryCode:[tempLocale objectForKey:NSLocaleCountryCode]]];
+            NSString *nativeLang = [NSString stringWithFormat:@"%@-%@", [curLocale displayNameForKey:NSLocaleLanguageCode value:[tempLocale objectForKey:NSLocaleLanguageCode]], [curLocale displayNameForKey: NSLocaleCountryCode value:[tempLocale objectForKey:NSLocaleCountryCode]]];
             [keyboardLayout setValue:nativeLang forKey:@"localizedName"];
         }
         
